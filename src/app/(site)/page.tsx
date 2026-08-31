@@ -13,6 +13,7 @@ import {
 import { Arrow, Spark } from "@/components/icons";
 import { ValuesMarquee } from "@/components/values-marquee";
 import { FaqAccordion } from "@/components/faq-accordion";
+import { InitiativeShowcase } from "@/components/initiative-showcase";
 export default async function Home() {
   const content = await getContent();
   const initiatives = content.featuredInitiatives
@@ -181,26 +182,9 @@ export default async function Home() {
           </article>
         </div>
       </section>
-      <section className="section container">
-        <SectionHeading
-          label="Our initiatives"
-          title={
-            <>
-              Good ideas.
-              <br />
-              <span className="gradient-text">Real-world purpose.</span>
-            </>
-          }
-          description="A closer look at what we do, together."
-          href="/initiatives"
-          linkText="All initiatives"
-        />
+      <section className="section container initiative-home-section">
         {initiatives.length ? (
-          <div className="activity-grid">
-            {initiatives.map((activity) => (
-              <ActivityCard key={activity._id} activity={activity} />
-            ))}
-          </div>
+          <InitiativeShowcase activities={initiatives} />
         ) : (
           <EmptyState>Our initiative stories are on their way.</EmptyState>
         )}
