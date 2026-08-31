@@ -12,6 +12,7 @@ import {
 } from "@/components/ui";
 import { Arrow, Spark } from "@/components/icons";
 import { ValuesMarquee } from "@/components/values-marquee";
+import { FaqAccordion } from "@/components/faq-accordion";
 export default async function Home() {
   const content = await getContent();
   const initiatives = content.featuredInitiatives
@@ -205,34 +206,6 @@ export default async function Home() {
           <EmptyState>Our initiative stories are on their way.</EmptyState>
         )}
       </section>
-      <section className="department-section section">
-        <div className="container">
-          <div className="center-heading">
-            <Eyebrow>Find the people behind the ideas</Eyebrow>
-            <h2>
-              Five departments.
-              <br />
-              <span className="underlined">One shared purpose.</span>
-            </h2>
-            <p>
-              Different talents, connected by the same drive to make a
-              difference.
-            </p>
-          </div>
-          <div className="departments-grid">
-            {content.departments.map((department, i) => (
-              <DepartmentCard
-                key={department.slug}
-                department={department}
-                number={i + 1}
-              />
-            ))}
-          </div>
-          <p className="department-note">
-            <span>↳</span> Each a little different. Better together.
-          </p>
-        </div>
-      </section>
       <section className="section container">
         <SectionHeading
           label="Around the society"
@@ -283,6 +256,34 @@ export default async function Home() {
           )}
         </div>
       </section>
+      <section className="department-section section">
+        <div className="container">
+          <div className="center-heading">
+            <Eyebrow>How we work together</Eyebrow>
+            <h2>
+              Five departments.
+              <br />
+              <span className="underlined">One shared purpose.</span>
+            </h2>
+            <p>
+              Different talents, connected by the same drive to make a
+              difference.
+            </p>
+          </div>
+          <div className="departments-grid">
+            {content.departments.map((department, i) => (
+              <DepartmentCard
+                key={department.slug}
+                department={department}
+                number={i + 1}
+              />
+            ))}
+          </div>
+          <p className="department-note">
+            <span>↳</span> Each a little different. Better together.
+          </p>
+        </div>
+      </section>
       <section id="faq" className="section container faq-section">
         <div>
           <Eyebrow>A little more about us</Eyebrow>
@@ -294,31 +295,11 @@ export default async function Home() {
           <p>A few things you might be wondering.</p>
           <Spark className="faq-spark" />
         </div>
-        <div className="faq-list">
-          {content.faqs.length ? (
-            content.faqs.map((faq, i) => (
-              <details key={faq._id}>
-                <summary>
-                  <span className="faq-index">0{i + 1}</span>
-                  {faq.question}
-                  <span className="faq-plus" aria-hidden="true">
-                    +
-                  </span>
-                </summary>
-                <div className="faq-answer">
-                  {content.demo && (
-                    <span className="demo-label">
-                      Draft answer · awaiting review
-                    </span>
-                  )}
-                  <p>{faq.answer}</p>
-                </div>
-              </details>
-            ))
-          ) : (
-            <p>Answers to common questions are coming soon.</p>
-          )}
-        </div>
+        {content.faqs.length ? (
+          <FaqAccordion faqs={content.faqs} demo={content.demo} />
+        ) : (
+          <p>Answers to common questions are coming soon.</p>
+        )}
       </section>
     </>
   );
