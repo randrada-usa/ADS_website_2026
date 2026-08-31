@@ -54,7 +54,7 @@ export default async function Home() {
                 {content.departments.map((dept) => (
                   <Image
                     key={dept.slug}
-                    src={`/brand/${dept.slug}.svg`}
+                    src={`/brand/${dept.slug}-tilted.svg`}
                     width={32}
                     height={32}
                     alt=""
@@ -71,7 +71,7 @@ export default async function Home() {
             {content.departments.map((dept) => (
               <Image
                 key={dept.slug}
-                src={`/brand/${dept.slug}.svg`}
+                src={`/brand/${dept.slug}-tilted.svg`}
                 width={32}
                 height={32}
                 alt=""

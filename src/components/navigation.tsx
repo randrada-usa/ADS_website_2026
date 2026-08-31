@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -12,9 +12,27 @@ const links = [
   ["Events", "/events"],
   ["Team", "/team"],
 ];
+
+function subscribeToScroll(onChange: () => void) {
+  window.addEventListener("scroll", onChange, { passive: true });
+  window.addEventListener("pageshow", onChange);
+  return () => {
+    window.removeEventListener("scroll", onChange);
+    window.removeEventListener("pageshow", onChange);
+  };
+}
+
+const isScrolled = () => window.scrollY > 48;
+const serverScrollSnapshot = () => false;
+
 export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
   const path = usePathname() || "/";
   const [open, setOpen] = useState(false);
+  const scrolled = useSyncExternalStore(
+    subscribeToScroll,
+    isScrolled,
+    serverScrollSnapshot,
+  );
   useEffect(() => {
     if (!open) return;
     const close = (event: KeyboardEvent) => {
@@ -27,7 +45,9 @@ export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
     return () => window.removeEventListener("keydown", close);
   }, [open]);
   return (
-    <header className="site-header">
+    <header
+      className={`site-header${scrolled ? " is-scrolled" : ""}${open ? " is-menu-open" : ""}`}
+    >
       <nav className="nav-shell" aria-label="Main navigation">
         <Link
           href="/"
@@ -35,7 +55,13 @@ export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
           aria-label="Augustinian Developer Society home"
           onClick={() => setOpen(false)}
         >
-          <Image src="/brand/ads.svg" alt="" width={130} height={108} priority />
+          <Image
+            src="/brand/ads.svg"
+            alt=""
+            width={130}
+            height={108}
+            priority
+          />
         </Link>
         <div className="desktop-nav">
           {links.map(([title, href]) => (
@@ -49,34 +75,45 @@ export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
             </Link>
           ))}
         </div>
-        <SocialIcons socials={socials} />
-        <button
-          id="menu-toggle"
-          className="menu-toggle"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          onClick={() => setOpen(!open)}
-        >
-          <span>{open ? "Close" : "Menu"}</span>
-          <span aria-hidden="true">{open ? "×" : "☰"}</span>
-        </button>
-      </nav>
-      {open && (
-        <div id="mobile-menu" className="mobile-menu">
-          {[...links, ["Contact", "#contact"]].map(([title, href]) => (
-            <Link
-              key={href}
-              href={href}
-              aria-current={path === href ? "page" : undefined}
-              onClick={() => setOpen(false)}
-            >
-              {title}
-              <Arrow diagonal />
-            </Link>
-          ))}
+        <div className="nav-actions">
+          <SocialIcons socials={socials} />
+          <button
+            id="menu-toggle"
+            className="menu-toggle"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            onClick={() => setOpen(!open)}
+          >
+            <span aria-hidden="true">{open ? "×" : "☰"}</span>
+          </button>
         </div>
-      )}
+        <div
+          id="mobile-menu"
+          className="mobile-menu"
+          aria-hidden={!open}
+          inert={!open}
+        >
+          <div className="mobile-menu-clip">
+            <div className="mobile-menu-content">
+              {[...links, ["Contact", "#contact"]].map(([title, href]) => (
+                <Link
+                  key={href}
+                  href={href}
+                  aria-current={path === href ? "page" : undefined}
+                  onClick={() => setOpen(false)}
+                >
+                  {title}
+                  <Arrow diagonal />
+                </Link>
+              ))}
+              <div className="mobile-socials">
+                <SocialIcons socials={socials} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
     </header>
   );
 }
