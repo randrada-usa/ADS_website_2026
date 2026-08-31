@@ -1,29 +1,37 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import "@fontsource-variable/space-grotesk";
+import "@fontsource-variable/dm-sans";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "ADS Website",
-  description: "ADS company website",
+  title: {
+    default: "Augustinian Developer Society — University of San Agustin",
+    template: "%s | Augustinian Developer Society",
+  },
+  description:
+    "Meet the Augustinian Developer Society at the University of San Agustin. Explore our community, initiatives, events, and the people who make them happen.",
+  icons: { icon: "/brand/ads.svg" },
+  robots:
+    process.env.NEXT_PUBLIC_SANITY_PROJECT_ID &&
+    process.env.NEXT_PUBLIC_SANITY_DATASET
+      ? undefined
+      : { index: false, follow: false },
+  openGraph: {
+    type: "website",
+    siteName: "Augustinian Developer Society",
+    locale: "en_PH",
+    title: "Augustinian Developer Society",
+    description:
+      "Curious minds. Shared purpose. A student community at the University of San Agustin.",
+  },
 };
-
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en">
+      <body>{children}</body>
     </html>
   );
 }

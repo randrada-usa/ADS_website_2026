@@ -22,19 +22,53 @@
 
 # misc
 .DS_Store
+
+# private keys and certificate bundles
 *.pem
+*.key
+*.p8
+*.p12
+*.pfx
+*.jks
+*.keystore
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+
+# local credentials and authentication state
+.npmrc
+.netrc
+.ssh/
+.aws/
+.gnupg/
+secrets/
+credentials/
+credentials*.json
+service-account*.json
+*-service-account.json
+playwright/.auth/
 
 # debug
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# environment secrets; only the empty root template belongs in Git
 .env*
+!/.env.example
 
 # vercel
 .vercel
+
+# local Sanity cache (application configuration in src/sanity stays tracked)
+.sanity/
+
+# local agent configuration
+/.codex/
+/.agents/
 
 # typescript
 *.tsbuildinfo

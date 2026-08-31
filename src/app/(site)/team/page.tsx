@@ -1,0 +1,71 @@
+import type { Metadata } from "next";
+import { getContent } from "@/lib/content";
+import {
+  DepartmentCard,
+  EmptyState,
+  MemberCard,
+  PageIntro,
+  SectionHeading,
+} from "@/components/ui";
+export const metadata: Metadata = { title: "The Team" };
+export default async function TeamPage() {
+  const content = await getContent();
+  const members = content.members.filter((item) => item.isLeadership);
+  return (
+    <>
+      <PageIntro
+        label="The people behind ADS"
+        title={
+          <>
+            Different minds.
+            <br />
+            <span className="gradient-text">One amazing team.</span>
+          </>
+        }
+        description="Meet the leadership bringing our community together and helping good ideas find their way."
+      />
+      <section className="container listing-section">
+        {content.demo && (
+          <p className="editorial-note">
+            Roster preview · portraits, names, and positions await confirmation
+          </p>
+        )}
+        {members.length ? (
+          <div className="member-grid">
+            {members.map((member) => (
+              <MemberCard
+                key={member._id}
+                member={member}
+                color={
+                  content.departments.find(
+                    (dept) => dept.slug === member.department,
+                  )?.color
+                }
+              />
+            ))}
+          </div>
+        ) : (
+          <EmptyState>
+            Our leadership roster will be shared here soon.
+          </EmptyState>
+        )}
+      </section>
+      <section className="container section">
+        <SectionHeading
+          label="More minds, more possibilities"
+          title="Meet the departments."
+          description="Get to know the people who help bring every part of ADS to life."
+        />
+        <div className="departments-grid">
+          {content.departments.map((department, i) => (
+            <DepartmentCard
+              key={department.slug}
+              department={department}
+              number={i + 1}
+            />
+          ))}
+        </div>
+      </section>
+    </>
+  );
+}
