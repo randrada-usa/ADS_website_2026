@@ -39,8 +39,10 @@ export default async function Home() {
       <section className="hero container">
         <div className="hero-copy">
           <h1>
-            <span className="hero-line-one">Augustinian</span>
-            <span className="hero-line-two">Developer</span>
+            <span className="hero-line-one">Agustinian</span>
+            <span className="hero-line-two">
+              <span className="hero-line-offset" aria-hidden="true">Ag</span>Developer
+            </span>
             <span className="hero-line-three">
               <span className="hero-society-word">
                 Society<span className="coral-dot">.</span>
@@ -75,18 +77,14 @@ export default async function Home() {
           <span className="hero-circle teal-circle" />
           <Spark className="hero-spark" />
           <div className="logo-disc">
-            <span className="disc-top">IDEAS. PEOPLE. POSSIBILITIES.</span>
             <Image
               className="hero-logo"
               src="/brand/ads.svg"
               alt=""
-              width={226}
-              height={223}
+              width={260}
+              height={216}
               priority
             />
-            <span className="disc-bottom">
-              BUILD WITH PURPOSE <Spark />
-            </span>
           </div>
           <span className="floating-label label-build" data-float>
             &lt; let’s build /&gt;

@@ -203,17 +203,19 @@ button:disabled {
   -webkit-text-fill-color: transparent;
 }
 .hero-line-two {
-  margin-left: 12%;
+  display: flex !important;
   color: var(--teal);
   background: linear-gradient(90deg, #549d91, #667aab);
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.hero-line-offset {
+  visibility: hidden;
+}
 .hero-line-three {
   display: flex !important;
   align-items: flex-end;
   gap: 13px;
-  margin-top: 4px;
   color: var(--ink);
 }
 .hero-society-word {
@@ -225,7 +227,7 @@ button:disabled {
 .university {
   display: block;
   text-align: left;
-  font-size: 16px;
+  font-size: 20px;
   margin: 20px 0;
   letter-spacing: 0.15px;
 }
@@ -323,29 +325,13 @@ button:disabled {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 22px;
   transform: rotate(-8deg);
   z-index: 2;
 }
 .hero-logo {
-  width: 177px;
-  height: 178px;
+  width: 240px;
+  height: auto;
   object-fit: contain;
-}
-.disc-top,
-.disc-bottom {
-  font-size: 8px;
-  letter-spacing: 2.2px;
-  font-weight: 600;
-}
-.disc-bottom {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-}
-.disc-bottom > span {
-  color: var(--orange);
-  font-size: 20px;
 }
 .hero-orbit {
   border: 1px solid #3c65972e;
@@ -1609,8 +1595,8 @@ button:disabled {
     height: 290px;
   }
   .hero-logo {
-    width: 160px;
-    height: 160px;
+    width: 205px;
+    height: auto;
   }
   .hero-art {
     transform: scale(0.9);
@@ -1777,7 +1763,7 @@ button:disabled {
     letter-spacing: -3.1px;
   }
   .university {
-    font-size: 14px;
+    font-size: 17px;
     margin-top: 14px;
   }
   .hero-description {
@@ -1815,8 +1801,8 @@ button:disabled {
     gap: 17px;
   }
   .hero-logo {
-    width: 160px;
-    height: 160px;
+    width: 205px;
+    height: auto;
   }
   .orbit-one {
     width: 370px;
