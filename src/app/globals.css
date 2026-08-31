@@ -188,7 +188,7 @@ button:disabled {
 }
 .hero h1 {
   font-size: clamp(58px, 6.2vw, 82px);
-  line-height: 1.04;
+  line-height: 1;
   letter-spacing: -4.4px;
   font-weight: 600;
 }
@@ -203,23 +203,30 @@ button:disabled {
   -webkit-text-fill-color: transparent;
 }
 .hero-line-two {
+  margin-left: 12%;
   color: var(--teal);
   background: linear-gradient(90deg, #549d91, #667aab);
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .hero-line-three {
+  display: flex !important;
+  align-items: flex-end;
+  gap: 13px;
+  margin-top: 4px;
   color: var(--ink);
+}
+.hero-society-word {
+  line-height: 0.92;
 }
 .coral-dot {
   color: var(--orange);
 }
 .university {
-  display: flex;
-  gap: 18px;
-  align-items: center;
+  display: block;
+  text-align: left;
   font-size: 16px;
-  margin: 15px 0 20px;
+  margin: 20px 0;
   letter-spacing: 0.15px;
 }
 .university > span {
@@ -280,6 +287,15 @@ button:disabled {
 .small-department-icons {
   display: flex;
   gap: 4px;
+}
+.hero-title-icons {
+  align-items: center;
+  padding-bottom: 4px;
+  line-height: 0;
+}
+.hero-title-icons img {
+  width: 32px;
+  height: 32px;
 }
 .small-department-icons img:nth-child(2n) {
   transform: rotate(8deg);

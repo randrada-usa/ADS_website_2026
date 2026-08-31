@@ -42,30 +42,31 @@ export default async function Home() {
             <span className="hero-line-one">Augustinian</span>
             <span className="hero-line-two">Developer</span>
             <span className="hero-line-three">
-              Society<span className="coral-dot">.</span>
+              <span className="hero-society-word">
+                Society<span className="coral-dot">.</span>
+              </span>
+              <span
+                className="small-department-icons hero-title-icons"
+                aria-hidden="true"
+              >
+                {content.departments.map((dept) => (
+                  <Image
+                    key={dept.slug}
+                    src={`/brand/${dept.slug}.svg`}
+                    width={32}
+                    height={32}
+                    alt=""
+                  />
+                ))}
+              </span>
             </span>
           </h1>
           <p className="university">University of San Agustin</p>
-          <p className="hero-description">{content.settings.heroDescription}</p>
           <div className="hero-actions">
             <ButtonLink href="/initiatives">Explore our work</ButtonLink>
             <ButtonLink href="/about" secondary>
               Get to know ADS
             </ButtonLink>
-          </div>
-          <div className="hero-footnote">
-            <span className="small-department-icons">
-              {content.departments.map((dept) => (
-                <Image
-                  key={dept.slug}
-                  src={`/brand/${dept.slug}.svg`}
-                  width={26}
-                  height={26}
-                  alt=""
-                />
-              ))}
-            </span>
-            <span>Different strengths. One society.</span>
           </div>
         </div>
         <div className="hero-art" aria-hidden="true">
