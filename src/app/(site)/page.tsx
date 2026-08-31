@@ -198,7 +198,7 @@ export default async function Home() {
         />
         {events.length ? (
           <div className="events-home-grid">
-            {events.map((activity, index) => (
+            {events.map((activity) => (
               <Link
                 className="event-feature-card"
                 href={`/events/${activity.slug}`}
@@ -218,7 +218,6 @@ export default async function Home() {
                       <span>Photo coming soon</span>
                     </div>
                   )}
-                  <span className="event-feature-number">0{index + 1}</span>
                 </div>
                 <h3>{activity.title}</h3>
                 <p>{activity.summary}</p>
