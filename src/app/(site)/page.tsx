@@ -64,6 +64,20 @@ export default async function Home() {
             </span>
           </h1>
           <p className="university">University of San Agustin</p>
+          <span
+            className="small-department-icons hero-mobile-icons"
+            aria-hidden="true"
+          >
+            {content.departments.map((dept) => (
+              <Image
+                key={dept.slug}
+                src={`/brand/${dept.slug}.svg`}
+                width={32}
+                height={32}
+                alt=""
+              />
+            ))}
+          </span>
           <div className="hero-actions">
             <ButtonLink href="/initiatives">Explore our work</ButtonLink>
             <ButtonLink href="/about" secondary>

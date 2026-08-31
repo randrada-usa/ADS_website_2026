@@ -299,6 +299,9 @@ button:disabled {
   width: 32px;
   height: 32px;
 }
+.hero-mobile-icons {
+  display: none;
+}
 .small-department-icons img:nth-child(2n) {
   transform: rotate(8deg);
 }
@@ -2016,14 +2019,37 @@ button:disabled {
   .hero {
     grid-template-columns: 1fr;
     padding-top: 44px;
-    padding-bottom: 30px;
+    padding-bottom: 60px;
     gap: 12px;
   }
+  .hero-copy {
+    order: 2;
+    text-align: center;
+  }
+  .hero h1 > span {
+    margin-inline: 0;
+  }
+  .hero-title-icons {
+    display: none;
+  }
+  .hero-mobile-icons {
+    display: flex;
+    justify-content: center;
+    margin: -4px auto 19px;
+  }
+  .hero-actions {
+    justify-content: center;
+  }
   .hero h1 {
+    width: fit-content;
+    margin-inline: auto;
+    text-align: left;
     font-size: clamp(50px, 12.6vw, 73px);
     letter-spacing: -3.1px;
   }
   .university {
+    width: 100%;
+    text-align: center;
     font-size: 17px;
     margin-top: 14px;
   }
@@ -2051,6 +2077,7 @@ button:disabled {
     height: 23px;
   }
   .hero-art {
+    order: 1;
     height: 360px;
     transform: scale(0.83);
     width: 100%;
