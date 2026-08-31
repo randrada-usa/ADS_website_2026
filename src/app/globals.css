@@ -955,9 +955,103 @@ button:disabled {
   font-size: 21px;
 }
 .events-home-grid {
+  position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(28px, 4vw, 58px);
+  margin-top: 12px;
+}
+.events-home-grid::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 122px;
+  left: -3vw;
+  right: -3vw;
+  border-top: 2px dashed #66727b66;
+}
+.event-feature-card {
+  --photo-tilt: 0deg;
+  position: relative;
+  z-index: 1;
+  display: block;
+  text-align: center;
+}
+.event-feature-card:nth-child(1) {
+  --photo-tilt: -2deg;
+}
+.event-feature-card:nth-child(2) {
+  --photo-tilt: 3deg;
+}
+.event-feature-card:nth-child(3) {
+  --photo-tilt: -1.5deg;
+}
+.event-feature-photo {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1.35;
+  margin-bottom: 34px;
+  border: 9px solid white;
+  background: #eaf0e9;
+  box-shadow: 0 18px 30px #28313b20;
+  transform: rotate(var(--photo-tilt));
+  transition:
+    transform 260ms ease,
+    box-shadow 260ms ease;
+}
+.event-feature-card:hover .event-feature-photo {
+  box-shadow: 0 24px 38px #28313b2b;
+  transform: translateY(-7px) rotate(var(--photo-tilt));
+}
+.event-feature-photo img {
+  object-fit: cover;
+}
+.event-feature-number {
+  position: absolute;
+  right: 10px;
+  bottom: 9px;
+  padding: 5px 8px;
+  border: 1px solid var(--ink);
+  border-radius: 3px;
+  background: #fff;
+  box-shadow: 2px 2px 0 var(--ink);
+  font: 600 10px var(--font-display);
+}
+.event-feature-card h3 {
+  margin: 0 auto 17px;
+  max-width: 350px;
+  color: var(--blue);
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3vw, 41px);
+  line-height: 1.04;
+  letter-spacing: -1.8px;
+}
+.event-feature-card:nth-child(2) h3 {
+  color: #d78b1e;
+}
+.event-feature-card:nth-child(3) h3 {
+  color: var(--teal);
+}
+.event-feature-card p {
+  max-width: 390px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+@media (max-width: 850px) {
+  .events-home-grid {
+    grid-template-columns: 1fr;
+    gap: 64px;
+    width: min(100%, 620px);
+    margin-inline: auto;
+  }
+  .events-home-grid::before {
+    display: none;
+  }
+  .event-feature-card h3 {
+    font-size: clamp(30px, 7vw, 42px);
+  }
 }
 .compact .activity-image {
   aspect-ratio: 2.2;

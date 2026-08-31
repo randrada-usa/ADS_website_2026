@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { getContent } from "@/lib/content";
 import {
-  ActivityCard,
   ButtonLink,
   DepartmentCard,
   EmptyState,
@@ -31,7 +30,7 @@ export default async function Home() {
       ),
     )
     .filter((item) => item != null)
-    .slice(0, 2);
+    .slice(0, 3);
   const members = content.members
     .filter((member) => member.isLeadership)
     .slice(0, 4);
@@ -154,7 +153,7 @@ export default async function Home() {
             <p>{content.settings.introSupporting}</p>
           )}
           <Link href="/about" className="text-link">
-            This is ADS
+            learn more about ADS
             <Arrow diagonal />
           </Link>
         </div>
@@ -199,8 +198,31 @@ export default async function Home() {
         />
         {events.length ? (
           <div className="events-home-grid">
-            {events.map((activity) => (
-              <ActivityCard key={activity._id} activity={activity} compact />
+            {events.map((activity, index) => (
+              <Link
+                className="event-feature-card"
+                href={`/events/${activity.slug}`}
+                key={activity._id}
+              >
+                <div className="event-feature-photo">
+                  {activity.image ? (
+                    <Image
+                      src={activity.image}
+                      alt={activity.imageAlt || activity.title}
+                      fill
+                      sizes="(max-width: 650px) 90vw, 30vw"
+                    />
+                  ) : (
+                    <div className="image-placeholder">
+                      <Spark />
+                      <span>Photo coming soon</span>
+                    </div>
+                  )}
+                  <span className="event-feature-number">0{index + 1}</span>
+                </div>
+                <h3>{activity.title}</h3>
+                <p>{activity.summary}</p>
+              </Link>
             ))}
           </div>
         ) : (

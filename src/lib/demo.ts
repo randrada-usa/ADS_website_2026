@@ -234,5 +234,5 @@ export const demoContent: SiteContent = {
     "initiative-build",
     "initiative-beyond",
   ],
-  featuredEvents: ["event-workshop", "event-community"],
+  featuredEvents: ["event-workshop", "event-community", "event-hackathon"],
 };
