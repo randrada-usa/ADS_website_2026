@@ -81,11 +81,10 @@ export default async function AboutPage() {
           <p>Meet the five departments that make ADS a collective effort.</p>
         </div>
         <div className="departments-grid">
-          {content.departments.map((department, i) => (
+          {content.departments.map((department) => (
             <DepartmentCard
               key={department.slug}
               department={department}
-              number={i + 1}
             />
           ))}
         </div>

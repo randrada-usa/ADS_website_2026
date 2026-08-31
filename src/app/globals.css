@@ -680,13 +680,12 @@ button:disabled {
 .department-card {
   transform: rotate(var(--card-tilt, -2deg));
   grid-column: span 2;
-  padding: 24px;
-  border: 1.5px solid var(--ink);
-  border-radius: 7px;
-  box-shadow: 3px 3px 0 var(--ink);
+  border: 2.5px solid #111;
+  border-radius: 8px;
+  box-shadow: 0 5px 0 #111;
   background: white;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   transition:
     transform 0.2s,
     box-shadow 0.2s;
@@ -706,52 +705,64 @@ button:disabled {
 .department-card:nth-child(4) {
   grid-column: 2 / span 2;
 }
-.department-card::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 5px;
-  background: var(--department);
-}
 .department-card:hover,
 .department-card:focus-visible {
   transform: translateY(-4px) rotate(var(--card-tilt, -2deg));
-  box-shadow: 4px 7px 0 var(--ink);
+  box-shadow: 0 9px 0 #111;
 }
-.department-card-top {
+.department-card-header {
+  min-height: 46px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 25px;
+  justify-content: center;
+  padding: 10px 20px 9px 62px;
+  border-radius: 4px 4px 0 0;
+  background: var(--department);
 }
-.department-card-top img {
+.department-card-badge {
+  position: absolute;
+  z-index: 1;
+  top: -21px;
+  left: -14px;
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+  border: 3px solid #111;
+  border-radius: 9px;
+  box-shadow: 0 5px 0 #111;
   transform: rotate(-7deg);
-  width: 48px;
-  height: 48px;
+  transition: transform 0.2s;
 }
-.index {
-  font: 400 12px var(--font-display);
-  color: #5b6b78;
+.department-card:hover .department-card-badge,
+.department-card:focus-visible .department-card-badge {
+  transform: rotate(-7deg) translateY(-2px);
 }
-.department-card h3 {
-  font-size: 22px;
+.department-card-badge img {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
-.department-card p {
-  color: var(--muted);
-  font-size: 12px;
-  min-height: 60px;
+.department-card-header h3 {
+  color: white;
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  text-transform: uppercase;
 }
-.department-card-bottom {
+.department-card-body {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  font-size: 10px;
-  font-weight: 600;
-  border-top: 1px solid var(--line);
-  padding-top: 17px;
-  margin-top: 21px;
+  justify-content: center;
+  min-height: 122px;
+  padding: 25px 24px 23px;
+  text-align: center;
+}
+.department-card-body p {
+  margin: 0;
+  color: #111;
+  font-size: 13px;
+  line-height: 1.35;
 }
 .department-note {
   text-align: center;
@@ -1647,10 +1658,10 @@ button:disabled {
     padding-block: 75px;
   }
   .department-card {
-    padding: 20px;
+    padding: 0;
   }
-  .department-card h3 {
-    font-size: 20px;
+  .department-card-header h3 {
+    font-size: 14px;
   }
   .departments-grid {
     gap: 28px;
@@ -1902,25 +1913,21 @@ button:disabled {
   .department-card,
   .department-card:nth-child(4) {
     grid-column: auto;
-    padding: 23px;
+    padding: 0;
   }
-  .department-card-top {
-    margin-bottom: 18px;
+  .department-card-header h3 {
+    font-size: 14px;
   }
-  .department-card h3 {
-    font-size: 24px;
+  .department-card-body {
+    min-height: 112px;
+    padding: 25px 22px 22px;
   }
-  .department-card p {
+  .department-card-body p {
     font-size: 13px;
-    min-height: 0;
   }
-  .department-card-bottom {
-    font-size: 11px;
-    margin-top: 18px;
-  }
-  .department-card-top img {
-    width: 47px;
-    height: 47px;
+  .department-card-badge {
+    width: 64px;
+    height: 64px;
   }
   .member-grid {
     gap: 15px;

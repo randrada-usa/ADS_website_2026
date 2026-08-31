@@ -271,11 +271,10 @@ export default async function Home() {
             </p>
           </div>
           <div className="departments-grid">
-            {content.departments.map((department, i) => (
+            {content.departments.map((department) => (
               <DepartmentCard
                 key={department.slug}
                 department={department}
-                number={i + 1}
               />
             ))}
           </div>

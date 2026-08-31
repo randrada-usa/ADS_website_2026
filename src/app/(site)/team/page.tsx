@@ -57,11 +57,10 @@ export default async function TeamPage() {
           description="Get to know the people who help bring every part of ADS to life."
         />
         <div className="departments-grid">
-          {content.departments.map((department, i) => (
+          {content.departments.map((department) => (
             <DepartmentCard
               key={department.slug}
               department={department}
-              number={i + 1}
             />
           ))}
         </div>

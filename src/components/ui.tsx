@@ -62,10 +62,8 @@ export function SectionHeading({
 }
 export function DepartmentCard({
   department,
-  number,
 }: {
   department: Department;
-  number: number;
 }) {
   return (
     <Link
@@ -73,21 +71,20 @@ export function DepartmentCard({
       href={`/departments/${department.slug}`}
       style={{ "--department": department.color } as CSSProperties}
     >
-      <div className="department-card-top">
-        <Image
-          src={`/brand/${department.slug}.svg`}
-          alt=""
-          width={58}
-          height={58}
-        />
-        <span className="index">0{number}</span>
+      <div className="department-card-header">
+        <span className="department-card-badge">
+          <Image
+            src={`/brand/${department.slug}.svg`}
+            alt=""
+            width={70}
+            height={70}
+          />
+        </span>
+        <h3>{department.name}</h3>
       </div>
-      <h3>{department.name}</h3>
-      <p>{department.purpose}</p>
-      <span className="department-card-bottom">
-        Meet the department
-        <Arrow diagonal />
-      </span>
+      <div className="department-card-body">
+        <p>{department.purpose}</p>
+      </div>
     </Link>
   );
 }
