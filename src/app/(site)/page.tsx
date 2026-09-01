@@ -13,6 +13,7 @@ import { Arrow, Spark } from "@/components/icons";
 import { ValuesMarquee } from "@/components/values-marquee";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { InitiativeShowcase } from "@/components/initiative-showcase";
+import { OurJourney } from "@/components/our-journey";
 
 const featuredEventTitles: Record<string, string> = {
   "a-place-to-start-building": "Start Building",
@@ -159,7 +160,7 @@ export default async function Home() {
               <Spark />
             </div>
           </div>
-          <span className="photo-sticker">
+          <span className="photo-sticker" data-float>
             made of
             <br />
             <strong>curiosity.</strong>
@@ -211,6 +212,7 @@ export default async function Home() {
           </article>
         </div>
       </section>
+      <OurJourney />
       <section className="section container initiative-home-section">
         {initiatives.length ? (
           <>
