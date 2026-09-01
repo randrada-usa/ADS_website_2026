@@ -50,24 +50,68 @@ export default async function AboutPage() {
           </ButtonLink>
         </div>
       </section>
-      <section className="container values-cards">
-        <article>
-          <span className="category">OUR MISSION</span>
-          <h2>Why we’re here.</h2>
-          <p>
-            {content.settings.mission ||
-              "Our mission statement will appear here once approved."}
-          </p>
-          <Spark />
+      <section
+        className="container values-cards statement-cards about-statement-cards"
+        aria-label="Purpose, vision, and mission"
+      >
+        <article className="purpose-statement">
+          <div className="statement-tab">
+            <h2>Our purpose</h2>
+          </div>
+          <div className="statement-copy">
+            <p>
+              The Augustinian Developers Society – University of San Agustin
+              (ADS USA) is an inclusive community open to students from all
+              undergraduate academic backgrounds, unified by their interest and
+              passion for technology. Our primary aim is to build and expand our
+              members’ professional and personal networks, with a specific focus
+              on software development, application design, and software
+              engineering. We foster a collaborative, peer-to-peer learning
+              environment where members work together to design, develop, and
+              implement technological solutions that address real-world
+              challenges and local community problems.
+            </p>
+          </div>
         </article>
-        <article>
-          <span className="category">OUR VISION</span>
-          <h2>Where we’re going.</h2>
-          <p>
-            {content.settings.vision ||
-              "Our vision statement will appear here once approved."}
-          </p>
-          <Spark />
+        <article className="vision-statement">
+          <div className="statement-tab">
+            <h2>Our vision</h2>
+          </div>
+          <div className="statement-copy">
+            <p>
+              We envision ourselves as a dynamic and distinguished community of
+              young developers, technologists, and innovators driven by
+              excellence and deeply committed to uplifting lives, empowering
+              communities, and contributing to societal progress through
+              responsible, accessible, and impactful technology and innovation.
+            </p>
+          </div>
+        </article>
+        <article className="mission-statement">
+          <div className="statement-tab">
+            <h2>Our mission</h2>
+          </div>
+          <div className="statement-copy">
+            <div>
+              <p>
+                Guided by the Augustinian values of Caritas, Unitas, and
+                Veritas, our mission is to:
+              </p>
+              <ol>
+                <li>
+                  Empower students and community members by providing accessible
+                  education, training, and skills development in technology,
+                  programming, and digital literacy.
+                </li>
+                <li>
+                  Enlighten minds by cultivating a culture of creativity,
+                  critical thinking, and innovation, demonstrating how
+                  technology can be a powerful tool for problem-solving and
+                  social good.
+                </li>
+              </ol>
+            </div>
+          </div>
         </article>
       </section>
       <section id="departments" className="section container">
@@ -82,10 +126,7 @@ export default async function AboutPage() {
         </div>
         <div className="departments-grid">
           {content.departments.map((department) => (
-            <DepartmentCard
-              key={department.slug}
-              department={department}
-            />
+            <DepartmentCard key={department.slug} department={department} />
           ))}
         </div>
       </section>

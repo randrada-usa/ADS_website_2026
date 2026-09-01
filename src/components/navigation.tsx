@@ -85,7 +85,11 @@ export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
             aria-controls="mobile-menu"
             onClick={() => setOpen(!open)}
           >
-            <span aria-hidden="true">{open ? "×" : "☰"}</span>
+            <span className="menu-icon" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </span>
           </button>
         </div>
         <div
