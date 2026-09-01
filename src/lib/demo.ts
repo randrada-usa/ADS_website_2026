@@ -78,6 +78,7 @@ export const demoContent: SiteContent = {
       "Placeholder: Our official mission statement will be added here after review.",
     vision:
       "Placeholder: Our official vision statement will be added here after review.",
+    email: "ads@usa.edu.ph",
     socials: [],
   },
   departments,

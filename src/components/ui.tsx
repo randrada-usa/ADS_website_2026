@@ -2,8 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
 import type { Activity, Department, Member, SiteSettings } from "@/lib/types";
-import { activityHref, formatDate, safeEmail, safeUrl } from "@/lib/utils";
-import { Arrow, CalendarIcon, LocationIcon, Spark } from "./icons";
+import { activityHref, formatDate, isUpcoming, safeEmail } from "@/lib/utils";
+import { Arrow, CalendarIcon, LocationIcon, MailIcon, Spark } from "./icons";
+import { SocialIcons } from "./social-icons";
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
     <span className="eyebrow">
@@ -217,81 +218,117 @@ export function EmptyState({ children }: { children: ReactNode }) {
 }
 export function Footer({
   settings,
-  demo,
+  activities,
 }: {
   settings: SiteSettings;
-  demo: boolean;
+  activities: Activity[];
 }) {
-  const email = safeEmail(settings.email);
-  const socials = settings.socials.filter((item) => safeUrl(item.url));
+  const email = safeEmail(settings.email) || "ads@usa.edu.ph";
+  const now = new Date().getTime();
+  const upcomingEvents = activities
+    .filter((item) => item.kind === "event" && isUpcoming(item, now))
+    .sort((a, b) => (a.date || "").localeCompare(b.date || ""))
+    .slice(0, 3);
+
   return (
     <footer id="contact" className="site-footer">
       <div className="color-stripe" />
-      <div className="container">
-        <div className="footer-top">
-          <div className="footer-identity">
-            <Image src="/brand/ads.svg" width={130} height={108} alt="" />
-            <div>
-              <h2>Augustinian Developer Society</h2>
-              <p>University of San Agustin</p>
+      <div className="container footer-shell">
+        <div className="footer-grid">
+          <section className="footer-brand-block" aria-labelledby="footer-brand">
+            <div className="footer-brand-lockup">
+              <Image src="/brand/ads.svg" width={130} height={108} alt="" />
+              <div>
+                <h2 id="footer-brand">Agustinian Developer Society</h2>
+                <p>University of San Agustin</p>
+              </div>
             </div>
-          </div>
-          <div className="footer-contact">
+            <p className="footer-tagline">
+              <span>Empowering Agustinian student developers since 2021.</span>
+              <span>Build. Innovate. Lead.</span>
+            </p>
+            <div className="footer-socials">
+              <SocialIcons socials={settings.socials} />
+            </div>
+          </section>
+
+          <nav className="footer-column" aria-labelledby="footer-links-title">
+            <h2 id="footer-links-title">Quick Links</h2>
+            <div className="footer-nav-links">
+              <Link href="/about">About</Link>
+              <Link href="/initiatives">What We Do</Link>
+              <Link href="/events">Events</Link>
+              <Link href="/team">Team</Link>
+              <Link href="/#faq">FAQ</Link>
+            </div>
+          </nav>
+
+          <section
+            className="footer-column footer-events-column"
+            aria-labelledby="footer-events-title"
+          >
+            <h2 id="footer-events-title">Upcoming Events</h2>
+            {upcomingEvents.length ? (
+              <div className="footer-event-list">
+                {upcomingEvents.map((event) => (
+                  <Link href={activityHref(event)} key={event._id}>
+                    <span className="footer-event-dot" aria-hidden="true" />
+                    <span>
+                      <strong>{event.title}</strong>
+                      <small>{formatDate(event.date)}</small>
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            ) : (
+              <div className="footer-events-empty">
+                <p>New experiences are always taking shape.</p>
+                <Link href="/events" className="text-link">
+                  Explore events <Arrow diagonal />
+                </Link>
+              </div>
+            )}
+          </section>
+
+          <section className="footer-column footer-contact" aria-labelledby="footer-contact-title">
+            <h2 id="footer-contact-title">Contact</h2>
             {email ? (
-              <a href={`mailto:${email}`} className="contact-email">
+              <a href={`mailto:${email}`} className="footer-contact-row">
+                <MailIcon />
                 {email}
-                <Arrow diagonal />
               </a>
             ) : (
-              <p className="contact-pending">
-                Official contact details coming soon.
-                <br />
-                <span>Links will appear here once verified.</span>
+              <p className="footer-contact-row footer-contact-pending">
+                <MailIcon />
+                Official email coming soon
               </p>
             )}
-            <div className="social-links">
-              {socials.map((item) => (
-                <a
-                  key={item.url}
-                  href={safeUrl(item.url)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {item.label}
-                  <Arrow diagonal />
-                </a>
-              ))}
-            </div>
-            <span className="footer-location">
+            <span className="footer-contact-row">
               <LocationIcon />
-              University of San Agustin · Iloilo, Philippines
+              <span className="footer-location-copy">
+                <span>University of San Agustin</span>
+              </span>
             </span>
-          </div>
+          </section>
         </div>
-        <div className="footer-bottom">
-          <div className="footer-links">
-            <Link href="/about">About</Link>
-            <Link href="/initiatives">Initiatives</Link>
-            <Link href="/events">Events</Link>
-            <Link href="/team">Team</Link>
-            <Link href="/#faq">FAQ</Link>
-          </div>
-        </div>
-        <div className="footer-colophon">
-          <span>
-            © {new Date().getFullYear()} Augustinian Developer Society.
+        <div className="footer-credits" aria-label="Website credits">
+          <span>© {new Date().getFullYear()} Agustinian Developer Society. All rights reserved.</span>
+          <span className="footer-credit-links">
+            <a href="https://github.com/randrada-usa" target="_blank" rel="noreferrer">
+              @randrada-usa
+            </a>
+            <a href="https://github.com/cocoasaurjl" target="_blank" rel="noreferrer">
+              @cocoasaurjl
+            </a>
+            <a
+              href="https://github.com/Alexandertolosa45"
+              target="_blank"
+              rel="noreferrer"
+            >
+              @Alexandertolosa45
+            </a>
           </span>
-          <span>
-            Built with curiosity. Made for community.
-            <Spark className="tiny-star" />
-          </span>
         </div>
-        {demo && (
-          <p className="demo-notice">
-            DESIGN PREVIEW — Activity details, dates, roster, and copy are
-            placeholders awaiting review. Stock photography does not depict ADS.
-          </p>
-        )}
       </div>
     </footer>
   );
