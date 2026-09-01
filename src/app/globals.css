@@ -17,6 +17,8 @@
   --orange: #e2815a;
   --red: #df5b5b;
   --line: #dadfdc;
+  --content-max-width: 1320px;
+  --content-gutter: 96px;
   --font-body: "DM Sans Variable", sans-serif;
   --font-display: "Space Grotesk Variable", sans-serif;
 }
@@ -107,6 +109,20 @@ button:disabled {
   margin-inline: auto;
 }
 
+/* Match the visual breathing room created by the scaled desktop hero. */
+@media (min-width: 1101px) {
+  .container {
+    width: min(
+      var(--content-max-width),
+      calc(100% - var(--content-gutter) - var(--content-gutter))
+    );
+  }
+
+  .hero.container {
+    width: min(1280px, calc(100% - 96px));
+  }
+}
+
 .section {
   padding-block: clamp(96px, 8vw, 128px);
 }
@@ -178,6 +194,15 @@ button:disabled {
     background var(--nav-duration) var(--nav-easing),
     box-shadow var(--nav-duration) var(--nav-easing),
     transform var(--nav-duration) var(--nav-easing);
+}
+
+@media (min-width: 1101px) {
+  .site-header:not(.is-scrolled) .nav-shell {
+    padding-inline: max(
+      var(--content-gutter),
+      calc((100% - var(--content-max-width)) / 2)
+    );
+  }
 }
 
 .site-header.is-scrolled .nav-shell {
@@ -1820,11 +1845,18 @@ button:disabled {
 .footer-grid {
   display: grid;
   grid-template-columns: minmax(390px, 1.65fr) 0.68fr 0.95fr 1fr;
+  justify-items: center;
   gap: clamp(28px, 4vw, 58px);
   padding-block: 72px 55px;
+  text-align: center;
+}
+.footer-brand-block,
+.footer-column {
+  width: 100%;
 }
 .footer-brand-lockup {
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 22px;
 }
@@ -1833,7 +1865,7 @@ button:disabled {
   height: auto;
   flex-shrink: 0;
 }
-.footer-brand-lockup h2 {
+.site-footer .footer-brand-lockup h2 {
   margin: 0;
   font-size: 20px;
   line-height: 1.15;
@@ -1845,22 +1877,11 @@ button:disabled {
   color: var(--ink);
   font-size: 14px;
 }
-.footer-tagline {
-  margin: 31px 0 0;
-  max-width: 430px;
-  font-size: 14px;
-  line-height: 1.55;
-}
-.footer-tagline > span {
-  display: block;
-}
-.footer-tagline > span:first-child {
-  white-space: nowrap;
-}
 .footer-socials {
   margin-top: 28px;
 }
 .footer-socials .nav-socials {
+  justify-content: center;
   gap: 16px;
 }
 .footer-socials .social-icon {
@@ -1873,7 +1894,7 @@ button:disabled {
   width: 24px;
   height: 24px;
 }
-.footer-column h2 {
+.site-footer .footer-column h2 {
   margin: 0 0 22px;
   font-size: 17px;
   line-height: 1.2;
@@ -1886,6 +1907,7 @@ button:disabled {
 }
 .footer-nav-links a {
   width: fit-content;
+  margin-inline: auto;
 }
 .footer-nav-links a:hover,
 .footer-event-list a:hover strong {
@@ -1902,6 +1924,9 @@ button:disabled {
   grid-template-columns: 12px 1fr;
   align-items: start;
   gap: 10px;
+  width: fit-content;
+  margin-inline: auto;
+  text-align: left;
 }
 .footer-event-dot {
   width: 11px;
@@ -1952,6 +1977,10 @@ button:disabled {
   font-size: 12px;
   line-height: 1.5;
   overflow-wrap: anywhere;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+  text-align: left;
 }
 .footer-contact-row svg {
   width: 17px;
@@ -2037,9 +2066,6 @@ a.footer-contact-row:hover {
   .site-footer .footer-column h2 {
     font-size: 18px;
   }
-  .footer-tagline {
-    margin-top: 25px;
-  }
 }
 @media (max-width: 480px) {
   .site-footer::before {
@@ -2065,22 +2091,16 @@ a.footer-contact-row:hover {
     grid-column: auto;
   }
   .footer-brand-lockup {
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
   }
   .footer-brand-lockup img {
-    width: 76px;
+    width: 84px;
   }
   .site-footer .footer-brand-lockup h2 {
     font-size: clamp(15px, 4.6vw, 18px);
-  }
-  .footer-tagline {
-    margin-inline: auto;
-    font-size: 12px;
-  }
-  .footer-tagline > span:first-child {
-    white-space: normal;
   }
   .footer-brand-lockup p {
     font-size: 12px;
@@ -3581,16 +3601,12 @@ a.footer-contact-row:hover {
     --site-chrome-height: 89px;
   }
 
-  .container {
+  .hero.container {
     width: min(1520px, calc(100% - 96px));
   }
 
   .section {
     padding-block: 128px;
-  }
-
-  .website h2 {
-    font-size: clamp(44px, 3.5vw, 62px);
   }
 
   .site-header {

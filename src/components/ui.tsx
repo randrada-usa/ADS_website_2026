@@ -243,10 +243,6 @@ export function Footer({
                 <p>University of San Agustin</p>
               </div>
             </div>
-            <p className="footer-tagline">
-              <span>Empowering Agustinian student developers since 2021.</span>
-              <span>Build. Innovate. Lead.</span>
-            </p>
             <div className="footer-socials">
               <SocialIcons socials={settings.socials} />
             </div>
