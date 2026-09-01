@@ -3,12 +3,18 @@ import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
 import type { Activity, Department, Member, SiteSettings } from "@/lib/types";
 import { activityHref, formatDate, safeEmail, safeUrl } from "@/lib/utils";
-import { Arrow, CalendarIcon, LocationIcon, Spark } from "./icons";
-export function Eyebrow({ children }: { children: ReactNode }) {
+import { AdsMark, Arrow, CalendarIcon, LocationIcon, Spark } from "./icons";
+export function Eyebrow({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   return (
-    <span className="eyebrow">
-      <span aria-hidden="true">&lt;/&gt;</span>
-      {children}
+    <span className={`eyebrow ${className}`.trim()}>
+      <AdsMark className="eyebrow-icon" />
+      <span className="eyebrow-text">{children}</span>
     </span>
   );
 }

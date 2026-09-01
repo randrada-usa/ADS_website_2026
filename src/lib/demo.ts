@@ -75,9 +75,9 @@ export const demoContent: SiteContent = {
     about:
       "The Augustinian Developer Society is a student organization at the University of San Agustin. This space will tell the story of our community, the ideas we explore, and the work we do together.",
     mission:
-      "Placeholder: Our official mission statement will be added here after review.",
+      "Guided by the Augustinian values of Caritas, Unitas, and Veritas, our mission is to: (1) Empower students and community members by providing accessible education, training, and skills development in technology, programming, and digital literacy; (2) Enlighten minds by cultivating a culture of creativity, critical thinking, and innovation, demonstrating how technology can be a powerful tool for problem-solving and social good.",
     vision:
-      "Placeholder: Our official vision statement will be added here after review.",
+      "We envision ourselves as a dynamic and distinguished community of young developers, technologists, and innovators driven by excellence and deeply committed to uplifting lives, empowering communities, and contributing to societal progress through responsible, accessible, and impactful technology and innovation.",
     socials: [],
   },
   departments,
