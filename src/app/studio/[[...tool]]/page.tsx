@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Studio } from "@/components/studio";
+import { Eyebrow } from "@/components/ui";
 import { cmsConfigured } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Content Studio",
@@ -10,7 +11,7 @@ export default function StudioPage() {
   if (!cmsConfigured)
     return (
       <main className="studio-setup">
-        <span className="eyebrow">ADS · Content Studio</span>
+        <Eyebrow>ADS · Content Studio</Eyebrow>
         <h1>Your editing space is ready to connect.</h1>
         <p>
           The website is currently showing labeled demo content. To enable real
