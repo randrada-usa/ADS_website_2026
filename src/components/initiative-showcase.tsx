@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, type CSSProperties } from "react";
 import { Arrow, Spark } from "./icons";
-import { Eyebrow } from "./ui";
 import { activityHref } from "@/lib/utils";
 import type { Activity } from "@/lib/types";
 
@@ -35,7 +34,6 @@ export function InitiativeShowcase({ activities }: { activities: Activity[] }) {
   return (
     <div className="initiative-showcase">
       <div className="initiative-showcase-copy" key={active._id}>
-        <Eyebrow>Initiatives in action</Eyebrow>
         <h3>
           <SplitTitle title={active.title} />
         </h3>

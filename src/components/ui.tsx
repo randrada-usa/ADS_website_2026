@@ -38,7 +38,7 @@ export function SectionHeading({
   href,
   linkText,
 }: {
-  label: string;
+  label?: string;
   title: ReactNode;
   description?: string;
   href?: string;
@@ -47,7 +47,7 @@ export function SectionHeading({
   return (
     <div className="section-heading">
       <div>
-        <Eyebrow>{label}</Eyebrow>
+        {label && <Eyebrow>{label}</Eyebrow>}
         <h2>{title}</h2>
         {description && <p>{description}</p>}
       </div>
@@ -60,11 +60,7 @@ export function SectionHeading({
     </div>
   );
 }
-export function DepartmentCard({
-  department,
-}: {
-  department: Department;
-}) {
+export function DepartmentCard({ department }: { department: Department }) {
   return (
     <Link
       className="department-card"

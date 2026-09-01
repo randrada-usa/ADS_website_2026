@@ -48,7 +48,10 @@ export default async function Home() {
           <h1>
             <span className="hero-line-one">Agustinian</span>
             <span className="hero-line-two">
-              <span className="hero-line-offset" aria-hidden="true">Ag</span>Developer
+              <span className="hero-line-offset" aria-hidden="true">
+                Ag
+              </span>
+              Developer
             </span>
             <span className="hero-line-three">
               <span className="hero-society-word">
@@ -61,7 +64,7 @@ export default async function Home() {
                 {content.departments.map((dept) => (
                   <Image
                     key={dept.slug}
-                    src={`/brand/${dept.slug}-tilted.svg`}
+                    src={`/brand/${dept.slug}.svg`}
                     width={32}
                     height={32}
                     alt=""
@@ -78,7 +81,7 @@ export default async function Home() {
             {content.departments.map((dept) => (
               <Image
                 key={dept.slug}
-                src={`/brand/${dept.slug}-tilted.svg`}
+                src={`/brand/${dept.slug}.svg`}
                 width={32}
                 height={32}
                 alt=""
@@ -183,28 +186,39 @@ export default async function Home() {
         className="mission-vision-section"
         aria-label="Mission and vision"
       >
-        <div className="container values-cards">
+        <div className="container values-cards statement-cards">
           <article>
-            <h2>Our mission</h2>
-            <p>
-              {content.settings.mission ||
-                "Placeholder: Our official mission statement will be added here after review."}
-            </p>
-            <Spark />
+            <div className="statement-tab">
+              <h2>Our mission</h2>
+            </div>
+            <div className="statement-copy">
+              <p>
+                {content.settings.mission ||
+                  "Placeholder: Our official mission statement will be added here after review."}
+              </p>
+            </div>
           </article>
           <article>
-            <h2>Our vision</h2>
-            <p>
-              {content.settings.vision ||
-                "Placeholder: Our official vision statement will be added here after review."}
-            </p>
-            <Spark />
+            <div className="statement-tab">
+              <h2>Our vision</h2>
+            </div>
+            <div className="statement-copy">
+              <p>
+                {content.settings.vision ||
+                  "Placeholder: Our official vision statement will be added here after review."}
+              </p>
+            </div>
           </article>
         </div>
       </section>
       <section className="section container initiative-home-section">
         {initiatives.length ? (
-          <InitiativeShowcase activities={initiatives} />
+          <>
+            <div className="section-boundary-label">
+              <Eyebrow>Initiatives in action</Eyebrow>
+            </div>
+            <InitiativeShowcase activities={initiatives} />
+          </>
         ) : (
           <EmptyState>Our initiative stories are on their way.</EmptyState>
         )}
@@ -250,9 +264,11 @@ export default async function Home() {
         )}
       </section>
       <section className="team-preview section">
+        <div className="section-boundary-label">
+          <Eyebrow>The people behind ADS</Eyebrow>
+        </div>
         <div className="container">
           <SectionHeading
-            label="The people behind ADS"
             title={
               <>
                 A shared vision.
@@ -282,9 +298,11 @@ export default async function Home() {
         </div>
       </section>
       <section className="department-section section">
+        <div className="section-boundary-label">
+          <Eyebrow>How we work together</Eyebrow>
+        </div>
         <div className="container">
           <div className="center-heading">
-            <Eyebrow>How we work together</Eyebrow>
             <h2>
               Five departments.
               <br />
@@ -297,10 +315,7 @@ export default async function Home() {
           </div>
           <div className="departments-grid">
             {content.departments.map((department) => (
-              <DepartmentCard
-                key={department.slug}
-                department={department}
-              />
+              <DepartmentCard key={department.slug} department={department} />
             ))}
           </div>
           <p className="department-note">
@@ -309,8 +324,10 @@ export default async function Home() {
         </div>
       </section>
       <section id="faq" className="section container faq-section">
-        <div>
+        <div className="section-boundary-label">
           <Eyebrow>A little more about us</Eyebrow>
+        </div>
+        <div>
           <h2>
             Curious?
             <br />
