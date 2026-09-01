@@ -5,6 +5,7 @@
   --color-ink: #28313b;
 }
 :root {
+  --site-chrome-height: 77px;
   --ink: #28313b;
   --muted: #626c74;
   --paper: #fcfcf9;
@@ -73,7 +74,7 @@ button:disabled {
   font-weight: 600;
 }
 .website h2 {
-  font-size: clamp(32px, 3.45vw, 46px);
+  font-size: clamp(34px, 3.6vw, 54px);
   line-height: 1.15;
   letter-spacing: -1.8px;
 }
@@ -84,11 +85,11 @@ button:disabled {
   line-height: 1.7;
 }
 .container {
-  width: min(1152px, calc(100% - 96px));
+  width: min(1280px, calc(100% - 96px));
   margin-inline: auto;
 }
 .section {
-  padding-block: 96px;
+  padding-block: clamp(96px, 8vw, 128px);
 }
 .color-stripe {
   height: 5px;
@@ -250,6 +251,9 @@ button:disabled {
   }
 }
 @media (max-width: 850px) {
+  :root {
+    --site-chrome-height: 69px;
+  }
   .site-header {
     --nav-max-width: 100%;
     --nav-inset: 32px;
@@ -466,9 +470,10 @@ button:disabled {
   align-items: center;
   padding-block: 78px 69px;
   min-height: 680px;
+  min-height: max(680px, calc(100svh - var(--site-chrome-height)));
 }
 .hero h1 {
-  font-size: clamp(58px, 6.2vw, 82px);
+  font-size: clamp(62px, 6.2vw, 104px);
   line-height: 1;
   letter-spacing: -4.4px;
   font-weight: 600;
@@ -508,7 +513,7 @@ button:disabled {
 .university {
   display: block;
   text-align: left;
-  font-size: 20px;
+  font-size: clamp(20px, 1.35vw, 24px);
   margin: 20px 0;
   letter-spacing: 0.15px;
 }
@@ -517,9 +522,9 @@ button:disabled {
   font-size: 25px;
 }
 .hero-description {
-  font-size: 15px;
+  font-size: clamp(15px, 1.05vw, 18px);
   color: var(--muted);
-  max-width: 415px;
+  max-width: 480px;
   margin: 0 0 27px;
 }
 .hero-actions {
@@ -532,13 +537,13 @@ button:disabled {
   justify-content: center;
   align-items: center;
   gap: 22px;
-  padding: 14px 21px;
+  padding: 15px 23px;
   border: 1.5px solid var(--ink);
   border-radius: 7px;
   box-shadow: 3px 3px 0 var(--ink);
   color: white;
   background: var(--blue);
-  font-size: 12px;
+  font-size: clamp(12px, 0.85vw, 14px);
   font-weight: 600;
   transition:
     transform 0.2s,
@@ -610,15 +615,15 @@ button:disabled {
 }
 .hero-art {
   position: relative;
-  height: 460px;
+  height: clamp(460px, 38vw, 560px);
   display: flex;
   align-items: center;
   justify-content: center;
   isolation: isolate;
 }
 .logo-disc {
-  width: 340px;
-  height: 340px;
+  width: clamp(340px, 28vw, 410px);
+  height: clamp(340px, 28vw, 410px);
   flex-shrink: 0;
   border: 2px solid var(--ink);
   border-radius: 50%;
@@ -632,7 +637,7 @@ button:disabled {
   z-index: 2;
 }
 .hero-logo {
-  width: 240px;
+  width: clamp(240px, 19vw, 285px);
   height: auto;
   object-fit: contain;
 }
@@ -643,12 +648,12 @@ button:disabled {
   z-index: -1;
 }
 .orbit-one {
-  width: 440px;
-  height: 440px;
+  width: clamp(440px, 36vw, 520px);
+  height: clamp(440px, 36vw, 520px);
 }
 .orbit-two {
-  width: 480px;
-  height: 350px;
+  width: clamp(480px, 39vw, 570px);
+  height: clamp(350px, 29vw, 420px);
   transform: rotate(-35deg);
   border-style: dashed;
 }
@@ -2232,6 +2237,13 @@ button:disabled {
 .error-page .button {
   margin-top: 20px;
 }
+@media (min-width: 851px) {
+  .hero-copy,
+  .hero-art {
+    position: relative;
+    top: clamp(-56px, -10vh, -40px);
+  }
+}
 @media (min-width: 1500px) {
   .hero {
     padding-block: 95px 85px;
@@ -2282,14 +2294,29 @@ button:disabled {
 }
 @media (max-width: 850px) {
   .hero h1 {
-    font-size: 56px;
+    font-size: clamp(46px, 6.6vw, 56px);
     letter-spacing: -3px;
+  }
+  .hero-line-offset {
+    display: none;
+  }
+  .hero-line-two {
+    margin-left: clamp(30px, 5vw, 44px);
+  }
+  .hero-title-icons {
+    display: none;
+  }
+  .hero-mobile-icons {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 0 22px;
   }
   .hero-art {
     transform: scale(0.8);
   }
   .hero {
     min-height: 590px;
+    min-height: max(590px, calc(100svh - var(--site-chrome-height)));
     padding-block: 55px;
   }
   .hero-actions {
@@ -2797,6 +2824,131 @@ button:disabled {
   }
 }
 
+/* Keep high-resolution desktop layouts visually dense at 100% browser zoom. */
+@media (min-width: 1400px) {
+  :root {
+    --site-chrome-height: 89px;
+  }
+  .container {
+    width: min(1520px, calc(100% - 96px));
+  }
+  .section {
+    padding-block: 128px;
+  }
+  .website h2 {
+    font-size: clamp(44px, 3.5vw, 62px);
+  }
+  .site-header {
+    --nav-max-width: 940px;
+    height: 84px;
+  }
+  .nav-shell {
+    min-height: 84px;
+    padding: 10px clamp(40px, 4vw, 76px);
+  }
+  .site-header.is-scrolled .nav-shell {
+    min-height: 64px;
+    padding: 7px 24px;
+  }
+  .brand img {
+    width: 48px;
+  }
+  .site-header.is-scrolled .brand img {
+    width: 42px;
+  }
+  .desktop-nav {
+    gap: 30px;
+    font-size: 15px;
+  }
+  .nav-socials {
+    gap: 12px;
+  }
+  .social-icon {
+    width: 36px;
+    height: 36px;
+  }
+  .social-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+  .hero {
+    grid-template-columns: 1.05fr 1fr;
+    gap: 40px;
+    padding-block: 78px;
+  }
+  .hero h1 {
+    font-size: clamp(88px, 6.4vw, 124px);
+    letter-spacing: -5.4px;
+  }
+  .university {
+    margin-block: 25px;
+    font-size: 27px;
+  }
+  .hero-description {
+    max-width: 540px;
+    margin-bottom: 32px;
+    font-size: 19px;
+  }
+  .hero-actions {
+    gap: 18px;
+  }
+  .button {
+    gap: 25px;
+    padding: 17px 27px;
+    font-size: 15px;
+  }
+  .small-department-icons img,
+  .hero-title-icons img {
+    width: 38px;
+    height: 38px;
+  }
+  .hero-art {
+    height: 660px;
+  }
+  .logo-disc {
+    width: 490px;
+    height: 490px;
+  }
+  .hero-logo {
+    width: 340px;
+  }
+  .orbit-one {
+    width: 610px;
+    height: 610px;
+  }
+  .orbit-two {
+    width: 670px;
+    height: 490px;
+  }
+  .teal-circle {
+    width: 130px;
+    height: 130px;
+  }
+  .hero-spark {
+    width: 88px;
+  }
+  .floating-label {
+    padding: 13px 21px;
+    font-size: 16px;
+  }
+  .hand-arrow {
+    width: 125px;
+  }
+  .art-caption {
+    font-size: 12px;
+  }
+  .eyebrow {
+    padding: 7px 13px;
+    font-size: 11px;
+  }
+  .section-heading p,
+  .center-heading p {
+    font-size: 16px;
+  }
+  .text-link {
+    font-size: 14px;
+  }
+}
 .disc-bottom > svg {
   color: var(--orange);
   width: 18px;
