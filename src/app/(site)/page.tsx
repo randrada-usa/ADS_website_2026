@@ -244,9 +244,11 @@ export default async function Home() {
           <EmptyState>Our initiative stories are on their way.</EmptyState>
         )}
       </section>
-      <section className="section container">
+      <section className="section container events-home-section">
+        <div className="section-boundary-label">
+          <Eyebrow>Around the society</Eyebrow>
+        </div>
         <SectionHeading
-          label="Around the society"
           title="Where ideas come alive."
           description="Upcoming experiences and moments worth looking back on."
           href="/events"

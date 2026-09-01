@@ -40,7 +40,6 @@ export function AmbientMotion() {
       ".initiative-showcase",
       ".section-heading",
       ".events-home-grid > *",
-      ".departments-grid > *",
       ".team-grid > *",
       ".team-placeholder-grid > *",
       ".about-story > *",
