@@ -1854,6 +1854,9 @@ button:disabled {
 .footer-column {
   width: 100%;
 }
+.footer-column {
+  text-align: left;
+}
 .footer-brand-lockup {
   display: flex;
   justify-content: center;
@@ -1907,7 +1910,6 @@ button:disabled {
 }
 .footer-nav-links a {
   width: fit-content;
-  margin-inline: auto;
 }
 .footer-nav-links a:hover,
 .footer-event-list a:hover strong {
@@ -1925,7 +1927,6 @@ button:disabled {
   align-items: start;
   gap: 10px;
   width: fit-content;
-  margin-inline: auto;
   text-align: left;
 }
 .footer-event-dot {
@@ -1968,6 +1969,11 @@ button:disabled {
 .footer-contact {
   min-width: 0;
 }
+.footer-contact-list {
+  width: fit-content;
+  max-width: 100%;
+  text-align: left;
+}
 .footer-contact-row {
   display: flex;
   align-items: flex-start;
@@ -1977,9 +1983,7 @@ button:disabled {
   font-size: 12px;
   line-height: 1.5;
   overflow-wrap: anywhere;
-  width: fit-content;
-  max-width: 100%;
-  margin-inline: auto;
+  width: 100%;
   text-align: left;
 }
 .footer-contact-row svg {
@@ -2090,6 +2094,9 @@ a.footer-contact-row:hover {
     width: 100%;
     grid-column: auto;
   }
+  .footer-column {
+    text-align: center;
+  }
   .footer-brand-lockup {
     flex-direction: column;
     justify-content: center;
@@ -2120,6 +2127,9 @@ a.footer-contact-row:hover {
     max-width: 100%;
     margin-inline: auto;
     text-align: left;
+  }
+  .footer-contact-list {
+    margin-inline: auto;
   }
   .footer-credits {
     display: grid;
@@ -2861,7 +2871,7 @@ a.footer-contact-row:hover {
   .hero-copy,
   .hero-art {
     position: relative;
-    top: clamp(-56px, -10vh, -40px);
+    top: 0;
     transform: scale(0.80);
     transform-origin: center;
   }
@@ -4440,7 +4450,6 @@ a.social-icon:hover {
 
   /* Gentle staggered delays for multi-column grids */
   .js-motion-ready .events-home-grid > *:nth-child(2),
-  .js-motion-ready .departments-grid > *:nth-child(2),
   .js-motion-ready .team-grid > *:nth-child(2),
   .js-motion-ready .team-placeholder-grid > *:nth-child(2),
   .js-motion-ready .values-cards > *:nth-child(2) {
@@ -4448,21 +4457,16 @@ a.social-icon:hover {
   }
 
   .js-motion-ready .events-home-grid > *:nth-child(3),
-  .js-motion-ready .departments-grid > *:nth-child(3),
   .js-motion-ready .team-grid > *:nth-child(3),
   .js-motion-ready .team-placeholder-grid > *:nth-child(3) {
     transition-delay: 240ms;
   }
 
-  .js-motion-ready .departments-grid > *:nth-child(4),
   .js-motion-ready .team-grid > *:nth-child(4),
   .js-motion-ready .team-placeholder-grid > *:nth-child(4) {
     transition-delay: 360ms;
   }
 
-  .js-motion-ready .departments-grid > *:nth-child(5) {
-    transition-delay: 480ms;
-  }
 }
 
 

@@ -288,23 +288,25 @@ export function Footer({
 
           <section className="footer-column footer-contact" aria-labelledby="footer-contact-title">
             <h2 id="footer-contact-title">Contact</h2>
-            {email ? (
-              <a href={`mailto:${email}`} className="footer-contact-row">
-                <MailIcon />
-                {email}
-              </a>
-            ) : (
-              <p className="footer-contact-row footer-contact-pending">
-                <MailIcon />
-                Official email coming soon
-              </p>
-            )}
-            <span className="footer-contact-row">
-              <LocationIcon />
-              <span className="footer-location-copy">
-                <span>University of San Agustin</span>
+            <div className="footer-contact-list">
+              {email ? (
+                <a href={`mailto:${email}`} className="footer-contact-row">
+                  <MailIcon />
+                  {email}
+                </a>
+              ) : (
+                <p className="footer-contact-row footer-contact-pending">
+                  <MailIcon />
+                  Official email coming soon
+                </p>
+              )}
+              <span className="footer-contact-row">
+                <LocationIcon />
+                <span className="footer-location-copy">
+                  <span>University of San Agustin</span>
+                </span>
               </span>
-            </span>
+            </div>
           </section>
         </div>
         <div className="footer-credits" aria-label="Website credits">
