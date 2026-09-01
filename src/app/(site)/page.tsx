@@ -13,6 +13,13 @@ import { Arrow, Spark } from "@/components/icons";
 import { ValuesMarquee } from "@/components/values-marquee";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { InitiativeShowcase } from "@/components/initiative-showcase";
+
+const featuredEventTitles: Record<string, string> = {
+  "a-place-to-start-building": "Start Building",
+  "connecting-curious-minds": "Curious Minds",
+  "an-idea-worth-building": "Build for Community",
+};
+
 export default async function Home() {
   const content = await getContent();
   const initiatives = content.featuredInitiatives
@@ -218,6 +225,7 @@ export default async function Home() {
                 href={`/events/${activity.slug}`}
                 key={activity._id}
               >
+                <h3>{featuredEventTitles[activity.slug] || activity.title}</h3>
                 <div className="event-feature-photo">
                   {activity.image ? (
                     <Image
@@ -233,7 +241,6 @@ export default async function Home() {
                     </div>
                   )}
                 </div>
-                <h3>{activity.title}</h3>
                 <p>{activity.summary}</p>
               </Link>
             ))}

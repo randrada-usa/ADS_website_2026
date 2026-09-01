@@ -1172,6 +1172,7 @@ button:disabled {
 .event-feature-card {
   --photo-tilt: 0deg;
   --event-accent: var(--blue);
+  --event-label-color: white;
   position: relative;
   z-index: 1;
   display: block;
@@ -1225,13 +1226,22 @@ button:disabled {
   filter: saturate(0.88) contrast(1.04);
 }
 .event-feature-card h3 {
-  margin: 0 auto 17px;
-  max-width: 350px;
-  color: var(--event-accent);
+  position: relative;
+  z-index: 3;
+  width: fit-content;
+  max-width: calc(100% - 34px);
+  margin: 0 auto -13px;
+  padding: 8px 17px;
+  border: 1.5px solid var(--ink);
+  border-radius: 4px;
+  background: var(--event-accent);
+  box-shadow: 2px 3px 0 var(--ink);
+  color: var(--event-label-color);
   font-family: var(--font-display);
-  font-size: clamp(26px, 3vw, 41px);
-  line-height: 1.04;
-  letter-spacing: -1.8px;
+  font-size: clamp(14px, 1.35vw, 18px);
+  font-style: italic;
+  line-height: 1.15;
+  letter-spacing: -0.2px;
 }
 .event-feature-card p {
   max-width: 390px;
@@ -1248,7 +1258,7 @@ button:disabled {
     margin-inline: auto;
   }
   .event-feature-card h3 {
-    font-size: clamp(30px, 7vw, 42px);
+    font-size: 17px;
   }
 }
 .compact .activity-image {
