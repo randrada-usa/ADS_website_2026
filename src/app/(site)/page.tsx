@@ -262,6 +262,12 @@ export default async function Home() {
       </section>
       <OurJourney />
       <section className="section container initiative-home-section">
+        <svg className="section-outline initiative-small-outline initiative-small-triangle" viewBox="0 0 100 100" aria-hidden="true">
+          <polygon points="50,12 88,86 12,86" />
+        </svg>
+        <svg className="section-outline initiative-small-outline initiative-small-diamond" viewBox="0 0 100 100" aria-hidden="true">
+          <polygon points="50,10 90,50 50,90 10,50" />
+        </svg>
         {initiatives.length ? (
           <>
             <div className="section-boundary-label">
@@ -274,6 +280,13 @@ export default async function Home() {
         )}
       </section>
       <section className="section container events-home-section">
+        <div className="events-background-circles" aria-hidden="true">
+          <span className="events-circle events-circle-top-right" />
+          <span className="events-circle events-circle-top-satellite" />
+          <span className="events-circle events-circle-bottom-left" />
+          <span className="events-circle events-circle-bottom-middle" />
+          <span className="events-circle events-circle-bottom-right" />
+        </div>
         <div className="section-boundary-label">
           <Eyebrow>Around the society</Eyebrow>
         </div>
@@ -379,6 +392,20 @@ export default async function Home() {
         </div>
       </section>
       <section className="department-section section">
+        <div className="department-background-art" aria-hidden="true">
+          <svg className="department-topo department-topo-upper" viewBox="0 0 420 360">
+            <path d="M62 390c-38-93-22-159 52-204 65-40 126-16 198-71 49-38 78-83 98-135" />
+            <path d="M119 390c-37-79-19-134 45-171 62-35 117-13 177-61 43-34 68-75 86-123" />
+            <path d="M176 390c-33-65-14-108 39-137 56-31 104-10 154-51 35-29 56-64 72-105" />
+          </svg>
+          <svg className="department-topo department-topo-lower" viewBox="0 0 420 360">
+            <path d="M62 390c-38-93-22-159 52-204 65-40 126-16 198-71 49-38 78-83 98-135" />
+            <path d="M119 390c-37-79-19-134 45-171 62-35 117-13 177-61 43-34 68-75 86-123" />
+            <path d="M176 390c-33-65-14-108 39-137 56-31 104-10 154-51 35-29 56-64 72-105" />
+          </svg>
+          <span className="department-circle department-circle-cool" />
+          <span className="department-circle department-circle-warm" />
+        </div>
         <div className="section-boundary-label">
           <Eyebrow>How we work together</Eyebrow>
         </div>
@@ -402,6 +429,17 @@ export default async function Home() {
         </div>
       </section>
       <section id="faq" className="section container faq-section">
+        <div className="faq-background-shapes" aria-hidden="true">
+          <svg className="section-outline faq-shape-upper" viewBox="0 0 100 100">
+            <rect x="12" y="12" width="76" height="76" />
+          </svg>
+          <svg className="section-outline faq-shape-lower-left" viewBox="0 0 100 100">
+            <polygon points="50,7 88,29 88,71 50,93 12,71 12,29" />
+          </svg>
+          <svg className="section-outline faq-shape-lower-right" viewBox="0 0 100 100">
+            <polygon points="50,10 90,50 50,90 10,50" />
+          </svg>
+        </div>
         <div className="section-boundary-label">
           <Eyebrow>A little more about us</Eyebrow>
         </div>
@@ -412,7 +450,9 @@ export default async function Home() {
             <span className="gradient-text">You’re in good company.</span>
           </h2>
           <p>A few things you might be wondering.</p>
-          <Spark className="faq-spark" />
+          <svg className="section-outline faq-outline" viewBox="0 0 100 100" aria-hidden="true">
+            <polygon points="50,9 92,87 8,87" />
+          </svg>
         </div>
         {content.faqs.length ? (
           <FaqAccordion faqs={content.faqs} demo={content.demo} />

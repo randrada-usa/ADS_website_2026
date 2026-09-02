@@ -65,7 +65,9 @@ export function InitiativeShowcase({ activities }: { activities: Activity[] }) {
         </div>
       </div>
       <div className="initiative-showcase-media">
-        <Spark className="initiative-burst initiative-burst-top" />
+        <svg className="section-outline initiative-outline initiative-outline-top" viewBox="0 0 100 100" aria-hidden="true">
+          <rect x="12" y="12" width="76" height="76" />
+        </svg>
         <div className="initiative-photo-stack">
           {stacked.slice(0, 3).map((activity, offset) => (
             <div
@@ -98,7 +100,9 @@ export function InitiativeShowcase({ activities }: { activities: Activity[] }) {
             </div>
           ))}
         </div>
-        <Spark className="initiative-burst initiative-burst-bottom" />
+        <svg className="section-outline initiative-outline initiative-outline-bottom" viewBox="0 0 100 100" aria-hidden="true">
+          <polygon points="50,7 88,29 88,71 50,93 12,71 12,29" />
+        </svg>
       </div>
     </div>
   );

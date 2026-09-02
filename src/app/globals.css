@@ -1267,6 +1267,38 @@ button:disabled {
   padding-block: 120px;
 }
 
+.website main section.initiative-home-section>svg.initiative-small-outline {
+  position: absolute;
+  z-index: 0;
+}
+
+.initiative-small-triangle {
+  width: 52px;
+  top: 22px;
+  left: 18%;
+  transform: rotate(-16deg);
+}
+
+.initiative-small-diamond {
+  width: 40px;
+  bottom: 24px;
+  left: 43%;
+}
+
+@media (max-width: 650px) {
+  .initiative-small-triangle {
+    width: 36px;
+    top: 22px;
+    left: 7%;
+  }
+
+  .initiative-small-diamond {
+    width: 28px;
+    bottom: 16px;
+    left: 64%;
+  }
+}
+
 .initiative-showcase {
   display: grid;
   grid-template-columns: minmax(0, 0.88fr) minmax(420px, 1.12fr);
@@ -1358,6 +1390,7 @@ button:disabled {
 
 .initiative-photo-stack {
   position: absolute;
+  z-index: 1;
   inset: 26px 48px 30px 5px;
 }
 
@@ -1379,24 +1412,32 @@ button:disabled {
   object-fit: cover;
 }
 
-.initiative-burst {
-  position: absolute;
-  z-index: 10;
-  width: 82px;
-  color: var(--yellow);
+.section-outline {
+  fill: none;
+  stroke: #d8b569;
+  stroke-width: 10;
+  stroke-linejoin: miter;
+  stroke-miterlimit: 4;
+  overflow: visible;
+  opacity: 0.5;
   pointer-events: none;
 }
 
-.initiative-burst-top {
-  left: -26px;
-  top: -5px;
+.initiative-outline {
+  position: absolute;
+  z-index: 0;
+  width: 164px;
+}
+
+.initiative-outline-top {
+  left: -50px;
+  top: -35px;
   transform: rotate(9deg);
 }
 
-.initiative-burst-bottom {
-  right: -8px;
-  bottom: -2px;
-  color: var(--blue);
+.initiative-outline-bottom {
+  right: -25px;
+  bottom: -25px;
   transform: rotate(17deg);
 }
 
@@ -1545,8 +1586,18 @@ button:disabled {
         calc(var(--stack-offset) * 9px)) rotate(calc(var(--stack-offset) * 2deg));
   }
 
-  .initiative-burst {
-    width: 56px;
+  .initiative-outline {
+    width: 100px;
+  }
+
+  .initiative-outline-top {
+    left: -18px;
+    top: -16px;
+  }
+
+  .initiative-outline-bottom {
+    right: -4px;
+    bottom: -14px;
   }
 }
 
@@ -1689,6 +1740,83 @@ button:disabled {
   background: #eef3ee;
 }
 
+.website main section.department-section::before {
+  display: none;
+}
+
+.website main section.department-section>div.department-background-art {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.department-topo {
+  position: absolute;
+  width: clamp(370px, 32vw, 490px);
+  overflow: visible;
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 12;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.72;
+}
+
+.department-topo-upper {
+  top: -20px;
+  right: -230px;
+  transform: scaleY(-1);
+}
+
+.department-topo-lower {
+  bottom: -30px;
+  left: -230px;
+  transform: scaleX(-1);
+}
+
+.department-circle {
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  opacity: 0.82;
+}
+
+.department-circle-cool {
+  top: 110px;
+  left: -45px;
+  width: clamp(95px, 9vw, 140px);
+  background: linear-gradient(135deg, var(--teal), #9271bc);
+}
+
+.department-circle-warm {
+  bottom: 36px;
+  right: -65px;
+  width: clamp(125px, 13vw, 190px);
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
+}
+
+@media (max-width: 850px) {
+  .department-circle-cool {
+    top: 80px;
+    left: -55px;
+    width: 78px;
+  }
+
+  .department-circle-warm {
+    bottom: -20px;
+    right: -40px;
+    width: 80px;
+  }
+}
+
+@media (max-width: 650px) {
+  .department-topo {
+    display: none;
+  }
+}
+
 .departments-grid {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -1795,6 +1923,94 @@ button:disabled {
   color: #111;
   font-size: 13px;
   line-height: 1.35;
+}
+
+/* Asymmetric accents stay in the outer gutters and the section's breathing room. */
+.website main section.events-home-section::before {
+  display: none;
+}
+
+.website main section.events-home-section>div.events-background-circles {
+  position: absolute;
+  z-index: 0;
+  inset-block: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.events-circle {
+  position: absolute;
+  width: var(--circle-size);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  opacity: 0.78;
+}
+
+.events-circle-top-right {
+  --circle-size: 38px;
+  top: 26px;
+  right: 17%;
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
+}
+
+.events-circle-top-satellite {
+  --circle-size: 14px;
+  top: 66px;
+  right: calc(17% - 22px);
+  background: linear-gradient(135deg, var(--orange), var(--red));
+}
+
+.events-circle-bottom-left {
+  --circle-size: clamp(210px, 23vw, 320px);
+  bottom: calc(140px - var(--circle-size));
+  left: calc(76px - var(--circle-size));
+  background: linear-gradient(135deg, var(--blue), var(--teal));
+}
+
+.events-circle-bottom-middle {
+  --circle-size: clamp(38px, 4vw, 54px);
+  bottom: 22px;
+  left: 29%;
+  background: linear-gradient(135deg, var(--teal), #9271bc);
+}
+
+.events-circle-bottom-right {
+  --circle-size: clamp(270px, 29vw, 420px);
+  bottom: calc(82px - var(--circle-size));
+  right: -34px;
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
+}
+
+@media (max-width: 650px) {
+  .events-circle-top-right {
+    --circle-size: 24px;
+    right: 10%;
+  }
+
+  .events-circle-top-satellite {
+    --circle-size: 9px;
+    top: 46px;
+    right: 6%;
+  }
+
+  .events-circle-bottom-left {
+    --circle-size: 160px;
+    bottom: calc(48px - var(--circle-size));
+    left: -65px;
+  }
+
+  .events-circle-bottom-middle {
+    display: none;
+  }
+
+  .events-circle-bottom-right {
+    --circle-size: 190px;
+    bottom: calc(56px - var(--circle-size));
+    right: -80px;
+  }
 }
 
 .events-home-grid {
@@ -2009,11 +2225,64 @@ button:disabled {
   color: var(--muted);
 }
 
-.faq-spark {
-  color: var(--orange);
-  width: 55px;
+.faq-outline {
+  width: 110px;
   margin: 36px 0 0 22px;
   transform: rotate(10deg);
+}
+
+.website main section.faq-section>div.faq-background-shapes {
+  position: absolute;
+  z-index: 0;
+  inset-block: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.faq-background-shapes .section-outline {
+  position: absolute;
+}
+
+.faq-shape-upper {
+  width: 124px;
+  top: -42px;
+  right: 5%;
+  transform: rotate(12deg);
+}
+
+.faq-shape-lower-left {
+  width: 156px;
+  bottom: -74px;
+  left: 14%;
+}
+
+.faq-shape-lower-right {
+  width: 108px;
+  bottom: -28px;
+  right: 8%;
+}
+
+@media (max-width: 650px) {
+  .faq-shape-upper {
+    width: 72px;
+    top: -26px;
+    right: 1%;
+  }
+
+  .faq-shape-lower-left {
+    width: 96px;
+    bottom: -42px;
+    left: 3%;
+  }
+
+  .faq-shape-lower-right {
+    width: 80px;
+    bottom: -28px;
+    right: 2%;
+  }
 }
 
 .faq-list {
@@ -3945,7 +4214,7 @@ a.footer-contact-row:hover {
     gap: 25px;
   }
 
-  .faq-spark {
+  .faq-outline {
     display: none;
   }
 
@@ -4569,11 +4838,39 @@ a.social-icon:hover {
   --section-surface: #fff5df;
 }
 
+/* Seamless, lightly tilted graph paper on the blue feature sections. */
+.website main>section:is(.initiative-home-section, .faq-section) {
+  --section-accent-size: clamp(144px, 16vw, 224px);
+  --section-orb-background: transparent;
+  --section-orb-border: 14px solid #d8b569;
+  --section-orb-radius: 0px;
+  --section-orb-opacity: 0.5;
+  --section-surface-image:
+    repeating-linear-gradient(12deg, rgb(255 255 255 / 30%) 0 1px, transparent 1px 40px),
+    repeating-linear-gradient(102deg, rgb(255 255 255 / 30%) 0 1px, transparent 1px 40px);
+}
+
+.website main>section:is(.initiative-home-section, .faq-section)::after {
+  background-size: auto;
+}
+
+.website main>section:is(.initiative-home-section, .faq-section)::before {
+  transform: translateX(-80px) rotate(-12deg);
+}
+
+.website main>section.initiative-home-section {
+  --section-orb-border: 26px solid #d8b569;
+}
+
+.website main>section.initiative-home-section::before {
+  transform: translateX(-112px) rotate(-12deg);
+}
+
 /* Restrained gradient-circle accents inspired by the original design boards. */
 .website main section:not(.hero):not(.values-strip):not(.journey-section):not(#our-journey):not(.mission-vision-section) {
   --section-orb-from: #3c6597;
   --section-orb-to: #61ad9e;
-  --section-orb-size: clamp(72px, 8vw, 112px);
+  --section-orb-size: var(--section-accent-size, clamp(72px, 8vw, 112px));
   position: relative;
   isolation: isolate;
 }
@@ -4586,11 +4883,12 @@ a.social-icon:hover {
   right: calc(var(--section-orb-size) * -0.78);
   width: var(--section-orb-size);
   aspect-ratio: 1;
-  border-radius: 50%;
-  background: linear-gradient(135deg,
+  border-radius: var(--section-orb-radius, 50%);
+  border: var(--section-orb-border, 0);
+  background: var(--section-orb-background, linear-gradient(135deg,
       var(--section-orb-from),
-      var(--section-orb-to));
-  opacity: 0.58;
+      var(--section-orb-to)));
+  opacity: var(--section-orb-opacity, 0.58);
   pointer-events: none;
 }
 
@@ -4842,31 +5140,43 @@ a.social-icon:hover {
   border-radius: 2px;
 }
 
-/* Background decorative shapes positioned alongside milestone cards */
-.journey-decor-circle {
+/* Keep the decorative circles outside the timeline's content rail. */
+.website main section.journey-section>.journey-background-circles {
+  --journey-circle-edge: max(12px, calc((100% - 1040px) / 2));
   position: absolute;
-  left: clamp(16px, 4vw, 50px);
-  top: 64%;
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-  background: #df6b49;
-  opacity: 0.85;
-  pointer-events: none;
   z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
 }
 
-.journey-decor-arc {
+.journey-circle {
   position: absolute;
-  right: -40px;
-  top: 55%;
-  width: clamp(120px, 15vw, 180px);
-  height: clamp(120px, 15vw, 180px);
+  width: var(--circle-size);
+  aspect-ratio: 1;
   border-radius: 50%;
-  background: #3d7a8c;
-  opacity: 0.85;
-  pointer-events: none;
-  z-index: 0;
+  opacity: 0.82;
+}
+
+.journey-circle-blue {
+  --circle-size: clamp(135px, 13vw, 195px);
+  top: 22%;
+  left: calc(var(--journey-circle-edge) - var(--circle-size));
+  background: linear-gradient(135deg, var(--blue), var(--teal));
+}
+
+.journey-circle-warm {
+  --circle-size: clamp(80px, 8vw, 120px);
+  top: 47%;
+  right: calc(var(--journey-circle-edge) - var(--circle-size));
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
+}
+
+.journey-circle-violet {
+  --circle-size: clamp(110px, 10vw, 155px);
+  top: 76%;
+  left: calc(var(--journey-circle-edge) - var(--circle-size));
+  background: linear-gradient(135deg, var(--teal), #9271bc);
 }
 
 /* Timeline Layout */
@@ -5057,6 +5367,10 @@ a.social-icon:hover {
     padding-bottom: 96px;
   }
 
+  .website main .journey-section>.journey-background-circles {
+    --journey-circle-edge: max(10px, calc((100% - 660px) / 2));
+  }
+
 
   .journey-timeline {
     max-width: 600px;
@@ -5111,6 +5425,26 @@ a.social-icon:hover {
   .journey-section {
     padding-top: 55px;
     padding-bottom: 85px;
+  }
+
+  .journey-circle-blue {
+    --circle-size: 64px;
+    top: 58px;
+    left: -36px;
+  }
+
+  .journey-circle-warm {
+    --circle-size: 48px;
+    top: auto;
+    right: -18px;
+    bottom: 18px;
+  }
+
+  .journey-circle-violet {
+    --circle-size: 96px;
+    top: auto;
+    left: -40px;
+    bottom: -20px;
   }
 
 

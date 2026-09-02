@@ -87,6 +87,11 @@ const MILESTONES: JourneyMilestone[] = [
 export function OurJourney() {
   return (
     <section className="journey-section" id="our-journey" aria-label="Our Journey">
+      <div className="journey-background-circles" aria-hidden="true">
+        <span className="journey-circle journey-circle-blue" />
+        <span className="journey-circle journey-circle-warm" />
+        <span className="journey-circle journey-circle-violet" />
+      </div>
       <div className="section-boundary-label">
         <Eyebrow>Milestones &amp; History</Eyebrow>
       </div>
