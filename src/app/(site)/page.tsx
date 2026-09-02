@@ -152,6 +152,9 @@ export default async function Home() {
             <path d="M176 390c-33-65-14-108 39-137 56-31 104-10 154-51 35-29 56-64 72-105" />
           </svg>
         </div>
+        <div className="about-mobile-label">
+          <Eyebrow>About Us</Eyebrow>
+        </div>
         <div className="about-image-wrap">
           <div className="photo-frame">
             <div className="about-photo">
@@ -313,6 +316,11 @@ export default async function Home() {
         ) : (
           <EmptyState>New events and recaps will appear here.</EmptyState>
         )}
+        <div className="responsive-section-action">
+          <ButtonLink href="/events" tone="blue">
+            Explore events
+          </ButtonLink>
+        </div>
       </section>
       <section className="team-preview section">
         <div className="executives-shapes" aria-hidden="true">
@@ -363,6 +371,11 @@ export default async function Home() {
           ) : (
             <EmptyState>Meet our leadership here soon.</EmptyState>
           )}
+          <div className="responsive-section-action">
+            <ButtonLink href="/team" tone="teal">
+              Meet the team
+            </ButtonLink>
+          </div>
         </div>
       </section>
       <section className="department-section section">
@@ -392,7 +405,7 @@ export default async function Home() {
         <div className="section-boundary-label">
           <Eyebrow>A little more about us</Eyebrow>
         </div>
-        <div>
+        <div className="faq-heading">
           <h2>
             Curious?
             <br />

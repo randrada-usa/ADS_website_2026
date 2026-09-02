@@ -38,6 +38,9 @@ export function InitiativeShowcase({ activities }: { activities: Activity[] }) {
           <SplitTitle title={active.title} />
         </h3>
         <p>{active.summary}</p>
+      </div>
+
+      <div className="initiative-showcase-controls">
         <ButtonLink href={activityHref(active)} tone="orange">
           Explore this story
         </ButtonLink>
@@ -61,7 +64,6 @@ export function InitiativeShowcase({ activities }: { activities: Activity[] }) {
           ))}
         </div>
       </div>
-
       <div className="initiative-showcase-media">
         <Spark className="initiative-burst initiative-burst-top" />
         <div className="initiative-photo-stack">
