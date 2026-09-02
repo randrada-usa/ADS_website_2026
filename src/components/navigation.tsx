@@ -88,6 +88,22 @@ export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
       window.removeEventListener("touchmove", closeOnOutsideScrollIntent);
     };
   }, [open]);
+
+  const handleNavClick = () => {
+    if (typeof window !== "undefined" && window.location.pathname === "/") {
+      sessionStorage.setItem("ads_last_scroll_home", window.scrollY.toString());
+    }
+    setOpen(false);
+  };
+
+  const handleBrandClick = () => {
+    if (typeof window !== "undefined") {
+      sessionStorage.removeItem("ads_last_scroll_home");
+    }
+    setOpen(false);
+    scrollPageToTop();
+  };
+
   return (
     <header
       className={`site-header${scrolled ? " is-scrolled" : ""}${open ? " is-menu-open" : ""}`}
@@ -97,9 +113,7 @@ export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
           href="/"
           className="brand"
           aria-label="Augustinian Developer Society home"
-          onClick={() => setOpen(false)}
-          onNavigate={scrollPageToTop}
-          scroll={false}
+          onClick={handleBrandClick}
         >
           <Image
             src="/brand/ads.svg"
@@ -116,8 +130,7 @@ export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
               href={href}
               className={path.startsWith(href) ? "active" : ""}
               aria-current={path.startsWith(href) ? "page" : undefined}
-              onNavigate={scrollPageToTop}
-              scroll={false}
+              onClick={handleNavClick}
             >
               {title}
             </Link>
@@ -153,9 +166,7 @@ export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
                   key={href}
                   href={href}
                   aria-current={path === href ? "page" : undefined}
-                  onClick={() => setOpen(false)}
-                  onNavigate={href.startsWith("/") ? scrollPageToTop : undefined}
-                  scroll={href.startsWith("/") ? false : undefined}
+                  onClick={href.startsWith("/") ? handleNavClick : () => setOpen(false)}
                 >
                   {title}
                   <Arrow diagonal />
@@ -171,3 +182,4 @@ export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
     </header>
   );
 }
+

@@ -2,7 +2,9 @@ import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/ui";
 import { AmbientMotion } from "@/components/motion";
 import { Preview } from "@/components/preview";
+import { ScrollRestoreManager } from "@/components/scroll-restore";
 import { getContent, isPreview } from "@/lib/content";
+
 export default async function SiteLayout({
   children,
 }: {
@@ -11,6 +13,7 @@ export default async function SiteLayout({
   const [content, preview] = await Promise.all([getContent(), isPreview()]);
   return (
     <div className="website">
+      <ScrollRestoreManager />
       <a className="skip-link" href="#main">
         Skip to content
       </a>
@@ -26,3 +29,4 @@ export default async function SiteLayout({
     </div>
   );
 }
+
