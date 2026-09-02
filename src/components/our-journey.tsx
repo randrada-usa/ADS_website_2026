@@ -101,9 +101,8 @@ export function OurJourney() {
         </div>
 
         <div className="journey-timeline">
-          <div className="journey-spine" aria-hidden="true" />
-
           <div className="journey-items">
+
             {MILESTONES.map((milestone) => (
               <div
                 key={milestone.id}

@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { getContent } from "@/lib/content";
 import { departments } from "@/lib/demo";
 import {
+  BackButton,
   EmptyState,
   Eyebrow,
   MemberCard,
@@ -35,12 +36,15 @@ export default async function DepartmentPage({ params }: Props) {
       style={{ "--department": dept.color } as CSSProperties}
     >
       <section className="container department-intro">
-        <Link href="/about#departments" className="back-link">
-          ← All departments
-        </Link>
+        <div className="page-intro-back">
+          <BackButton fallbackHref="/about#departments">
+            All departments
+          </BackButton>
+        </div>
         <div className="department-hero">
           <div>
             <Eyebrow>Five departments. One society.</Eyebrow>
+
             <h1>
               {dept.name}
               <span>Department</span>
