@@ -351,7 +351,7 @@ export function Footer({
             <a href="https://github.com/randrada-usa" target="_blank" rel="noreferrer">
               @randrada-usa
             </a>
-            <a href="https://github.com/cocoasaurjl" target="_blank" rel="noreferrer">
+            <a href="https://github.com/Cocoasaur" target="_blank" rel="noreferrer">
               @cocoasaurjl
             </a>
             <a
