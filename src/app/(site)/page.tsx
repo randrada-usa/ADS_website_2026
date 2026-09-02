@@ -14,6 +14,7 @@ import { ValuesMarquee } from "@/components/values-marquee";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { InitiativeShowcase } from "@/components/initiative-showcase";
 import { OurJourney } from "@/components/our-journey";
+import { safeEmail } from "@/lib/utils";
 
 const featuredEventTitles: Record<string, string> = {
   "a-place-to-start-building": "Start Building",
@@ -42,6 +43,7 @@ export default async function Home() {
   const members = content.members
     .filter((member) => member.isLeadership)
     .slice(0, 4);
+  const contactEmail = safeEmail(content.settings.email) || "ads@usa.edu.ph";
   return (
     <>
       <section className="hero container">
@@ -91,8 +93,8 @@ export default async function Home() {
           </span>
           <div className="hero-actions">
             <ButtonLink href="/initiatives">Explore our work</ButtonLink>
-            <ButtonLink href="/about" secondary>
-              Get to know ADS
+            <ButtonLink href={`mailto:${contactEmail}`} secondary>
+              Contact Us
             </ButtonLink>
           </div>
         </div>
@@ -177,7 +179,7 @@ export default async function Home() {
           {content.settings.introSupporting && (
             <p>{content.settings.introSupporting}</p>
           )}
-          <ButtonLink href="/about" tone="teal">
+          <ButtonLink href="/about" tone="red">
             Learn more about ADS
           </ButtonLink>
         </div>
@@ -347,9 +349,6 @@ export default async function Home() {
               <DepartmentCard key={department.slug} department={department} />
             ))}
           </div>
-          <p className="department-note">
-            <span>↳</span> Each a little different. Better together.
-          </p>
         </div>
       </section>
       <section id="faq" className="section container faq-section">

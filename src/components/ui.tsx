@@ -6,7 +6,7 @@ import { activityHref, formatDate, isUpcoming, safeEmail } from "@/lib/utils";
 import { AdsMark, Arrow, CalendarIcon, LocationIcon, MailIcon, Spark } from "./icons";
 import { SocialIcons } from "./social-icons";
 
-type ButtonTone = "blue" | "teal" | "yellow" | "orange";
+type ButtonTone = "blue" | "teal" | "yellow" | "orange" | "red";
 
 export function Eyebrow({
   children,
