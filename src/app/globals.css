@@ -3466,6 +3466,10 @@ a.footer-contact-row:hover {
     margin-inline: 0;
   }
 
+  .hero h1>.hero-line-two {
+    margin-left: clamp(24px, 7vw, 34px);
+  }
+
   .hero-title-icons {
     display: none;
   }
