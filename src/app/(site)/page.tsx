@@ -47,6 +47,15 @@ export default async function Home() {
   return (
     <>
       <section className="hero container">
+        <div className="hero-background-design" aria-hidden="true">
+          <span className="hero-bg-circle hero-bg-circle-top-left" />
+          <span className="hero-bg-circle hero-bg-circle-top-right" />
+          <svg className="hero-bg-contours hero-bg-contours-top" viewBox="0 0 620 410">
+            <path d="M170-32C119 28 65 83 76 141c13 68 122 43 205 46 94 3 130 30 147 96 14 56 52 84 126 96" />
+            <path d="M244-39C189 25 119 89 131 125c13 40 109 9 211 26 117 20 119 81 146 145 19 45 56 67 118 73" />
+            <path d="M312-35C259 21 178 83 185 109c8 30 113-1 222 35 111 37 93 116 150 171 20 20 42 32 68 38" />
+          </svg>
+        </div>
         <div className="hero-copy">
           <h1>
             <span className="hero-line-one">Agustinian</span>
@@ -135,6 +144,14 @@ export default async function Home() {
       </section>
       <ValuesMarquee />
       <section className="section container about-preview">
+        <div className="about-background-design" aria-hidden="true">
+          <span className="about-bg-circle about-bg-circle-lower-left" />
+          <svg className="about-bg-contours about-bg-contours-lower-right" viewBox="0 0 420 360">
+            <path d="M62 390c-38-93-22-159 52-204 65-40 126-16 198-71 49-38 78-83 98-135" />
+            <path d="M119 390c-37-79-19-134 45-171 62-35 117-13 177-61 43-34 68-75 86-123" />
+            <path d="M176 390c-33-65-14-108 39-137 56-31 104-10 154-51 35-29 56-64 72-105" />
+          </svg>
+        </div>
         <div className="about-image-wrap">
           <div className="photo-frame">
             <div className="about-photo">
@@ -188,6 +205,11 @@ export default async function Home() {
         className="mission-vision-section"
         aria-label="Mission and vision"
       >
+        <div className="mission-vision-shapes" aria-hidden="true">
+          <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" /></svg>
+          <svg viewBox="0 0 100 100"><rect x="10" y="10" width="80" height="80" /></svg>
+          <svg viewBox="0 0 100 100"><polygon points="50,8 92,90 8,90" /></svg>
+        </div>
         <div className="section-boundary-label">
           <Eyebrow>What Guides Us</Eyebrow>
         </div>
@@ -293,6 +315,21 @@ export default async function Home() {
         )}
       </section>
       <section className="team-preview section">
+        <div className="executives-shapes" aria-hidden="true">
+          <svg viewBox="0 0 100 100">
+            <polygon points="50,5 61,35 94,36 68,56 77,89 50,70 23,89 32,56 6,36 39,35" />
+          </svg>
+          <svg viewBox="0 0 100 100">
+            <polygon points="50,5 61,31 89,18 69,42 96,50 69,58 89,82 61,69 50,95 39,69 11,82 31,58 4,50 31,42 11,18 39,31" />
+          </svg>
+          <svg viewBox="0 0 100 100">
+            <path d="M50 6 61 28 85 15 72 39 96 50 72 61 85 85 61 72 50 94 39 72 15 85 28 61 4 50 28 39 15 15 39 28Z" />
+            <circle cx="50" cy="50" r="22" />
+          </svg>
+          <svg viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" />
+          </svg>
+        </div>
         <div className="section-boundary-label">
           <Eyebrow>The people behind ADS</Eyebrow>
         </div>
