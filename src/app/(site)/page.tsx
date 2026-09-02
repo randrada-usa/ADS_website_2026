@@ -177,10 +177,9 @@ export default async function Home() {
           {content.settings.introSupporting && (
             <p>{content.settings.introSupporting}</p>
           )}
-          <Link href="/about" className="text-link">
-            learn more about ADS
-            <Arrow diagonal />
-          </Link>
+          <ButtonLink href="/about" tone="teal">
+            Learn more about ADS
+          </ButtonLink>
         </div>
       </section>
       <section
@@ -257,7 +256,7 @@ export default async function Home() {
           href="/events"
           linkText="Explore events"
           linkAsButton
-          linkTone="yellow"
+          linkTone="blue"
         />
         {events.length ? (
           <div className="events-home-grid">

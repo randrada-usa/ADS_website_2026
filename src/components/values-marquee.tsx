@@ -1,10 +1,11 @@
 import { Spark } from "./icons";
 
 const values = [
-  "Curiosity meets community.",
-  "Ideas become impact.",
-  "Augustinian at heart.",
+  "CARITAS",
+  "VERITAS",
+  "UNITAS",
 ];
+const loopValues = Array.from({ length: 12 }, () => values).flat();
 
 export function ValuesMarquee() {
   return (
@@ -17,8 +18,8 @@ export function ValuesMarquee() {
               key={copy}
               aria-hidden={copy === 1 ? true : undefined}
             >
-              {values.map((value) => (
-                <span className="values-item" key={value}>
+              {loopValues.map((value, index) => (
+                <span className="values-item" key={`${value}-${index}`}>
                   {value}
                   <Spark />
                 </span>
