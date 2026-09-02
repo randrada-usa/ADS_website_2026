@@ -410,27 +410,30 @@ button:disabled {
   }
 
   .mobile-menu {
-    /* Phones and tablets share a compact, separate dropdown. */
-    display: grid;
-    grid-template-rows: 0fr;
+    /* Match the pill at every compact breakpoint with a quiet fade. */
+    display: block;
     position: absolute;
     top: calc(100% + 9px);
     right: -1px;
-    width: 360px;
-    max-width: calc(100% + 2px);
+    left: -1px;
+    z-index: 0;
+    width: auto;
+    max-width: none;
     border: 1px solid var(--ink);
     border-radius: 18px;
     background: var(--mobile-nav-surface);
     box-shadow: 0 1px 0 var(--ink);
+    overflow: clip;
+    opacity: 0;
     visibility: hidden;
     pointer-events: none;
     transition:
-      grid-template-rows var(--nav-duration) var(--nav-easing),
-      visibility 0s var(--nav-duration);
+      opacity 220ms ease,
+      visibility 0s 220ms;
   }
 
   .site-header.is-menu-open .mobile-menu {
-    grid-template-rows: 1fr;
+    opacity: 1;
     visibility: visible;
     pointer-events: auto;
     transition-delay: 0s;
@@ -447,16 +450,6 @@ button:disabled {
     overflow-y: auto;
     overscroll-behavior: contain;
     padding: 8px 22px 20px;
-    opacity: 0;
-    transform: translateY(-8px);
-    transition:
-      opacity 180ms ease,
-      transform var(--nav-duration) var(--nav-easing);
-  }
-
-  .site-header.is-menu-open .mobile-menu-content {
-    opacity: 1;
-    transform: translateY(0);
   }
 
   .mobile-menu-content>a {
