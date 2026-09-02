@@ -29,6 +29,10 @@ export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
   const path = usePathname() || "/";
   const [open, setOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
+  const scrollPageToTop = () => {
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  };
   const scrolled = useSyncExternalStore(
     subscribeToScroll,
     isScrolled,
@@ -94,6 +98,8 @@ export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
           className="brand"
           aria-label="Augustinian Developer Society home"
           onClick={() => setOpen(false)}
+          onNavigate={scrollPageToTop}
+          scroll={false}
         >
           <Image
             src="/brand/ads.svg"
@@ -110,6 +116,8 @@ export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
               href={href}
               className={path.startsWith(href) ? "active" : ""}
               aria-current={path.startsWith(href) ? "page" : undefined}
+              onNavigate={scrollPageToTop}
+              scroll={false}
             >
               {title}
             </Link>
@@ -146,6 +154,8 @@ export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
                   href={href}
                   aria-current={path === href ? "page" : undefined}
                   onClick={() => setOpen(false)}
+                  onNavigate={href.startsWith("/") ? scrollPageToTop : undefined}
+                  scroll={href.startsWith("/") ? false : undefined}
                 >
                   {title}
                   <Arrow diagonal />
