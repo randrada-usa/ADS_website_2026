@@ -291,6 +291,11 @@ export default async function Home() {
         ) : (
           <EmptyState>New events and recaps will appear here.</EmptyState>
         )}
+        <div className="responsive-section-action">
+          <ButtonLink href="/events" tone="blue">
+            Explore events
+          </ButtonLink>
+        </div>
       </section>
       <section className="team-preview section">
         <div className="section-boundary-label">
@@ -326,6 +331,11 @@ export default async function Home() {
           ) : (
             <EmptyState>Meet our leadership here soon.</EmptyState>
           )}
+          <div className="responsive-section-action">
+            <ButtonLink href="/team" tone="teal">
+              Meet the team
+            </ButtonLink>
+          </div>
         </div>
       </section>
       <section className="department-section section">
@@ -355,7 +365,7 @@ export default async function Home() {
         <div className="section-boundary-label">
           <Eyebrow>A little more about us</Eyebrow>
         </div>
-        <div>
+        <div className="faq-heading">
           <h2>
             Curious?
             <br />

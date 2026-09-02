@@ -1301,6 +1301,12 @@ button:disabled {
   }
 }
 
+@media (min-width: 651px) {
+  .faq-heading {
+    align-self: center;
+  }
+}
+
 @media (max-width: 850px) {
   .initiative-home-section {
     padding-block: 90px;
@@ -1686,6 +1692,10 @@ button:disabled {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(28px, 4vw, 58px);
   margin-top: 12px;
+}
+
+.responsive-section-action {
+  display: none;
 }
 
 .event-feature-card {
@@ -4414,6 +4424,38 @@ a.social-icon:hover {
 .website main section:nth-of-type(5n):not(.hero):not(.values-strip) {
   --section-orb-from: #3c6597;
   --section-orb-to: #9271bc;
+}
+
+@media (max-width: 850px) {
+  .about-copy,
+  .events-home-section .section-heading>div,
+  .team-preview .section-heading>div,
+  .faq-heading,
+  .mission-vision-section .statement-copy {
+    text-align: center;
+  }
+
+  .about-copy>p,
+  .faq-heading>p {
+    margin-inline: auto;
+  }
+
+  .events-home-section .section-heading,
+  .team-preview .section-heading {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .events-home-section .section-heading>.button,
+  .team-preview .section-heading>.button {
+    display: none;
+  }
+
+  .responsive-section-action {
+    display: flex;
+    justify-content: center;
+    margin-top: 48px;
+  }
 }
 
 @media (max-width: 850px) {
