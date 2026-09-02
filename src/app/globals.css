@@ -657,7 +657,7 @@ button:disabled {
 }
 
 .about-copy .button,
-.initiative-showcase-copy .button,
+.initiative-showcase-controls .button,
 .section-heading .button {
   gap: 18px;
   padding: 12px 18px;
@@ -1159,15 +1159,29 @@ button:disabled {
 .initiative-showcase {
   display: grid;
   grid-template-columns: minmax(0, 0.88fr) minmax(420px, 1.12fr);
+  grid-template-areas:
+    "copy media"
+    "controls media";
+  grid-template-rows: auto auto;
   align-items: center;
-  gap: clamp(55px, 7vw, 100px);
+  column-gap: clamp(55px, 7vw, 100px);
+  row-gap: 0;
   min-height: 520px;
 }
 
 .initiative-showcase-copy {
+  grid-area: copy;
   position: relative;
   z-index: 2;
+  align-self: end;
   animation: initiative-copy-in 360ms ease both;
+}
+
+.initiative-showcase-controls {
+  grid-area: controls;
+  position: relative;
+  z-index: 2;
+  align-self: start;
 }
 
 .initiative-showcase-copy h3 {
@@ -1225,6 +1239,7 @@ button:disabled {
 }
 
 .initiative-showcase-media {
+  grid-area: media;
   position: relative;
   min-width: 0;
   height: 455px;
@@ -1293,17 +1308,57 @@ button:disabled {
 
   .initiative-showcase {
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "copy"
+      "media"
+      "controls";
+    grid-template-rows: auto;
     gap: 45px;
   }
 
   .initiative-showcase-copy {
     max-width: 650px;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .initiative-showcase-copy h3,
+  .initiative-showcase-copy>p {
+    margin-inline: auto;
+  }
+
+  .initiative-showcase-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .initiative-showcase-controls .initiative-switcher {
+    width: min(92%, 520px);
   }
 
   .initiative-showcase-media {
     width: min(100%, 680px);
     height: 420px;
     margin-inline: auto;
+  }
+}
+
+@media (min-width: 651px) and (max-width: 850px) {
+  .initiative-showcase-controls .initiative-switcher {
+    width: max-content;
+    max-width: 92%;
+  }
+
+  .initiative-switcher button {
+    grid-template-columns: 24px auto;
+    width: 100%;
+    text-align: left;
+  }
+
+  .initiative-switcher button:hover,
+  .initiative-switcher button.selected {
+    transform: none;
   }
 }
 
@@ -1331,8 +1386,31 @@ button:disabled {
     margin-top: 34px;
   }
 
+  .initiative-showcase-controls {
+    align-items: flex-end;
+  }
+
+  .initiative-showcase-controls .initiative-switcher {
+    margin-left: auto;
+  }
+
   .initiative-switcher button {
+    grid-template-columns: minmax(0, 1fr) 34px;
+    justify-items: end;
+    border-right: 2px solid var(--line);
+    border-left: 0;
+    text-align: right;
     font-size: 10px;
+  }
+
+  .initiative-switcher button span {
+    order: 2;
+  }
+
+  .initiative-switcher button:hover,
+  .initiative-switcher button.selected {
+    border-right-color: var(--blue);
+    transform: translateX(-5px);
   }
 
   .initiative-showcase-media {
@@ -3283,7 +3361,7 @@ a.footer-contact-row:hover {
   }
 
   .about-copy .button,
-  .initiative-showcase-copy .button,
+  .initiative-showcase-controls .button,
   .section-heading .button {
     gap: 13px;
     padding: 12px 15px;
@@ -3419,7 +3497,7 @@ a.footer-contact-row:hover {
   }
 
   .about-copy .button,
-  .initiative-showcase-copy .button,
+  .initiative-showcase-controls .button,
   .section-heading .button {
     gap: 13px;
     padding: 13px 17px;
@@ -4004,7 +4082,7 @@ a.footer-contact-row:hover {
   }
 
   .about-copy .button,
-  .initiative-showcase-copy .button,
+  .initiative-showcase-controls .button,
   .section-heading .button {
     gap: 20px;
     padding: 12px 22px;
