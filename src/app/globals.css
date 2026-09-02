@@ -654,6 +654,33 @@ button:disabled {
   background: #315887;
 }
 
+.button-orange {
+  color: white;
+  background: #a95638;
+}
+
+.button-orange:hover {
+  background: #91482f;
+}
+
+.button-yellow {
+  color: white;
+  background: #8f691f;
+}
+
+.button-yellow:hover {
+  background: #785719;
+}
+
+.button-teal {
+  color: white;
+  background: #397f73;
+}
+
+.button-teal:hover {
+  background: #2f6b61;
+}
+
 .button-secondary,
 .button-white {
   color: var(--ink);

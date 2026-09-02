@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useState, type CSSProperties } from "react";
-import { Arrow, Spark } from "./icons";
+import { Spark } from "./icons";
+import { ButtonLink } from "./ui";
 import { activityHref } from "@/lib/utils";
 import type { Activity } from "@/lib/types";
 
@@ -38,10 +38,9 @@ export function InitiativeShowcase({ activities }: { activities: Activity[] }) {
           <SplitTitle title={active.title} />
         </h3>
         <p>{active.summary}</p>
-        <Link className="text-link" href={activityHref(active)}>
+        <ButtonLink href={activityHref(active)} tone="orange">
           Explore this story
-          <Arrow diagonal />
-        </Link>
+        </ButtonLink>
         <div
           className="initiative-switcher"
           role="group"

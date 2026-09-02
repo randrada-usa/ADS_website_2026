@@ -5,6 +5,9 @@ import type { Activity, Department, Member, SiteSettings } from "@/lib/types";
 import { activityHref, formatDate, isUpcoming, safeEmail } from "@/lib/utils";
 import { AdsMark, Arrow, CalendarIcon, LocationIcon, MailIcon, Spark } from "./icons";
 import { SocialIcons } from "./social-icons";
+
+type ButtonTone = "blue" | "teal" | "yellow" | "orange";
+
 export function Eyebrow({
   children,
   className = "",
@@ -23,15 +26,17 @@ export function ButtonLink({
   href,
   children,
   secondary = false,
+  tone = "blue",
 }: {
   href: string;
   children: ReactNode;
   secondary?: boolean;
+  tone?: ButtonTone;
 }) {
   return (
     <Link
       href={href}
-      className={`button ${secondary ? "button-secondary" : ""}`}
+      className={`button${secondary ? " button-secondary" : ` button-${tone}`}`}
     >
       {children}
       <Arrow diagonal />
@@ -44,12 +49,16 @@ export function SectionHeading({
   description,
   href,
   linkText,
+  linkAsButton = false,
+  linkTone = "blue",
 }: {
   label?: string;
   title: ReactNode;
   description?: string;
   href?: string;
   linkText?: string;
+  linkAsButton?: boolean;
+  linkTone?: ButtonTone;
 }) {
   return (
     <div className="section-heading">
@@ -58,12 +67,17 @@ export function SectionHeading({
         <h2>{title}</h2>
         {description && <p>{description}</p>}
       </div>
-      {href && (
-        <Link className="text-link" href={href}>
-          {linkText || "Explore more"}
-          <Arrow diagonal />
-        </Link>
-      )}
+      {href &&
+        (linkAsButton ? (
+          <ButtonLink href={href} tone={linkTone}>
+            {linkText || "Explore more"}
+          </ButtonLink>
+        ) : (
+          <Link className="text-link" href={href}>
+            {linkText || "Explore more"}
+            <Arrow diagonal />
+          </Link>
+        ))}
     </div>
   );
 }

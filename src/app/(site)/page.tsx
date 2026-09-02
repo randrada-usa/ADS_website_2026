@@ -256,6 +256,8 @@ export default async function Home() {
           description="Upcoming experiences and moments worth looking back on."
           href="/events"
           linkText="Explore events"
+          linkAsButton
+          linkTone="yellow"
         />
         {events.length ? (
           <div className="events-home-grid">
@@ -303,6 +305,8 @@ export default async function Home() {
             }
             href="/team"
             linkText="Meet the team"
+            linkAsButton
+            linkTone="teal"
           />
           {members.length ? (
             <div className="member-grid">
