@@ -135,6 +135,9 @@ export default async function Home() {
       </section>
       <ValuesMarquee />
       <section className="section container about-preview">
+        <div className="about-mobile-label">
+          <Eyebrow>About Us</Eyebrow>
+        </div>
         <div className="about-image-wrap">
           <div className="photo-frame">
             <div className="about-photo">

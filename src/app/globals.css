@@ -1070,6 +1070,10 @@ button:disabled {
   align-items: center;
 }
 
+.about-mobile-label {
+  display: none;
+}
+
 .about-image-wrap {
   position: relative;
   padding: 15px 12px 10px 0;
@@ -3635,12 +3639,26 @@ a.footer-contact-row:hover {
 
   .about-preview {
     grid-template-columns: 1fr;
-    gap: 45px;
+    gap: 0;
+  }
+
+  .about-mobile-label {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .about-mobile-label .eyebrow {
+    margin-bottom: 0;
+  }
+
+  .about-copy>.eyebrow {
+    display: none;
   }
 
   .about-image-wrap {
     max-width: 440px;
-    margin: auto;
+    margin: 0 auto 45px;
     padding-inline: 10px;
     width: 100%;
   }
