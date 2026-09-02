@@ -2,8 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
 import type { Activity, Department, Member, SiteSettings } from "@/lib/types";
-import { activityHref, formatDate, safeEmail, safeUrl } from "@/lib/utils";
-import { AdsMark, Arrow, CalendarIcon, LocationIcon, Spark } from "./icons";
+import { activityHref, formatDate, isUpcoming, safeEmail } from "@/lib/utils";
+import { AdsMark, Arrow, CalendarIcon, LocationIcon, MailIcon, Spark } from "./icons";
+import { SocialIcons } from "./social-icons";
 export function Eyebrow({
   children,
   className = "",
