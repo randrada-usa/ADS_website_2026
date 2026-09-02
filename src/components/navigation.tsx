@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -28,6 +28,7 @@ const serverScrollSnapshot = () => false;
 export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
   const path = usePathname() || "/";
   const [open, setOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
   const scrolled = useSyncExternalStore(
     subscribeToScroll,
     isScrolled,
@@ -35,20 +36,52 @@ export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
   );
   useEffect(() => {
     if (!open) return;
-    const close = (event: KeyboardEvent) => {
+    const scrollPosition = window.scrollY;
+    const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setOpen(false);
         document.getElementById("menu-toggle")?.focus();
       }
     };
-    window.addEventListener("keydown", close);
-    return () => window.removeEventListener("keydown", close);
+    const closeOnOutsidePress = (event: PointerEvent) => {
+      if (!navRef.current?.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    };
+    const closeOnPageScroll = () => {
+      if (window.scrollY !== scrollPosition) {
+        setOpen(false);
+      }
+    };
+    const closeOnOutsideScrollIntent = (event: Event) => {
+      if (!navRef.current?.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", closeOnEscape);
+    document.addEventListener("pointerdown", closeOnOutsidePress, true);
+    window.addEventListener("scroll", closeOnPageScroll, { passive: true });
+    window.addEventListener("wheel", closeOnOutsideScrollIntent, {
+      passive: true,
+    });
+    window.addEventListener("touchmove", closeOnOutsideScrollIntent, {
+      passive: true,
+    });
+
+    return () => {
+      window.removeEventListener("keydown", closeOnEscape);
+      document.removeEventListener("pointerdown", closeOnOutsidePress, true);
+      window.removeEventListener("scroll", closeOnPageScroll);
+      window.removeEventListener("wheel", closeOnOutsideScrollIntent);
+      window.removeEventListener("touchmove", closeOnOutsideScrollIntent);
+    };
   }, [open]);
   return (
     <header
       className={`site-header${scrolled ? " is-scrolled" : ""}${open ? " is-menu-open" : ""}`}
     >
-      <nav className="nav-shell" aria-label="Main navigation">
+      <nav ref={navRef} className="nav-shell" aria-label="Main navigation">
         <Link
           href="/"
           className="brand"
