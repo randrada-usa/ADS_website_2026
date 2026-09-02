@@ -58,15 +58,57 @@ export function AmbientMotion() {
       }
     });
 
+    const departmentGrids = Array.from(
+      document.querySelectorAll<HTMLElement>(".departments-grid")
+    );
+
+    departmentGrids.forEach((grid) => {
+      Array.from(grid.children).forEach((card) => {
+        card.setAttribute("data-reveal", "");
+      });
+    });
+
+    const resetFrames: number[] = [];
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          const isDepartmentGrid = entry.target.matches(".departments-grid");
+          const revealTargets = isDepartmentGrid
+            ? Array.from(entry.target.children)
+            : [entry.target];
+
           if (entry.isIntersecting) {
-            entry.target.setAttribute("data-revealed", "true");
-            entry.target.classList.add("is-revealed");
+            if (isDepartmentGrid) {
+              entry.target.setAttribute(
+                "data-reveal-direction",
+                entry.boundingClientRect.top < 0 ? "reverse" : "forward"
+              );
+            }
+
+            revealTargets.forEach((target) => {
+              target.setAttribute("data-revealed", "true");
+              target.classList.add("is-revealed");
+            });
           } else {
-            entry.target.removeAttribute("data-revealed");
-            entry.target.classList.remove("is-revealed");
+            if (isDepartmentGrid) {
+              entry.target.setAttribute("data-reveal-resetting", "true");
+            }
+
+            revealTargets.forEach((target) => {
+              target.removeAttribute("data-revealed");
+              target.classList.remove("is-revealed");
+            });
+
+            if (isDepartmentGrid) {
+              const firstFrame = window.requestAnimationFrame(() => {
+                const secondFrame = window.requestAnimationFrame(() => {
+                  entry.target.removeAttribute("data-reveal-resetting");
+                });
+                resetFrames.push(secondFrame);
+              });
+              resetFrames.push(firstFrame);
+            }
           }
         });
       },
@@ -78,10 +120,12 @@ export function AmbientMotion() {
     );
 
     elements.forEach((el) => observer.observe(el));
+    departmentGrids.forEach((grid) => observer.observe(grid));
 
     return () => {
       media.revert();
       observer.disconnect();
+      resetFrames.forEach((frame) => window.cancelAnimationFrame(frame));
     };
   }, [pathname]);
 
