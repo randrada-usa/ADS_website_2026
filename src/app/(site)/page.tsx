@@ -187,6 +187,9 @@ export default async function Home() {
         className="mission-vision-section"
         aria-label="Mission and vision"
       >
+        <div className="section-boundary-label">
+          <Eyebrow>What Guides Us</Eyebrow>
+        </div>
         <div className="container values-cards statement-cards">
           <article>
             <div className="statement-tab">

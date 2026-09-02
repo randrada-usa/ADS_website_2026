@@ -2090,7 +2090,7 @@ a.footer-contact-row:hover {
 }
 
 @media (min-width: 701px) and (max-width: 1000px) {
-  .footer-grid > .footer-column {
+  .footer-grid>.footer-column {
     width: fit-content;
     max-width: 100%;
     justify-self: center;
@@ -3986,9 +3986,24 @@ a.social-icon:hover {
 }
 
 .mission-vision-section {
-  padding-block: 28px;
+  padding-block: 80px;
   border-block: 1px solid var(--line);
   background: #fffdf5;
+}
+
+.mission-vision-section .statement-cards {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.mission-vision-section .statement-cards article {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.mission-vision-section .statement-copy {
+  flex: 1;
 }
 
 .mission-vision-section h2 {
@@ -4067,13 +4082,12 @@ a.social-icon:hover {
   position: absolute;
   z-index: 3;
   top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
+  left: 50%;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translateY(-50%);
+  transform: translate(-50%, -50%);
   white-space: nowrap;
   pointer-events: none;
 }
@@ -4159,7 +4173,11 @@ a.social-icon:hover {
   }
 
   .mission-vision-section {
-    padding-block: 50px;
+    padding-block: 100px;
+  }
+
+  .mission-vision-section .statement-cards {
+    grid-template-columns: 1fr;
   }
 
 }
@@ -4209,8 +4227,9 @@ a.social-icon:hover {
 
 .journey-section {
   position: relative;
-  overflow: hidden;
-  padding-top: 16px;
+  overflow-x: clip;
+  overflow-y: visible;
+  padding-top: 64px;
   padding-bottom: 60px;
   background-image:
     linear-gradient(#516b7d0a 1px, transparent 1px),
@@ -4572,6 +4591,10 @@ a.social-icon:hover {
     transform: translateY(0);
   }
 
+  .js-motion-ready .mission-vision-section .statement-cards>article[data-reveal] {
+    transition-delay: 0ms;
+  }
+
   .js-motion-ready .department-card[data-reveal] {
     opacity: 0;
     translate: 0 28px;
@@ -4598,8 +4621,7 @@ a.social-icon:hover {
     transform: translateY(-4px) rotate(var(--card-tilt, -2deg));
   }
 
-  .js-motion-ready .departments-grid[data-reveal-resetting="true"]
-    > .department-card[data-reveal] {
+  .js-motion-ready .departments-grid[data-reveal-resetting="true"]>.department-card[data-reveal] {
     transition: none;
   }
 

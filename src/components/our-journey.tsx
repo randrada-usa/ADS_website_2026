@@ -87,9 +87,11 @@ const MILESTONES: JourneyMilestone[] = [
 export function OurJourney() {
   return (
     <section className="journey-section" id="our-journey" aria-label="Our Journey">
+      <div className="section-boundary-label">
+        <Eyebrow>Milestones &amp; History</Eyebrow>
+      </div>
       <div className="container">
         <div className="journey-header">
-          <Eyebrow>Milestones &amp; History</Eyebrow>
           <h2 className="journey-title">
             <span className="gradient-text">Our Journey</span>
           </h2>

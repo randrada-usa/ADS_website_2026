@@ -48,6 +48,11 @@ export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
         setOpen(false);
       }
     };
+    const closeOnOutsideFocus = (event: FocusEvent) => {
+      if (!navRef.current?.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    };
     const closeOnPageScroll = () => {
       if (window.scrollY !== scrollPosition) {
         setOpen(false);
@@ -61,6 +66,7 @@ export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
 
     window.addEventListener("keydown", closeOnEscape);
     document.addEventListener("pointerdown", closeOnOutsidePress, true);
+    document.addEventListener("focusin", closeOnOutsideFocus);
     window.addEventListener("scroll", closeOnPageScroll, { passive: true });
     window.addEventListener("wheel", closeOnOutsideScrollIntent, {
       passive: true,
@@ -72,6 +78,7 @@ export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
     return () => {
       window.removeEventListener("keydown", closeOnEscape);
       document.removeEventListener("pointerdown", closeOnOutsidePress, true);
+      document.removeEventListener("focusin", closeOnOutsideFocus);
       window.removeEventListener("scroll", closeOnPageScroll);
       window.removeEventListener("wheel", closeOnOutsideScrollIntent);
       window.removeEventListener("touchmove", closeOnOutsideScrollIntent);
