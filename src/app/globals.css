@@ -1948,10 +1948,11 @@ button:disabled {
 .site-footer::after {
   width: 420px;
   height: 220px;
-  right: 8%;
-  bottom: -185px;
+  top: 50%;
+  right: -330px;
+  bottom: auto;
   border: 34px solid color-mix(in srgb, var(--blue) 90%, white);
-  transform: rotate(-8deg);
+  transform: translateY(-50%) rotate(-8deg);
 }
 
 .footer-shell {
@@ -2221,8 +2222,7 @@ a.footer-contact-row:hover {
   .site-footer::after {
     width: 260px;
     height: 150px;
-    right: -80px;
-    bottom: -125px;
+    right: -195px;
     border-width: 24px;
   }
 
