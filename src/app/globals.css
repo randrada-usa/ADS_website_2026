@@ -1872,9 +1872,10 @@ button:disabled {
 }
 .footer-brand-lockup {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 22px;
+  gap: 12px;
 }
 .footer-brand-lockup img {
   width: 88px;
@@ -2059,6 +2060,14 @@ a.footer-contact-row:hover {
   }
   .footer-contact {
     grid-column: auto;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1000px) {
+  .footer-grid > .footer-column {
+    width: fit-content;
+    max-width: 100%;
+    justify-self: center;
   }
 }
 
