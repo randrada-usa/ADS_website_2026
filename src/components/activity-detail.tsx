@@ -1,9 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 import { PortableText } from "@portabletext/react";
 import type { Activity, SiteContent } from "@/lib/types";
 import { formatDate, safeUrl } from "@/lib/utils";
-import { ActivityCard, SectionHeading } from "./ui";
+import { ActivityCard, BackButton, SectionHeading } from "./ui";
+
 export function ActivityDetail({
   activity,
   content,
@@ -14,16 +14,18 @@ export function ActivityDetail({
   const related = content.activities.filter((item) =>
     activity.related?.includes(item._id),
   );
+  const fallbackHref = activity.kind === "event" ? "/events" : "/initiatives";
+  const labelText = `All ${activity.kind === "event" ? "events" : "initiatives"}`;
   return (
     <>
       <section className="container detail-intro">
-        <Link
-          href={activity.kind === "event" ? "/events" : "/initiatives"}
-          className="back-link"
-        >
-          ← All {activity.kind === "event" ? "events" : "initiatives"}
-        </Link>
+        <div className="page-intro-back">
+          <BackButton fallbackHref={fallbackHref}>
+            {labelText}
+          </BackButton>
+        </div>
         <div className="card-meta">
+
           <span className="category">{activity.category}</span>
           {activity.demo && (
             <span className="demo-label">

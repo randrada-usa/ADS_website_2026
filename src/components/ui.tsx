@@ -5,6 +5,10 @@ import type { Activity, Department, Member, SiteSettings } from "@/lib/types";
 import { activityHref, formatDate, isUpcoming, safeEmail } from "@/lib/utils";
 import { AdsMark, Arrow, CalendarIcon, LocationIcon, MailIcon, Spark } from "./icons";
 import { SocialIcons } from "./social-icons";
+import { BackButton } from "./back-button";
+
+export { BackButton };
+
 
 type ButtonTone = "blue" | "teal" | "yellow" | "orange" | "red";
 
@@ -212,14 +216,25 @@ export function PageIntro({
   title,
   description,
   children,
+  showBack = true,
+  backHref = "/",
+  backLabel = "Back",
 }: {
   label: string;
   title: ReactNode;
   description?: string;
   children?: ReactNode;
+  showBack?: boolean;
+  backHref?: string;
+  backLabel?: string;
 }) {
   return (
     <section className="page-intro container">
+      {showBack && (
+        <div className="page-intro-back">
+          <BackButton fallbackHref={backHref}>{backLabel}</BackButton>
+        </div>
+      )}
       <Eyebrow>{label}</Eyebrow>
       <h1>{title}</h1>
       {description && <p>{description}</p>}
@@ -228,6 +243,7 @@ export function PageIntro({
     </section>
   );
 }
+
 export function EmptyState({ children }: { children: ReactNode }) {
   return (
     <div className="empty-state">
