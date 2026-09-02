@@ -4350,15 +4350,15 @@ a.social-icon:hover {
   content: "";
   position: absolute;
   z-index: 0;
-  top: 14%;
-  right: calc(var(--section-orb-size) * -0.42);
+  top: 50%;
+  right: calc(var(--section-orb-size) * -0.78);
   width: var(--section-orb-size);
   aspect-ratio: 1;
   border-radius: 50%;
   background: linear-gradient(135deg,
       var(--section-orb-from),
       var(--section-orb-to));
-  opacity: 0.72;
+  opacity: 0.58;
   pointer-events: none;
 }
 
@@ -4405,10 +4405,10 @@ a.social-icon:hover {
 }
 
 .website main section:nth-of-type(2n):not(.hero):not(.values-strip)::before {
-  top: auto;
+  top: 50%;
   right: auto;
-  bottom: 12%;
-  left: calc(var(--section-orb-size) * -0.38);
+  bottom: auto;
+  left: calc(var(--section-orb-size) * -0.78);
 }
 
 .website main section:nth-of-type(3n):not(.hero):not(.values-strip) {
