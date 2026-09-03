@@ -289,9 +289,10 @@ button:disabled {
   width: 258px;
   padding-top: 5px;
   border: 1px solid var(--ink);
+  border-bottom-width: 4px;
   border-radius: 14px;
   background: var(--paper);
-  box-shadow: 7px 8px 0 color-mix(in srgb, var(--blue) 18%, transparent);
+  box-shadow: none;
   overflow: hidden;
   opacity: 0;
   visibility: hidden;
@@ -430,6 +431,13 @@ button:disabled {
     min-height: 64px;
     grid-template-columns: minmax(0, 1fr) auto;
     padding: 6px 20px;
+  }
+
+  .brand {
+    width: 48px;
+    min-width: 48px;
+    min-height: 48px;
+    justify-content: center;
   }
 
   .site-header .nav-shell {
@@ -594,7 +602,7 @@ button:disabled {
   }
 
   .mobile-home-trigger.active {
-    color: var(--blue);
+    color: var(--ink);
     font-weight: 600;
   }
 
@@ -628,6 +636,10 @@ button:disabled {
       background 180ms ease,
       color 180ms ease,
       padding-left 180ms ease;
+  }
+
+  .mobile-home-list a:first-child {
+    margin-top: 12px;
   }
 
   .mobile-home-list a:nth-child(5n + 2) {
