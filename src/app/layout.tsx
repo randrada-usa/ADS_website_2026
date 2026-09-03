@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/space-grotesk";
 import "@fontsource-variable/dm-sans";
 import "./globals.css";
-const siteName = "Agustinian Developer Society - USA";
+const siteName = "Augustinian Developer Society - USA";
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   icons: { icon: "/brand/ads.svg" },
   robots:
     process.env.NEXT_PUBLIC_SANITY_PROJECT_ID &&
-    process.env.NEXT_PUBLIC_SANITY_DATASET
+      process.env.NEXT_PUBLIC_SANITY_DATASET
       ? undefined
       : { index: false, follow: false },
   openGraph: {

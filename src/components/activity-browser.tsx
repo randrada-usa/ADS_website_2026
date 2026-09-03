@@ -9,7 +9,7 @@ export function ActivityBrowser({
   now,
 }: {
   activities: Activity[];
-  kind: "event" | "initiative";
+  kind: "event" | "initiative" | "all";
   now: number;
 }) {
   const [category, setCategory] = useState("All");
@@ -18,12 +18,23 @@ export function ActivityBrowser({
     "All",
     ...new Set(activities.map((item) => item.category).filter(Boolean)),
   ];
-  const filtered = activities.filter(
-    (item) =>
-      (category === "All" || item.category === category) &&
-      (time === "All" ||
-        (time === "Upcoming" ? isUpcoming(item, now) : !isUpcoming(item, now))),
-  );
+  const events = activities.filter((item) => item.kind === "event");
+  const filtered = activities.filter((item) => {
+    const matchesCategory = category === "All" || item.category === category;
+    const matchesTime =
+      time === "All" ||
+      (item.kind === "event" &&
+        (time === "Upcoming"
+          ? isUpcoming(item, now)
+          : !isUpcoming(item, now)));
+
+    return matchesCategory && matchesTime;
+  });
+  const resultNoun =
+    kind === "all" ? "activity" : kind === "event" ? "event" : "initiative";
+  const emptyNoun = kind === "all" ? "activities" : `${resultNoun}s`;
+  const resultLabel = filtered.length === 1 ? resultNoun : emptyNoun;
+
   return (
     <div>
       {kind === "event" && (
@@ -43,7 +54,7 @@ export function ActivityBrowser({
               <span>
                 {value === "All"
                   ? activities.length
-                  : activities.filter((item) =>
+                  : events.filter((item) =>
                       value === "Upcoming"
                         ? isUpcoming(item, now)
                         : !isUpcoming(item, now),
@@ -66,8 +77,7 @@ export function ActivityBrowser({
         ))}
       </div>
       <p className="result-count" aria-live="polite">
-        {filtered.length} {kind === "event" ? "event" : "initiative"}
-        {filtered.length !== 1 ? "s" : ""}
+        {filtered.length} {resultLabel}
       </p>
       {filtered.length ? (
         <div className="activity-grid">
@@ -78,7 +88,7 @@ export function ActivityBrowser({
       ) : (
         <EmptyState>
           No {time === "Upcoming" ? "upcoming " : ""}
-          {kind === "event" ? "events" : "initiatives"} here yet.
+          {emptyNoun} here yet.
           {(category !== "All" || time !== "All") && (
             <button
               className="text-link reset-filters"

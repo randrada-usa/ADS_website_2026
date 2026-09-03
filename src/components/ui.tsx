@@ -271,7 +271,7 @@ export function Footer({
             <div className="footer-brand-lockup">
               <Image src="/brand/ads.svg" width={130} height={108} alt="" />
               <div>
-                <h2 id="footer-brand">Agustinian Developer Society</h2>
+                <h2 id="footer-brand">Augustinian Developer Society</h2>
                 <p>University of San Agustin</p>
               </div>
             </div>
@@ -285,7 +285,7 @@ export function Footer({
             <div className="footer-nav-links">
               <Link href="/about">About</Link>
               <Link href="/initiatives">What We Do</Link>
-              <Link href="/events">Events</Link>
+              <Link href="/initiatives#events">Events</Link>
               <Link href="/team">Team</Link>
               <Link href="/#faq">FAQ</Link>
             </div>
@@ -311,7 +311,7 @@ export function Footer({
             ) : (
               <div className="footer-events-empty">
                 <p>New experiences are always taking shape.</p>
-                <Link href="/events" className="text-link">
+                <Link href="/initiatives#events" className="text-link">
                   Explore events <Arrow diagonal />
                 </Link>
               </div>
@@ -342,7 +342,7 @@ export function Footer({
           </section>
         </div>
         <div className="footer-credits" aria-label="Website credits">
-          <span>© {new Date().getFullYear()} Agustinian Developer Society. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} Augustinian Developer Society. All rights reserved.</span>
           <span className="footer-credit-links">
             <a href="https://github.com/randrada-usa" target="_blank" rel="noreferrer">
               @randrada-usa

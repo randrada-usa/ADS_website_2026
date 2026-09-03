@@ -14,7 +14,8 @@ export function ActivityDetail({
   const related = content.activities.filter((item) =>
     activity.related?.includes(item._id),
   );
-  const fallbackHref = activity.kind === "event" ? "/events" : "/initiatives";
+  const fallbackHref =
+    activity.kind === "event" ? "/initiatives#events" : "/initiatives";
   const labelText = `All ${activity.kind === "event" ? "events" : "initiatives"}`;
   return (
     <>

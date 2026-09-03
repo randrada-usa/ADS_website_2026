@@ -59,7 +59,7 @@ export default async function Home() {
   const contactEmail = safeEmail(content.settings.email) || "ads@usa.edu.ph";
   return (
     <>
-      <section className="hero container">
+      <section id="home" className="hero container">
         <div className="hero-background-design" aria-hidden="true">
           <span className="hero-bg-circle hero-bg-circle-top-left" />
           <span className="hero-bg-circle hero-bg-circle-top-right" />
@@ -74,7 +74,7 @@ export default async function Home() {
         </div>
         <div className="hero-copy">
           <h1>
-            <span className="hero-line-one">Agustinian</span>
+            <span className="hero-line-one">Augustinian</span>
             <span className="hero-line-two">
               <span className="hero-line-offset" aria-hidden="true">
                 Ag
@@ -117,7 +117,7 @@ export default async function Home() {
             ))}
           </span>
           <div className="hero-actions">
-            <ButtonLink href="/initiatives">Explore our work</ButtonLink>
+            <ButtonLink href="/initiatives">Our work</ButtonLink>
             <ButtonLink href={`mailto:${contactEmail}`} secondary>
               Contact Us
             </ButtonLink>
@@ -159,7 +159,7 @@ export default async function Home() {
         </div>
       </section>
       <ValuesMarquee />
-      <section className="section container about-preview">
+      <section id="about-home" className="section container about-preview">
         <div className="about-background-design" aria-hidden="true">
           <span className="about-bg-circle about-bg-circle-lower-left" />
           <svg
@@ -221,6 +221,7 @@ export default async function Home() {
         </div>
       </section>
       <section
+        id="mission-vision"
         className="mission-vision-section"
         aria-label="Mission and vision"
       >
@@ -272,7 +273,10 @@ export default async function Home() {
         </div>
       </section>
       <OurJourney />
-      <section className="section container initiative-home-section">
+      <section
+        id="initiatives-home"
+        className="section container initiative-home-section"
+      >
         {initiatives.length ? (
           <>
             <div className="section-boundary-label">
@@ -284,7 +288,10 @@ export default async function Home() {
           <EmptyState>Our initiative stories are on their way.</EmptyState>
         )}
       </section>
-      <section className="section container events-home-section">
+      <section
+        id="events-home"
+        className="section container events-home-section"
+      >
         <div className="events-background-circles" aria-hidden="true">
           <span className="events-circle events-circle-top-right" />
           <span className="events-circle events-circle-top-satellite" />
@@ -298,7 +305,7 @@ export default async function Home() {
         <SectionHeading
           title="Where ideas come alive."
           description="Upcoming experiences and moments worth looking back on."
-          href="/events"
+          href="/initiatives#events"
           linkText="Explore events"
           linkAsButton
           linkTone="blue"
@@ -335,12 +342,12 @@ export default async function Home() {
           <EmptyState>New events and recaps will appear here.</EmptyState>
         )}
         <div className="responsive-section-action">
-          <ButtonLink href="/events" tone="blue">
+          <ButtonLink href="/initiatives#events" tone="blue">
             Explore events
           </ButtonLink>
         </div>
       </section>
-      <section className="team-preview section">
+      <section id="team-home" className="team-preview section">
         <div className="executives-shapes" aria-hidden="true">
           <svg viewBox="0 0 100 100">
             <polygon points="50,5 61,35 94,36 68,56 77,89 50,70 23,89 32,56 6,36 39,35" />
