@@ -46,7 +46,7 @@ export default async function Home() {
   const contactEmail = safeEmail(content.settings.email) || "ads@usa.edu.ph";
   return (
     <>
-      <section className="hero container">
+      <section id="home" className="hero container">
         <div className="hero-background-design" aria-hidden="true">
           <span className="hero-bg-circle hero-bg-circle-top-left" />
           <span className="hero-bg-circle hero-bg-circle-top-right" />
@@ -143,7 +143,7 @@ export default async function Home() {
         </div>
       </section>
       <ValuesMarquee />
-      <section className="section container about-preview">
+      <section id="about-home" className="section container about-preview">
         <div className="about-background-design" aria-hidden="true">
           <span className="about-bg-circle about-bg-circle-lower-left" />
           <svg className="about-bg-contours about-bg-contours-lower-right" viewBox="0 0 420 360">
@@ -205,6 +205,7 @@ export default async function Home() {
         </div>
       </section>
       <section
+        id="mission-vision"
         className="mission-vision-section"
         aria-label="Mission and vision"
       >
@@ -261,7 +262,10 @@ export default async function Home() {
         </div>
       </section>
       <OurJourney />
-      <section className="section container initiative-home-section">
+      <section
+        id="initiatives-home"
+        className="section container initiative-home-section"
+      >
         <svg className="section-outline initiative-small-outline initiative-small-triangle" viewBox="0 0 100 100" aria-hidden="true">
           <polygon points="50,12 88,86 12,86" />
         </svg>
@@ -279,7 +283,10 @@ export default async function Home() {
           <EmptyState>Our initiative stories are on their way.</EmptyState>
         )}
       </section>
-      <section className="section container events-home-section">
+      <section
+        id="events-home"
+        className="section container events-home-section"
+      >
         <div className="events-background-circles" aria-hidden="true">
           <span className="events-circle events-circle-top-right" />
           <span className="events-circle events-circle-top-satellite" />
@@ -335,7 +342,7 @@ export default async function Home() {
           </ButtonLink>
         </div>
       </section>
-      <section className="team-preview section">
+      <section id="team-home" className="team-preview section">
         <div className="executives-shapes" aria-hidden="true">
           <svg viewBox="0 0 100 100">
             <polygon points="50,5 61,35 94,36 68,56 77,89 50,70 23,89 32,56 6,36 39,35" />
