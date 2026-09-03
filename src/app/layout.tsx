@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/space-grotesk";
 import "@fontsource-variable/dm-sans";
 import "./globals.css";
+const siteName = "Agustinian Developer Society - USA";
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -9,8 +10,8 @@ export const viewport: Viewport = {
 };
 export const metadata: Metadata = {
   title: {
-    default: "Augustinian Developer Society — University of San Agustin",
-    template: "%s | Augustinian Developer Society",
+    default: siteName,
+    template: `%s | ${siteName}`,
   },
   description:
     "Meet the Augustinian Developer Society at the University of San Agustin. Explore our community, initiatives, events, and the people who make them happen.",
@@ -22,9 +23,9 @@ export const metadata: Metadata = {
       : { index: false, follow: false },
   openGraph: {
     type: "website",
-    siteName: "Augustinian Developer Society",
+    siteName,
     locale: "en_PH",
-    title: "Augustinian Developer Society",
+    title: siteName,
     description:
       "Curious minds. Shared purpose. A student community at the University of San Agustin.",
   },
