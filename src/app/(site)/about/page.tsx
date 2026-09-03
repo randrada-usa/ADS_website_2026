@@ -39,11 +39,6 @@ export default async function AboutPage() {
           <p className="large-copy">
             {content.settings.about || "Our story will be shared here soon."}
           </p>
-          {content.demo && (
-            <p className="editorial-note">
-              Draft organization copy · awaiting review
-            </p>
-          )}
           <ButtonLink href="/team" secondary>
             Meet the people
           </ButtonLink>

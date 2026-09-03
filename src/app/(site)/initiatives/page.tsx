@@ -19,11 +19,6 @@ export default async function InitiativesPage() {
         description="Outreach, shared experiences, and connections beyond campus. This is what putting our curiosity to work looks like."
       />
       <section className="container listing-section">
-        {content.demo && (
-          <p className="editorial-note">
-            Preview collection · sample initiative stories and stock photography
-          </p>
-        )}
         <ActivityBrowser
           activities={content.activities.filter(
             (item) => item.kind === "initiative",

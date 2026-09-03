@@ -10,7 +10,13 @@ import {
 export const metadata: Metadata = { title: "The Team" };
 export default async function TeamPage() {
   const content = await getContent();
-  const members = content.members.filter((item) => item.isLeadership);
+  const members = content.members
+    .filter((item) => item.isLeadership)
+    .sort(
+      (a, b) =>
+        Number(a.position.trim().toLowerCase() === "adviser") -
+        Number(b.position.trim().toLowerCase() === "adviser"),
+    );
   return (
     <>
       <PageIntro
@@ -25,11 +31,6 @@ export default async function TeamPage() {
         description="Meet the leadership bringing our community together and helping good ideas find their way."
       />
       <section className="container listing-section">
-        {content.demo && (
-          <p className="editorial-note">
-            Roster preview · portraits, names, and positions await confirmation
-          </p>
-        )}
         {members.length ? (
           <div className="member-grid">
             {members.map((member) => (

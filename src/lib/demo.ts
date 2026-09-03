@@ -63,6 +63,37 @@ export const departments: Department[] = [
   },
 ];
 
+const executiveOfficers = [
+  { name: "Glaiza Mae Salvaloza", position: "Chief Executive Officer" },
+  { name: "Rizza Mia Abogadil", position: "Co-Chief Executive Officer" },
+  { name: "Val Ryan Flores", position: "Executive Secretary" },
+  { name: "KC Labergue", position: "Assistant Executive Secretary" },
+  { name: "Juana Suzy A. Lobaton", position: "Adviser" },
+];
+
+const departmentHeads: Record<Department["slug"], { name: string; position: string }> = {
+  communications: {
+    name: "Gabriel Ferrera",
+    position: "Chief Communications Officer",
+  },
+  technology: {
+    name: "Justine Rendaje",
+    position: "Chief Technology Officer",
+  },
+  finance: {
+    name: "Arlyn Joy Aurelio",
+    position: "Chief Finance Officer",
+  },
+  legal: {
+    name: "Mary Tifanny Sumalde",
+    position: "Chief Legal Officer",
+  },
+  operations: {
+    name: "Centauri Alpha",
+    position: "Chief Operation Officer",
+  },
+};
+
 export const demoContent: SiteContent = {
   demo: true,
   settings: {
@@ -82,22 +113,20 @@ export const demoContent: SiteContent = {
   },
   departments,
   members: [
-    ...["President", "Vice President", "Secretary"].map((position, i) => ({
+    ...executiveOfficers.map((member, i) => ({
       _id: `board-${i}`,
-      name: "Name to be announced",
-      position,
+      ...member,
       isLeadership: true,
       order: i,
     })),
     ...departments.flatMap((dept, i) => [
       {
         _id: `${dept.slug}-head`,
-        name: "Name to be announced",
-        position: `${dept.name} Head`,
+        ...departmentHeads[dept.slug],
         department: dept.slug,
         isHead: true,
         isLeadership: true,
-        order: i + 3,
+        order: i + executiveOfficers.length,
       },
       ...Array.from({ length: 3 }, (_, j) => ({
         _id: `${dept.slug}-${j}`,
@@ -202,31 +231,31 @@ export const demoContent: SiteContent = {
       _id: "faq-1",
       question: "What is the Augustinian Developer Society?",
       answer:
-        "ADS is a student organization at the University of San Agustin, bringing together a community interested in technology, collaboration, and meaningful impact. This draft answer is awaiting review.",
+        "ADS is a student organization at the University of San Agustin, bringing together a community interested in technology, collaboration, and meaningful impact.",
     },
     {
       _id: "faq-2",
       question: "What does ADS do?",
       answer:
-        "Our activities include learning experiences, collaborative initiatives, outreach, and participation in the wider technology community. This draft answer is awaiting review.",
+        "Our activities include learning experiences, collaborative initiatives, outreach, and participation in the wider technology community.",
     },
     {
       _id: "faq-3",
       question: "What are the five departments?",
       answer:
-        "Communications, Technology, Finance, Legal, and Operations. Explore the department pages to see their responsibilities and the people behind them. This draft answer is awaiting review.",
+        "Communications, Technology, Finance, Legal, and Operations. Explore the department pages to see their responsibilities and the people behind them.",
     },
     {
       _id: "faq-4",
       question: "Where can I learn about your activities?",
       answer:
-        "Explore Initiatives for the stories behind our collective work, and Events for upcoming activities and recaps. This draft answer is awaiting review.",
+        "Explore Initiatives for the stories behind our collective work, and Events for upcoming activities and recaps.",
     },
     {
       _id: "faq-5",
       question: "How can I contact ADS?",
       answer:
-        "Our official email and social links will appear in the contact section once they have been verified. This draft answer is awaiting review.",
+        "Our official email and social links will appear in the contact section once they have been verified.",
     },
   ],
   featuredInitiatives: [

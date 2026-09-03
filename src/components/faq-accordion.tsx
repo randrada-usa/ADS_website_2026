@@ -5,13 +5,7 @@ import type { FAQ } from "@/lib/types";
 
 const accents = ["#3c6597", "#61ad9e", "#f2ba5e", "#e2815a", "#df5b5b"];
 
-export function FaqAccordion({
-  faqs,
-  demo,
-}: {
-  faqs: FAQ[];
-  demo: boolean;
-}) {
+export function FaqAccordion({ faqs }: { faqs: FAQ[] }) {
   const [openId, setOpenId] = useState<string | null>(faqs[0]?._id ?? null);
 
   return (
@@ -44,11 +38,6 @@ export function FaqAccordion({
             <div className="faq-answer-shell" aria-hidden={!isOpen}>
               <div>
                 <div className="faq-answer" id={answerId}>
-                  {demo && (
-                    <span className="demo-label">
-                      Draft answer · awaiting review
-                    </span>
-                  )}
                   <p>{faq.answer}</p>
                 </div>
               </div>

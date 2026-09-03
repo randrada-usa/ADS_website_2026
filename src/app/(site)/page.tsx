@@ -22,6 +22,13 @@ const featuredEventTitles: Record<string, string> = {
   "an-idea-worth-building": "Build for Community",
 };
 
+const homepageExecutivePositions = [
+  "Chief Executive Officer",
+  "Co-Chief Executive Officer",
+  "Executive Secretary",
+  "Assistant Executive Secretary",
+];
+
 export default async function Home() {
   const content = await getContent();
   const initiatives = content.featuredInitiatives
@@ -40,9 +47,15 @@ export default async function Home() {
     )
     .filter((item) => item != null)
     .slice(0, 3);
-  const members = content.members
-    .filter((member) => member.isLeadership)
-    .slice(0, 4);
+  const members = homepageExecutivePositions
+    .map((position) =>
+      content.members.find(
+        (member) =>
+          member.isLeadership &&
+          member.position.trim().toLowerCase() === position.toLowerCase(),
+      ),
+    )
+    .filter((member) => member != null);
   const contactEmail = safeEmail(content.settings.email) || "ads@usa.edu.ph";
   return (
     <>
@@ -50,7 +63,10 @@ export default async function Home() {
         <div className="hero-background-design" aria-hidden="true">
           <span className="hero-bg-circle hero-bg-circle-top-left" />
           <span className="hero-bg-circle hero-bg-circle-top-right" />
-          <svg className="hero-bg-contours hero-bg-contours-top" viewBox="0 0 620 410">
+          <svg
+            className="hero-bg-contours hero-bg-contours-top"
+            viewBox="0 0 620 410"
+          >
             <path d="M170-32C119 28 65 83 76 141c13 68 122 43 205 46 94 3 130 30 147 96 14 56 52 84 126 96" />
             <path d="M244-39C189 25 119 89 131 125c13 40 109 9 211 26 117 20 119 81 146 145 19 45 56 67 118 73" />
             <path d="M312-35C259 21 178 83 185 109c8 30 113-1 222 35 111 37 93 116 150 171 20 20 42 32 68 38" />
@@ -146,7 +162,10 @@ export default async function Home() {
       <section className="section container about-preview">
         <div className="about-background-design" aria-hidden="true">
           <span className="about-bg-circle about-bg-circle-lower-left" />
-          <svg className="about-bg-contours about-bg-contours-lower-right" viewBox="0 0 420 360">
+          <svg
+            className="about-bg-contours about-bg-contours-lower-right"
+            viewBox="0 0 420 360"
+          >
             <path d="M62 390c-38-93-22-159 52-204 65-40 126-16 198-71 49-38 78-83 98-135" />
             <path d="M119 390c-37-79-19-134 45-171 62-35 117-13 177-61 43-34 68-75 86-123" />
             <path d="M176 390c-33-65-14-108 39-137 56-31 104-10 154-51 35-29 56-64 72-105" />
@@ -174,9 +193,6 @@ export default async function Home() {
                 </div>
               )}
             </div>
-            {content.demo && (
-              <span className="photo-label">STOCK PHOTO · PLACEHOLDER</span>
-            )}
             <div className="photo-caption">
               <span>Good ideas start with good people.</span>
               <Spark />
@@ -208,11 +224,6 @@ export default async function Home() {
         className="mission-vision-section"
         aria-label="Mission and vision"
       >
-        <div className="mission-vision-shapes" aria-hidden="true">
-          <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" /></svg>
-          <svg viewBox="0 0 100 100"><rect x="10" y="10" width="80" height="80" /></svg>
-          <svg viewBox="0 0 100 100"><polygon points="50,8 92,90 8,90" /></svg>
-        </div>
         <div className="section-boundary-label">
           <Eyebrow>What Guides Us</Eyebrow>
         </div>
@@ -249,8 +260,8 @@ export default async function Home() {
             </div>
             <div className="statement-copy">
               <p>
-                We envision ourselves as a dynamic and distinguished community of
-                young developers, technologists, and innovators driven by
+                We envision ourselves as a dynamic and distinguished community
+                of young developers, technologists, and innovators driven by
                 excellence and deeply committed to uplifting lives, empowering
                 communities, and contributing to societal progress through
                 responsible, accessible, and impactful technology and
@@ -262,12 +273,6 @@ export default async function Home() {
       </section>
       <OurJourney />
       <section className="section container initiative-home-section">
-        <svg className="section-outline initiative-small-outline initiative-small-triangle" viewBox="0 0 100 100" aria-hidden="true">
-          <polygon points="50,12 88,86 12,86" />
-        </svg>
-        <svg className="section-outline initiative-small-outline initiative-small-cross" viewBox="0 0 100 100" aria-hidden="true">
-          <path d="M24 10 50 36 76 10 90 24 64 50 90 76 76 90 50 64 24 90 10 76 36 50 10 24Z" />
-        </svg>
         {initiatives.length ? (
           <>
             <div className="section-boundary-label">
@@ -393,12 +398,18 @@ export default async function Home() {
       </section>
       <section id="departments" className="department-section section">
         <div className="department-background-art" aria-hidden="true">
-          <svg className="department-topo department-topo-upper" viewBox="0 0 420 360">
+          <svg
+            className="department-topo department-topo-upper"
+            viewBox="0 0 420 360"
+          >
             <path d="M62 390c-38-93-22-159 52-204 65-40 126-16 198-71 49-38 78-83 98-135" />
             <path d="M119 390c-37-79-19-134 45-171 62-35 117-13 177-61 43-34 68-75 86-123" />
             <path d="M176 390c-33-65-14-108 39-137 56-31 104-10 154-51 35-29 56-64 72-105" />
           </svg>
-          <svg className="department-topo department-topo-lower" viewBox="0 0 420 360">
+          <svg
+            className="department-topo department-topo-lower"
+            viewBox="0 0 420 360"
+          >
             <path d="M62 390c-38-93-22-159 52-204 65-40 126-16 198-71 49-38 78-83 98-135" />
             <path d="M119 390c-37-79-19-134 45-171 62-35 117-13 177-61 43-34 68-75 86-123" />
             <path d="M176 390c-33-65-14-108 39-137 56-31 104-10 154-51 35-29 56-64 72-105" />
@@ -429,17 +440,6 @@ export default async function Home() {
         </div>
       </section>
       <section id="faq" className="section container faq-section">
-        <div className="faq-background-shapes" aria-hidden="true">
-          <svg className="section-outline faq-shape-upper" viewBox="0 0 100 100">
-            <rect x="12" y="12" width="76" height="76" />
-          </svg>
-          <svg className="section-outline faq-shape-lower-left" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="38" />
-          </svg>
-          <svg className="section-outline faq-shape-lower-right" viewBox="0 0 100 100">
-            <path d="M24 10 50 36 76 10 90 24 64 50 90 76 76 90 50 64 24 90 10 76 36 50 10 24Z" />
-          </svg>
-        </div>
         <div className="section-boundary-label">
           <Eyebrow>A little more about us</Eyebrow>
         </div>
@@ -450,12 +450,9 @@ export default async function Home() {
             <span className="gradient-text">You’re in good company.</span>
           </h2>
           <p>A few things you might be wondering.</p>
-          <svg className="section-outline faq-outline" viewBox="0 0 100 100" aria-hidden="true">
-            <polygon points="50,9 92,87 8,87" />
-          </svg>
         </div>
         {content.faqs.length ? (
-          <FaqAccordion faqs={content.faqs} demo={content.demo} />
+          <FaqAccordion faqs={content.faqs} />
         ) : (
           <p>Answers to common questions are coming soon.</p>
         )}

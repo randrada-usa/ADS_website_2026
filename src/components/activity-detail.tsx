@@ -27,11 +27,6 @@ export function ActivityDetail({
         <div className="card-meta">
 
           <span className="category">{activity.category}</span>
-          {activity.demo && (
-            <span className="demo-label">
-              Sample content · awaiting real details
-            </span>
-          )}
         </div>
         <h1>{activity.title}</h1>
         <p>{activity.summary}</p>
@@ -44,9 +39,6 @@ export function ActivityDetail({
               sizes="(max-width: 1200px) 100vw, 1152px"
               priority
             />
-            {activity.demo && (
-              <span className="photo-label">STOCK PHOTO · PLACEHOLDER</span>
-            )}
           </div>
         )}
       </section>
@@ -76,16 +68,8 @@ export function ActivityDetail({
             <>
               <h2>The story behind it</h2>
               <p>
-                {activity.demo
-                  ? "This is a sample story layout. The approved activity overview, ADS’s contribution, and the people involved will be added here before publication."
-                  : "More details about this activity will be shared soon."}
+                More details about this activity will be shared soon.
               </p>
-              {activity.demo && (
-                <p className="editorial-note">
-                  This page is a design placeholder, not a record of an actual
-                  ADS activity. Dates and other details are examples only.
-                </p>
-              )}
             </>
           )}
           {activity.outcome && (

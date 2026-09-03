@@ -60,18 +60,10 @@ export default async function EventsPage() {
                 <Arrow diagonal />
               </span>
             </div>
-            {featured.demo && (
-              <span className="photo-label">STOCK PHOTO · PLACEHOLDER</span>
-            )}
           </Link>
         )}
       </div>
       <section className="container listing-section">
-        {content.demo && (
-          <p className="editorial-note">
-            Preview collection · sample events and dates, not announcements
-          </p>
-        )}
         <ActivityBrowser activities={events} kind="event" now={now} />
       </section>
     </>

@@ -139,9 +139,6 @@ export function ActivityCard({
             <span>Photo coming soon</span>
           </div>
         )}
-        {activity.demo && (
-          <span className="photo-label">STOCK PHOTO · PLACEHOLDER</span>
-        )}
         <span className="image-arrow">
           <Arrow diagonal />
         </span>
@@ -151,7 +148,6 @@ export function ActivityCard({
           <span className={`category category-${activity.kind}`}>
             {activity.category}
           </span>
-          {activity.demo && <span className="demo-label">Sample content</span>}
         </div>
         <h3>{activity.title}</h3>
         <p>{activity.summary}</p>

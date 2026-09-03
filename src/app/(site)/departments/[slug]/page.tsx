@@ -81,11 +81,6 @@ export default async function DepartmentPage({ params }: Props) {
           label="The people who make it happen"
           title="Meet the department."
         />
-        {content.demo && (
-          <p className="editorial-note">
-            Roster preview · all portraits and names are placeholders
-          </p>
-        )}
         {heads.length > 0 && (
           <div className="department-heads">
             <h3 className="roster-label">Department leadership</h3>
