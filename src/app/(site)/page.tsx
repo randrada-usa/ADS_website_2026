@@ -101,7 +101,7 @@ export default async function Home() {
             ))}
           </span>
           <div className="hero-actions">
-            <ButtonLink href="/initiatives">Explore our work</ButtonLink>
+            <ButtonLink href="/initiatives">Our work</ButtonLink>
             <ButtonLink href={`mailto:${contactEmail}`} secondary>
               Contact Us
             </ButtonLink>

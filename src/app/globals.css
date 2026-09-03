@@ -894,6 +894,10 @@ button:disabled {
   flex-wrap: wrap;
 }
 
+.hero-actions .button {
+  width: clamp(140px, 13vw, 200px);
+}
+
 .button {
   display: inline-flex;
   justify-content: center;
@@ -4092,6 +4096,11 @@ a.footer-contact-row:hover {
   .hero h1 {
     font-size: clamp(46px, 6.6vw, 56px);
     letter-spacing: -3px;
+    text-align: center;
+  }
+
+  .hero h1>span {
+    margin-inline: auto;
   }
 
   .hero-line-offset {
@@ -4225,11 +4234,11 @@ a.footer-contact-row:hover {
   }
 
   .hero h1>span {
-    margin-inline: 0;
+    margin-inline: auto;
   }
 
   .hero h1>.hero-line-two {
-    margin-left: clamp(24px, 7vw, 34px);
+    margin-left: auto;
   }
 
   .hero-title-icons {
@@ -4247,9 +4256,9 @@ a.footer-contact-row:hover {
   }
 
   .hero h1 {
-    width: fit-content;
+    width: 100%;
     margin-inline: auto;
-    text-align: left;
+    text-align: center;
     font-size: clamp(50px, 12.6vw, 73px);
     letter-spacing: -3.1px;
   }
