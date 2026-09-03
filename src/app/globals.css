@@ -1279,7 +1279,7 @@ button:disabled {
   transform: rotate(-16deg);
 }
 
-.initiative-small-diamond {
+.initiative-small-cross {
   width: 40px;
   bottom: 24px;
   left: 43%;
@@ -1292,7 +1292,7 @@ button:disabled {
     left: 7%;
   }
 
-  .initiative-small-diamond {
+  .initiative-small-cross {
     width: 28px;
     bottom: 16px;
     left: 64%;

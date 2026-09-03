@@ -265,8 +265,8 @@ export default async function Home() {
         <svg className="section-outline initiative-small-outline initiative-small-triangle" viewBox="0 0 100 100" aria-hidden="true">
           <polygon points="50,12 88,86 12,86" />
         </svg>
-        <svg className="section-outline initiative-small-outline initiative-small-diamond" viewBox="0 0 100 100" aria-hidden="true">
-          <polygon points="50,10 90,50 50,90 10,50" />
+        <svg className="section-outline initiative-small-outline initiative-small-cross" viewBox="0 0 100 100" aria-hidden="true">
+          <path d="M24 10 50 36 76 10 90 24 64 50 90 76 76 90 50 64 24 90 10 76 36 50 10 24Z" />
         </svg>
         {initiatives.length ? (
           <>
@@ -434,10 +434,10 @@ export default async function Home() {
             <rect x="12" y="12" width="76" height="76" />
           </svg>
           <svg className="section-outline faq-shape-lower-left" viewBox="0 0 100 100">
-            <polygon points="50,7 88,29 88,71 50,93 12,71 12,29" />
+            <circle cx="50" cy="50" r="38" />
           </svg>
           <svg className="section-outline faq-shape-lower-right" viewBox="0 0 100 100">
-            <polygon points="50,10 90,50 50,90 10,50" />
+            <path d="M24 10 50 36 76 10 90 24 64 50 90 76 76 90 50 64 24 90 10 76 36 50 10 24Z" />
           </svg>
         </div>
         <div className="section-boundary-label">

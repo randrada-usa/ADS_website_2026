@@ -101,7 +101,7 @@ export function InitiativeShowcase({ activities }: { activities: Activity[] }) {
           ))}
         </div>
         <svg className="section-outline initiative-outline initiative-outline-bottom" viewBox="0 0 100 100" aria-hidden="true">
-          <polygon points="50,7 88,29 88,71 50,93 12,71 12,29" />
+          <circle cx="50" cy="50" r="38" />
         </svg>
       </div>
     </div>
