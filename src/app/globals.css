@@ -345,11 +345,16 @@ button:disabled {
 }
 
 .desktop-home-panel a:hover,
-.desktop-home-panel a:focus-visible {
+.desktop-home-panel a:focus-visible,
+.desktop-home-panel a[aria-current="location"] {
   padding-left: 16px;
   background: color-mix(in srgb, var(--teal) 16%, white);
   color: color-mix(in srgb, var(--blue) 85%, black);
   outline: none;
+}
+
+.desktop-home-panel a[aria-current="location"] {
+  font-weight: 700;
 }
 
 .nav-actions {
@@ -374,11 +379,6 @@ button:disabled {
 .desktop-nav> a:nth-of-type(3) {
   --underline-start: var(--orange);
   --underline-end: var(--red);
-}
-
-.desktop-nav> a:nth-of-type(4) {
-  --underline-start: var(--red);
-  --underline-end: var(--blue);
 }
 
 .desktop-nav> a::after {
@@ -593,6 +593,7 @@ button:disabled {
 
   .mobile-home-trigger:hover::after,
   .mobile-home-trigger:focus-visible::after,
+  .mobile-home-trigger.active::after,
   .mobile-home.is-open .mobile-home-trigger::after {
     transform: scaleX(1);
   }
@@ -663,11 +664,16 @@ button:disabled {
   }
 
   .mobile-home-list a:hover,
-  .mobile-home-list a:focus-visible {
+  .mobile-home-list a:focus-visible,
+  .mobile-home-list a[aria-current="location"] {
     padding-left: 18px;
     background: color-mix(in srgb, var(--teal) 12%, transparent);
     color: var(--ink);
     outline: none;
+  }
+
+  .mobile-home-list a[aria-current="location"] {
+    font-weight: 700;
   }
 
   .mobile-menu-content>a {
@@ -689,16 +695,6 @@ button:disabled {
   .mobile-menu-content>a:nth-of-type(3) {
     --underline-start: var(--orange);
     --underline-end: var(--red);
-  }
-
-  .mobile-menu-content>a:nth-of-type(4) {
-    --underline-start: var(--red);
-    --underline-end: var(--blue);
-  }
-
-  .mobile-menu-content>a:nth-of-type(5) {
-    --underline-start: var(--blue);
-    --underline-end: var(--teal);
   }
 
   .mobile-menu-content>a::after {

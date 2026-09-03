@@ -9,7 +9,6 @@ import type { SiteSettings } from "@/lib/types";
 const links = [
   ["About", "/about"],
   ["Initiatives", "/initiatives"],
-  ["Events", "/events"],
   ["Team", "/team"],
 ];
 
@@ -45,11 +44,51 @@ export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
   const path = usePathname() || "/";
   const [open, setOpen] = useState(false);
   const [homeOpen, setHomeOpen] = useState(false);
+  const [activeHomeSection, setActiveHomeSection] = useState<string | null>(
+    null,
+  );
   const navRef = useRef<HTMLElement>(null);
   const scrollPageToTop = () => {
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   };
+  useEffect(() => {
+    if (path !== "/") return;
+
+    let animationFrame = 0;
+    const updateActiveSection = () => {
+      cancelAnimationFrame(animationFrame);
+      animationFrame = requestAnimationFrame(() => {
+        const activationLine = Math.min(window.innerHeight * 0.3, 240);
+        let currentSection: string | null = null;
+
+        for (const [, href] of homeSections) {
+          const sectionId = href.split("#")[1];
+          const section = document.getElementById(sectionId);
+
+          if (section && section.getBoundingClientRect().top <= activationLine) {
+            currentSection = href;
+          } else {
+            break;
+          }
+        }
+
+        setActiveHomeSection((current) =>
+          current === currentSection ? current : currentSection,
+        );
+      });
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      cancelAnimationFrame(animationFrame);
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
+  }, [path]);
+
   useEffect(() => {
     if (!open && !homeOpen) return;
     const scrollPosition = window.scrollY;
@@ -108,15 +147,15 @@ export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
   }, [open, homeOpen]);
 
   const handleNavClick = () => {
-    if (typeof window !== "undefined" && window.location.pathname === "/") {
-      sessionStorage.setItem("ads_last_scroll_home", window.scrollY.toString());
-    }
+    sessionStorage.removeItem("ads_last_scroll_home");
     setOpen(false);
     setHomeOpen(false);
+    scrollPageToTop();
   };
 
-  const handleHomeSectionClick = () => {
+  const handleHomeSectionClick = (href: string) => {
     sessionStorage.removeItem("ads_last_scroll_home");
+    setActiveHomeSection(href);
     setOpen(false);
     setHomeOpen(false);
   };
@@ -137,6 +176,7 @@ export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
           href="/"
           className="brand"
           aria-label="Augustinian Developer Society home"
+          scroll={false}
           onClick={handleBrandClick}
         >
           <Image
@@ -171,11 +211,20 @@ export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
               inert={!homeOpen}
             >
               <div className="desktop-home-panel-inner">
-                {homeSections.map(([title, href]) => (
-                  <Link key={href} href={href} onClick={handleHomeSectionClick}>
-                    {title}
-                  </Link>
-                ))}
+                {homeSections.map(([title, href]) => {
+                  const isActive = path === "/" && activeHomeSection === href;
+
+                  return (
+                    <Link
+                      key={href}
+                      href={href}
+                      aria-current={isActive ? "location" : undefined}
+                      onClick={() => handleHomeSectionClick(href)}
+                    >
+                      {title}
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -183,6 +232,7 @@ export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
             <Link
               key={href}
               href={href}
+              scroll={false}
               className={path.startsWith(href) ? "active" : ""}
               aria-current={path.startsWith(href) ? "page" : undefined}
               onClick={handleNavClick}
@@ -237,24 +287,31 @@ export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
                   inert={!homeOpen}
                 >
                   <div className="mobile-home-list">
-                    {homeSections.map(([title, href]) => (
-                      <Link
-                        key={href}
-                        href={href}
-                        onClick={handleHomeSectionClick}
-                      >
-                        {title}
-                      </Link>
-                    ))}
+                    {homeSections.map(([title, href]) => {
+                      const isActive =
+                        path === "/" && activeHomeSection === href;
+
+                      return (
+                        <Link
+                          key={href}
+                          href={href}
+                          aria-current={isActive ? "location" : undefined}
+                          onClick={() => handleHomeSectionClick(href)}
+                        >
+                          {title}
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
-              {[...links, ["Contact", "#contact"]].map(([title, href]) => (
+              {links.map(([title, href]) => (
                 <Link
                   key={href}
                   href={href}
+                  scroll={false}
                   aria-current={path === href ? "page" : undefined}
-                  onClick={href.startsWith("/") ? handleNavClick : () => setOpen(false)}
+                  onClick={handleNavClick}
                 >
                   {title}
                   <Arrow diagonal />
