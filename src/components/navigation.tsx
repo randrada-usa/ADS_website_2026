@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -13,18 +13,6 @@ const links = [
   ["Team", "/team"],
 ];
 
-function subscribeToScroll(onChange: () => void) {
-  window.addEventListener("scroll", onChange, { passive: true });
-  window.addEventListener("pageshow", onChange);
-  return () => {
-    window.removeEventListener("scroll", onChange);
-    window.removeEventListener("pageshow", onChange);
-  };
-}
-
-const isScrolled = () => window.scrollY > 48;
-const serverScrollSnapshot = () => false;
-
 export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
   const path = usePathname() || "/";
   const [open, setOpen] = useState(false);
@@ -33,11 +21,6 @@ export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
   };
-  const scrolled = useSyncExternalStore(
-    subscribeToScroll,
-    isScrolled,
-    serverScrollSnapshot,
-  );
   useEffect(() => {
     if (!open) return;
     const scrollPosition = window.scrollY;
@@ -105,9 +88,7 @@ export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
   };
 
   return (
-    <header
-      className={`site-header${scrolled ? " is-scrolled" : ""}${open ? " is-menu-open" : ""}`}
-    >
+    <header className={`site-header${open ? " is-menu-open" : ""}`}>
       <nav ref={navRef} className="nav-shell" aria-label="Main navigation">
         <Link
           href="/"
@@ -182,4 +163,3 @@ export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
     </header>
   );
 }
-
