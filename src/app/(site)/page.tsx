@@ -300,7 +300,7 @@ export default async function Home() {
         <SectionHeading
           title="Where ideas come alive."
           description="Upcoming experiences and moments worth looking back on."
-          href="/events"
+          href="/initiatives#events"
           linkText="Explore events"
           linkAsButton
           linkTone="blue"
@@ -337,7 +337,7 @@ export default async function Home() {
           <EmptyState>New events and recaps will appear here.</EmptyState>
         )}
         <div className="responsive-section-action">
-          <ButtonLink href="/events" tone="blue">
+          <ButtonLink href="/initiatives#events" tone="blue">
             Explore events
           </ButtonLink>
         </div>

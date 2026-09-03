@@ -289,7 +289,7 @@ export function Footer({
             <div className="footer-nav-links">
               <Link href="/about">About</Link>
               <Link href="/initiatives">What We Do</Link>
-              <Link href="/events">Events</Link>
+              <Link href="/initiatives#events">Events</Link>
               <Link href="/team">Team</Link>
               <Link href="/#faq">FAQ</Link>
             </div>
@@ -315,7 +315,7 @@ export function Footer({
             ) : (
               <div className="footer-events-empty">
                 <p>New experiences are always taking shape.</p>
-                <Link href="/events" className="text-link">
+                <Link href="/initiatives#events" className="text-link">
                   Explore events <Arrow diagonal />
                 </Link>
               </div>
