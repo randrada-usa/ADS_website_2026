@@ -161,9 +161,6 @@ button:disabled {
 }
 
 .site-header {
-  /* One place to tune the floating navbar width and outside spacing. */
-  --nav-max-width: 800px;
-  --nav-inset: 64px;
   --nav-duration: 360ms;
   --nav-easing: cubic-bezier(0.22, 1, 0.36, 1);
   position: sticky;
@@ -192,35 +189,14 @@ button:disabled {
   backdrop-filter: blur(16px);
   pointer-events: auto;
   transform: translateY(0);
-  transition:
-    width var(--nav-duration) var(--nav-easing),
-    min-height var(--nav-duration) var(--nav-easing),
-    column-gap var(--nav-duration) var(--nav-easing),
-    padding var(--nav-duration) var(--nav-easing),
-    border-radius var(--nav-duration) var(--nav-easing),
-    border-color var(--nav-duration) var(--nav-easing),
-    background var(--nav-duration) var(--nav-easing),
-    box-shadow var(--nav-duration) var(--nav-easing),
-    transform var(--nav-duration) var(--nav-easing);
+  transition: background var(--nav-duration) var(--nav-easing);
 }
 
 @media (min-width: 1101px) {
-  .site-header:not(.is-scrolled) .nav-shell {
+  .site-header .nav-shell {
     padding-inline: max(var(--content-gutter),
         calc((100% - var(--content-max-width)) / 2));
   }
-}
-
-.site-header.is-scrolled .nav-shell {
-  width: min(var(--nav-max-width), calc(100% - var(--nav-inset)));
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  min-height: 56px;
-  padding: 5px 20px;
-  border-color: var(--ink);
-  border-radius: 60px;
-  background: #ffffffed;
-  box-shadow: 0 1px 0 var(--ink);
-  transform: translateY(8px);
 }
 
 .brand {
@@ -238,10 +214,6 @@ button:disabled {
   height: auto;
   flex-shrink: 0;
   transition: width var(--nav-duration) var(--nav-easing);
-}
-
-.site-header.is-scrolled .brand img {
-  width: 36px;
 }
 
 .desktop-nav {
@@ -323,8 +295,6 @@ button:disabled {
   }
 
   .site-header {
-    --nav-max-width: 100%;
-    --nav-inset: 32px;
     --mobile-nav-surface: #fcfcf9;
     height: 64px;
   }
@@ -336,16 +306,7 @@ button:disabled {
     padding: 6px 20px;
   }
 
-  .site-header.is-scrolled .nav-shell {
-    grid-template-columns: minmax(0, 1fr) auto;
-    column-gap: 24px;
-    min-height: 56px;
-    padding: 4px 18px;
-    transform: translateY(8px);
-  }
-
-  .site-header .nav-shell,
-  .site-header.is-scrolled .nav-shell {
+  .site-header .nav-shell {
     background: var(--mobile-nav-surface);
   }
 
@@ -416,7 +377,7 @@ button:disabled {
   }
 
   .mobile-menu {
-    /* Match the pill at every compact breakpoint with a quiet fade. */
+    /* Keep the compact navigation menu visually connected to the navbar. */
     display: block;
     position: absolute;
     top: calc(100% + 9px);
@@ -533,25 +494,16 @@ button:disabled {
 }
 
 @media (max-width: 420px) {
-  .site-header {
-    --nav-inset: 24px;
-  }
-
   .nav-shell {
     padding-inline: 16px;
     gap: 12px;
-  }
-
-  .site-header.is-scrolled .nav-shell {
-    padding-inline: 16px;
   }
 
   .brand {
     gap: 8px;
   }
 
-  .brand img,
-  .site-header.is-scrolled .brand img {
+  .brand img {
     width: 32px;
   }
 }
@@ -4475,7 +4427,6 @@ a.footer-contact-row:hover {
   }
 
   .site-header {
-    --nav-max-width: 940px;
     height: 84px;
   }
 
@@ -4484,17 +4435,8 @@ a.footer-contact-row:hover {
     padding: 10px clamp(40px, 4vw, 76px);
   }
 
-  .site-header.is-scrolled .nav-shell {
-    min-height: 64px;
-    padding: 7px 24px;
-  }
-
   .brand img {
     width: 48px;
-  }
-
-  .site-header.is-scrolled .brand img {
-    width: 42px;
   }
 
   .desktop-nav {
