@@ -1736,7 +1736,6 @@ button:disabled {
 
 .department-section {
   position: relative;
-  border-block: 1px solid var(--line);
   background: #eef3ee;
 }
 
@@ -2150,7 +2149,6 @@ button:disabled {
 
 .team-preview {
   background: #f5f1e9;
-  border-block: 1px solid var(--line);
 }
 
 .member-grid {
@@ -4735,7 +4733,6 @@ a.social-icon:hover {
 
 .mission-vision-section {
   padding-block: 80px;
-  border-block: 1px solid var(--line);
   background: #fffdf5;
 }
 

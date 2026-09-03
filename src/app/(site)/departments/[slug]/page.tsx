@@ -37,7 +37,7 @@ export default async function DepartmentPage({ params }: Props) {
     >
       <section className="container department-intro">
         <div className="page-intro-back">
-          <BackButton fallbackHref="/about#departments">
+          <BackButton fallbackHref="/#departments">
             All departments
           </BackButton>
         </div>

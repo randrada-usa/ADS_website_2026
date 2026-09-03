@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { getContent } from "@/lib/content";
 import {
-  DepartmentCard,
   Eyebrow,
   PageIntro,
   ButtonLink,
@@ -113,22 +112,6 @@ export default async function AboutPage() {
             </div>
           </div>
         </article>
-      </section>
-      <section id="departments" className="section container">
-        <div className="center-heading">
-          <Eyebrow>Our departments</Eyebrow>
-          <h2>
-            Everyone brings
-            <br />
-            <span className="underlined">something different.</span>
-          </h2>
-          <p>Meet the five departments that make ADS a collective effort.</p>
-        </div>
-        <div className="departments-grid">
-          {content.departments.map((department) => (
-            <DepartmentCard key={department.slug} department={department} />
-          ))}
-        </div>
       </section>
     </>
   );

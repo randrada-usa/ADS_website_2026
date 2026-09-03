@@ -391,7 +391,7 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      <section className="department-section section">
+      <section id="departments" className="department-section section">
         <div className="department-background-art" aria-hidden="true">
           <svg className="department-topo department-topo-upper" viewBox="0 0 420 360">
             <path d="M62 390c-38-93-22-159 52-204 65-40 126-16 198-71 49-38 78-83 98-135" />
