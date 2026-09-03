@@ -281,6 +281,7 @@ export function InitiativeShowcase({ activities }: { activities: Activity[] }) {
   }, [activeIndex, activities.length, isDragging]);
 
   function handlePointerDown(event: PointerEvent<HTMLDivElement>) {
+    event.currentTarget.dataset.pointerFocus = "true";
     suppressClickRef.current = false;
     if (
       event.pointerType !== "mouse" ||
@@ -373,6 +374,7 @@ export function InitiativeShowcase({ activities }: { activities: Activity[] }) {
 
   function handleKeyDown(event: KeyboardEvent<HTMLDivElement>) {
     if (event.target !== event.currentTarget) return;
+    delete event.currentTarget.dataset.pointerFocus;
     if (event.key === "Escape" && dragRef.current) {
       event.preventDefault();
       const drag = dragRef.current;
@@ -422,6 +424,7 @@ export function InitiativeShowcase({ activities }: { activities: Activity[] }) {
           aria-label={`Initiative ${activeIndex + 1} of ${activities.length}. Activate or use the arrow keys to change stories.`}
           onKeyDown={handleKeyDown}
           onPointerDown={handlePointerDown}
+          onBlur={(event) => delete event.currentTarget.dataset.pointerFocus}
           onPointerMove={handlePointerMove}
           onPointerUp={(event) => finishPointer(event)}
           onPointerCancel={(event) => finishPointer(event, true)}
