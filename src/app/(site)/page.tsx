@@ -58,7 +58,7 @@ export default async function Home() {
         </div>
         <div className="hero-copy">
           <h1>
-            <span className="hero-line-one">Agustinian</span>
+            <span className="hero-line-one">Augustinian</span>
             <span className="hero-line-two">
               <span className="hero-line-offset" aria-hidden="true">
                 Ag
