@@ -133,7 +133,7 @@ export function DepartmentMemberScroll({
                     ?.getBoundingClientRect().height ?? 80;
                 const centeredTop =
                   (window.innerHeight + headerHeight - panel.offsetHeight) / 2;
-                return `top ${Math.max(headerHeight + 24, centeredTop)}px`;
+                return `top ${Math.max(headerHeight + 24, centeredTop - 40)}px`;
               },
               end: () => `+=${distance()}`,
               pin: true,
