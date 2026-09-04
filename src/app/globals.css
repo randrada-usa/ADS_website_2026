@@ -561,6 +561,11 @@ button:disabled {
     --site-chrome-height: 69px;
   }
 
+  .site-footer > .color-stripe {
+    /* Keep the footer strip below the sticky navbar's stacking layer. */
+    z-index: 0;
+  }
+
   .site-header {
     --mobile-nav-surface: #fcfcf9;
     height: 64px;
