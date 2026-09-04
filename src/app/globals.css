@@ -1163,7 +1163,12 @@ button:disabled {
 .small-department-icons img {
   width: 32px;
   height: 32px;
+  flex-shrink: 0;
   object-fit: contain;
+  border: 1.5px solid var(--ink);
+  border-radius: 4px;
+  background: var(--ink);
+  box-shadow: 2px 2px 0 0.5px var(--ink);
 }
 
 .small-department-icons img:nth-child(1) {
@@ -2179,9 +2184,10 @@ button:disabled {
   width: 70px;
   height: 70px;
   overflow: hidden;
-  border: 3px solid #111;
-  border-radius: 9px;
-  box-shadow: 0 5px 0 #111;
+  border: 2px solid var(--ink);
+  border-radius: 7px;
+  background: var(--ink);
+  box-shadow: 3px 3px 0 0.5px var(--ink);
   transform: rotate(-7deg);
   transition: transform 0.2s;
 }
@@ -2195,6 +2201,7 @@ button:disabled {
   display: block;
   width: 100%;
   height: 100%;
+  object-fit: contain;
 }
 
 .department-card-header h3 {
@@ -3548,16 +3555,19 @@ a.footer-contact-row:hover {
 .department-link-logo {
   width: 38px;
   height: 38px;
-  border: 1px solid var(--ink);
+  flex-shrink: 0;
+  object-fit: contain;
+  background: var(--ink);
+  border: 1.5px solid var(--ink);
   border-radius: 4px;
-  box-shadow: 3px 3px 0 var(--ink);
+  box-shadow: 3px 3px 0 0.5px var(--ink);
   transform: rotate(-5deg);
   transition: transform 240ms ease, box-shadow 240ms ease;
 }
 
 .department-links>a:is(:hover, :focus-visible) .department-link-logo {
   transform: translateY(-5px) rotate(3deg) scale(1.06);
-  box-shadow: 4px 6px 0 var(--ink);
+  box-shadow: 4px 6px 0 0.5px var(--ink);
 }
 
 @media (prefers-reduced-motion: reduce) {
