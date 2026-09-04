@@ -1189,6 +1189,16 @@ button:disabled {
   isolation: isolate;
 }
 
+.hero-logo-group {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+  z-index: 1;
+}
+
 .logo-disc {
   width: clamp(340px, 28vw, 410px);
   height: clamp(340px, 28vw, 410px);
