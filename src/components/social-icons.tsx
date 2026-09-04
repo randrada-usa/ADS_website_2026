@@ -8,6 +8,13 @@ import tikTokIcon from "../../assets/socials/tiktok-rounded-square-icon.svg";
 
 const platforms = ["Facebook", "LinkedIn", "Instagram", "TikTok"] as const;
 type Platform = (typeof platforms)[number];
+const platformUrls: Record<Platform, string> = {
+  Facebook: "https://www.facebook.com/adsusadevs",
+  LinkedIn:
+    "https://www.linkedin.com/company/augustinian-developer-society-university-of-san-agustin/",
+  Instagram: "https://www.instagram.com/ads.san_ag/",
+  TikTok: "https://www.tiktok.com/@ads.san_ag",
+};
 const platformIcons = {
   Facebook: facebookIcon,
   LinkedIn: linkedInIcon,
@@ -36,7 +43,7 @@ export function SocialIcons({ socials }: { socials: SiteSettings["socials"] }) {
           (social) =>
             social.label.trim().toLowerCase() === platform.toLowerCase(),
         );
-        const href = safeUrl(profile?.url);
+        const href = safeUrl(profile?.url) || platformUrls[platform];
         return href ? (
           <a
             key={platform}
