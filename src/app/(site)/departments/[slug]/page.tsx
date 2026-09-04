@@ -6,7 +6,6 @@ import { notFound } from "next/navigation";
 import { getContent } from "@/lib/content";
 import { departments } from "@/lib/demo";
 import {
-  BackButton,
   EmptyState,
   Eyebrow,
   MemberCard,
@@ -14,7 +13,7 @@ import {
 } from "@/components/ui";
 import { DepartmentMemberScroll } from "@/components/department-member-scroll";
 import { DepartmentScrollTop } from "@/components/department-scroll-top";
-import { Arrow } from "@/components/icons";
+import { Arrow, BackArrowIcon } from "@/components/icons";
 type Props = { params: Promise<{ slug: string }> };
 export function generateStaticParams() {
   return departments.map(({ slug }) => ({ slug }));
@@ -41,7 +40,10 @@ export default async function DepartmentPage({ params }: Props) {
       <DepartmentScrollTop key={slug} />
       <section className="container department-intro">
         <div className="page-intro-back">
-          <BackButton fallbackHref="/#departments">All departments</BackButton>
+          <Link href="/team#top" className="back-button">
+            <BackArrowIcon className="back-button-icon" />
+            <span className="back-button-text">All departments</span>
+          </Link>
         </div>
         <div className="department-hero">
           <div>
