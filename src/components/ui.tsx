@@ -89,7 +89,7 @@ export function DepartmentCard({ department }: { department: Department }) {
   return (
     <Link
       className="department-card"
-      href={`/departments/${department.slug}`}
+      href={`/departments/${department.slug}#top`}
       style={{ "--department": department.color } as CSSProperties}
     >
       <div className="department-card-header">
