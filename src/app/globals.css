@@ -47,6 +47,41 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+@media (min-width: 851px) and (hover: hover) and (pointer: fine) and (forced-colors: none) {
+  html:has(.website)::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  html:has(.website)::-webkit-scrollbar-track {
+    background: var(--paper);
+    border-left: 1px solid var(--line);
+  }
+
+  html:has(.website)::-webkit-scrollbar-thumb {
+    background: var(--teal);
+    border: 2px solid var(--paper);
+    border-radius: 5px;
+    box-shadow: inset 0 0 0 1px var(--ink);
+    min-height: 48px;
+  }
+
+  html:has(.website)::-webkit-scrollbar-thumb:hover {
+    background: #488f82;
+  }
+
+  html:has(.website)::-webkit-scrollbar-corner {
+    background: var(--paper);
+  }
+
+  @supports not selector(::-webkit-scrollbar) {
+    html:has(.website) {
+      scrollbar-color: var(--teal) var(--paper);
+      scrollbar-width: thin;
+    }
+  }
+}
+
 button,
 a,
 input,
