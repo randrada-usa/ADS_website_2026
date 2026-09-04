@@ -310,7 +310,7 @@ export function Footer({ settings }: { settings: SiteSettings }) {
               @reyands
             </a>
             <a href="https://github.com/Cocoasaur" target="_blank" rel="noreferrer">
-              @jlcoco
+              @jlkoko
             </a>
             <a
               href="https://github.com/Alexander-Tolosa"
