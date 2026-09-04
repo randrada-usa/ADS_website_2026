@@ -14,6 +14,9 @@ import { ValuesMarquee } from "@/components/values-marquee";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { InitiativeShowcase } from "@/components/initiative-showcase";
 import { OurJourney } from "@/components/our-journey";
+import { HeroMotion } from "@/components/hero-motion";
+import { InitiativeEntrance } from "@/components/initiative-entrance";
+import { ExecutiveEntrance } from "@/components/executive-entrance";
 import { safeEmail } from "@/lib/utils";
 
 const featuredEventTitles: Record<string, string> = {
@@ -59,7 +62,7 @@ export default async function Home() {
   const contactEmail = safeEmail(content.settings.email) || "ads@usa.edu.ph";
   return (
     <>
-      <section id="home" className="hero container">
+      <HeroMotion>
         <div className="hero-background-design" aria-hidden="true">
           <span className="hero-bg-circle hero-bg-circle-top-left" />
           <span className="hero-bg-circle hero-bg-circle-top-right" />
@@ -124,24 +127,26 @@ export default async function Home() {
           </div>
         </div>
         <div className="hero-art" aria-hidden="true">
-          <span className="hero-orbit orbit-one" />
-          <span className="hero-orbit orbit-two" />
+          <div className="hero-logo-group">
+            <span className="hero-orbit orbit-one" />
+            <span className="hero-orbit orbit-two" />
+            <div className="logo-disc">
+              <Image
+                className="hero-logo"
+                src="/brand/ads.svg"
+                alt=""
+                width={260}
+                height={216}
+                priority
+              />
+            </div>
+          </div>
           <span className="hero-circle teal-circle" />
           <Spark className="hero-spark" />
-          <div className="logo-disc">
-            <Image
-              className="hero-logo"
-              src="/brand/ads.svg"
-              alt=""
-              width={260}
-              height={216}
-              priority
-            />
-          </div>
-          <span className="floating-label label-build" data-float>
+          <span className="floating-label label-build">
             &lt; let’s build /&gt;
           </span>
-          <span className="floating-label label-impact" data-float>
+          <span className="floating-label label-impact">
             ideas <Arrow /> impact
           </span>
           <svg className="hand-arrow" viewBox="0 0 130 80">
@@ -157,7 +162,7 @@ export default async function Home() {
             A little curiosity goes a long way.
           </span>
         </div>
-      </section>
+      </HeroMotion>
       <ValuesMarquee />
       <section id="about-home" className="section container about-preview">
         <div className="about-background-design" aria-hidden="true">
@@ -276,10 +281,7 @@ export default async function Home() {
         </div>
       </section>
       <OurJourney />
-      <section
-        id="initiatives-home"
-        className="section container initiative-home-section"
-      >
+      <InitiativeEntrance>
         {initiatives.length ? (
           <>
             <div className="section-boundary-label">
@@ -290,7 +292,7 @@ export default async function Home() {
         ) : (
           <EmptyState>Our initiative stories are on their way.</EmptyState>
         )}
-      </section>
+      </InitiativeEntrance>
       <section
         id="events-home"
         className="section container events-home-section"
@@ -348,7 +350,7 @@ export default async function Home() {
           </ButtonLink>
         </div>
       </section>
-      <section id="team-home" className="team-preview section">
+      <ExecutiveEntrance>
         <div className="team-background-circles" aria-hidden="true">
           <span className="team-circle team-circle-top-right" />
           <span className="team-circle team-circle-right" />
@@ -396,7 +398,7 @@ export default async function Home() {
             </ButtonLink>
           </div>
         </div>
-      </section>
+      </ExecutiveEntrance>
       <section id="departments" className="department-section section">
         <div className="department-background-art" aria-hidden="true">
           <svg

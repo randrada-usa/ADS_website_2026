@@ -37,7 +37,6 @@ export function AmbientMotion() {
       ".values-cards > article",
       ".journey-header",
       ".journey-item",
-      ".initiative-showcase",
       ".section-heading",
       ".events-home-grid > *",
       ".team-grid > *",
@@ -50,7 +49,7 @@ export function AmbientMotion() {
 
     const elements = Array.from(
       document.querySelectorAll<HTMLElement>(revealSelectors.join(", "))
-    );
+    ).filter((element) => !element.closest("#team-home"));
 
     elements.forEach((el) => {
       if (!el.hasAttribute("data-reveal")) {
