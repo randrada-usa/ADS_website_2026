@@ -52,7 +52,9 @@ export default async function InitiativesPage() {
             <div className="featured-event-shade" />
             <div className="featured-event-content">
               <Eyebrow>
-                {isUpcoming(featuredEvent, now) ? "Coming up" : "Latest recap"}
+                {isUpcoming(featuredEvent, now)
+                  ? "HAPPENING NOW"
+                  : "Latest recap"}
               </Eyebrow>
               <span className="featured-date">
                 {formatDate(featuredEvent.date)}
