@@ -1648,6 +1648,13 @@ button:disabled {
   user-select: none;
 }
 
+#initiatives-home[data-entrance="pending"] .section-boundary-label > *,
+#initiatives-home[data-entrance="pending"] .initiative-showcase-media,
+#initiatives-home[data-entrance="pending"] .initiative-showcase-copy > *,
+#initiatives-home[data-entrance="pending"] .initiative-showcase-controls {
+  opacity: 0;
+}
+
 .initiative-showcase {
   display: grid;
   grid-template-columns: minmax(0, 0.88fr) minmax(420px, 1.12fr);
