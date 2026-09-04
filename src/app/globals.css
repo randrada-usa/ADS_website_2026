@@ -63,7 +63,7 @@ body {
   }
 
   html:has(.website)::-webkit-scrollbar-thumb {
-    background: var(--teal);
+    background: #e5e7e3;
     border: 2px solid var(--paper);
     border-radius: 5px;
     box-shadow: inset 0 0 0 1px var(--ink);
@@ -71,7 +71,7 @@ body {
   }
 
   html:has(.website)::-webkit-scrollbar-thumb:hover {
-    background: #488f82;
+    background: #cdd2cc;
   }
 
   html:has(.website)::-webkit-scrollbar-corner {
@@ -80,7 +80,7 @@ body {
 
   @supports not selector(::-webkit-scrollbar) {
     html:has(.website) {
-      scrollbar-color: var(--teal) var(--paper);
+      scrollbar-color: #e5e7e3 var(--paper);
       scrollbar-width: thin;
     }
   }
