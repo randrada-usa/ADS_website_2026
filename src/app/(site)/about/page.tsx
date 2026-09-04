@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getContent } from "@/lib/content";
+import { PageEntrance } from "@/components/page-entrance";
 import {
   Eyebrow,
   PageIntro,
@@ -11,6 +12,7 @@ export default async function AboutPage() {
   const content = await getContent();
   return (
     <>
+      <PageEntrance />
       <PageIntro
         label="Hello, we’re ADS"
         title={

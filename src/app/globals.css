@@ -3557,7 +3557,7 @@ a.footer-contact-row:hover {
 
 @media (min-width: 851px) {
   .department-emblem {
-    margin-right: 78px;
+    margin-right: clamp(78px, calc(25vw - 197px), 178px);
   }
 }
 
@@ -5842,7 +5842,7 @@ a.social-icon:active {
   .js-motion-ready .events-home-grid>*:nth-child(2),
   .js-motion-ready .team-grid>*:nth-child(2),
   .js-motion-ready .team-placeholder-grid>*:nth-child(2),
-  .js-motion-ready .values-cards>*:nth-child(2) {
+  .js-motion-ready .values-cards>*:nth-child(2)[data-reveal] {
     transition-delay: 120ms;
   }
 
