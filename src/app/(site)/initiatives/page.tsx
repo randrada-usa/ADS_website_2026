@@ -29,6 +29,43 @@ export default async function InitiativesPage() {
     <>
       <PageIntro
         label="What we do, together"
+        afterLabel={
+          featuredEvent && (
+            <Link
+              id="events"
+              href={activityHref(featuredEvent)}
+              className="featured-event"
+            >
+              {featuredEvent.image && (
+                <Image
+                  src={featuredEvent.image}
+                  alt={featuredEvent.imageAlt || featuredEvent.title}
+                  fill
+                  loading="eager"
+                  sizes="(max-width: 1200px) 100vw, 1152px"
+                />
+              )}
+              <div className="featured-event-shade" />
+              <div className="featured-event-content">
+                <Eyebrow>
+                  {isUpcoming(featuredEvent, now)
+                    ? "HAPPENING NOW"
+                    : "Latest recap"}
+                </Eyebrow>
+                <span className="featured-date">
+                  {formatDate(featuredEvent.date)}
+                  {featuredEvent.demo && " · Sample date"}
+                </span>
+                <h2>{featuredEvent.title}</h2>
+                <p>{featuredEvent.summary}</p>
+                <span className="button button-white">
+                  Explore the event
+                  <Arrow diagonal />
+                </span>
+              </div>
+            </Link>
+          )
+        }
         title={
           <>
             Ideas with intention.
@@ -38,36 +75,6 @@ export default async function InitiativesPage() {
         }
         description="Outreach, shared experiences, and connections beyond campus. This is what putting our curiosity to work looks like."
       />
-      <section id="events" className="container">
-        {featuredEvent && (
-          <Link href={activityHref(featuredEvent)} className="featured-event">
-            {featuredEvent.image && (
-              <Image
-                src={featuredEvent.image}
-                alt={featuredEvent.imageAlt || featuredEvent.title}
-                fill
-                sizes="(max-width: 1200px) 100vw, 1152px"
-              />
-            )}
-            <div className="featured-event-shade" />
-            <div className="featured-event-content">
-              <Eyebrow>
-                {isUpcoming(featuredEvent, now) ? "Coming up" : "Latest recap"}
-              </Eyebrow>
-              <span className="featured-date">
-                {formatDate(featuredEvent.date)}
-                {featuredEvent.demo && " · Sample date"}
-              </span>
-              <h2>{featuredEvent.title}</h2>
-              <p>{featuredEvent.summary}</p>
-              <span className="button button-white">
-                Explore the event
-                <Arrow diagonal />
-              </span>
-            </div>
-          </Link>
-        )}
-      </section>
       <section id="initiatives" className="container listing-section">
         <ActivityBrowser activities={activities} kind="all" now={now} />
       </section>
