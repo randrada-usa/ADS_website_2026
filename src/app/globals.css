@@ -2714,12 +2714,12 @@ a.footer-contact-row:hover {
 
 .footer-credit-links {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 7px;
 }
 
-.footer-credit-links a + a::before {
+.footer-credit-links > * + *::before {
   content: "·";
   margin-right: 7px;
   color: var(--muted);
@@ -2872,12 +2872,12 @@ a.footer-contact-row:hover {
 
   .footer-credit-links {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     gap: 5px;
     font-size: 9px;
   }
 
-  .footer-credit-links a + a::before {
+  .footer-credit-links > * + *::before {
     margin-right: 5px;
   }
 }

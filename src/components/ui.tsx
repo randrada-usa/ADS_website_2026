@@ -345,18 +345,20 @@ export function Footer({
           <span>© {new Date().getFullYear()} Augustinian Developer Society. All rights reserved.</span>
           <span className="footer-credit-links">
             <a href="https://github.com/randrada-usa" target="_blank" rel="noreferrer">
-              @randrada-usa
+              @reyands
             </a>
             <a href="https://github.com/Cocoasaur" target="_blank" rel="noreferrer">
-              @cocoasaurjl
+              @jlcoco
             </a>
             <a
-              href="https://github.com/Alexandertolosa45"
+              href="https://github.com/Alexander-Tolosa"
               target="_blank"
               rel="noreferrer"
             >
-              @Alexandertolosa45
+              @alexander
             </a>
+            <span>@vhea_asesor</span>
+            <span>@bea_sanda</span>
           </span>
         </div>
       </div>
