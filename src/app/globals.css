@@ -1164,9 +1164,6 @@ button:disabled {
   width: 32px;
   height: 32px;
   object-fit: contain;
-  border: 1.5px solid var(--ink);
-  border-radius: 4px;
-  box-shadow: 2px 2px 0 var(--ink);
 }
 
 .small-department-icons img:nth-child(1) {
@@ -1188,6 +1185,8 @@ button:disabled {
 .small-department-icons img:nth-child(5) {
   transform: rotate(-6deg);
 }
+
+
 
 .hero-title-icons {
   align-items: center;
