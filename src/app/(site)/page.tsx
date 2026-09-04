@@ -161,7 +161,6 @@ export default async function Home() {
       <ValuesMarquee />
       <section id="about-home" className="section container about-preview">
         <div className="about-background-design" aria-hidden="true">
-          <span className="about-bg-circle about-bg-circle-lower-left" />
           <svg
             className="about-bg-contours about-bg-contours-lower-right"
             viewBox="0 0 420 360"
@@ -226,6 +225,10 @@ export default async function Home() {
         aria-label="Mission and vision"
       >
         <div className="section-boundary-label">
+          <span
+            className="separator-circle-accent separator-circle-orange"
+            aria-hidden="true"
+          />
           <Eyebrow>What Guides Us</Eyebrow>
         </div>
         <div className="container values-cards statement-cards">
@@ -295,9 +298,7 @@ export default async function Home() {
         <div className="events-background-circles" aria-hidden="true">
           <span className="events-circle events-circle-top-right" />
           <span className="events-circle events-circle-top-satellite" />
-          <span className="events-circle events-circle-bottom-left" />
           <span className="events-circle events-circle-bottom-middle" />
-          <span className="events-circle events-circle-bottom-right" />
         </div>
         <div className="section-boundary-label">
           <Eyebrow>Around the society</Eyebrow>
@@ -348,22 +349,15 @@ export default async function Home() {
         </div>
       </section>
       <section id="team-home" className="team-preview section">
-        <div className="executives-shapes" aria-hidden="true">
-          <svg viewBox="0 0 100 100">
-            <polygon points="50,5 61,35 94,36 68,56 77,89 50,70 23,89 32,56 6,36 39,35" />
-          </svg>
-          <svg viewBox="0 0 100 100">
-            <polygon points="50,5 61,31 89,18 69,42 96,50 69,58 89,82 61,69 50,95 39,69 11,82 31,58 4,50 31,42 11,18 39,31" />
-          </svg>
-          <svg viewBox="0 0 100 100">
-            <path d="M50 6 61 28 85 15 72 39 96 50 72 61 85 85 61 72 50 94 39 72 15 85 28 61 4 50 28 39 15 15 39 28Z" />
-            <circle cx="50" cy="50" r="22" />
-          </svg>
-          <svg viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="40" />
-          </svg>
+        <div className="team-background-circles" aria-hidden="true">
+          <span className="team-circle team-circle-top-right" />
+          <span className="team-circle team-circle-right" />
         </div>
         <div className="section-boundary-label">
+          <span
+            className="separator-circle-accent separator-circle-teal"
+            aria-hidden="true"
+          />
           <Eyebrow>The people behind ADS</Eyebrow>
         </div>
         <div className="container">
@@ -407,7 +401,7 @@ export default async function Home() {
         <div className="department-background-art" aria-hidden="true">
           <svg
             className="department-topo department-topo-upper"
-            viewBox="0 0 420 360"
+            viewBox="0 -30 460 440"
           >
             <path d="M62 390c-38-93-22-159 52-204 65-40 126-16 198-71 49-38 78-83 98-135" />
             <path d="M119 390c-37-79-19-134 45-171 62-35 117-13 177-61 43-34 68-75 86-123" />
@@ -415,13 +409,12 @@ export default async function Home() {
           </svg>
           <svg
             className="department-topo department-topo-lower"
-            viewBox="0 0 420 360"
+            viewBox="0 -30 460 440"
           >
             <path d="M62 390c-38-93-22-159 52-204 65-40 126-16 198-71 49-38 78-83 98-135" />
             <path d="M119 390c-37-79-19-134 45-171 62-35 117-13 177-61 43-34 68-75 86-123" />
             <path d="M176 390c-33-65-14-108 39-137 56-31 104-10 154-51 35-29 56-64 72-105" />
           </svg>
-          <span className="department-circle department-circle-cool" />
           <span className="department-circle department-circle-warm" />
         </div>
         <div className="section-boundary-label">
