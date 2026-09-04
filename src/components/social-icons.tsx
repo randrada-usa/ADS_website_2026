@@ -48,6 +48,7 @@ export function SocialIcons({ socials }: { socials: SiteSettings["socials"] }) {
           <a
             key={platform}
             className="social-icon"
+            data-platform={platform}
             href={href}
             target="_blank"
             rel="noopener noreferrer"
