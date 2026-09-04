@@ -2408,6 +2408,15 @@ button:disabled {
   gap: 25px;
 }
 
+@media (min-width: 851px) {
+  #team-roster .member-grid > .member-card:nth-last-child(2):nth-child(4n + 1) {
+    grid-column: 2;
+  }
+  #team-roster .member-grid > .member-card:last-child:nth-child(4n + 2) {
+    grid-column: 3;
+  }
+}
+
 .member-card {
   border: 1.5px solid var(--ink);
   border-radius: 7px;
