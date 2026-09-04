@@ -30,7 +30,7 @@ export default async function TeamPage() {
         }
         description="Meet the leadership bringing our community together and helping good ideas find their way."
       />
-      <section className="container listing-section">
+      <section className="container listing-section team-listing">
         {members.length ? (
           <div className="member-grid">
             {members.map((member) => (
