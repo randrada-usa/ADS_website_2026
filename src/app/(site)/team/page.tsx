@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getContent } from "@/lib/content";
+import { ExecutiveEntrance } from "@/components/executive-entrance";
 import {
   DepartmentCard,
   EmptyState,
@@ -30,7 +31,10 @@ export default async function TeamPage() {
         }
         description="Meet the leadership bringing our community together and helping good ideas find their way."
       />
-      <section className="container listing-section team-listing">
+      <ExecutiveEntrance
+        id="team-roster"
+        className="container listing-section team-listing"
+      >
         {members.length ? (
           <div className="member-grid">
             {members.map((member) => (
@@ -50,7 +54,7 @@ export default async function TeamPage() {
             Our leadership roster will be shared here soon.
           </EmptyState>
         )}
-      </section>
+      </ExecutiveEntrance>
       <section className="container section">
         <SectionHeading
           label="More minds, more possibilities"
@@ -59,10 +63,7 @@ export default async function TeamPage() {
         />
         <div className="departments-grid">
           {content.departments.map((department) => (
-            <DepartmentCard
-              key={department.slug}
-              department={department}
-            />
+            <DepartmentCard key={department.slug} department={department} />
           ))}
         </div>
       </section>

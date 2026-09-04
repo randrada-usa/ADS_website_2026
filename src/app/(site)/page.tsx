@@ -1,5 +1,3 @@
-import { InitiativeEntrance } from "@/components/initiative-entrance";
-import { HeroMotion } from "@/components/hero-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { getContent } from "@/lib/content";
@@ -16,6 +14,9 @@ import { ValuesMarquee } from "@/components/values-marquee";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { InitiativeShowcase } from "@/components/initiative-showcase";
 import { OurJourney } from "@/components/our-journey";
+import { HeroMotion } from "@/components/hero-motion";
+import { InitiativeEntrance } from "@/components/initiative-entrance";
+import { ExecutiveEntrance } from "@/components/executive-entrance";
 import { safeEmail } from "@/lib/utils";
 
 const featuredEventTitles: Record<string, string> = {
@@ -348,7 +349,7 @@ export default async function Home() {
           </ButtonLink>
         </div>
       </section>
-      <section id="team-home" className="team-preview section">
+      <ExecutiveEntrance>
         <div className="executives-shapes" aria-hidden="true">
           <svg viewBox="0 0 100 100">
             <polygon points="50,5 61,35 94,36 68,56 77,89 50,70 23,89 32,56 6,36 39,35" />
@@ -403,7 +404,7 @@ export default async function Home() {
             </ButtonLink>
           </div>
         </div>
-      </section>
+      </ExecutiveEntrance>
       <section id="departments" className="department-section section">
         <div className="department-background-art" aria-hidden="true">
           <svg
