@@ -1,3 +1,4 @@
+import { InitiativeEntrance } from "@/components/initiative-entrance";
 import { HeroMotion } from "@/components/hero-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -276,10 +277,7 @@ export default async function Home() {
         </div>
       </section>
       <OurJourney />
-      <section
-        id="initiatives-home"
-        className="section container initiative-home-section"
-      >
+      <InitiativeEntrance>
         {initiatives.length ? (
           <>
             <div className="section-boundary-label">
@@ -290,7 +288,7 @@ export default async function Home() {
         ) : (
           <EmptyState>Our initiative stories are on their way.</EmptyState>
         )}
-      </section>
+      </InitiativeEntrance>
       <section
         id="events-home"
         className="section container events-home-section"
