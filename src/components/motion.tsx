@@ -49,7 +49,7 @@ export function AmbientMotion() {
 
     const elements = Array.from(
       document.querySelectorAll<HTMLElement>(revealSelectors.join(", "))
-    );
+    ).filter((element) => !element.closest("#team-home"));
 
     elements.forEach((el) => {
       if (!el.hasAttribute("data-reveal")) {
