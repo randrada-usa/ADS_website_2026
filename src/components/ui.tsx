@@ -209,6 +209,7 @@ export function MemberCard({
 }
 export function PageIntro({
   label,
+  afterLabel,
   title,
   description,
   children,
@@ -217,6 +218,7 @@ export function PageIntro({
   backLabel = "Back",
 }: {
   label: string;
+  afterLabel?: ReactNode;
   title: ReactNode;
   description?: string;
   children?: ReactNode;
@@ -232,6 +234,7 @@ export function PageIntro({
         </div>
       )}
       <Eyebrow>{label}</Eyebrow>
+      {afterLabel}
       <h1>{title}</h1>
       {description && <p>{description}</p>}
       {children}
