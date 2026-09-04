@@ -37,7 +37,6 @@ export function AmbientMotion() {
       ".values-cards > article",
       ".journey-header",
       ".journey-item",
-      ".initiative-showcase",
       ".section-heading",
       ".events-home-grid > *",
       ".team-grid > *",
