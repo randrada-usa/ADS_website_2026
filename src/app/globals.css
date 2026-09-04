@@ -2587,7 +2587,7 @@ button:disabled {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: minmax(390px, 1.65fr) 0.68fr 0.95fr 1fr;
+  grid-template-columns: minmax(390px, 1.65fr) 0.68fr 1fr;
   justify-items: center;
   gap: clamp(28px, 4vw, 58px);
   padding-block: 72px 55px;
@@ -2671,70 +2671,10 @@ button:disabled {
   width: fit-content;
 }
 
-.footer-nav-links a:hover,
-.footer-event-list a:hover strong {
+.footer-nav-links a:hover {
   color: var(--blue);
   text-decoration: underline;
   text-underline-offset: 4px;
-}
-
-.footer-event-list {
-  display: grid;
-  gap: 18px;
-}
-
-.footer-event-list a {
-  display: grid;
-  grid-template-columns: 12px 1fr;
-  align-items: start;
-  gap: 10px;
-  width: fit-content;
-  text-align: left;
-}
-
-.footer-event-dot {
-  width: 11px;
-  height: 11px;
-  margin-top: 4px;
-  border: 1px solid var(--ink);
-  border-radius: 50%;
-  background: var(--blue);
-}
-
-.footer-event-list a:nth-child(2) .footer-event-dot {
-  background: var(--teal);
-}
-
-.footer-event-list a:nth-child(3) .footer-event-dot {
-  background: var(--red);
-}
-
-.footer-event-list strong,
-.footer-event-list small {
-  display: block;
-}
-
-.footer-event-list strong {
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 1.3;
-}
-
-.footer-event-list small {
-  margin-top: 3px;
-  color: var(--muted);
-  font-size: 10px;
-}
-
-.footer-events-empty p {
-  margin: 0 0 18px;
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.5;
-}
-
-.footer-events-empty .text-link {
-  font-size: 10px;
 }
 
 .footer-contact {
@@ -2816,7 +2756,7 @@ a.footer-contact-row:hover {
 
 @media (max-width: 1000px) {
   .footer-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .footer-brand-block {
@@ -2858,10 +2798,6 @@ a.footer-contact-row:hover {
   }
 
   .footer-brand-block {
-    grid-column: 1 / -1;
-  }
-
-  .footer-contact {
     grid-column: 1 / -1;
   }
 
@@ -2927,10 +2863,6 @@ a.footer-contact-row:hover {
   .footer-nav-links {
     justify-items: center;
     gap: 16px;
-  }
-
-  .footer-events-column {
-    display: none;
   }
 
   .footer-contact-row {

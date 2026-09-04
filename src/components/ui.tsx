@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
 import type { Activity, Department, Member, SiteSettings } from "@/lib/types";
-import { activityHref, formatDate, isUpcoming, safeEmail } from "@/lib/utils";
+import { activityHref, formatDate, safeEmail } from "@/lib/utils";
 import { AdsMark, Arrow, CalendarIcon, LocationIcon, MailIcon, Spark } from "./icons";
 import { SocialIcons } from "./social-icons";
 import { BackButton } from "./back-button";
@@ -248,19 +248,8 @@ export function EmptyState({ children }: { children: ReactNode }) {
     </div>
   );
 }
-export function Footer({
-  settings,
-  activities,
-}: {
-  settings: SiteSettings;
-  activities: Activity[];
-}) {
+export function Footer({ settings }: { settings: SiteSettings }) {
   const email = safeEmail(settings.email) || "ads@usa.edu.ph";
-  const now = new Date().getTime();
-  const upcomingEvents = activities
-    .filter((item) => item.kind === "event" && isUpcoming(item, now))
-    .sort((a, b) => (a.date || "").localeCompare(b.date || ""))
-    .slice(0, 3);
 
   return (
     <footer id="contact" className="site-footer">
@@ -290,33 +279,6 @@ export function Footer({
               <Link href="/#faq">FAQ</Link>
             </div>
           </nav>
-
-          <section
-            className="footer-column footer-events-column"
-            aria-labelledby="footer-events-title"
-          >
-            <h2 id="footer-events-title">Upcoming Events</h2>
-            {upcomingEvents.length ? (
-              <div className="footer-event-list">
-                {upcomingEvents.map((event) => (
-                  <Link href={activityHref(event)} key={event._id}>
-                    <span className="footer-event-dot" aria-hidden="true" />
-                    <span>
-                      <strong>{event.title}</strong>
-                      <small>{formatDate(event.date)}</small>
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            ) : (
-              <div className="footer-events-empty">
-                <p>New experiences are always taking shape.</p>
-                <Link href="/initiatives#events" className="text-link">
-                  Explore events <Arrow diagonal />
-                </Link>
-              </div>
-            )}
-          </section>
 
           <section className="footer-column footer-contact" aria-labelledby="footer-contact-title">
             <h2 id="footer-contact-title">Contact</h2>

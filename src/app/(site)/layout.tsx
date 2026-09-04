@@ -23,12 +23,8 @@ export default async function SiteLayout({
       {preview && <Preview />}
       <Navigation socials={content.settings.socials} />
       <main id="main">{children}</main>
-      <Footer
-        settings={content.settings}
-        activities={content.activities}
-      />
+      <Footer settings={content.settings} />
       <AmbientMotion />
     </div>
   );
 }
-
