@@ -12,6 +12,8 @@ import {
   MemberCard,
   SectionHeading,
 } from "@/components/ui";
+import { DepartmentMemberScroll } from "@/components/department-member-scroll";
+import { DepartmentScrollTop } from "@/components/department-scroll-top";
 import { Arrow } from "@/components/icons";
 type Props = { params: Promise<{ slug: string }> };
 export function generateStaticParams() {
@@ -32,14 +34,14 @@ export default async function DepartmentPage({ params }: Props) {
   const roster = members.filter((item) => !item.isHead);
   return (
     <div
+      id="top"
       className="department-page"
       style={{ "--department": dept.color } as CSSProperties}
     >
+      <DepartmentScrollTop key={slug} />
       <section className="container department-intro">
         <div className="page-intro-back">
-          <BackButton fallbackHref="/#departments">
-            All departments
-          </BackButton>
+          <BackButton fallbackHref="/#departments">All departments</BackButton>
         </div>
         <div className="department-hero">
           <div>
@@ -57,8 +59,8 @@ export default async function DepartmentPage({ params }: Props) {
             <Image
               src={`/brand/${slug}.svg`}
               alt={`${dept.name} department emblem`}
-              width={200}
-              height={200}
+              width={360}
+              height={360}
             />
           </div>
         </div>
@@ -77,37 +79,24 @@ export default async function DepartmentPage({ params }: Props) {
         </section>
       )}
       <section className="container section">
-        <SectionHeading
-          label="The people who make it happen"
-          title="Meet the department."
-        />
-        {heads.length > 0 && (
-          <div className="department-heads">
-            <h3 className="roster-label">Department leadership</h3>
-            <div className="member-grid">
-              {heads.map((member) => (
-                <MemberCard
-                  key={member._id}
-                  member={member}
-                  color={dept.color}
-                />
-              ))}
-            </div>
-          </div>
-        )}
-        {roster.length > 0 && (
-          <>
-            <h3 className="roster-label">Our members</h3>
-            <div className="member-grid">
-              {roster.map((member) => (
-                <MemberCard
-                  key={member._id}
-                  member={member}
-                  color={dept.color}
-                />
-              ))}
-            </div>
-          </>
+        {members.length > 0 && (
+          <DepartmentMemberScroll
+            key={slug}
+            heading={
+              <SectionHeading
+                label="The people who make it happen"
+                title="Meet the department."
+              />
+            }
+          >
+            {[...heads, ...roster].map((member) => (
+              <div className="department-member-slide" key={member._id}>
+                <div className="department-member-motion">
+                  <MemberCard member={member} color={dept.color} />
+                </div>
+              </div>
+            ))}
+          </DepartmentMemberScroll>
         )}
         {members.length === 0 && (
           <EmptyState>Our department roster will appear here soon.</EmptyState>
@@ -118,7 +107,14 @@ export default async function DepartmentPage({ params }: Props) {
         {content.departments
           .filter((item) => item.slug !== slug)
           .map((item) => (
-            <Link key={item.slug} href={`/departments/${item.slug}`}>
+            <Link key={item.slug} href={`/departments/${item.slug}#top`}>
+              <Image
+                className="department-link-logo"
+                src={`/brand/${item.slug}.svg`}
+                alt=""
+                width={38}
+                height={38}
+              />
               {item.name}
               <Arrow diagonal />
             </Link>

@@ -128,7 +128,7 @@ export const demoContent: SiteContent = {
         isLeadership: true,
         order: i + executiveOfficers.length,
       },
-      ...Array.from({ length: 3 }, (_, j) => ({
+      ...Array.from({ length: 8 }, (_, j) => ({
         _id: `${dept.slug}-${j}`,
         name: "Name to be announced",
         position: "Department Member",
