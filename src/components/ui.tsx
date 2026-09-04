@@ -357,8 +357,13 @@ export function Footer({
             >
               @alexander
             </a>
-            <span>@vhea_asesor</span>
-            <span>@bea_sanda</span>
+            <a
+              href="https://www.facebook.com/beatrice.sanda.7/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              @Bea_Trice
+            </a>
           </span>
         </div>
       </div>
