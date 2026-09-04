@@ -13,6 +13,7 @@ import {
 } from "@/components/ui";
 import { DepartmentMemberScroll } from "@/components/department-member-scroll";
 import { DepartmentScrollTop } from "@/components/department-scroll-top";
+import { PageEntrance } from "@/components/page-entrance";
 import { Arrow, BackArrowIcon } from "@/components/icons";
 type Props = { params: Promise<{ slug: string }> };
 export function generateStaticParams() {
@@ -38,6 +39,7 @@ export default async function DepartmentPage({ params }: Props) {
       style={{ "--department": dept.color } as CSSProperties}
     >
       <DepartmentScrollTop key={slug} />
+      <PageEntrance key={`entrance-${slug}`} />
       <section className="container department-intro">
         <div className="page-intro-back">
           <Link href="/team#top" className="back-button">

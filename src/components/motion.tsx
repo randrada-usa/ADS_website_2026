@@ -11,7 +11,9 @@ export function AmbientMotion() {
     // 1. Floating ambient elements
     const media = gsap.matchMedia();
     media.add("(prefers-reduced-motion: no-preference)", () => {
-      gsap.to("[data-float]", {
+      const floatingElements = document.querySelectorAll("[data-float]");
+      if (!floatingElements.length) return;
+      gsap.to(floatingElements, {
         y: -9,
         rotation: "+=2",
         duration: 3.4,
@@ -49,7 +51,7 @@ export function AmbientMotion() {
 
     const elements = Array.from(
       document.querySelectorAll<HTMLElement>(revealSelectors.join(", "))
-    ).filter((element) => !element.closest("#team-home"));
+    ).filter((element) => !element.closest("#team-home, [data-page-entrance]"));
 
     elements.forEach((el) => {
       if (!el.hasAttribute("data-reveal")) {

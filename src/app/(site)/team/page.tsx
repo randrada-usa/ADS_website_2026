@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getContent } from "@/lib/content";
+import { PageEntrance } from "@/components/page-entrance";
 import { ExecutiveEntrance } from "@/components/executive-entrance";
 import {
   DepartmentCard,
@@ -20,6 +21,7 @@ export default async function TeamPage() {
     );
   return (
     <>
+      <PageEntrance />
       <PageIntro
         label="The people behind ADS"
         title={

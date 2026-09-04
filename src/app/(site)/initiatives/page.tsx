@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getContent } from "@/lib/content";
+import { PageEntrance } from "@/components/page-entrance";
 import { activityHref, formatDate, isUpcoming } from "@/lib/utils";
 import { Eyebrow, PageIntro } from "@/components/ui";
 import { ActivityBrowser } from "@/components/activity-browser";
@@ -27,6 +28,7 @@ export default async function InitiativesPage() {
 
   return (
     <>
+      <PageEntrance />
       <PageIntro
         label="What we do, together"
         afterLabel={
