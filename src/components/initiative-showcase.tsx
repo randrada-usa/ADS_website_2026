@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import addyWave from "../../assets/addy/addy_wave.png";
 import {
   useCallback,
   useEffect,
@@ -484,6 +485,13 @@ export function InitiativeShowcase({ activities }: { activities: Activity[] }) {
               </div>
             );
           })}
+          <Image
+            className="initiative-addy-wave"
+            src={addyWave}
+            alt="Addy waving"
+            sizes="(max-width: 650px) 34vw, (max-width: 850px) 27vw, 20vw"
+            draggable={false}
+          />
         </div>
       </div>
     </div>
