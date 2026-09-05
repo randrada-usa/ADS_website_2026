@@ -2979,11 +2979,11 @@ a.footer-contact-row:hover {
   transform: rotate(12deg);
 }
 
-.page-intro:has(> .about-intro-addy) {
+.page-intro:has(> .page-intro-addy) {
   min-height: 680px;
 }
 
-.about-intro-addy {
+.page-intro-addy {
   position: absolute !important;
   z-index: 1;
   top: 72px;
@@ -2994,7 +2994,7 @@ a.footer-contact-row:hover {
   user-select: none;
 }
 
-.page-intro:has(> .about-intro-addy) .intro-spark {
+.page-intro:has(> .page-intro-addy) .intro-spark {
   display: none;
 }
 
@@ -4151,15 +4151,15 @@ a.footer-contact-row:hover {
     width: 48px;
   }
 
-  .page-intro:has(> .about-intro-addy) {
+  .page-intro:has(> .page-intro-addy) {
     min-height: 620px;
   }
 
-  .page-intro:has(> .about-intro-addy)>p {
+  .page-intro:has(> .page-intro-addy)>p {
     max-width: calc(100% - 380px);
   }
 
-  .about-intro-addy {
+  .page-intro-addy {
     top: 110px;
     right: -8px;
     width: clamp(280px, 32vw, 360px);
@@ -4294,15 +4294,15 @@ a.footer-contact-row:hover {
     width: 45px;
   }
 
-  .page-intro:has(> .about-intro-addy) {
+  .page-intro:has(> .page-intro-addy) {
     min-height: 0;
   }
 
-  .page-intro:has(> .about-intro-addy)>p {
+  .page-intro:has(> .page-intro-addy)>p {
     max-width: 570px;
   }
 
-  .about-intro-addy {
+  .page-intro-addy {
     position: relative !important;
     top: auto;
     right: auto;

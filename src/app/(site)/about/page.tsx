@@ -27,7 +27,7 @@ export default async function AboutPage() {
         description={content.settings.intro}
       >
         <Image
-          className="about-intro-addy"
+          className="page-intro-addy about-intro-addy"
           src={addyWave}
           alt="Addy, the ADS mascot, waving"
           sizes="(max-width: 850px) 78vw, 36vw"
