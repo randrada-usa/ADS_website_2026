@@ -216,6 +216,7 @@ export function PageIntro({
   showBack = true,
   backHref = "/",
   backLabel = "Back",
+  background,
 }: {
   label: string;
   afterLabel?: ReactNode;
@@ -225,9 +226,11 @@ export function PageIntro({
   showBack?: boolean;
   backHref?: string;
   backLabel?: string;
+  background?: ReactNode;
 }) {
   return (
     <section className="page-intro container">
+      {background}
       {showBack && (
         <div className="page-intro-back">
           <BackButton fallbackHref={backHref}>{backLabel}</BackButton>

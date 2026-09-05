@@ -25,6 +25,13 @@ export default async function AboutPage() {
           </>
         }
         description={content.settings.intro}
+        background={
+          <div className="about-page-bg-intro" aria-hidden="true">
+            <span className="about-intro-circle-left" />
+            <span className="about-intro-satellite" />
+            <span className="about-intro-circle-right" />
+          </div>
+        }
       >
         <Image
           className="page-intro-addy about-intro-addy"
@@ -35,6 +42,11 @@ export default async function AboutPage() {
         />
       </PageIntro>
       <section className="container section about-story">
+        <div className="about-story-bg" aria-hidden="true">
+          <span className="about-story-circle-left" />
+          <span className="about-story-satellite" />
+          <span className="about-story-circle-right" />
+        </div>
         <div className="story-art" aria-hidden="true">
           <span>&lt;</span>
           <Spark />
@@ -66,6 +78,13 @@ export default async function AboutPage() {
         className="container values-cards statement-cards about-statement-cards"
         aria-label="Purpose, vision, and mission"
       >
+        <div className="section-boundary-label">
+          <span
+            className="separator-circle-accent separator-circle-orange"
+            aria-hidden="true"
+          />
+          <Eyebrow>What Guides Us</Eyebrow>
+        </div>
         <article className="purpose-statement">
           <div className="statement-tab">
             <h2>Our purpose</h2>

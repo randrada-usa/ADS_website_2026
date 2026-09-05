@@ -7,6 +7,7 @@ import addyDomination from "../../../../assets/addy/addy_domination.png";
 import {
   DepartmentCard,
   EmptyState,
+  Eyebrow,
   MemberCard,
   PageIntro,
   SectionHeading,
@@ -34,6 +35,14 @@ export default async function TeamPage() {
           </>
         }
         description="Meet the leadership bringing our community together and helping good ideas find their way."
+        background={
+          <div className="team-page-bg-intro" aria-hidden="true">
+            <span className="team-intro-circle-right" />
+            <span className="team-intro-satellite-teal" />
+            <span className="team-intro-satellite-coral" />
+            <span className="team-intro-circle-left" />
+          </div>
+        }
       >
         <Image
           className="page-intro-addy team-intro-addy"
@@ -47,6 +56,18 @@ export default async function TeamPage() {
         id="team-roster"
         className="container listing-section team-listing"
       >
+        <div className="team-roster-bg" aria-hidden="true">
+          <span className="team-roster-circle-tr" />
+          <span className="team-roster-circle-mr" />
+          <span className="team-roster-satellite-2" />
+        </div>
+        <div className="section-boundary-label">
+          <span
+            className="separator-circle-accent separator-circle-teal"
+            aria-hidden="true"
+          />
+          <Eyebrow>Executive Leadership</Eyebrow>
+        </div>
         {members.length ? (
           <div className="member-grid">
             {members.map((member) => (
@@ -67,16 +88,24 @@ export default async function TeamPage() {
           </EmptyState>
         )}
       </ExecutiveEntrance>
-      <section className="container section">
-        <SectionHeading
-          label="More minds, more possibilities"
-          title="Meet the departments."
-          description="Get to know the people who help bring every part of ADS to life."
-        />
-        <div className="departments-grid">
-          {content.departments.map((department) => (
-            <DepartmentCard key={department.slug} department={department} />
-          ))}
+      <section className="department-section section">
+        <div className="department-background-art" aria-hidden="true">
+          <span className="department-circle-top-left" />
+        </div>
+        <div className="section-boundary-label">
+          <Eyebrow>How we work together</Eyebrow>
+        </div>
+        <div className="container">
+          <SectionHeading
+            label="More minds, more possibilities"
+            title="Meet the departments."
+            description="Get to know the people who help bring every part of ADS to life."
+          />
+          <div className="departments-grid">
+            {content.departments.map((department) => (
+              <DepartmentCard key={department.slug} department={department} />
+            ))}
+          </div>
         </div>
       </section>
     </>
