@@ -20,13 +20,11 @@ export function InitiativeEntrance({ children }: { children: ReactNode }) {
         context.add("reveal", () => {
           delete root.dataset.entrance;
           const compact = window.matchMedia("(max-width: 850px)").matches;
-          const badge = select(".section-boundary-label > *");
           const photos = select(".initiative-showcase-media");
           const heading = select(".initiative-showcase-copy h3");
           const summary = select(".initiative-showcase-copy > p");
           const controls = select(".initiative-showcase-controls");
           const targets = [
-            ...badge,
             ...photos,
             ...heading,
             ...summary,
@@ -42,18 +40,6 @@ export function InitiativeEntrance({ children }: { children: ReactNode }) {
             },
           });
           sequence
-            .from(
-              badge,
-              {
-                y: 15,
-                scale: 0.86,
-                rotation: -3,
-                opacity: 0,
-                duration: 0.85,
-                ease: "back.out(1.6)",
-              },
-              0,
-            )
             .from(
               photos,
               {

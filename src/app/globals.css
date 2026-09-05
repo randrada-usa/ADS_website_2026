@@ -1684,7 +1684,6 @@ button:disabled {
   user-select: none;
 }
 
-#initiatives-home[data-entrance="pending"] .section-boundary-label>*,
 #initiatives-home[data-entrance="pending"] .initiative-showcase-media,
 #initiatives-home[data-entrance="pending"] .initiative-showcase-copy>*,
 #initiatives-home[data-entrance="pending"] .initiative-showcase-controls {
