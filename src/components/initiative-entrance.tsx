@@ -127,6 +127,11 @@ export function InitiativeEntrance({ children }: { children: ReactNode }) {
       id="initiatives-home"
       className="section container initiative-home-section"
     >
+      <div className="initiative-background-circles" aria-hidden="true">
+        <span className="initiative-circle initiative-circle-left" />
+        <span className="initiative-circle initiative-circle-middle" />
+        <span className="initiative-circle initiative-circle-right" />
+      </div>
       {children}
     </section>
   );
