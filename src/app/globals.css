@@ -526,9 +526,10 @@ button:disabled {
 
 .website main section.department-section>div.department-background-art {
   position: absolute;
-  z-index: 0;
-  inset: 0;
-  overflow: hidden;
+  z-index: 2;
+  inset-inline: 0;
+  inset-block: 0;
+  overflow: visible;
   pointer-events: none;
 }
 
@@ -545,13 +546,13 @@ button:disabled {
 }
 
 .department-topo-upper {
-  top: -20px;
+  top: clamp(25px, 2.5vw, 45px);
   right: -230px;
   transform: scaleY(-1);
 }
 
 .department-topo-lower {
-  bottom: -30px;
+  bottom: clamp(25px, 2.5vw, 45px);
   left: -230px;
   transform: scaleX(-1);
 }
@@ -560,14 +561,7 @@ button:disabled {
   position: absolute;
   aspect-ratio: 1;
   border-radius: 50%;
-  opacity: 0.82;
-}
-
-.department-circle-cool {
-  top: 110px;
-  left: -45px;
-  width: clamp(95px, 9vw, 140px);
-  background: linear-gradient(135deg, var(--teal), #9271bc);
+  pointer-events: none;
 }
 
 .department-circle-warm {
@@ -575,6 +569,7 @@ button:disabled {
   right: -65px;
   width: clamp(125px, 13vw, 190px);
   background: linear-gradient(135deg, var(--yellow), var(--orange));
+  opacity: 0.82;
 }
 
 @media (max-width: 850px) {
@@ -1873,12 +1868,6 @@ button:disabled {
 }
 
 @media (max-width: 850px) {
-  .department-circle-cool {
-    top: 80px;
-    left: -55px;
-    width: 78px;
-  }
-
   .department-circle-warm {
     bottom: -20px;
     right: -40px;
@@ -2595,13 +2584,19 @@ button:disabled {
 
 .site-footer {
   position: relative;
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
   border-top: 1px solid var(--line);
   background-color: #f6f8f5;
   background-image:
     linear-gradient(#516b7d0b 1px, transparent 1px),
     linear-gradient(90deg, #516b7d0b 1px, transparent 1px);
   background-size: 24px 24px;
+}
+
+.site-footer .color-stripe {
+  position: relative;
+  z-index: 1;
 }
 
 .site-footer::before,
@@ -2613,11 +2608,18 @@ button:disabled {
 }
 
 .site-footer::before {
-  width: 190px;
-  height: 190px;
-  top: -70px;
-  left: -105px;
+  width: clamp(170px, 17vw, 240px);
+  aspect-ratio: 1;
+  height: auto;
+  top: 0;
+  left: clamp(-80px, -5vw, -45px);
+  transform: translateY(-50%);
   background: linear-gradient(135deg, var(--blue), var(--teal));
+  box-shadow:
+    0 14px 34px -4px rgba(0, 0, 0, 0.18),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+  opacity: 1;
+  z-index: 2;
 }
 
 .site-footer::after {
@@ -2828,10 +2830,11 @@ a.footer-contact-row:hover {
 
 @media (max-width: 700px) {
   .site-footer::before {
-    width: 130px;
-    height: 130px;
-    top: -55px;
-    left: -72px;
+    width: clamp(110px, 20vw, 150px);
+    height: auto;
+    top: 0;
+    left: -35px;
+    transform: translateY(-50%);
   }
 
   .site-footer::after {
@@ -2858,10 +2861,11 @@ a.footer-contact-row:hover {
 
 @media (max-width: 480px) {
   .site-footer::before {
-    width: 88px;
-    height: 88px;
-    top: -45px;
-    left: -48px;
+    width: 110px;
+    height: auto;
+    top: 0;
+    left: -30px;
+    transform: translateY(-50%);
   }
 
   .site-footer::after {
@@ -3022,7 +3026,8 @@ a.footer-contact-row:hover {
   display: none;
 }
 
-.website main .team-preview>.executives-shapes {
+.website main .team-preview > .team-background-circles,
+.website main .team-preview > .executives-shapes {
   position: absolute !important;
   z-index: 0 !important;
   inset: 0;
@@ -3030,43 +3035,55 @@ a.footer-contact-row:hover {
   pointer-events: none;
 }
 
-.executives-shapes svg {
+.team-circle {
   position: absolute;
-  display: block;
-  overflow: visible;
-  fill: none;
-  stroke: rgb(255 255 255 / 94%);
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 7;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  pointer-events: none;
 }
 
-.executives-shapes svg:nth-child(1) {
-  top: -70px;
-  left: -105px;
-  width: clamp(260px, 25vw, 390px);
-  transform: rotate(-9deg);
+.team-circle-top-left {
+  top: -45px;
+  left: -85px;
+  width: clamp(160px, 16vw, 240px);
+  background: linear-gradient(135deg, var(--blue), var(--teal));
+  opacity: 0.78;
 }
 
-.executives-shapes svg:nth-child(2) {
-  top: 24%;
+.team-circle-top-right {
+  top: 32px;
+  right: 18%;
+  width: clamp(55px, 5.5vw, 85px);
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
+  opacity: 0.85;
+}
+
+.team-circle-right {
+  top: 28%;
   right: -125px;
-  width: clamp(280px, 27vw, 420px);
-  transform: rotate(11deg);
+  width: clamp(240px, 24vw, 360px);
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
+  opacity: 0.76;
 }
 
-.executives-shapes svg:nth-child(3) {
-  bottom: -135px;
-  left: 35%;
-  width: clamp(250px, 24vw, 380px);
-  transform: rotate(-6deg);
-}
+@media (max-width: 850px) {
+  .team-circle-top-left {
+    top: -30px;
+    left: -60px;
+    width: 130px;
+  }
 
-.executives-shapes svg:nth-child(4) {
-  top: -108px;
-  right: 22%;
-  width: clamp(220px, 21vw, 330px);
-  stroke-width: 11;
+  .team-circle-top-right {
+    top: 20px;
+    right: 10%;
+    width: 48px;
+  }
+
+  .team-circle-right {
+    top: 45%;
+    right: -90px;
+    width: 180px;
+  }
 }
 
 .editorial-note {
@@ -5312,9 +5329,14 @@ a.social-icon:active {
   z-index: 1;
 }
 
-.website main section:not(.hero):not(.values-strip)>.section-boundary-label {
+.website main section:has(> .section-boundary-label) {
+  position: relative;
+  overflow: visible;
+}
+
+.website main section:not(.hero):not(.values-strip) > .section-boundary-label {
   position: absolute;
-  z-index: 3;
+  z-index: 4;
   top: 0;
   left: 50%;
   width: 100vw;
@@ -5334,14 +5356,46 @@ a.social-icon:active {
   top: 50%;
   height: 2px;
   background: var(--ink);
-  z-index: 0;
+  z-index: 1;
+}
+
+.separator-circle-accent {
+  position: absolute;
+  top: 50%;
+  left: clamp(-80px, -5vw, -45px);
+  width: clamp(170px, 17vw, 240px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(145deg, #3db87a, #269960);
+  box-shadow:
+    0 14px 34px -4px rgba(0, 0, 0, 0.18),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+  opacity: 1;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.separator-circle-accent.separator-circle-teal {
+  background: linear-gradient(135deg, var(--blue), var(--teal));
+}
+
+.separator-circle-accent.separator-circle-orange {
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
 }
 
 .section-boundary-label .eyebrow {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   margin: 0;
   pointer-events: auto;
+}
+
+@media (max-width: 850px) {
+  .separator-circle-accent {
+    width: clamp(110px, 20vw, 150px);
+    left: -35px;
+  }
 }
 
 .website main section:nth-of-type(2n):not(.hero):not(.values-strip) {
