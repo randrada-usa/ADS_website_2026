@@ -2974,6 +2974,25 @@ a.footer-contact-row:hover {
   transform: rotate(12deg);
 }
 
+.page-intro:has(> .about-intro-addy) {
+  min-height: 680px;
+}
+
+.about-intro-addy {
+  position: absolute !important;
+  z-index: 1;
+  top: 72px;
+  right: clamp(28px, 5vw, 72px);
+  width: clamp(390px, 36vw, 520px);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+.page-intro:has(> .about-intro-addy) .intro-spark {
+  display: none;
+}
+
 .listing-section {
   padding-block: 20px 100px;
 }
@@ -4597,6 +4616,19 @@ a.footer-contact-row:hover {
 
   .intro-spark {
     display: none;
+  }
+
+  .page-intro:has(> .about-intro-addy) {
+    min-height: 0;
+  }
+
+  .about-intro-addy {
+    position: relative !important;
+    top: auto;
+    right: auto;
+    display: block;
+    width: min(78vw, 360px);
+    margin: 32px auto 0;
   }
 
   .listing-section {
