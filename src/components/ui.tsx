@@ -297,12 +297,18 @@ export function Footer({ settings }: { settings: SiteSettings }) {
                   Official email coming soon
                 </p>
               )}
-              <span className="footer-contact-row">
+              <a
+                className="footer-contact-row"
+                href="https://maps.app.goo.gl/Q7R7HuF2rhaHqz3LA"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="University of San Agustin on Google Maps (opens in a new tab)"
+              >
                 <LocationIcon />
                 <span className="footer-location-copy">
                   <span>University of San Agustin</span>
                 </span>
-              </span>
+              </a>
             </div>
           </section>
         </div>
