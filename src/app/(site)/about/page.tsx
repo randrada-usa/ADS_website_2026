@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { getContent } from "@/lib/content";
 import { PageEntrance } from "@/components/page-entrance";
 import {
@@ -7,6 +8,7 @@ import {
   ButtonLink,
 } from "@/components/ui";
 import { Spark } from "@/components/icons";
+import addyWave from "../../../../assets/addy/addy_wave.png";
 export const metadata: Metadata = { title: "About" };
 export default async function AboutPage() {
   const content = await getContent();
@@ -23,7 +25,15 @@ export default async function AboutPage() {
           </>
         }
         description={content.settings.intro}
-      />
+      >
+        <Image
+          className="about-intro-addy"
+          src={addyWave}
+          alt="Addy, the ADS mascot, waving"
+          sizes="(max-width: 850px) 78vw, 36vw"
+          loading="eager"
+        />
+      </PageIntro>
       <section className="container section about-story">
         <div className="story-art" aria-hidden="true">
           <span>&lt;</span>
@@ -32,6 +42,12 @@ export default async function AboutPage() {
           <p>Made of different minds.</p>
         </div>
         <div>
+          <Image
+            className="about-story-addy"
+            src={addyWave}
+            alt=""
+            sizes="150px"
+          />
           <Eyebrow>Our story</Eyebrow>
           <h2>
             Rooted in community.
