@@ -35,13 +35,22 @@ export default async function TeamPage() {
         }
         description="Meet the leadership bringing our community together and helping good ideas find their way."
       >
-        <Image
-          className="page-intro-addy team-intro-addy"
-          src={addyDomination}
-          alt="Addy, the ADS mascot"
-          sizes="(max-width: 850px) 62vw, 36vw"
-          loading="eager"
-        />
+        <div className="page-intro-addy team-addy-stage">
+          <Image
+            className="team-intro-addy"
+            src={addyDomination}
+            alt="Addy, the ADS mascot"
+            sizes="(max-width: 850px) 62vw, 36vw"
+            loading="eager"
+          />
+          <div className="team-addy-callout" role="note">
+            <span>Addy&apos;s Asserting Dominance</span>
+            <svg aria-hidden="true" viewBox="0 0 90 58">
+              <path d="M82 7C58 9 38 20 14 45" />
+              <path d="m15 33-2 13 13-2" />
+            </svg>
+          </div>
+        </div>
       </PageIntro>
       <ExecutiveEntrance
         id="team-roster"
