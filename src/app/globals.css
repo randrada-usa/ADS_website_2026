@@ -1684,7 +1684,6 @@ button:disabled {
   user-select: none;
 }
 
-#initiatives-home[data-entrance="pending"] .section-boundary-label>*,
 #initiatives-home[data-entrance="pending"] .initiative-showcase-media,
 #initiatives-home[data-entrance="pending"] .initiative-showcase-copy>*,
 #initiatives-home[data-entrance="pending"] .initiative-showcase-controls {
@@ -1746,6 +1745,19 @@ button:disabled {
 
 .initiative-showcase-media.is-dragging-active {
   z-index: 50;
+}
+
+.initiative-addy-wave {
+  --addy-size: clamp(155px, 20vw, 265px);
+  position: absolute;
+  z-index: 200;
+  right: calc(var(--addy-size) / -2);
+  bottom: calc(var(--addy-size) / -2);
+  width: var(--addy-size);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 @media (min-width: 851px) {
@@ -1902,6 +1914,10 @@ button:disabled {
     margin-inline: auto;
     padding: 20px 9% calc(4% + 10px) 4%;
   }
+
+  .initiative-addy-wave {
+    --addy-size: clamp(145px, 27vw, 210px);
+  }
 }
 
 .website main section.events-home-section>div.events-background-circles {
@@ -1985,6 +2001,10 @@ button:disabled {
   .initiative-photo-card {
     border-width: 6px;
     border-radius: 10px;
+  }
+
+  .initiative-addy-wave {
+    --addy-size: clamp(112px, 34vw, 155px);
   }
 
 }
