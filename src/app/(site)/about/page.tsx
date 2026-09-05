@@ -42,6 +42,12 @@ export default async function AboutPage() {
           <p>Made of different minds.</p>
         </div>
         <div>
+          <Image
+            className="about-story-addy"
+            src={addyWave}
+            alt=""
+            sizes="150px"
+          />
           <Eyebrow>Our story</Eyebrow>
           <h2>
             Rooted in community.

@@ -1652,9 +1652,9 @@ button:disabled {
   user-select: none;
 }
 
-#initiatives-home[data-entrance="pending"] .section-boundary-label > *,
+#initiatives-home[data-entrance="pending"] .section-boundary-label>*,
 #initiatives-home[data-entrance="pending"] .initiative-showcase-media,
-#initiatives-home[data-entrance="pending"] .initiative-showcase-copy > *,
+#initiatives-home[data-entrance="pending"] .initiative-showcase-copy>*,
 #initiatives-home[data-entrance="pending"] .initiative-showcase-controls {
   opacity: 0;
 }
@@ -2409,10 +2409,11 @@ button:disabled {
 }
 
 @media (min-width: 851px) {
-  #team-roster .member-grid > .member-card:nth-last-child(2):nth-child(4n + 1) {
+  #team-roster .member-grid>.member-card:nth-last-child(2):nth-child(4n + 1) {
     grid-column: 2;
   }
-  #team-roster .member-grid > .member-card:last-child:nth-child(4n + 2) {
+
+  #team-roster .member-grid>.member-card:last-child:nth-child(4n + 2) {
     grid-column: 3;
   }
 }
@@ -2990,6 +2991,10 @@ a.footer-contact-row:hover {
 }
 
 .page-intro:has(> .about-intro-addy) .intro-spark {
+  display: none;
+}
+
+.about-story-addy {
   display: none;
 }
 
@@ -4128,6 +4133,24 @@ a.footer-contact-row:hover {
     right: 0;
     width: 48px;
   }
+
+  .page-intro:has(> .about-intro-addy) {
+    min-height: 620px;
+  }
+
+  .page-intro:has(> .about-intro-addy)>p {
+    max-width: calc(100% - 380px);
+  }
+
+  .about-intro-addy {
+    top: 110px;
+    right: -8px;
+    width: clamp(280px, 32vw, 360px);
+  }
+
+  .about-story {
+    padding-block: 96px;
+  }
 }
 
 @media (max-width: 850px) {
@@ -4239,6 +4262,7 @@ a.footer-contact-row:hover {
 
   .about-story {
     gap: 30px;
+    padding-block: 75px;
   }
 
   .story-art {
@@ -4251,6 +4275,23 @@ a.footer-contact-row:hover {
 
   .story-art>svg {
     width: 45px;
+  }
+
+  .page-intro:has(> .about-intro-addy) {
+    min-height: 0;
+  }
+
+  .page-intro:has(> .about-intro-addy)>p {
+    max-width: 570px;
+  }
+
+  .about-intro-addy {
+    position: relative !important;
+    top: auto;
+    right: auto;
+    display: block;
+    width: min(62vw, 360px);
+    margin: 32px auto 0;
   }
 }
 
@@ -4618,17 +4659,24 @@ a.footer-contact-row:hover {
     display: none;
   }
 
-  .page-intro:has(> .about-intro-addy) {
-    min-height: 0;
+  .about-intro-addy {
+    display: none;
   }
 
-  .about-intro-addy {
-    position: relative !important;
-    top: auto;
-    right: auto;
+  .about-story>div:last-of-type {
+    z-index: 4 !important;
+  }
+
+  .about-story-addy {
+    position: absolute !important;
+    z-index: 5 !important;
+    right: -8px;
+    top: -118px;
     display: block;
-    width: min(78vw, 360px);
-    margin: 32px auto 0;
+    width: clamp(112px, 28vw, 150px);
+    height: auto;
+    pointer-events: none;
+    user-select: none;
   }
 
   .listing-section {
@@ -4682,7 +4730,7 @@ a.footer-contact-row:hover {
   .about-story {
     grid-template-columns: 1fr;
     gap: 38px;
-    padding-top: 15px;
+    padding-block: 60px;
   }
 
   .story-art {
@@ -5040,17 +5088,33 @@ a.social-icon {
   --social-tint: #e9f0f5;
   --social-tilt: -4deg;
 }
-a.social-icon:nth-child(even) { --social-tilt: 4deg; }
-a.social-icon[data-platform="Facebook"] { --social-tint: #e6efff; }
-a.social-icon[data-platform="LinkedIn"] { --social-tint: #e4f1f8; }
-a.social-icon[data-platform="Instagram"] { --social-tint: #fce8ef; }
-a.social-icon[data-platform="TikTok"] { --social-tint: #dff5f1; }
+
+a.social-icon:nth-child(even) {
+  --social-tilt: 4deg;
+}
+
+a.social-icon[data-platform="Facebook"] {
+  --social-tint: #e6efff;
+}
+
+a.social-icon[data-platform="LinkedIn"] {
+  --social-tint: #e4f1f8;
+}
+
+a.social-icon[data-platform="Instagram"] {
+  --social-tint: #fce8ef;
+}
+
+a.social-icon[data-platform="TikTok"] {
+  --social-tint: #dff5f1;
+}
 
 a.social-icon:focus-visible {
   background: var(--social-tint);
   box-shadow: inset 0 0 0 1px var(--ink), 0 0 0 0.5px var(--ink), 2px 3px 0 0.5px var(--ink);
   transform: translateY(-3px) rotate(var(--social-tilt));
 }
+
 @media (hover: hover) and (pointer: fine) {
   a.social-icon:hover {
     background: var(--social-tint);
@@ -5058,13 +5122,20 @@ a.social-icon:focus-visible {
     transform: translateY(-3px) rotate(var(--social-tilt));
   }
 }
+
 a.social-icon:active {
   transform: translateY(0);
   box-shadow: inset 0 0 0 1px var(--ink), 0 0 0 0.5px var(--ink);
 }
+
 @media (prefers-reduced-motion: reduce) {
-  a.social-icon { transition: none; }
-  a.social-icon:is(:hover, :focus-visible, :active) { transform: none; }
+  a.social-icon {
+    transition: none;
+  }
+
+  a.social-icon:is(:hover, :focus-visible, :active) {
+    transform: none;
+  }
 }
 
 .social-placeholder {
