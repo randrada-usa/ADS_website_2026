@@ -529,47 +529,44 @@ button:disabled {
   z-index: 2;
   inset-inline: 0;
   inset-block: 0;
-  overflow: visible;
+  overflow: hidden;
   pointer-events: none;
 }
 
 .department-topo {
   position: absolute;
-  width: clamp(370px, 32vw, 490px);
   overflow: visible;
   fill: none;
-  stroke: var(--blue);
-  stroke-width: 12;
+  stroke: #3c6597;
   stroke-linecap: round;
   stroke-linejoin: round;
-  opacity: 0.72;
 }
 
 .department-topo-upper {
-  top: clamp(25px, 2.5vw, 45px);
-  right: -230px;
-  transform: scaleY(-1);
+  top: -115px;
+  right: -215px;
+  width: clamp(500px, 43vw, 680px);
+  stroke-width: 17;
 }
 
 .department-topo-lower {
-  bottom: clamp(25px, 2.5vw, 45px);
-  left: -230px;
+  bottom: -130px;
+  left: -170px;
+  width: clamp(430px, 37vw, 570px);
+  stroke-width: 15;
+  opacity: 0.9;
   transform: scaleX(-1);
 }
 
-.department-circle {
+.department-circle-top-left {
   position: absolute;
+  top: 54px;
+  left: -32px;
+  width: clamp(72px, 8vw, 108px);
   aspect-ratio: 1;
   border-radius: 50%;
-  pointer-events: none;
-}
-
-.department-circle-warm {
-  bottom: 36px;
-  right: -65px;
-  width: clamp(125px, 13vw, 190px);
-  background: linear-gradient(135deg, var(--yellow), var(--orange));
-  opacity: 0.82;
+  background: linear-gradient(135deg, var(--blue), var(--teal));
+  opacity: 0.72;
 }
 
 @media (max-width: 850px) {
@@ -1636,6 +1633,46 @@ button:disabled {
   padding-block: 138px;
 }
 
+.website main section.initiative-home-section>div.initiative-background-circles {
+  position: absolute;
+  z-index: 0;
+  inset-block: 0;
+  left: 50%;
+  width: 100vw;
+  overflow: hidden;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.initiative-circle {
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  opacity: 0.84;
+  filter: saturate(1.14);
+}
+
+.initiative-circle-left {
+  top: 17%;
+  left: clamp(-58px, -3vw, -28px);
+  width: clamp(72px, 8vw, 112px);
+  background: linear-gradient(135deg, var(--blue), var(--teal));
+}
+
+.initiative-circle-right {
+  right: clamp(-45px, -2vw, -18px);
+  bottom: 12%;
+  width: clamp(48px, 5vw, 76px);
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
+}
+
+.initiative-circle-middle {
+  top: 12%;
+  left: 42%;
+  width: clamp(22px, 2.4vw, 34px);
+  background: linear-gradient(135deg, var(--orange), var(--red));
+}
+
 /* Keep even the raised drag layer below the section title badges. */
 .website main section.initiative-home-section>.initiative-showcase {
   isolation: isolate;
@@ -1881,14 +1918,6 @@ button:disabled {
 
   .initiative-addy-wave {
     --addy-size: clamp(145px, 27vw, 210px);
-  }
-}
-
-@media (max-width: 850px) {
-  .department-circle-warm {
-    bottom: -20px;
-    right: -40px;
-    width: 80px;
   }
 }
 
@@ -2489,6 +2518,52 @@ button:disabled {
   gap: 95px;
 }
 
+.website main section.faq-section>div.faq-background-circles {
+  position: absolute;
+  z-index: 0;
+  inset-block: 0;
+  left: 50%;
+  width: 100vw;
+  overflow: hidden;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.faq-circle {
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  opacity: 0.82;
+  filter: saturate(1.14);
+}
+
+.faq-circle-left {
+  left: -42px;
+  top: 42%;
+  width: clamp(72px, 8vw, 112px);
+  background: linear-gradient(135deg, var(--blue), var(--teal));
+}
+
+.faq-circle-upper-right {
+  top: 12%;
+  left: 18%;
+  width: clamp(28px, 3vw, 44px);
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
+}
+
+.faq-section .separator-circle-accent {
+  right: -52px;
+  left: auto;
+  width: clamp(100px, 10vw, 138px);
+}
+
+.faq-circle-lower-right {
+  right: -24px;
+  bottom: 12%;
+  width: clamp(62px, 7vw, 96px);
+  background: linear-gradient(135deg, var(--orange), var(--red));
+}
+
 .faq-section>div>p {
   font-size: 13px;
   color: var(--muted);
@@ -2629,28 +2704,11 @@ button:disabled {
 }
 
 .site-footer::before {
-  width: clamp(170px, 17vw, 240px);
-  aspect-ratio: 1;
-  height: auto;
-  top: 0;
-  left: clamp(-80px, -5vw, -45px);
-  transform: translateY(-50%);
-  background: linear-gradient(135deg, var(--blue), var(--teal));
-  box-shadow:
-    0 14px 34px -4px rgba(0, 0, 0, 0.18),
-    0 4px 12px rgba(0, 0, 0, 0.08);
-  opacity: 1;
-  z-index: 2;
+  display: none;
 }
 
 .site-footer::after {
-  width: 420px;
-  height: 220px;
-  top: 50%;
-  right: -330px;
-  bottom: auto;
-  border: 34px solid color-mix(in srgb, var(--blue) 90%, white);
-  transform: translateY(-50%) rotate(-8deg);
+  display: none;
 }
 
 .footer-shell {
@@ -5405,6 +5463,10 @@ a.social-icon:active {
   background: linear-gradient(135deg, var(--yellow), var(--orange));
 }
 
+.mission-vision-section .separator-circle-orange {
+  width: clamp(135px, 13vw, 180px);
+}
+
 .section-boundary-label .eyebrow {
   position: relative;
   z-index: 3;
@@ -5444,6 +5506,28 @@ a.social-icon:active {
 .website main section:nth-of-type(5n):not(.hero):not(.values-strip) {
   --section-orb-from: #3c6597;
   --section-orb-to: #9271bc;
+}
+
+/* Give each standalone page its own stable mix from the ADS palette. */
+.website main:has(.about-statement-cards)>.page-intro {
+  --section-orb-from: var(--orange);
+  --section-orb-to: var(--red);
+}
+
+.website main:has(#initiatives)>.page-intro {
+  --section-orb-from: var(--teal);
+  --section-orb-to: #9271bc;
+}
+
+.website main:has(#team-roster)>.page-intro {
+  --section-orb-from: var(--yellow);
+  --section-orb-to: var(--orange);
+}
+
+.website main>.department-page .department-intro {
+  --section-orb-background: linear-gradient(135deg,
+      var(--department),
+      color-mix(in srgb, var(--department) 45%, var(--yellow)));
 }
 
 @media (max-width: 850px) {

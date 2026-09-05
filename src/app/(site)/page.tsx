@@ -403,11 +403,14 @@ export default async function Home() {
         <div className="department-background-art" aria-hidden="true">
           <svg
             className="department-topo department-topo-upper"
-            viewBox="0 -30 460 440"
+            viewBox="0 0 620 410"
           >
-            <path d="M62 390c-38-93-22-159 52-204 65-40 126-16 198-71 49-38 78-83 98-135" />
-            <path d="M119 390c-37-79-19-134 45-171 62-35 117-13 177-61 43-34 68-75 86-123" />
-            <path d="M176 390c-33-65-14-108 39-137 56-31 104-10 154-51 35-29 56-64 72-105" />
+            <path d="M170-32C119 28 65 83 76 141c13 68 122 43 205 46 94 3 130 30 147 96 14 56 52 84 126 96" />
+            <path d="M244-39C189 25 119 89 131 125c13 40 109 9 211 26 117 20 119 81 146 145 19 45 56 67 118 73" />
+            <path
+              transform="translate(0 -18)"
+              d="M312-35C259 21 178 83 185 109c8 30 113-1 222 35 111 37 93 116 150 171 20 20 42 32 68 38"
+            />
           </svg>
           <svg
             className="department-topo department-topo-lower"
@@ -417,7 +420,7 @@ export default async function Home() {
             <path d="M119 390c-37-79-19-134 45-171 62-35 117-13 177-61 43-34 68-75 86-123" />
             <path d="M176 390c-33-65-14-108 39-137 56-31 104-10 154-51 35-29 56-64 72-105" />
           </svg>
-          <span className="department-circle department-circle-warm" />
+          <span className="department-circle-top-left" />
         </div>
         <div className="section-boundary-label">
           <Eyebrow>How we work together</Eyebrow>
@@ -442,7 +445,13 @@ export default async function Home() {
         </div>
       </section>
       <section id="faq" className="section container faq-section">
+        <div className="faq-background-circles" aria-hidden="true">
+          <span className="faq-circle faq-circle-left" />
+          <span className="faq-circle faq-circle-upper-right" />
+          <span className="faq-circle faq-circle-lower-right" />
+        </div>
         <div className="section-boundary-label">
+          <span className="separator-circle-accent separator-circle-orange" />
           <Eyebrow>A little more about us</Eyebrow>
         </div>
         <div className="faq-heading">
