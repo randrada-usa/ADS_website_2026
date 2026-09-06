@@ -59,7 +59,7 @@ export default async function Home() {
       ),
     )
     .filter((member) => member != null);
-  const contactEmail = safeEmail(content.settings.email) || "ads@usa.edu.ph";
+  const contactEmail = safeEmail(content.settings.email) || "gdsc-rso@usa.edu.ph";
   return (
     <>
       <HeroMotion>

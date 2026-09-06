@@ -257,7 +257,7 @@ export function EmptyState({ children }: { children: ReactNode }) {
   );
 }
 export function Footer({ settings }: { settings: SiteSettings }) {
-  const email = safeEmail(settings.email) || "ads@usa.edu.ph";
+  const email = safeEmail(settings.email) || "gdsc-rso@usa.edu.ph";
 
   return (
     <footer id="contact" className="site-footer">
