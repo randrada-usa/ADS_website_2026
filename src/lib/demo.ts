@@ -241,21 +241,21 @@ export const demoContent: SiteContent = {
     },
     {
       _id: "faq-3",
-      question: "What are the five departments?",
+      question: "What are the departments in ADS?",
       answer:
-        "Communications, Technology, Finance, Legal, and Operations. Explore the department pages to see their responsibilities and the people behind them.",
+        "We have five core departments: Communications, Technology, Finance, Legal, and Operations. Each department plays a vital role in our community and events.",
     },
     {
       _id: "faq-4",
-      question: "Where can I learn about your activities?",
+      question: "How do I become a member of ADS?",
       answer:
-        "Explore Initiatives for the stories behind our collective work, and Events for upcoming activities and recaps.",
+        "Stay updated and be the first to know when membership opens by following our social media accounts! We’ll announce everything there.",
     },
     {
       _id: "faq-5",
-      question: "How can I contact ADS?",
+      question: "Who is allowed to join ADS?",
       answer:
-        "Our official email and social links will appear in the contact section once they have been verified.",
+        "All students from the University of San Agustin are welcome! Whether you're a tech enthusiast, a curious learner, or someone looking to get more involved in the community, there’s a place for you here.",
     },
   ],
   featuredInitiatives: [
