@@ -172,13 +172,15 @@ export function ActivityCard({
 export function MemberCard({
   member,
   color = "#3C6597",
+  className,
 }: {
   member: Member;
   color?: string;
+  className?: string;
 }) {
   return (
     <article
-      className="member-card"
+      className={`member-card${className ? ` ${className}` : ""}`}
       style={{ "--department": color } as CSSProperties}
     >
       <div className="member-portrait">

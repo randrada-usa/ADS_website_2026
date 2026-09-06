@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { getContent } from "@/lib/content";
 import { PageEntrance } from "@/components/page-entrance";
 import { ExecutiveEntrance } from "@/components/executive-entrance";
@@ -7,7 +6,6 @@ import addyDomination from "../../../../assets/addy/addy_domination.png";
 import {
   DepartmentCard,
   EmptyState,
-  Eyebrow,
   MemberCard,
   PageIntro,
   SectionHeading,
@@ -22,6 +20,16 @@ export default async function TeamPage() {
         Number(a.position.trim().toLowerCase() === "adviser") -
         Number(b.position.trim().toLowerCase() === "adviser"),
     );
+  const rosterMembers = [
+    ...members,
+    {
+      _id: "addy-mascot",
+      name: "Addy",
+      position: "ADS Mascot",
+      portrait: addyDomination.src,
+      isLeadership: true,
+    },
+  ];
   return (
     <>
       <PageEntrance />
@@ -43,24 +51,7 @@ export default async function TeamPage() {
             <span className="team-intro-circle-left" />
           </div>
         }
-      >
-        <div className="page-intro-addy team-addy-stage">
-          <Image
-            className="team-intro-addy"
-            src={addyDomination}
-            alt="Addy, the ADS mascot"
-            sizes="(max-width: 850px) 62vw, 36vw"
-            loading="eager"
-          />
-          <div className="team-addy-callout" role="note">
-            <span>Addy&apos;s Asserting Dominance</span>
-            <svg aria-hidden="true" viewBox="0 0 90 58">
-              <path d="M82 7C58 9 38 20 14 45" />
-              <path d="m15 33-2 13 13-2" />
-            </svg>
-          </div>
-        </div>
-      </PageIntro>
+      />
       <ExecutiveEntrance
         id="team-roster"
         className="container listing-section team-listing"
@@ -70,23 +61,17 @@ export default async function TeamPage() {
           <span className="team-roster-circle-mr" />
           <span className="team-roster-satellite-2" />
         </div>
-        <div className="section-boundary-label">
-          <span
-            className="separator-circle-accent separator-circle-teal"
-            aria-hidden="true"
-          />
-          <Eyebrow>Executive Leadership</Eyebrow>
-        </div>
-        {members.length ? (
+        {rosterMembers.length ? (
           <div className="member-grid">
-            {members.map((member) => (
+            {rosterMembers.map((member) => (
               <MemberCard
                 key={member._id}
                 member={member}
+                className={member._id === "addy-mascot" ? "member-card-addy" : undefined}
                 color={
                   content.departments.find(
                     (dept) => dept.slug === member.department,
-                  )?.color
+                  )?.color ?? (member._id === "addy-mascot" ? "#F2BA5E" : undefined)
                 }
               />
             ))}
@@ -97,12 +82,9 @@ export default async function TeamPage() {
           </EmptyState>
         )}
       </ExecutiveEntrance>
-      <section className="department-section section">
+      <section className="department-section team-department-section section">
         <div className="department-background-art" aria-hidden="true">
           <span className="department-circle-top-left" />
-        </div>
-        <div className="section-boundary-label">
-          <Eyebrow>How we work together</Eyebrow>
         </div>
         <div className="container">
           <SectionHeading
