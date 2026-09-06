@@ -31,6 +31,13 @@ export default async function InitiativesPage() {
       <PageEntrance />
       <PageIntro
         label="What we do, together"
+        background={
+          <div className="initiatives-page-bg-intro" aria-hidden="true">
+            <span className="initiatives-intro-circle-top" />
+            <span className="initiatives-intro-satellite" />
+            <span className="initiatives-intro-circle-left" />
+          </div>
+        }
         afterLabel={
           featuredEvent && (
             <Link
@@ -78,6 +85,20 @@ export default async function InitiativesPage() {
         description="Outreach, shared experiences, and connections beyond campus. This is what putting our curiosity to work looks like."
       />
       <section id="initiatives" className="container listing-section">
+        <div className="initiatives-catalog-bg" aria-hidden="true">
+          <span className="initiatives-catalog-circle-tr" />
+          <span className="initiatives-catalog-satellite-tr" />
+          <span className="initiatives-catalog-circle-ml" />
+          <span className="initiatives-catalog-circle-br" />
+          <span className="initiatives-catalog-circle-bl" />
+        </div>
+        <div className="section-boundary-label">
+          <span
+            className="separator-circle-accent separator-circle-teal"
+            aria-hidden="true"
+          />
+          <Eyebrow>Explore All Activities</Eyebrow>
+        </div>
         <ActivityBrowser activities={activities} kind="all" now={now} />
       </section>
     </>

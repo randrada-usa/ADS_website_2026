@@ -5665,26 +5665,347 @@ a.social-icon:active {
   --section-orb-to: #9271bc;
 }
 
-/* Give each standalone page its own stable mix from the ADS palette. */
-.website main:has(.about-statement-cards)>.page-intro {
-  --section-orb-from: var(--orange);
-  --section-orb-to: var(--red);
-}
-
-.website main:has(#initiatives)>.page-intro {
-  --section-orb-from: var(--teal);
-  --section-orb-to: #9271bc;
-}
-
-.website main:has(#team-roster)>.page-intro {
-  --section-orb-from: var(--yellow);
-  --section-orb-to: var(--orange);
+/* Disable the generic repeating single-circle fallback on pages and sections with dedicated background designs */
+.website main .page-intro::before,
+.website main .about-story::before,
+.website main .about-statement-cards::before,
+.website main .listing-section::before,
+.website main .team-listing::before,
+.website main #team-roster::before,
+.website main .department-section::before,
+.website main section:has(> .about-page-bg-intro)::before,
+.website main section:has(> .about-story-bg)::before,
+.website main section:has(> .about-statements-bg)::before,
+.website main section:has(> .initiatives-page-bg-intro)::before,
+.website main section:has(> .initiatives-catalog-bg)::before,
+.website main section:has(> .team-page-bg-intro)::before,
+.website main section:has(> .team-roster-bg)::before,
+.website main section:has(> .department-background-art)::before {
+  display: none !important;
 }
 
 .website main>.department-page .department-intro {
   --section-orb-background: linear-gradient(135deg,
       var(--department),
       color-mix(in srgb, var(--department) 45%, var(--yellow)));
+}
+
+/* Wrapper divs for dedicated background circles */
+.website main div.about-page-bg-intro,
+.website main div.about-story-bg,
+.website main div.about-statements-bg,
+.website main div.initiatives-page-bg-intro,
+.website main div.initiatives-catalog-bg,
+.website main div.team-page-bg-intro,
+.website main div.team-roster-bg {
+  position: absolute !important;
+  z-index: 0 !important;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   About Page Background Circles & Compositions
+   ========================================================================== */
+.about-intro-circle-left {
+  position: absolute;
+  display: block;
+  top: -20px;
+  left: clamp(-60px, -4vw, -20px);
+  width: clamp(140px, 14vw, 200px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
+  opacity: 0.85;
+}
+
+.about-intro-satellite {
+  position: absolute;
+  display: block;
+  top: 130px;
+  left: clamp(100px, 10vw, 160px);
+  width: clamp(20px, 2vw, 30px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--orange), var(--red));
+  opacity: 0.88;
+}
+
+.about-intro-circle-right {
+  position: absolute;
+  display: block;
+  top: 40px;
+  right: clamp(-20px, 2vw, 40px);
+  width: clamp(220px, 22vw, 320px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal), #9271bc);
+  opacity: 0.78;
+}
+
+
+/* About Story Section Circles */
+.website main section.about-story {
+  position: relative;
+}
+
+.about-story-circle-left {
+  position: absolute;
+  display: block;
+  top: 15%;
+  left: -50px;
+  width: clamp(110px, 11vw, 160px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--teal));
+  opacity: 0.82;
+}
+
+.about-story-satellite {
+  position: absolute;
+  display: block;
+  top: 55%;
+  left: 100px;
+  width: clamp(16px, 1.6vw, 24px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--orange), var(--red));
+  opacity: 0.88;
+}
+
+.about-story-circle-right {
+  position: absolute;
+  display: block;
+  bottom: 8%;
+  right: -25px;
+  width: clamp(80px, 8vw, 120px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
+  opacity: 0.84;
+}
+
+
+
+/* ==========================================================================
+   Initiatives Page Background Circles & Compositions
+   ========================================================================== */
+.initiatives-intro-circle-top {
+  position: absolute;
+  display: block;
+  top: -30px;
+  right: -30px;
+  width: clamp(210px, 20vw, 300px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--teal));
+  opacity: 0.84;
+}
+
+.initiatives-intro-satellite {
+  position: absolute;
+  display: block;
+  top: 140px;
+  right: 280px;
+  width: clamp(30px, 3vw, 44px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
+  opacity: 0.88;
+}
+
+.initiatives-intro-circle-left {
+  position: absolute;
+  display: block;
+  top: 40px;
+  left: -40px;
+  width: clamp(90px, 9vw, 130px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal), #9271bc);
+  opacity: 0.76;
+}
+
+
+/* Initiatives Catalog Section Circles */
+.website main section#initiatives {
+  position: relative;
+  overflow: visible;
+}
+
+.initiatives-catalog-circle-tr {
+  position: absolute;
+  display: block;
+  top: 50px;
+  right: -35px;
+  width: clamp(95px, 9.5vw, 140px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
+  opacity: 0.82;
+}
+
+.initiatives-catalog-satellite-tr {
+  position: absolute;
+  display: block;
+  top: 170px;
+  right: 60px;
+  width: clamp(16px, 1.6vw, 24px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--orange), var(--red));
+  opacity: 0.9;
+}
+
+.initiatives-catalog-circle-ml {
+  position: absolute;
+  display: block;
+  top: 35%;
+  left: -45px;
+  width: clamp(120px, 12vw, 175px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3c6597, #9271bc);
+  opacity: 0.78;
+}
+
+.initiatives-catalog-circle-br {
+  position: absolute;
+  display: block;
+  top: 65%;
+  right: -25px;
+  width: clamp(85px, 8.5vw, 125px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--teal));
+  opacity: 0.8;
+}
+
+.initiatives-catalog-circle-bl {
+  position: absolute;
+  display: block;
+  bottom: 30px;
+  left: 20px;
+  width: clamp(40px, 4vw, 56px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--orange), var(--red));
+  opacity: 0.86;
+}
+
+/* ==========================================================================
+   Team Page Background Circles & Compositions
+   ========================================================================== */
+.team-intro-circle-right {
+  position: absolute;
+  display: block;
+  top: 30px;
+  right: -20px;
+  width: clamp(210px, 21vw, 300px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
+  opacity: 0.85;
+}
+
+
+.team-intro-satellite-teal {
+  position: absolute;
+  display: block;
+  top: 45px;
+  right: 280px;
+  width: clamp(34px, 3.4vw, 48px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--teal));
+  opacity: 0.88;
+}
+
+.team-intro-satellite-coral {
+  position: absolute;
+  display: block;
+  top: 220px;
+  right: 260px;
+  width: clamp(16px, 1.6vw, 22px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--orange), var(--red));
+  opacity: 0.9;
+}
+
+.team-intro-circle-left {
+  position: absolute;
+  display: block;
+  top: 45px;
+  left: -40px;
+  width: clamp(100px, 10vw, 150px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal), #9271bc);
+  opacity: 0.76;
+}
+
+/* Team Roster Section Circles */
+.website main #team-roster {
+  position: relative;
+  overflow: visible;
+}
+
+
+
+.team-roster-circle-tr {
+  position: absolute;
+  display: block;
+  top: 90px;
+  right: 30px;
+  width: clamp(55px, 5.5vw, 85px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
+  opacity: 0.85;
+}
+
+.team-roster-circle-mr {
+  position: absolute;
+  display: block;
+  top: 40%;
+  right: -50px;
+  width: clamp(150px, 15vw, 220px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
+  opacity: 0.76;
+}
+
+
+
+.team-roster-satellite-2 {
+  position: absolute;
+  display: block;
+  bottom: 70px;
+  right: 50px;
+  width: clamp(16px, 1.6vw, 24px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--yellow);
+  opacity: 0.9;
+}
+
+@media (max-width: 850px) {
+  .about-intro-circle-left {
+    width: 120px;
+    top: -20px;
+  }
+  .about-intro-circle-right {
+    width: 160px;
+    right: -20px;
+  }
+  .initiatives-intro-circle-top {
+    width: 150px;
+  }
+  .team-intro-circle-right {
+    width: 150px;
+  }
 }
 
 @media (max-width: 850px) {

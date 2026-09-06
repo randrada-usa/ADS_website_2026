@@ -51,7 +51,11 @@ export function PageEntrance() {
           root
             .querySelectorAll<HTMLElement>(targetsSelector)
             .forEach((element) => {
-              if (animations.has(element) || element.closest("#team-roster"))
+              if (
+                animations.has(element) ||
+                element.closest("#team-roster") ||
+                element.matches("[aria-hidden='true'], [aria-hidden='true'] *")
+              )
                 return;
               element.dataset.pagePop = "true";
               const card = element.matches(
