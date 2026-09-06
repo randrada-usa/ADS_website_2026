@@ -14,7 +14,6 @@ const links = [
 
 const homeSections = [
   ["About Us", "/#about-home"],
-  ["Mission & Vision", "/#mission-vision"],
   ["Our Journey", "/#our-journey"],
   ["Initiatives", "/#initiatives-home"],
   ["Events", "/#events-home"],

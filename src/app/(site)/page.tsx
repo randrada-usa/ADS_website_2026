@@ -224,62 +224,6 @@ export default async function Home() {
           </ButtonLink>
         </div>
       </section>
-      <section
-        id="mission-vision"
-        className="mission-vision-section"
-        aria-label="Mission and vision"
-      >
-        <div className="section-boundary-label">
-          <span
-            className="separator-circle-accent separator-circle-orange"
-            aria-hidden="true"
-          />
-          <Eyebrow>What Guides Us</Eyebrow>
-        </div>
-        <div className="container values-cards statement-cards">
-          <article>
-            <div className="statement-tab">
-              <h2>Our mission</h2>
-            </div>
-            <div className="statement-copy">
-              <div>
-                <p>
-                  Guided by the Augustinian values of Caritas, Unitas, and
-                  Veritas, our mission is to:
-                </p>
-                <ol className="statement-points">
-                  <li>
-                    (1) Empower students and community members by providing
-                    accessible education, training, and skills development in
-                    technology, programming, and digital literacy;
-                  </li>
-                  <li>
-                    (2) Enlighten minds by cultivating a culture of creativity,
-                    critical thinking, and innovation, demonstrating how
-                    technology can be a powerful tool for problem-solving and
-                    social good;
-                  </li>
-                </ol>
-              </div>
-            </div>
-          </article>
-          <article>
-            <div className="statement-tab">
-              <h2>Our vision</h2>
-            </div>
-            <div className="statement-copy">
-              <p>
-                We envision ourselves as a dynamic and distinguished community
-                of young developers, technologists, and innovators driven by
-                excellence and deeply committed to uplifting lives, empowering
-                communities, and contributing to societal progress through
-                responsible, accessible, and impactful technology and
-                innovation.
-              </p>
-            </div>
-          </article>
-        </div>
-      </section>
       <OurJourney />
       <InitiativeEntrance>
         {initiatives.length ? (
