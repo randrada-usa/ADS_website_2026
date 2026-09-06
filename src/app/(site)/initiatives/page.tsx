@@ -92,13 +92,6 @@ export default async function InitiativesPage() {
           <span className="initiatives-catalog-circle-br" />
           <span className="initiatives-catalog-circle-bl" />
         </div>
-        <div className="section-boundary-label">
-          <span
-            className="separator-circle-accent separator-circle-teal"
-            aria-hidden="true"
-          />
-          <Eyebrow>Explore All Activities</Eyebrow>
-        </div>
         <ActivityBrowser activities={activities} kind="all" now={now} />
       </section>
     </>

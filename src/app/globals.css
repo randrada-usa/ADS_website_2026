@@ -3131,7 +3131,7 @@ a.footer-contact-row:hover {
 }
 
 #initiatives.listing-section {
-  padding-top: 0;
+  padding-top: 24px;
 }
 
 .page-intro:has(+ .team-listing) {
@@ -5514,6 +5514,13 @@ a.social-icon:active {
   --section-surface: #fff5df;
 }
 
+.website main>section#initiatives {
+  --section-surface: var(--paper);
+  --section-surface-image:
+    linear-gradient(#516b7d0a 1px, transparent 1px),
+    linear-gradient(90deg, #516b7d0a 1px, transparent 1px);
+}
+
 /* Seamless, lightly tilted graph paper on the blue feature sections. */
 .website main>section:is(.initiative-home-section, .faq-section) {
   --section-surface-image:
@@ -5557,6 +5564,10 @@ a.social-icon:active {
 .website main section:not(.hero):not(.values-strip)>* {
   position: relative;
   z-index: 1;
+}
+
+.website main section.page-intro > .intro-spark {
+  position: absolute;
 }
 
 .website main section:has(> .section-boundary-label) {

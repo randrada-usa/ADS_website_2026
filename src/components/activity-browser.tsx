@@ -33,7 +33,6 @@ export function ActivityBrowser({
   const resultNoun =
     kind === "all" ? "activity" : kind === "event" ? "event" : "initiative";
   const emptyNoun = kind === "all" ? "activities" : `${resultNoun}s`;
-  const resultLabel = filtered.length === 1 ? resultNoun : emptyNoun;
 
   return (
     <div>
@@ -76,9 +75,6 @@ export function ActivityBrowser({
           </button>
         ))}
       </div>
-      <p className="result-count" aria-live="polite">
-        {filtered.length} {resultLabel}
-      </p>
       {filtered.length ? (
         <div className="activity-grid">
           {filtered.map((item) => (
