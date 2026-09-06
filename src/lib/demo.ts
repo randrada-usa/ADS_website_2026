@@ -159,7 +159,7 @@ export const demoContent: SiteContent = {
       title: "Big ideas. Built together.",
       summary:
         "Creating a space where student curiosity turns into collaborative solutions.",
-      category: "Hackathons",
+      category: "Hackathon",
       image: "/images/teamwork.jpg",
       imageAlt:
         "Temporary stock photograph of a collaborative workspace, not an ADS activity",

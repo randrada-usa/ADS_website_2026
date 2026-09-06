@@ -3,6 +3,10 @@ import { useState } from "react";
 import type { Activity } from "@/lib/types";
 import { ActivityCard, EmptyState } from "./ui";
 import { isUpcoming } from "@/lib/utils";
+
+const normalizeCategory = (category: string) =>
+  category === "Hackathons" ? "Hackathon" : category;
+
 export function ActivityBrowser({
   activities,
   kind,
@@ -16,11 +20,16 @@ export function ActivityBrowser({
   const [time, setTime] = useState("All");
   const categories = [
     "All",
-    ...new Set(activities.map((item) => item.category).filter(Boolean)),
+    ...new Set(
+      activities
+        .map((item) => normalizeCategory(item.category))
+        .filter(Boolean),
+    ),
   ];
   const events = activities.filter((item) => item.kind === "event");
   const filtered = activities.filter((item) => {
-    const matchesCategory = category === "All" || item.category === category;
+    const matchesCategory =
+      category === "All" || normalizeCategory(item.category) === category;
     const matchesTime =
       time === "All" ||
       (item.kind === "event" &&
