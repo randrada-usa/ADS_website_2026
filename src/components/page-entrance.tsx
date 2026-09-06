@@ -61,7 +61,6 @@ export function PageEntrance() {
                 ".activity-card, .department-card, .about-statement-cards > article",
               );
               const emblem = element.matches(".department-emblem");
-              const featuredEvent = element.matches(".featured-event");
               // Let the entrance own the transform, then resume the existing float.
               if (emblem) gsap.set(element, { animation: "none" });
               const artwork = element.matches(".story-art, .department-emblem");
@@ -82,16 +81,14 @@ export function PageEntrance() {
                 {
                   opacity: 0,
                   x: x + (artwork && !compact ? -24 : 0),
-                  y: y + (featuredEvent ? 0 : card || artwork ? (compact ? 35 : 55) : 28),
-                  scale: featuredEvent
-                    ? 1
-                    : spark
-                      ? 0.4
-                      : emblem
-                        ? 0.72
-                        : card || artwork
-                          ? 0.94
-                          : 0.98,
+                  y: y + (card || artwork ? (compact ? 35 : 55) : 28),
+                  scale: spark
+                    ? 0.4
+                    : emblem
+                      ? 0.72
+                      : card || artwork
+                        ? 0.94
+                        : 0.98,
                   rotation:
                     rotation +
                     (emblem
@@ -112,7 +109,7 @@ export function PageEntrance() {
                   y,
                   scale: 1,
                   rotation,
-                  duration: featuredEvent ? 0.65 : card || artwork ? 1.65 : 1.3,
+                  duration: card || artwork ? 1.65 : 1.3,
                   delay: element.matches(".about-statement-cards > article")
                     ? 0
                     : card
@@ -122,11 +119,9 @@ export function PageEntrance() {
                       : element.parentElement?.matches(".page-intro, .department-hero > div:first-child, .department-links, .responsibilities > .container")
                         ? Math.min(index, 4) * 0.1
                         : 0,
-                  ease: featuredEvent
-                    ? "power2.out"
-                    : card || artwork || spark
-                      ? "back.out(1.15)"
-                      : "power3.out",
+                  ease: card || artwork || spark
+                    ? "back.out(1.15)"
+                    : "power3.out",
                   paused: true,
                   onComplete: () => {
                     gsap.set(element, { clearProps: emblem ? "opacity,transform,animation" : "opacity,transform" });
