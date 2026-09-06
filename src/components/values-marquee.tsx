@@ -1,63 +1,157 @@
-import Image, { type StaticImageData } from "next/image";
-import partner01 from "../../assets/partners/TechConnect Presentation.png";
-import partner02 from "../../assets/partners/TechConnect Presentation(1).png";
-import partner03 from "../../assets/partners/TechConnect Presentation(2).png";
-import partner04 from "../../assets/partners/TechConnect Presentation(3).png";
-import partner05 from "../../assets/partners/TechConnect Presentation(4).png";
-import partner06 from "../../assets/partners/TechConnect Presentation(5).png";
-import partner07 from "../../assets/partners/TechConnect Presentation(6).png";
-import partner08 from "../../assets/partners/TechConnect Presentation(7).png";
-import partner09 from "../../assets/partners/TechConnect Presentation(8).png";
-import partner10 from "../../assets/partners/TechConnect Presentation(9).png";
-import partner11 from "../../assets/partners/TechConnect Presentation(10).png";
-import partner12 from "../../assets/partners/TechConnect Presentation(11).png";
-import partner13 from "../../assets/partners/TechConnect Presentation(12).png";
-import partner14 from "../../assets/partners/TechConnect Presentation(13).png";
-import partner15 from "../../assets/partners/TechConnect Presentation(14).png";
-import partner16 from "../../assets/partners/TechConnect Presentation(15).png";
-import partner17 from "../../assets/partners/TechConnect Presentation(16).png";
-import partner18 from "../../assets/partners/TechConnect Presentation(17).png";
-import partner19 from "../../assets/partners/TechConnect Presentation(18).png";
-import partner20 from "../../assets/partners/TechConnect Presentation(19).png";
-import partner21 from "../../assets/partners/TechConnect Presentation(20).png";
-import partner22 from "../../assets/partners/TechConnect Presentation(21).png";
-import partner23 from "../../assets/partners/TechConnect Presentation(22).png";
-import partner24 from "../../assets/partners/TechConnect Presentation(23).png";
-import partner25 from "../../assets/partners/TechConnect Presentation(24).png";
+import Image from "next/image";
 import { Eyebrow } from "./ui";
 
-const partners: { name: string; logo: StaticImageData }[] = [
-  { name: "PH Startup Online", logo: partner01 },
-  { name: "NVIDIA AI Academy Philippines", logo: partner02 },
-  { name: "Tech 4 Tomorrow", logo: partner03 },
-  { name: "ESET", logo: partner04 },
-  { name: "DEVCON Iloilo", logo: partner05 },
-  { name: "Google Developer Student Clubs UNO-R", logo: partner06 },
-  { name: "University of San Agustin partner", logo: partner07 },
-  { name: "UAPSA USA", logo: partner08 },
-  { name: "ITB", logo: partner09 },
-  { name: "Google Developer Student Clubs UP Manila", logo: partner10 },
-  { name: "Computer Engineering Society USA", logo: partner11 },
-  { name: "Gather", logo: partner12 },
-  { name: "Akubo", logo: partner13 },
-  { name: "Google Developer Group Bacolod", logo: partner14 },
-  { name: "Google Developer Student Clubs PUP Sto. Tomas", logo: partner15 },
-  { name: "LZ Cybersecurity", logo: partner16 },
-  { name: "Technology partner", logo: partner17 },
-  { name: "JRB", logo: partner18 },
+const partners = [
+  {
+    name: "PH Startup Online",
+    logo: "/assets/partners/partner-01.webp",
+    width: 387,
+    height: 122,
+  },
+  {
+    name: "NVIDIA AI Academy Philippines",
+    logo: "/assets/partners/partner-02.webp",
+    width: 134,
+    height: 134,
+  },
+  {
+    name: "Tech 4 Tomorrow",
+    logo: "/assets/partners/partner-03.webp",
+    width: 282,
+    height: 136,
+  },
+  {
+    name: "ESET",
+    logo: "/assets/partners/partner-04.webp",
+    width: 160,
+    height: 134,
+  },
+  {
+    name: "DEVCON Iloilo",
+    logo: "/assets/partners/partner-05.webp",
+    width: 134,
+    height: 134,
+  },
+  {
+    name: "Google Developer Student Clubs UNO-R",
+    logo: "/assets/partners/partner-06.webp",
+    width: 418,
+    height: 134,
+  },
+  {
+    name: "University of San Agustin partner",
+    logo: "/assets/partners/partner-07.webp",
+    width: 169,
+    height: 134,
+  },
+  {
+    name: "UAPSA USA",
+    logo: "/assets/partners/partner-08.webp",
+    width: 161,
+    height: 134,
+  },
+  {
+    name: "ITB",
+    logo: "/assets/partners/partner-09.svg",
+    width: 134,
+    height: 134,
+  },
+  {
+    name: "Google Developer Student Clubs UP Manila",
+    logo: "/assets/partners/partner-10.webp",
+    width: 268,
+    height: 134,
+  },
+  {
+    name: "Computer Engineering Society USA",
+    logo: "/assets/partners/partner-11.webp",
+    width: 129,
+    height: 129,
+  },
+  {
+    name: "Gather",
+    logo: "/assets/partners/partner-12.svg",
+    width: 339,
+    height: 116,
+  },
+  {
+    name: "Akubo",
+    logo: "/assets/partners/partner-13.webp",
+    width: 372,
+    height: 77,
+  },
+  {
+    name: "Google Developer Group Bacolod",
+    logo: "/assets/partners/partner-14.webp",
+    width: 401,
+    height: 107,
+  },
+  {
+    name: "Google Developer Student Clubs PUP Sto. Tomas",
+    logo: "/assets/partners/partner-15.webp",
+    width: 267,
+    height: 134,
+  },
+  {
+    name: "LZ Cybersecurity",
+    logo: "/assets/partners/partner-16.webp",
+    width: 189,
+    height: 134,
+  },
+  {
+    name: "Technology partner",
+    logo: "/assets/partners/partner-17.webp",
+    width: 122,
+    height: 122,
+  },
+  {
+    name: "JRB",
+    logo: "/assets/partners/partner-18.webp",
+    width: 134,
+    height: 134,
+  },
   {
     name: "Google Developer Student Clubs National University Manila",
-    logo: partner19,
+    logo: "/assets/partners/partner-19.webp",
+    width: 270,
+    height: 100,
   },
-  { name: "KodeGo", logo: partner20 },
-  { name: "Zuitt", logo: partner21 },
+  {
+    name: "KodeGo",
+    logo: "/assets/partners/partner-20.webp",
+    width: 201,
+    height: 134,
+  },
+  {
+    name: "Zuitt",
+    logo: "/assets/partners/partner-21.svg",
+    width: 134,
+    height: 134,
+  },
   {
     name: "Institute of Computer Engineers of the Philippines",
-    logo: partner22,
+    logo: "/assets/partners/partner-22.webp",
+    width: 134,
+    height: 134,
   },
-  { name: "Community partner", logo: partner23 },
-  { name: "Tech for All", logo: partner24 },
-  { name: "Technology community partner", logo: partner25 },
+  {
+    name: "Community partner",
+    logo: "/assets/partners/partner-23.webp",
+    width: 134,
+    height: 134,
+  },
+  {
+    name: "Tech for All",
+    logo: "/assets/partners/partner-24.webp",
+    width: 134,
+    height: 134,
+  },
+  {
+    name: "Technology community partner",
+    logo: "/assets/partners/partner-25.svg",
+    width: 134,
+    height: 134,
+  },
 ];
 
 export function ValuesMarquee() {
@@ -88,6 +182,8 @@ export function ValuesMarquee() {
                     <Image
                       src={partner.logo}
                       alt=""
+                      width={partner.width}
+                      height={partner.height}
                       sizes="(max-width: 650px) 96px, 128px"
                     />
                   </span>

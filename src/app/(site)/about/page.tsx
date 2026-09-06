@@ -2,13 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { getContent } from "@/lib/content";
 import { PageEntrance } from "@/components/page-entrance";
-import {
-  Eyebrow,
-  PageIntro,
-  ButtonLink,
-} from "@/components/ui";
+import { Eyebrow, PageIntro, ButtonLink } from "@/components/ui";
 import { Spark } from "@/components/icons";
-import addyWave from "../../../../assets/addy/addy_wave.png";
 export const metadata: Metadata = { title: "About" };
 export default async function AboutPage() {
   const content = await getContent();
@@ -35,8 +30,10 @@ export default async function AboutPage() {
       >
         <Image
           className="page-intro-addy about-intro-addy"
-          src={addyWave}
+          src="/assets/addy/addy-wave.png"
           alt="Addy, the ADS mascot, waving"
+          width={1440}
+          height={1440}
           sizes="(max-width: 850px) 78vw, 36vw"
           loading="eager"
         />
@@ -63,8 +60,10 @@ export default async function AboutPage() {
         <div>
           <Image
             className="about-story-addy"
-            src={addyWave}
+            src="/assets/addy/addy-wave.png"
             alt=""
+            width={1440}
+            height={1440}
             sizes="150px"
           />
           <h2>

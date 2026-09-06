@@ -1,10 +1,6 @@
 import Image from "next/image";
 import type { SiteSettings } from "@/lib/types";
 import { safeUrl } from "@/lib/utils";
-import facebookIcon from "../../assets/socials/facebook-square-icon.svg";
-import instagramIcon from "../../assets/socials/ig-instagram-icon.svg";
-import linkedInIcon from "../../assets/socials/linkedin-app-icon.svg";
-import tikTokIcon from "../../assets/socials/tiktok-rounded-square-icon.svg";
 
 const platforms = ["Facebook", "LinkedIn", "Instagram", "TikTok"] as const;
 type Platform = (typeof platforms)[number];
@@ -16,11 +12,11 @@ const platformUrls: Record<Platform, string> = {
   TikTok: "https://www.tiktok.com/@ads.san_ag",
 };
 const platformIcons = {
-  Facebook: facebookIcon,
-  LinkedIn: linkedInIcon,
-  Instagram: instagramIcon,
-  TikTok: tikTokIcon,
-} satisfies Record<Platform, typeof facebookIcon>;
+  Facebook: "/assets/socials/facebook.svg",
+  LinkedIn: "/assets/socials/linkedin.svg",
+  Instagram: "/assets/socials/instagram.svg",
+  TikTok: "/assets/socials/tiktok.svg",
+} satisfies Record<Platform, string>;
 
 function SocialIcon({ platform }: { platform: Platform }) {
   return (
@@ -28,8 +24,8 @@ function SocialIcon({ platform }: { platform: Platform }) {
       className="social-logo"
       src={platformIcons[platform]}
       alt=""
-      width="20"
-      height="20"
+      width={20}
+      height={20}
       aria-hidden="true"
     />
   );

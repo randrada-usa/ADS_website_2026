@@ -3,7 +3,6 @@ import Image from "next/image";
 import { getContent } from "@/lib/content";
 import { PageEntrance } from "@/components/page-entrance";
 import { ExecutiveEntrance } from "@/components/executive-entrance";
-import addyDomination from "../../../../assets/addy/addy_domination.png";
 import {
   DepartmentCard,
   EmptyState,
@@ -47,8 +46,10 @@ export default async function TeamPage() {
         <div className="page-intro-addy team-addy-stage">
           <Image
             className="team-intro-addy"
-            src={addyDomination}
+            src="/assets/addy/addy-domination.png"
             alt="Addy, the ADS mascot"
+            width={1440}
+            height={1440}
             sizes="(max-width: 850px) 62vw, 36vw"
             loading="eager"
           />
