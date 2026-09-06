@@ -24,7 +24,7 @@ import partner22 from "../../assets/partners/TechConnect Presentation(21).png";
 import partner23 from "../../assets/partners/TechConnect Presentation(22).png";
 import partner24 from "../../assets/partners/TechConnect Presentation(23).png";
 import partner25 from "../../assets/partners/TechConnect Presentation(24).png";
-import { AdsMark } from "./icons";
+import { Eyebrow } from "./ui";
 
 const partners: { name: string; logo: StaticImageData }[] = [
   { name: "PH Startup Online", logo: partner01 },
@@ -66,9 +66,8 @@ export function ValuesMarquee() {
       className="values-strip partner-strip"
       aria-label="Previous partners"
     >
-      <div className="partner-strip-label">
-        <AdsMark className="partner-strip-label-icon" aria-hidden="true" />
-        <span>PREVIOUS PARTNERS</span>
+      <div className="partner-strip-label section-boundary-label">
+        <Eyebrow>Previous Partners</Eyebrow>
       </div>
       <div className="partner-wall">
         <div className="partner-logo-row">

@@ -3139,7 +3139,13 @@ a.footer-contact-row:hover {
 }
 
 .listing-section.team-listing {
-  padding-block: 32px;
+  padding-block: 64px;
+}
+
+@media (min-width: 851px) {
+  .page-intro:has(+ .team-listing) {
+    min-height: clamp(540px, 44vw, 600px);
+  }
 }
 
 .website main .team-preview::before {
@@ -3368,7 +3374,7 @@ a.footer-contact-row:hover {
 }
 
 .about-story {
-  padding-top: 20px;
+  padding-block: clamp(96px, 8vw, 128px);
   display: grid;
   grid-template-columns: 1fr 1.1fr;
   gap: 65px;
@@ -5324,26 +5330,14 @@ a.social-icon:active {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  width: clamp(205px, 18vw, 240px);
-  min-height: 38px;
-  padding: 8px 18px;
-  border: 1.5px solid var(--ink);
-  border-radius: 5px;
-  background: white;
-  box-shadow: 0 3px 0 var(--ink);
-  color: var(--ink);
-  font: 800 clamp(11px, 1vw, 14px)/1 var(--font-display);
-  font-style: italic;
-  text-align: center;
-  letter-spacing: 0.6px;
   transform: translate(-50%, -50%);
+  white-space: nowrap;
+  pointer-events: none;
 }
 
-.partner-strip-label-icon {
-  width: 22px;
-  height: 18px;
-  flex: none;
+.partner-strip-label .eyebrow {
+  margin: 0;
+  pointer-events: auto;
 }
 
 .partner-wall {
@@ -6073,10 +6067,7 @@ a.social-icon:active {
   }
 
   .partner-strip-label {
-    width: 190px;
-    min-height: 34px;
-    padding: 7px 12px;
-    font-size: 10px;
+    width: auto;
   }
 
   .partner-wall {

@@ -47,6 +47,13 @@ export default async function AboutPage() {
           <span className="about-story-satellite" />
           <span className="about-story-circle-right" />
         </div>
+        <div className="section-boundary-label">
+          <span
+            className="separator-circle-accent separator-circle-teal"
+            aria-hidden="true"
+          />
+          <Eyebrow>Our Story</Eyebrow>
+        </div>
         <div className="story-art" aria-hidden="true">
           <span>&lt;</span>
           <Spark />
@@ -60,7 +67,6 @@ export default async function AboutPage() {
             alt=""
             sizes="150px"
           />
-          <Eyebrow>Our story</Eyebrow>
           <h2>
             Rooted in community.
             <br />
