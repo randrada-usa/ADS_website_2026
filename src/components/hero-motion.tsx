@@ -53,6 +53,12 @@ export function HeroMotion({ children }: { children: ReactNode }) {
             rotation: Number(gsap.getProperty(element, "rotation")),
           };
         });
+        const iconRotations = new Map<HTMLElement, number>(
+          select(".small-department-icons img").map((icon: HTMLElement) => [
+            icon,
+            Number(gsap.getProperty(icon, "rotation")),
+          ]),
+        );
         let settled = false;
         let inView = root.getBoundingClientRect().bottom > 0;
         const ambient = [
@@ -234,6 +240,30 @@ export function HeroMotion({ children }: { children: ReactNode }) {
             root.removeEventListener("pointerleave", reset);
           });
 
+          select(".small-department-icons img").forEach((icon: HTMLElement) => {
+            const originalRotation = iconRotations.get(icon) ?? 0;
+            // Separate prebuilt hover tweens avoid accumulating animations on rapid movement.
+            const hover = gsap.timeline({ paused: true }).to(icon, {
+              y: -7,
+              scale: 1.18,
+              rotation: originalRotation + 9,
+              duration: 0.45,
+              ease: "back.out(1.8)",
+              overwrite: "auto",
+            });
+            const enter = () => {
+              if (settled) hover.play();
+            };
+            const leave = () => {
+              if (settled) hover.reverse();
+            };
+            icon.addEventListener("pointerenter", enter);
+            icon.addEventListener("pointerleave", leave);
+            cleanups.push(() => {
+              icon.removeEventListener("pointerenter", enter);
+              icon.removeEventListener("pointerleave", leave);
+            });
+          });
         }
         return () => {
           cancelAnimationFrame(frame);
