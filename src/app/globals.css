@@ -5769,6 +5769,7 @@ a.social-icon:active {
 
 .website main section:not(.hero):not(.values-strip) > .section-boundary-label {
   position: absolute;
+  isolation: isolate;
   z-index: 4;
   top: 0;
   left: 50%;
@@ -5789,7 +5790,7 @@ a.social-icon:active {
   top: 50%;
   height: 2px;
   background: var(--ink);
-  z-index: 1;
+  z-index: 0;
 }
 
 .separator-circle-accent {
