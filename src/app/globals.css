@@ -5911,7 +5911,7 @@ a.social-icon:active {
 
 /* Keep the homepage surface rhythm stable when sections are reordered. */
 .website main>section#about-home {
-  --section-surface: #fff5df;
+  --section-surface: #f5f1e9;
   --section-surface-image: none;
 }
 
