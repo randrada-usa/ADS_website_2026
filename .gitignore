@@ -66,6 +66,9 @@ yarn-error.log*
 # local Sanity cache (application configuration in src/sanity stays tracked)
 .sanity/
 
+# local partner-logo source exports (deployed copies live in public/assets/partners)
+/assets/Partners/
+
 # local agent configuration
 /.codex/
 /.agents/
