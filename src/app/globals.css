@@ -4030,8 +4030,41 @@ a.footer-contact-row:hover {
 }
 
 .department-member-scroll {
+  --department-member-orb-size: clamp(72px, 8vw, 112px);
+  position: relative;
   min-width: 0;
   container-type: inline-size;
+}
+
+/* Keep the department accent attached to the pinned member panel so it stays
+   fixed at the upper-right while the cards travel horizontally. */
+.website main > .department-page > .container.section::before {
+  display: none;
+}
+
+.department-member-orb {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: calc(var(--department-member-orb-size) * -0.22);
+  width: var(--department-member-orb-size);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--teal));
+  opacity: 0.58;
+  pointer-events: none;
+}
+
+.department-member-scroll > :not(.department-member-orb) {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 650px) {
+  .department-member-orb {
+    z-index: 0;
+    opacity: 0.42;
+  }
 }
 
 .department-member-controls {
