@@ -1511,24 +1511,33 @@ button:disabled {
 
 .about-bg-circle {
   position: absolute;
+  z-index: 1;
   display: block;
   aspect-ratio: 1;
   border-radius: 50%;
-  opacity: 0.8;
+  opacity: 1;
 }
 
-.about-bg-circle-small-one {
-  top: 14%;
-  left: clamp(18px, 4vw, 64px);
-  width: clamp(34px, 3.8vw, 56px);
+.about-bg-circle-upper-left {
+  top: clamp(32px, 8%, 72px);
+  left: clamp(-130px, -7vw, -72px);
+  width: clamp(210px, 20vw, 310px);
   background: linear-gradient(135deg, var(--teal), var(--yellow));
 }
 
-.about-bg-circle-small-two {
-  top: 31%;
-  right: clamp(20px, 5vw, 78px);
-  width: clamp(18px, 2vw, 30px);
-  background: linear-gradient(135deg, var(--orange), var(--red));
+.about-bg-circle-upper-right {
+  top: clamp(28px, 6%, 60px);
+  right: clamp(-150px, -8vw, -80px);
+  width: clamp(230px, 23vw, 350px);
+  background: linear-gradient(135deg, var(--yellow), var(--orange) 55%, var(--red));
+}
+
+@media (min-width: 651px) and (max-width: 850px) {
+  .about-bg-circle-upper-right {
+    top: clamp(24px, 4%, 40px);
+    right: -180px;
+    width: clamp(210px, 30vw, 240px);
+  }
 }
 
 .about-bg-contours {
@@ -4050,7 +4059,9 @@ a.footer-contact-row:hover {
   width: var(--department-member-orb-size);
   aspect-ratio: 1;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--blue), var(--teal));
+  background: linear-gradient(135deg,
+      var(--department),
+      color-mix(in srgb, var(--department) 48%, white));
   opacity: 0.58;
   pointer-events: none;
 }
@@ -4989,14 +5000,16 @@ a.footer-contact-row:hover {
     display: none;
   }
 
-  .about-bg-circle-small-one {
-    top: 9%;
-    left: 16px;
+  .about-bg-circle-upper-left {
+    top: 7%;
+    left: -96px;
+    width: clamp(170px, 44vw, 230px);
   }
 
-  .about-bg-circle-small-two {
-    top: 42%;
-    right: 12px;
+  .about-bg-circle-upper-right {
+    top: 7%;
+    right: -96px;
+    width: clamp(180px, 52vw, 260px);
   }
 
   .about-bg-contours-lower-right {
