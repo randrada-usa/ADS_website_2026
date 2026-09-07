@@ -166,7 +166,8 @@ export default async function Home() {
       <ValuesMarquee />
       <section id="about-home" className="section container about-preview">
         <div className="about-background-design" aria-hidden="true">
-          <span className="about-bg-circle about-bg-circle-lower-left" />
+          <span className="about-bg-circle about-bg-circle-small-one" />
+          <span className="about-bg-circle about-bg-circle-small-two" />
           <svg
             className="about-bg-contours about-bg-contours-lower-right"
             viewBox="0 0 420 360"

@@ -1517,11 +1517,18 @@ button:disabled {
   opacity: 0.8;
 }
 
-.about-bg-circle-lower-left {
-  bottom: -125px;
-  left: -125px;
-  width: clamp(210px, 18vw, 285px);
-  background: linear-gradient(135deg, #3c6597, #9271bc);
+.about-bg-circle-small-one {
+  top: 14%;
+  left: clamp(18px, 4vw, 64px);
+  width: clamp(34px, 3.8vw, 56px);
+  background: linear-gradient(135deg, var(--teal), var(--yellow));
+}
+
+.about-bg-circle-small-two {
+  top: 31%;
+  right: clamp(20px, 5vw, 78px);
+  width: clamp(18px, 2vw, 30px);
+  background: linear-gradient(135deg, var(--orange), var(--red));
 }
 
 .about-bg-contours {
@@ -4783,9 +4790,14 @@ a.footer-contact-row:hover {
     display: none;
   }
 
-  .about-bg-circle-lower-left {
-    bottom: -105px;
-    left: -175px;
+  .about-bg-circle-small-one {
+    top: 9%;
+    left: 16px;
+  }
+
+  .about-bg-circle-small-two {
+    top: 42%;
+    right: 12px;
   }
 
   .about-bg-contours-lower-right {
