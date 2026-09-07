@@ -1521,7 +1521,7 @@ button:disabled {
   bottom: -125px;
   left: -125px;
   width: clamp(210px, 18vw, 285px);
-  background: linear-gradient(135deg, var(--yellow), var(--orange));
+  background: linear-gradient(135deg, #3c6597, #9271bc);
 }
 
 .about-bg-contours {
