@@ -148,7 +148,7 @@ export function AdyInteractive({
         <div className="ady-bubble-content">
           <p className="ady-bubble-text">
             <span className="ady-bubble-heading">
-              Hi, I&apos;m Ady!
+              Hi, I&apos;m Addy!
             </span>
             <span className="ady-bubble-body">
               I&apos;m inspired by &lsquo;rubber duck debugging&rsquo;&mdash;the programmer&apos;s best friend.
