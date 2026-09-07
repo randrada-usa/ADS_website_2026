@@ -1767,11 +1767,42 @@ button:disabled {
   -webkit-user-drag: none;
 }
 
+.initiative-drag-hint {
+  display: none;
+}
+
 @media (min-width: 851px) {
   .initiative-showcase-media {
     width: 93%;
     justify-self: end;
     padding-block: 26px;
+  }
+}
+
+@media (min-width: 1025px) and (hover: hover) and (pointer: fine) {
+  .initiative-drag-hint {
+    position: absolute;
+    z-index: 190;
+    bottom: -20px;
+    left: 50%;
+    display: block;
+    min-width: 180px;
+    padding: 13px 20px;
+    border: 2px solid var(--ink);
+    border-radius: 4px;
+    background: var(--yellow);
+    box-shadow: 5px 6px 0 var(--ink);
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: clamp(16px, 1.3vw, 19px);
+    font-style: italic;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    transform: translateX(-50%) rotate(-1deg);
+    pointer-events: none;
+    user-select: none;
   }
 }
 
@@ -2389,10 +2420,10 @@ button:disabled {
   max-width: calc(100% - 34px);
   margin: 0 auto -13px;
   padding: 8px 17px;
-  border: 1.5px solid var(--ink);
+  border: 2px solid var(--ink);
   border-radius: 4px;
   background: var(--event-accent);
-  box-shadow: 2px 3px 0 var(--ink);
+  box-shadow: 5px 6px 0 var(--ink);
   color: var(--event-label-color);
   font-family: var(--font-display);
   font-size: clamp(14px, 1.35vw, 18px);

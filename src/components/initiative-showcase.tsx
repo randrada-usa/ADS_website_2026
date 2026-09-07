@@ -493,6 +493,9 @@ export function InitiativeShowcase({ activities }: { activities: Activity[] }) {
             sizes="(max-width: 650px) 34vw, (max-width: 850px) 27vw, 20vw"
             draggable={false}
           />
+          <span className="initiative-drag-hint" aria-hidden="true">
+            Drag the Pic!
+          </span>
         </div>
       </div>
     </div>
