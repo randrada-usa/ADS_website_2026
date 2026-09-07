@@ -1,6 +1,6 @@
 # Augustinian Developer Society Website
 
-Official website of the Augustinian Developer Society at the University of San Agustin.
+Official website of the Augustinian Developer Society of the University of San Agustin.
 
 ## Start the website
 
