@@ -3557,20 +3557,14 @@ a.footer-contact-row:hover {
 }
 
 .featured-event-content {
-  position: relative;
+  position: absolute;
+  inset: 0 auto 0 0;
+  display: flex;
+  width: min(650px, 100%);
+  flex-direction: column;
+  justify-content: center;
   padding: 44px;
-  max-width: 650px;
   color: white;
-}
-
-.featured-event-content .eyebrow {
-  background: #f6d391;
-  border-color: #f6d391;
-  color: var(--ink);
-}
-
-.featured-event-content .eyebrow>span {
-  color: var(--ink);
 }
 
 .featured-date {

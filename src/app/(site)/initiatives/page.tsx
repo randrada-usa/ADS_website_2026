@@ -4,7 +4,7 @@ import Link from "next/link";
 import { getContent } from "@/lib/content";
 import { PageEntrance } from "@/components/page-entrance";
 import { activityHref, formatDate, isUpcoming } from "@/lib/utils";
-import { Eyebrow, PageIntro } from "@/components/ui";
+import { PageIntro } from "@/components/ui";
 import { ActivityBrowser } from "@/components/activity-browser";
 import { Arrow } from "@/components/icons";
 
@@ -56,11 +56,6 @@ export default async function InitiativesPage() {
               )}
               <div className="featured-event-shade" />
               <div className="featured-event-content">
-                <Eyebrow>
-                  {isUpcoming(featuredEvent, now)
-                    ? "HAPPENING NOW"
-                    : "Latest recap"}
-                </Eyebrow>
                 <span className="featured-date">
                   {formatDate(featuredEvent.date)}
                   {featuredEvent.demo && " · Sample date"}
