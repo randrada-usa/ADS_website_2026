@@ -3874,8 +3874,8 @@ a.footer-contact-row:hover {
   padding-left: 24px;
 }
 
-.about-statement-cards .purpose-statement .statement-tab {
-  background: var(--blue);
+.about-statement-cards article.purpose-statement .statement-tab {
+  background: var(--red);
 }
 
 .about-statement-cards .vision-statement .statement-tab {
