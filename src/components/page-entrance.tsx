@@ -56,13 +56,20 @@ export function PageEntrance() {
               if (
                 animations.has(element) ||
                 element.closest("#team-roster") ||
-                (element.matches("[aria-hidden='true'], [aria-hidden='true'] *") &&
+                (element.matches(
+                  "[aria-hidden='true'], [aria-hidden='true'] *",
+                ) &&
                   !element.matches(".story-art"))
               )
                 return;
               element.dataset.pagePop = "true";
               const isBack = element.matches(".page-intro-back");
-              const isAdy = element.matches(".page-intro-addy, .about-intro-addy");
+              const isAdy = element.matches(
+                ".page-intro-addy, .about-intro-addy",
+              );
+              const isRowPopCard = element.parentElement?.matches(
+                ".activity-grid-row-pop",
+              );
               const card = element.matches(
                 ".activity-card, .department-card, .about-statement-cards > article",
               );
@@ -79,6 +86,7 @@ export function PageEntrance() {
               const columns = getComputedStyle(
                 element.parentElement!,
               ).gridTemplateColumns.split(/\s+/).length;
+              const column = index % Math.max(columns, 1);
               const rotation = Number(gsap.getProperty(element, "rotation"));
               const x = Number(gsap.getProperty(element, "x"));
               const y = Number(gsap.getProperty(element, "y"));
@@ -97,8 +105,12 @@ export function PageEntrance() {
                         ? 16
                         : card || artwork
                           ? compact
-                            ? 35
-                            : 55
+                            ? isRowPopCard
+                              ? 42
+                              : 35
+                            : isRowPopCard
+                              ? 64
+                              : 55
                           : 28),
                   scale: spark
                     ? 0.4
@@ -116,16 +128,20 @@ export function PageEntrance() {
                     (emblem
                       ? -12
                       : spark
-                      ? -60
-                      : isAdy
-                        ? -3
-                        : card
-                        ? index % 2
-                          ? 2
-                          : -2
-                        : artwork
-                          ? -2
-                          : 0),
+                        ? -60
+                        : isAdy
+                          ? -3
+                          : card
+                            ? isRowPopCard
+                              ? column % 2
+                                ? 2.5
+                                : -2.5
+                              : index % 2
+                                ? 2
+                                : -2
+                            : artwork
+                              ? -2
+                              : 0),
                 },
                 {
                   opacity: 1,
@@ -133,25 +149,35 @@ export function PageEntrance() {
                   y,
                   scale: 1,
                   rotation,
-                  duration: isAdy ? 1.35 : card || artwork ? 1.65 : 1.2,
+                  duration: isAdy
+                    ? 1.35
+                    : isRowPopCard
+                      ? 0.85
+                      : card || artwork
+                        ? 1.65
+                        : 1.2,
                   delay: isBack
                     ? 0.05
                     : isAdy
-                    ? 0.35
-                    : element.matches(".about-statement-cards > article")
-                    ? 0
-                    : card
-                    ? (index % Math.min(columns, 4)) * 0.16
-                    : spark
-                      ? 0.3
-                      : element.parentElement?.matches(
-                          ".page-intro, .department-intro, .department-hero > div:first-child, .department-links, .responsibilities > .container",
-                        )
-                        ? Math.min(index, 4) * 0.1
-                        : 0,
-                  ease: isAdy || card || artwork || spark
-                    ? "back.out(1.2)"
-                    : "power3.out",
+                      ? 0.35
+                      : element.matches(".about-statement-cards > article")
+                        ? 0
+                        : isRowPopCard
+                          ? column * 0.13
+                          : card
+                            ? (index % Math.min(columns, 4)) * 0.16
+                            : spark
+                              ? 0.3
+                              : element.parentElement?.matches(
+                                    ".page-intro, .department-intro, .department-hero > div:first-child, .department-links, .responsibilities > .container",
+                                  )
+                                ? Math.min(index, 4) * 0.1
+                                : 0,
+                  ease: isRowPopCard
+                    ? "back.out(1.35)"
+                    : isAdy || card || artwork || spark
+                      ? "back.out(1.2)"
+                      : "power3.out",
                   paused: true,
                   onComplete: () => {
                     gsap.set(element, {

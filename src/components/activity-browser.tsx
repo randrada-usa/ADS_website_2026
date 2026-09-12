@@ -88,7 +88,9 @@ export function ActivityBrowser({
         ))}
       </div>
       {filtered.length ? (
-        <div className="activity-grid">
+        <div
+          className={`activity-grid${kind === "all" ? " activity-grid-row-pop" : ""}`}
+        >
           {filtered.map((item) => (
             <ActivityCard key={item._id} activity={item} />
           ))}
