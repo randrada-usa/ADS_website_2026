@@ -11,7 +11,8 @@ const targetsSelector = [
   ".page-intro > .page-intro-addy",
   ".page-intro > .intro-spark",
   ".featured-event",
-  ".about-story > *",
+  ".about-story > .story-art",
+  ".about-story > div:last-child",
   ".about-statement-cards > article",
   ".filter-row",
   ".activity-grid > *",
@@ -55,7 +56,8 @@ export function PageEntrance() {
               if (
                 animations.has(element) ||
                 element.closest("#team-roster") ||
-                element.matches("[aria-hidden='true'], [aria-hidden='true'] *")
+                (element.matches("[aria-hidden='true'], [aria-hidden='true'] *") &&
+                  !element.matches(".story-art"))
               )
                 return;
               element.dataset.pagePop = "true";

@@ -561,7 +561,7 @@ button:disabled {
 .department-circle-top-left {
   position: absolute;
   top: 54px;
-  left: -32px;
+  left: -90px;
   width: clamp(72px, 8vw, 108px);
   aspect-ratio: 1;
   border-radius: 50%;
@@ -1527,7 +1527,7 @@ button:disabled {
 
 .about-bg-circle-upper-right {
   top: clamp(28px, 6%, 60px);
-  right: clamp(-150px, -8vw, -80px);
+  right: -300px;
   width: clamp(230px, 23vw, 350px);
   background: linear-gradient(135deg, var(--yellow), var(--orange) 55%, var(--red));
 }
@@ -2616,14 +2616,14 @@ button:disabled {
 }
 
 .faq-circle-left {
-  left: -42px;
+  left: -112px;
   top: 42%;
   width: clamp(72px, 8vw, 112px);
   background: linear-gradient(135deg, var(--blue), var(--teal));
 }
 
 .faq-circle-upper-right {
-  top: 12%;
+  top: -60px;
   left: 18%;
   width: clamp(28px, 3vw, 44px);
   background: linear-gradient(135deg, var(--yellow), var(--orange));
@@ -2636,7 +2636,7 @@ button:disabled {
 }
 
 .faq-circle-lower-right {
-  right: -24px;
+  right: -96px;
   bottom: 12%;
   width: clamp(62px, 7vw, 96px);
   background: linear-gradient(135deg, var(--orange), var(--red));
@@ -3377,7 +3377,7 @@ a.footer-contact-row:hover {
 
 .team-circle-right {
   top: 28%;
-  right: -125px;
+  right: -260px;
   width: clamp(240px, 24vw, 360px);
   background: linear-gradient(135deg, var(--yellow), var(--orange));
   opacity: 0.76;
@@ -3391,14 +3391,14 @@ a.footer-contact-row:hover {
   }
 
   .team-circle-top-right {
-    top: 20px;
+    top: -40px;
     right: 10%;
     width: 48px;
   }
 
   .team-circle-right {
     top: 45%;
-    right: -90px;
+    right: -180px;
     width: 180px;
   }
 }
@@ -6045,8 +6045,8 @@ a.social-icon:active {
 .about-intro-circle-left {
   position: absolute;
   display: block;
-  top: -20px;
-  left: clamp(-60px, -4vw, -20px);
+  top: -150px;
+  left: -200px;
   width: clamp(140px, 14vw, 200px);
   aspect-ratio: 1;
   border-radius: 50%;
@@ -6069,7 +6069,7 @@ a.social-icon:active {
 .about-intro-circle-right {
   position: absolute;
   display: block;
-  top: 40px;
+  top: -120px;
   right: clamp(-20px, 2vw, 40px);
   width: clamp(220px, 22vw, 320px);
   aspect-ratio: 1;
@@ -6112,7 +6112,7 @@ a.social-icon:active {
   position: absolute;
   display: block;
   bottom: 8%;
-  right: -25px;
+  right: -120px;
   width: clamp(80px, 8vw, 120px);
   aspect-ratio: 1;
   border-radius: 50%;
@@ -6128,7 +6128,7 @@ a.social-icon:active {
 .initiatives-intro-circle-top {
   position: absolute;
   display: block;
-  top: -30px;
+  top: -220px;
   right: -30px;
   width: clamp(210px, 20vw, 300px);
   aspect-ratio: 1;
@@ -6152,8 +6152,8 @@ a.social-icon:active {
 .initiatives-intro-circle-left {
   position: absolute;
   display: block;
-  top: 40px;
-  left: -40px;
+  top: -120px;
+  left: -130px;
   width: clamp(90px, 9vw, 130px);
   aspect-ratio: 1;
   border-radius: 50%;
@@ -6172,7 +6172,7 @@ a.social-icon:active {
   position: absolute;
   display: block;
   top: 50px;
-  right: -35px;
+  right: -150px;
   width: clamp(95px, 9.5vw, 140px);
   aspect-ratio: 1;
   border-radius: 50%;
@@ -6196,7 +6196,7 @@ a.social-icon:active {
   position: absolute;
   display: block;
   top: 35%;
-  left: -45px;
+  left: -180px;
   width: clamp(120px, 12vw, 175px);
   aspect-ratio: 1;
   border-radius: 50%;
@@ -6208,7 +6208,7 @@ a.social-icon:active {
   position: absolute;
   display: block;
   top: 65%;
-  right: -25px;
+  right: -140px;
   width: clamp(85px, 8.5vw, 125px);
   aspect-ratio: 1;
   border-radius: 50%;
@@ -6220,7 +6220,7 @@ a.social-icon:active {
   position: absolute;
   display: block;
   bottom: 30px;
-  left: 20px;
+  left: -60px;
   width: clamp(40px, 4vw, 56px);
   aspect-ratio: 1;
   border-radius: 50%;
@@ -6271,8 +6271,8 @@ a.social-icon:active {
 .team-intro-circle-left {
   position: absolute;
   display: block;
-  top: 45px;
-  left: -40px;
+  top: -120px;
+  left: -150px;
   width: clamp(100px, 10vw, 150px);
   aspect-ratio: 1;
   border-radius: 50%;
@@ -6304,7 +6304,7 @@ a.social-icon:active {
   position: absolute;
   display: block;
   top: 40%;
-  right: -50px;
+  right: -220px;
   width: clamp(150px, 15vw, 220px);
   aspect-ratio: 1;
   border-radius: 50%;
@@ -6329,7 +6329,8 @@ a.social-icon:active {
 @media (max-width: 850px) {
   .about-intro-circle-left {
     width: 120px;
-    top: -20px;
+    top: -130px;
+    left: -120px;
   }
   .about-intro-circle-right {
     width: 160px;
@@ -6340,6 +6341,11 @@ a.social-icon:active {
   }
   .team-intro-circle-right {
     width: 150px;
+  }
+
+  .separator-circle-accent {
+    width: 80px;
+    left: -64px;
   }
 }
 

@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import type { MouseEvent, ReactNode } from "react";
+import type { ReactNode } from "react";
 import { BackArrowIcon } from "./icons";
 
 interface BackButtonProps {
@@ -18,20 +17,11 @@ export function BackButton({
   children = "Back",
   className = "",
 }: BackButtonProps) {
-  const router = useRouter();
   const targetHref = href || fallbackHref;
-
-  const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
-    if (typeof window !== "undefined" && window.history.length > 1) {
-      e.preventDefault();
-      window.history.back();
-    }
-  };
 
   return (
     <Link
       href={targetHref}
-      onClick={handleClick}
       className={`back-button ${className}`.trim()}
       aria-label={typeof children === "string" ? children : "Go back"}
     >
