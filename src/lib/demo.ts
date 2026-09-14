@@ -71,7 +71,10 @@ const executiveOfficers = [
   { name: "Juana Suzy A. Lobaton", position: "Adviser" },
 ];
 
-const departmentHeads: Record<Department["slug"], { name: string; position: string }> = {
+const departmentHeads: Record<
+  Department["slug"],
+  { name: string; position: string }
+> = {
   communications: {
     name: "Gabriel Ferrera",
     position: "Chief Communications Officer",
@@ -104,7 +107,7 @@ export const demoContent: SiteContent = {
     introSupporting:
       "Different perspectives. Shared ambition. A community built around learning from one another and making things that matter.",
     about:
-      "The Augustinian Developer Society is a student organization at the University of San Agustin. This space will tell the story of our community, the ideas we explore, and the work we do together.",
+      "Founded in 2021 as a Google Developer Student Club, we have evolved into an independent, award-winning movement. The Augustinian Developer Society unites diverse minds to build real-world solutions, drive grassroots tech outreach, and create technology that truly matters.",
     mission:
       "Guided by the Augustinian values of Caritas, Unitas, and Veritas, our mission is to: (1) Empower students and community members by providing accessible education, training, and skills development in technology, programming, and digital literacy; (2) Enlighten minds by cultivating a culture of creativity, critical thinking, and innovation, demonstrating how technology can be a powerful tool for problem-solving and social good.",
     vision:
@@ -142,11 +145,12 @@ export const demoContent: SiteContent = {
       _id: "initiative-community",
       kind: "initiative",
       slug: "technology-for-the-community",
-      title: "Technology for the community",
+      title:
+        "Digital Bayan: Understanding the Implications of AI on Media and Information Literacy",
       summary:
-        "Bringing digital skills closer to the people who can put them to use.",
+        "A dialogue that fosters critical thinking about AI's role in our information ecosystem.",
       category: "Community outreach",
-      image: "/images/community.jpg",
+      image: "/images/about.jpg",
       imageAlt:
         "Temporary stock photograph of a gathering, not an ADS activity",
       role: "Community outreach",
@@ -156,11 +160,10 @@ export const demoContent: SiteContent = {
       _id: "initiative-build",
       kind: "initiative",
       slug: "big-ideas-built-together",
-      title: "Big ideas. Built together.",
-      summary:
-        "Creating a space where student curiosity turns into collaborative solutions.",
+      title: "Top 10: AI Fest Hackathon 2025",
+      summary: "Top 10: AI Fest Hackathon 2025",
       category: "Hackathon",
-      image: "/images/teamwork.jpg",
+      image: "/images/hackathon.jpg",
       imageAlt:
         "Temporary stock photograph of a collaborative workspace, not an ADS activity",
       role: "Activity organizer",
@@ -241,21 +244,21 @@ export const demoContent: SiteContent = {
     },
     {
       _id: "faq-3",
-      question: "What are the five departments?",
+      question: "What are the departments in ADS?",
       answer:
-        "Communications, Technology, Finance, Legal, and Operations. Explore the department pages to see their responsibilities and the people behind them.",
+        "We have five core departments: Communications, Technology, Finance, Legal, and Operations. Each department plays a vital role in our community and events.",
     },
     {
       _id: "faq-4",
-      question: "Where can I learn about your activities?",
+      question: "How do I become a member of ADS?",
       answer:
-        "Explore Initiatives for the stories behind our collective work, and Events for upcoming activities and recaps.",
+        "Stay updated and be the first to know when membership opens by following our social media accounts! We’ll announce everything there.",
     },
     {
       _id: "faq-5",
-      question: "How can I contact ADS?",
+      question: "Who is allowed to join ADS?",
       answer:
-        "Our official email and social links will appear in the contact section once they have been verified.",
+        "All students from the University of San Agustin are welcome! Whether you're a tech enthusiast, a curious learner, or someone looking to get more involved in the community, there’s a place for you here.",
     },
   ],
   featuredInitiatives: [
