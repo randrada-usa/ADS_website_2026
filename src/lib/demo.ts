@@ -71,7 +71,10 @@ const executiveOfficers = [
   { name: "Juana Suzy A. Lobaton", position: "Adviser" },
 ];
 
-const departmentHeads: Record<Department["slug"], { name: string; position: string }> = {
+const departmentHeads: Record<
+  Department["slug"],
+  { name: string; position: string }
+> = {
   communications: {
     name: "Gabriel Ferrera",
     position: "Chief Communications Officer",
@@ -104,7 +107,7 @@ export const demoContent: SiteContent = {
     introSupporting:
       "Different perspectives. Shared ambition. A community built around learning from one another and making things that matter.",
     about:
-      "Founded in 2021 as a Google Developer Student Club, we have evolved into an independent, award-winning movement. The Augustinian Developers Society unites diverse minds to build real-world solutions, drive grassroots tech outreach, and create technology that truly matters.",
+      "Founded in 2021 as a Google Developer Student Club, we have evolved into an independent, award-winning movement. The Augustinian Developer Society unites diverse minds to build real-world solutions, drive grassroots tech outreach, and create technology that truly matters.",
     mission:
       "Guided by the Augustinian values of Caritas, Unitas, and Veritas, our mission is to: (1) Empower students and community members by providing accessible education, training, and skills development in technology, programming, and digital literacy; (2) Enlighten minds by cultivating a culture of creativity, critical thinking, and innovation, demonstrating how technology can be a powerful tool for problem-solving and social good.",
     vision:
@@ -142,7 +145,8 @@ export const demoContent: SiteContent = {
       _id: "initiative-community",
       kind: "initiative",
       slug: "technology-for-the-community",
-      title: "Digital Bayan: Understanding the Implications of AI on Media and Information Literacy",
+      title:
+        "Digital Bayan: Understanding the Implications of AI on Media and Information Literacy",
       summary:
         "A dialogue that fosters critical thinking about AI's role in our information ecosystem.",
       category: "Community outreach",
@@ -151,16 +155,14 @@ export const demoContent: SiteContent = {
         "Temporary stock photograph of a gathering, not an ADS activity",
       role: "Community outreach",
       demo: true,
-
     },
     {
       _id: "initiative-build",
       kind: "initiative",
       slug: "big-ideas-built-together",
       title: "Top 10: AI Fest Hackathon 2025",
-      summary:
-        "Top 10: AI Fest Hackathon 2025",
-      category: "Hackathons",
+      summary: "Top 10: AI Fest Hackathon 2025",
+      category: "Hackathon",
       image: "/images/hackathon.jpg",
       imageAlt:
         "Temporary stock photograph of a collaborative workspace, not an ADS activity",
