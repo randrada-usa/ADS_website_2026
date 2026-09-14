@@ -3,6 +3,10 @@ import { useState } from "react";
 import type { Activity } from "@/lib/types";
 import { ActivityCard, EmptyState } from "./ui";
 import { isUpcoming } from "@/lib/utils";
+
+const normalizeCategory = (category: string) =>
+  category === "Hackathons" ? "Hackathon" : category;
+
 export function ActivityBrowser({
   activities,
   kind,
@@ -16,17 +20,20 @@ export function ActivityBrowser({
   const [time, setTime] = useState("All");
   const categories = [
     "All",
-    ...new Set(activities.map((item) => item.category).filter(Boolean)),
+    ...new Set(
+      activities
+        .map((item) => normalizeCategory(item.category))
+        .filter(Boolean),
+    ),
   ];
   const events = activities.filter((item) => item.kind === "event");
   const filtered = activities.filter((item) => {
-    const matchesCategory = category === "All" || item.category === category;
+    const matchesCategory =
+      category === "All" || normalizeCategory(item.category) === category;
     const matchesTime =
       time === "All" ||
       (item.kind === "event" &&
-        (time === "Upcoming"
-          ? isUpcoming(item, now)
-          : !isUpcoming(item, now)));
+        (time === "Upcoming" ? isUpcoming(item, now) : !isUpcoming(item, now)));
 
     return matchesCategory && matchesTime;
   });
@@ -63,13 +70,18 @@ export function ActivityBrowser({
           ))}
         </div>
       )}
-      <div className="filter-row" role="group" aria-label="Filter by category">
-        {categories.map((value) => (
+      <div
+        className="filter-row activity-filter-row"
+        role="group"
+        aria-label={kind === "all" ? "Filter activities" : "Filter by category"}
+      >
+        {categories.map((value, index) => (
           <button
             key={value}
+            type="button"
             onClick={() => setCategory(value)}
             aria-pressed={category === value}
-            className={`filter-chip ${category === value ? "selected" : ""}`}
+            className={`filter-chip filter-chip-color-${index % 5} ${category === value ? "selected" : ""}`}
           >
             {value}
           </button>

@@ -303,7 +303,6 @@ export const schemaTypes = [
         options: {
           list: [
             "Community outreach",
-            "Hackathons",
             "External participation",
             "Workshop",
             "Tech talk",

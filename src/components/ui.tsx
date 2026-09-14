@@ -320,7 +320,10 @@ export function Footer({ settings }: { settings: SiteSettings }) {
         <div className="footer-credits" aria-label="Website credits">
           <span>© {new Date().getFullYear()} Augustinian Developer Society. All rights reserved.</span>
           <span className="footer-credit-links">
-            <a href="https://github.com/randrada-usa" target="_blank" rel="noreferrer">
+            <a href="https://mesite-nine.vercel.app/" target="_blank" rel="noreferrer">
+              @tin
+            </a>
+            <a href="https://devbyrey.me/" target="_blank" rel="noreferrer">
               @reyands
             </a>
             <a href="https://github.com/Cocoasaur" target="_blank" rel="noreferrer">

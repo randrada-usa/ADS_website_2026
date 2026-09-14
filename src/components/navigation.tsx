@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -14,7 +14,6 @@ const links = [
 
 const homeSections = [
   ["About Us", "/#about-home"],
-  ["Mission & Vision", "/#mission-vision"],
   ["Our Journey", "/#our-journey"],
   ["Initiatives", "/#initiatives-home"],
   ["Events", "/#events-home"],
@@ -160,13 +159,34 @@ export function Navigation({ socials }: { socials: SiteSettings["socials"] }) {
     setHomeOpen(false);
   };
 
-  const handleBrandClick = () => {
+  const handleBrandClick = (event: MouseEvent<HTMLAnchorElement>) => {
     if (typeof window !== "undefined") {
       sessionStorage.removeItem("ads_last_scroll_home");
     }
     setOpen(false);
     setHomeOpen(false);
-    scrollPageToTop();
+
+    const isNormalClick =
+      event.button === 0 &&
+      !event.metaKey &&
+      !event.ctrlKey &&
+      !event.shiftKey &&
+      !event.altKey;
+
+    if (path === "/" && isNormalClick) {
+      event.preventDefault();
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: reduceMotion ? "auto" : "smooth",
+      });
+      return;
+    }
+
+    if (path !== "/") scrollPageToTop();
   };
 
   return (

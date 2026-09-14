@@ -4,7 +4,10 @@ import { getContent } from "@/lib/content";
 import { PageEntrance } from "@/components/page-entrance";
 import { Eyebrow, PageIntro, ButtonLink } from "@/components/ui";
 import { Spark } from "@/components/icons";
+import { AdyInteractive } from "@/components/ady-interactive";
+
 export const metadata: Metadata = { title: "About" };
+
 export default async function AboutPage() {
   const content = await getContent();
   return (
@@ -28,10 +31,10 @@ export default async function AboutPage() {
           </div>
         }
       >
-        <Image
+        <AdyInteractive
           className="page-intro-addy about-intro-addy"
           src="/assets/addy/addy-wave.png"
-          alt="Addy, the ADS mascot, waving"
+          alt="Ady, the ADS mascot, waving"
           width={1440}
           height={1440}
           sizes="(max-width: 850px) 78vw, 36vw"

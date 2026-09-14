@@ -4,12 +4,15 @@ import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 
 const targetsSelector = [
+  ".page-intro-back",
   ".page-intro > .eyebrow",
   ".page-intro > h1",
   ".page-intro > p",
+  ".page-intro > .page-intro-addy",
   ".page-intro > .intro-spark",
   ".featured-event",
-  ".about-story > *",
+  ".about-story > .story-art",
+  ".about-story > div:last-child",
   ".about-statement-cards > article",
   ".filter-row",
   ".activity-grid > *",
@@ -53,10 +56,13 @@ export function PageEntrance() {
               if (
                 animations.has(element) ||
                 element.closest("#team-roster") ||
-                element.matches("[aria-hidden='true'], [aria-hidden='true'] *")
+                (element.matches("[aria-hidden='true'], [aria-hidden='true'] *") &&
+                  !element.matches(".story-art"))
               )
                 return;
               element.dataset.pagePop = "true";
+              const isBack = element.matches(".page-intro-back");
+              const isAdy = element.matches(".page-intro-addy, .about-intro-addy");
               const card = element.matches(
                 ".activity-card, .department-card, .about-statement-cards > article",
               );
@@ -80,22 +86,40 @@ export function PageEntrance() {
                 element,
                 {
                   opacity: 0,
-                  x: x + (artwork && !compact ? -24 : 0),
-                  y: y + (card || artwork ? (compact ? 35 : 55) : 28),
+                  x: x + (isBack ? -14 : artwork && !compact ? -24 : 0),
+                  y:
+                    y +
+                    (isAdy
+                      ? compact
+                        ? 30
+                        : 45
+                      : isBack
+                        ? 16
+                        : card || artwork
+                          ? compact
+                            ? 35
+                            : 55
+                          : 28),
                   scale: spark
                     ? 0.4
                     : emblem
                       ? 0.72
-                      : card || artwork
-                        ? 0.94
-                        : 0.98,
+                      : isAdy
+                        ? 0.88
+                        : card || artwork
+                          ? 0.94
+                          : isBack
+                            ? 0.96
+                            : 0.98,
                   rotation:
                     rotation +
                     (emblem
                       ? -12
                       : spark
                       ? -60
-                      : card
+                      : isAdy
+                        ? -3
+                        : card
                         ? index % 2
                           ? 2
                           : -2
@@ -109,22 +133,32 @@ export function PageEntrance() {
                   y,
                   scale: 1,
                   rotation,
-                  duration: card || artwork ? 1.65 : 1.3,
-                  delay: element.matches(".about-statement-cards > article")
+                  duration: isAdy ? 1.35 : card || artwork ? 1.65 : 1.2,
+                  delay: isBack
+                    ? 0.05
+                    : isAdy
+                    ? 0.35
+                    : element.matches(".about-statement-cards > article")
                     ? 0
                     : card
                     ? (index % Math.min(columns, 4)) * 0.16
                     : spark
                       ? 0.3
-                      : element.parentElement?.matches(".page-intro, .department-hero > div:first-child, .department-links, .responsibilities > .container")
+                      : element.parentElement?.matches(
+                          ".page-intro, .department-intro, .department-hero > div:first-child, .department-links, .responsibilities > .container",
+                        )
                         ? Math.min(index, 4) * 0.1
                         : 0,
-                  ease: card || artwork || spark
-                    ? "back.out(1.15)"
+                  ease: isAdy || card || artwork || spark
+                    ? "back.out(1.2)"
                     : "power3.out",
                   paused: true,
                   onComplete: () => {
-                    gsap.set(element, { clearProps: emblem ? "opacity,transform,animation" : "opacity,transform" });
+                    gsap.set(element, {
+                      clearProps: emblem
+                        ? "opacity,transform,animation"
+                        : "opacity,transform",
+                    });
                   },
                 },
               );

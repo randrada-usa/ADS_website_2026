@@ -159,6 +159,7 @@ export function DepartmentMemberScroll({
       className="department-member-scroll"
       data-slide-direction={direction}
     >
+      <span className="department-member-orb" aria-hidden="true" />
       {heading}
       <div
         ref={viewport}
