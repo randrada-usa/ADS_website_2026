@@ -151,6 +151,7 @@ export const demoContent: SiteContent = {
         "Temporary stock photograph of a gathering, not an ADS activity",
       role: "Community outreach",
       demo: true,
+
     },
     {
       _id: "initiative-build",
