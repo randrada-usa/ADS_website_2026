@@ -142,11 +142,11 @@ export const demoContent: SiteContent = {
       _id: "initiative-community",
       kind: "initiative",
       slug: "technology-for-the-community",
-      title: "Technology for the community",
+      title: "Digital Bayan: Understanding the Implications of AI on Media and Information Literacy",
       summary:
-        "Bringing digital skills closer to the people who can put them to use.",
+        "A dialogue that fosters critical thinking about AI's role in our information ecosystem.",
       category: "Community outreach",
-      image: "/images/community.jpg",
+      image: "/images/about.jpg",
       imageAlt:
         "Temporary stock photograph of a gathering, not an ADS activity",
       role: "Community outreach",
@@ -156,11 +156,11 @@ export const demoContent: SiteContent = {
       _id: "initiative-build",
       kind: "initiative",
       slug: "big-ideas-built-together",
-      title: "Big ideas. Built together.",
+      title: "Top 10: AI Fest Hackathon 2025",
       summary:
-        "Creating a space where student curiosity turns into collaborative solutions.",
+        "Top 10: AI Fest Hackathon 2025",
       category: "Hackathons",
-      image: "/images/teamwork.jpg",
+      image: "/images/hackathon.jpg",
       imageAlt:
         "Temporary stock photograph of a collaborative workspace, not an ADS activity",
       role: "Activity organizer",
