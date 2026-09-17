@@ -343,6 +343,13 @@ export function Footer({ settings }: { settings: SiteSettings }) {
             >
               @Bea_Trice
             </a>
+            <a
+              href="https://github.com/glzjoo"
+              target="_blank"
+              rel="noreferrer"
+            >
+              @gly
+            </a>
           </span>
         </div>
       </div>

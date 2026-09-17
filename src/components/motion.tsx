@@ -45,7 +45,7 @@ export function AmbientMotion() {
       ".team-placeholder-grid > *",
       ".about-story > *",
       ".activity-grid > *",
-      ".faq-list",
+      ".faq-item",
       ".empty-state",
     ];
 
@@ -97,6 +97,7 @@ export function AmbientMotion() {
             }
 
             revealTargets.forEach((target) => {
+              if (target.matches(".faq-item")) return;
               target.removeAttribute("data-revealed");
               target.classList.remove("is-revealed");
             });

@@ -25,6 +25,10 @@ const featuredEventTitles: Record<string, string> = {
   "an-idea-worth-building": "Build for Community",
 };
 
+const featuredInitiativeTitles: Record<string, string> = {
+  "technology-for-the-community": "Digital Bayan: AI on Media and Literacy",
+};
+
 const homepageExecutivePositions = [
   "Chief Executive Officer",
   "Co-Chief Executive Officer",
@@ -233,7 +237,13 @@ export default async function Home() {
             <div className="section-boundary-label">
               <Eyebrow>Initiatives in action</Eyebrow>
             </div>
-            <InitiativeShowcase activities={initiatives} />
+            <InitiativeShowcase
+              activities={initiatives.map((activity) => ({
+                ...activity,
+                title:
+                  featuredInitiativeTitles[activity.slug] || activity.title,
+              }))}
+            />
           </>
         ) : (
           <EmptyState>Our initiative stories are on their way.</EmptyState>
