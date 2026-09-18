@@ -4287,13 +4287,15 @@ a.footer-contact-row:hover {
   grid-template-columns: 2fr 1fr;
   gap: 80px;
   position: relative;
-  padding-top: clamp(80px, 7vw, 110px);
-  padding-bottom: clamp(70px, 6vw, 95px);
+  padding-top: clamp(48px, 5vw, 72px);
+  padding-bottom: clamp(60px, 6vw, 84px);
 }
 
-.website main section.detail-body::after {
-  border-top: 2px solid var(--ink);
-  border-bottom: 2px solid var(--ink);
+.website main>section.detail-body {
+  --section-surface: var(--paper);
+  --section-surface-image:
+    linear-gradient(#516b7d0a 1px, transparent 1px),
+    linear-gradient(90deg, #516b7d0a 1px, transparent 1px);
 }
 
 .card-meta .eyebrow {
@@ -4315,17 +4317,6 @@ a.footer-contact-row:hover {
   overflow: visible;
 }
 
-.website main div.detail-body-bg::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--ink);
-  z-index: 1;
-}
-
 .detail-body-circle-left {
   position: absolute;
   display: block;
@@ -4341,7 +4332,7 @@ a.footer-contact-row:hover {
     0 4px 12px rgba(0, 0, 0, 0.08);
   opacity: 1;
   pointer-events: none;
-  z-index: 2;
+  z-index: 0;
 }
 
 .prose {
