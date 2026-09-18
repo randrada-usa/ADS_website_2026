@@ -4252,6 +4252,7 @@ a.footer-contact-row:hover {
 
 .detail-intro {
   padding-top: 82px;
+  padding-bottom: clamp(60px, 6vw, 90px);
 }
 
 .detail-intro h1 {
@@ -4285,6 +4286,62 @@ a.footer-contact-row:hover {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 80px;
+  position: relative;
+  padding-top: clamp(80px, 7vw, 110px);
+  padding-bottom: clamp(70px, 6vw, 95px);
+}
+
+.website main section.detail-body::after {
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+}
+
+.card-meta .eyebrow {
+  margin-bottom: 0;
+}
+
+.detail-body .prose > :first-child {
+  margin-top: 0;
+}
+
+.website main div.detail-body-bg {
+  position: absolute !important;
+  z-index: 0 !important;
+  inset-block: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  pointer-events: none;
+  overflow: visible;
+}
+
+.website main div.detail-body-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--ink);
+  z-index: 1;
+}
+
+.detail-body-circle-left {
+  position: absolute;
+  display: block;
+  top: 0;
+  transform: translateY(-50%);
+  left: clamp(-50px, -2vw, -10px);
+  width: clamp(160px, 14vw, 220px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
+  box-shadow:
+    0 14px 34px -4px rgba(0, 0, 0, 0.18),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+  opacity: 1;
+  pointer-events: none;
+  z-index: 2;
 }
 
 .prose {
@@ -6008,6 +6065,7 @@ a.social-icon:active {
 .website main .team-listing::before,
 .website main #team-roster::before,
 .website main .department-section::before,
+.website main .detail-body::before,
 .website main section:has(> .about-page-bg-intro)::before,
 .website main section:has(> .about-story-bg)::before,
 .website main section:has(> .about-statements-bg)::before,

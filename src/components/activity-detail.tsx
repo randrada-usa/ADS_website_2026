@@ -2,7 +2,7 @@ import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import type { Activity, SiteContent } from "@/lib/types";
 import { formatDate, safeUrl } from "@/lib/utils";
-import { ActivityCard, BackButton, SectionHeading } from "./ui";
+import { ActivityCard, BackButton, Eyebrow, SectionHeading } from "./ui";
 
 export function ActivityDetail({
   activity,
@@ -26,8 +26,7 @@ export function ActivityDetail({
           </BackButton>
         </div>
         <div className="card-meta">
-
-          <span className="category">{activity.category}</span>
+          <Eyebrow>{activity.category}</Eyebrow>
         </div>
         <h1>{activity.title}</h1>
         <p>{activity.summary}</p>
@@ -44,6 +43,9 @@ export function ActivityDetail({
         )}
       </section>
       <section className="container section detail-body">
+        <div className="detail-body-bg" aria-hidden="true">
+          <span className="detail-body-circle-left" />
+        </div>
         <div className="prose">
           {activity.body?.length ? (
             <PortableText
