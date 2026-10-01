@@ -97,13 +97,14 @@ export default async function Home() {
                 aria-hidden="true"
               >
                 {content.departments.map((dept) => (
-                  <Image
-                    key={dept.slug}
-                    src={`/brand/${dept.slug}.svg`}
-                    width={32}
-                    height={32}
-                    alt=""
-                  />
+                  <span className="department-icon-bob" key={dept.slug}>
+                    <Image
+                      src={`/brand/${dept.slug}.svg`}
+                      width={32}
+                      height={32}
+                      alt=""
+                    />
+                  </span>
                 ))}
               </span>
             </span>
@@ -114,13 +115,14 @@ export default async function Home() {
             aria-hidden="true"
           >
             {content.departments.map((dept) => (
-              <Image
-                key={dept.slug}
-                src={`/brand/${dept.slug}.svg`}
-                width={32}
-                height={32}
-                alt=""
-              />
+              <span className="department-icon-bob" key={dept.slug}>
+                <Image
+                  src={`/brand/${dept.slug}.svg`}
+                  width={32}
+                  height={32}
+                  alt=""
+                />
+              </span>
             ))}
           </span>
           <div className="hero-actions">

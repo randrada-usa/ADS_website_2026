@@ -59,21 +59,62 @@ export function HeroMotion({ children }: { children: ReactNode }) {
             Number(gsap.getProperty(icon, "rotation")),
           ]),
         );
+        const iconWaves = select(".small-department-icons").map(
+          (row: HTMLElement) => {
+            const icons = Array.from(
+              row.querySelectorAll<HTMLElement>(".department-icon-bob"),
+            );
+            const timeline = gsap.timeline({
+              paused: true,
+              repeat: -1,
+              repeatDelay: 1.7,
+            });
+
+            icons.forEach((icon, index) => {
+              const start = index * 0.12;
+              timeline
+                .to(
+                  icon,
+                  {
+                    y: -7,
+                    scale: 1.06,
+                    duration: 0.18,
+                    ease: "power2.out",
+                  },
+                  start,
+                )
+                .to(
+                  icon,
+                  {
+                    y: 0,
+                    scale: 1,
+                    duration: 0.32,
+                    ease: "bounce.out",
+                  },
+                  start + 0.18,
+                );
+            });
+
+            return { row, icons, timeline };
+          },
+        );
         let settled = false;
         let inView = root.getBoundingClientRect().bottom > 0;
-        const ambient = [
-          gsap.to(select(".hero-spark"), {
-            rotation: "+=360",
-            duration: 28,
-            ease: "none",
-            repeat: -1,
-            paused: true,
-          }),
-        ];
+        const sparkSpin = gsap.to(select(".hero-spark"), {
+          rotation: "+=360",
+          duration: 28,
+          ease: "none",
+          repeat: -1,
+          paused: true,
+        });
+        const interactingIconRows = new Set<HTMLElement>();
         const syncAmbient = () => {
-          ambient.forEach((tween) => {
-            if (settled && inView && !document.hidden) tween.play();
-            else tween.pause();
+          const shouldPlay = settled && inView && !document.hidden;
+          if (shouldPlay) sparkSpin.play();
+          else sparkSpin.pause();
+          iconWaves.forEach(({ row, timeline }) => {
+            if (shouldPlay && !interactingIconRows.has(row)) timeline.play();
+            else timeline.pause();
           });
         };
         const visibilityObserver = new IntersectionObserver(([entry]) => {
@@ -86,6 +127,11 @@ export function HeroMotion({ children }: { children: ReactNode }) {
           paused: true,
           defaults: { duration: 1, ease: "power3.out" },
           onComplete: () => {
+            // Release GSAP's inline transform so the shared button hover lift
+            // can take over after the entrance animation settles.
+            gsap.set(select(".hero-actions > a"), {
+              clearProps: "transform",
+            });
             settled = true;
             syncAmbient();
           },
@@ -117,13 +163,33 @@ export function HeroMotion({ children }: { children: ReactNode }) {
             0.15,
           )
           .from(
-            select(".hero-circle, .hero-spark"),
+            select(".hero-circle"),
             {
               scale: 0,
               rotation: "-=55",
               opacity: 0,
-              stagger: 0.18,
               ease: "back.out(1.8)",
+              transformOrigin: "50% 50%",
+            },
+            0.55,
+          )
+          .from(
+            select(".hero-spark"),
+            {
+              scale: 0,
+              opacity: 0,
+              duration: 0.75,
+              ease: "back.out(2)",
+              transformOrigin: "50% 50%",
+            },
+            0.62,
+          )
+          .from(
+            select(".hero-spark"),
+            {
+              rotation: "-=900",
+              duration: 1.5,
+              ease: "power4.out",
               transformOrigin: "50% 50%",
             },
             0.55,
@@ -238,6 +304,37 @@ export function HeroMotion({ children }: { children: ReactNode }) {
           cleanups.push(() => {
             root.removeEventListener("pointermove", move);
             root.removeEventListener("pointerleave", reset);
+          });
+
+          iconWaves.forEach(({ row, icons, timeline }) => {
+            let settleTween: gsap.core.Tween | null = null;
+            const enter = () => {
+              if (!settled) return;
+              interactingIconRows.add(row);
+              timeline.pause();
+              settleTween?.kill();
+              settleTween = gsap.to(icons, {
+                y: 0,
+                scale: 1,
+                duration: 0.22,
+                ease: "power2.out",
+              });
+            };
+            const leave = () => {
+              if (!settled) return;
+              interactingIconRows.delete(row);
+              settleTween?.kill();
+              gsap.set(icons, { y: 0, scale: 1 });
+              timeline.restart();
+              syncAmbient();
+            };
+            row.addEventListener("pointerenter", enter);
+            row.addEventListener("pointerleave", leave);
+            cleanups.push(() => {
+              settleTween?.kill();
+              row.removeEventListener("pointerenter", enter);
+              row.removeEventListener("pointerleave", leave);
+            });
           });
 
           select(".small-department-icons img").forEach((icon: HTMLElement) => {

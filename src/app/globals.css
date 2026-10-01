@@ -1152,6 +1152,13 @@ button:disabled {
   gap: 4px;
 }
 
+.department-icon-bob {
+  display: inline-flex;
+  flex-shrink: 0;
+  line-height: 0;
+  transform-origin: center bottom;
+}
+
 .small-department-icons img {
   width: 32px;
   height: 32px;
@@ -1163,23 +1170,23 @@ button:disabled {
   box-shadow: 2px 2px 0 0.5px var(--ink);
 }
 
-.small-department-icons img:nth-child(1) {
+.small-department-icons > .department-icon-bob:nth-child(1) img {
   transform: rotate(-7deg);
 }
 
-.small-department-icons img:nth-child(2) {
+.small-department-icons > .department-icon-bob:nth-child(2) img {
   transform: rotate(7deg);
 }
 
-.small-department-icons img:nth-child(3) {
+.small-department-icons > .department-icon-bob:nth-child(3) img {
   transform: rotate(-5deg);
 }
 
-.small-department-icons img:nth-child(4) {
+.small-department-icons > .department-icon-bob:nth-child(4) img {
   transform: rotate(6deg);
 }
 
-.small-department-icons img:nth-child(5) {
+.small-department-icons > .department-icon-bob:nth-child(5) img {
   transform: rotate(-6deg);
 }
 

@@ -65,7 +65,7 @@ export function Spark({ ...props }: SVGProps<SVGSVGElement>) {
       <path
         d="M32 2v60M2 32h60M11 11l42 42M11 53l42-42"
         stroke="currentColor"
-        strokeWidth="3"
+        strokeWidth="4"
       />
     </svg>
   );
