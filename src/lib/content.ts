@@ -4,11 +4,9 @@ import { draftMode } from "next/headers";
 import { createClient } from "next-sanity";
 import { departments, demoContent } from "./demo";
 import type { SiteContent } from "./types";
+import { cmsConfigured, siteContentEnabled } from "./sanity-env";
 
-export const cmsConfigured = Boolean(
-  process.env.NEXT_PUBLIC_SANITY_PROJECT_ID &&
-  process.env.NEXT_PUBLIC_SANITY_DATASET,
-);
+export { cmsConfigured } from "./sanity-env";
 export const sanityClient = cmsConfigured
   ? createClient({
       projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
@@ -54,6 +52,7 @@ const query = `{
 export const getContent = cache(async (): Promise<SiteContent> => {
   if (!sanityClient) return demoContent;
   const preview = await isPreview();
+  if (!siteContentEnabled && !preview) return demoContent;
   const token = preview ? process.env.SANITY_API_READ_TOKEN : undefined;
   if (preview && !token)
     throw new Error(

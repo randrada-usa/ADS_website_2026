@@ -24,8 +24,8 @@ export default function StudioPage() {
             dataset.
           </li>
           <li>
-            Add the project ID and dataset to the environment variables in{" "}
-            <code>.env.example</code>.
+            Add the project ID and dataset to a local <code>.env.local</code>
+            {" "}file using <code>.env.example</code> as a template.
           </li>
           <li>
             Set the server-only Viewer token for draft previews, and add your
@@ -33,7 +33,7 @@ export default function StudioPage() {
           </li>
           <li>
             Invite the officers who will maintain the website, then restart or
-            redeploy.
+            redeploy. Keep the public site on demo content until it is ready.
           </li>
         </ol>
         <p>

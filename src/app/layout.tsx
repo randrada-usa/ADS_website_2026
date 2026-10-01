@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/space-grotesk";
 import "@fontsource-variable/dm-sans";
 import "./globals.css";
+import { siteContentEnabled } from "@/lib/sanity-env";
 const siteName = "Augustinian Developer Society - USA";
 export const viewport: Viewport = {
   width: "device-width",
@@ -18,11 +19,7 @@ export const metadata: Metadata = {
   description:
     "Meet the Augustinian Developer Society at the University of San Agustin. Explore our community, initiatives, events, and the people who make them happen.",
   icons: { icon: "/brand/ads.svg" },
-  robots:
-    process.env.NEXT_PUBLIC_SANITY_PROJECT_ID &&
-      process.env.NEXT_PUBLIC_SANITY_DATASET
-      ? undefined
-      : { index: false, follow: false },
+  robots: siteContentEnabled ? undefined : { index: false, follow: false },
   openGraph: {
     type: "website",
     siteName,

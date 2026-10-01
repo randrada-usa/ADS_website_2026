@@ -52,19 +52,51 @@ docs/                   Maintainer guides
 - Recent major work: read [docs/CHANGELOG.md](docs/CHANGELOG.md).
 - Work still unfinished: read [docs/KNOWN_LIMITATIONS.md](docs/KNOWN_LIMITATIONS.md).
 
-Content editing and deployment guides will be added after those workflows are final.
+Deployment instructions will be added after the hosting workflow is final.
 
-## Optional Sanity setup
+## Set up Sanity before the content is finished
 
-The editing Studio is at `/studio`. Copy `.env.example` to `.env.local` and add:
+The content model and editing Studio are already built into this repository. You
+can start writing drafts without switching the public website away from its
+current demo content.
+
+1. Create or select an organization-owned Sanity project at
+   [sanity.io/manage](https://www.sanity.io/manage). Use a public `production`
+   dataset for content that has been approved for publication. Do not publish
+   unfinished copy, private member details, or unapproved photos.
+2. Add `http://localhost:3000` under the project's **API > CORS Origins** and
+   enable **Allow credentials** for the embedded Studio. Add the eventual
+   deployed origin separately when hosting is decided.
+3. Copy `.env.example` to a Git-ignored `.env.local` at the repository root:
 
 ```text
-NEXT_PUBLIC_SANITY_PROJECT_ID=
+NEXT_PUBLIC_SANITY_PROJECT_ID=<your project ID>
 NEXT_PUBLIC_SANITY_DATASET=production
+SANITY_SITE_CONTENT_ENABLED=false
 SANITY_API_READ_TOKEN=
 ```
 
-Never commit `.env.local` or share the read token. Sanity's public dataset should contain only information approved for publication.
+4. Restart `npm run dev` and visit `http://localhost:3000/studio`. Sign in with
+   an authorized Sanity account. Editors can create documents and save drafts
+   without publishing them. The website continues to show demo content, with
+   `noindex` metadata and a disallowing `robots.txt`.
+5. Optional: create a **Viewer/read-only** API token in the project's API
+   settings and put it in `SANITY_API_READ_TOKEN` *only on the server*. This is
+   required for Presentation draft previews, including unpublished documents.
+   Never prefix it with `NEXT_PUBLIC_`, commit it, or share it in chat.
+
+When the content is complete and approved, finish the
+[launch checklist](docs/QA_CHECKLIST.md), confirm hosting and access, and set
+`SANITY_SITE_CONTENT_ENABLED=true` in the deployment environment. Rebuild or
+redeploy after changing environment variables. Only then does the public site
+read published Sanity content and allow search indexing. A connected but empty
+dataset will otherwise produce mostly empty pages, so do not enable this flag
+early. Copy the approved stories from `content.md` into activity documents in
+Studio; the Markdown file is not automatically imported.
+
+Never commit `.env.local` or share a read token. Sanity's public dataset should
+contain only information approved for publication. Drafts are visible to
+authorized editors through Studio and token-protected previews.
 
 ## Important rules
 
