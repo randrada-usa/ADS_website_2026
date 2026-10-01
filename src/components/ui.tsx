@@ -282,7 +282,7 @@ export function Footer({ settings }: { settings: SiteSettings }) {
             <div className="footer-nav-links">
               <Link href="/about">About</Link>
               <Link href="/initiatives">What We Do</Link>
-              <Link href="/initiatives#events">Events</Link>
+              <Link href="/initiatives">Events</Link>
               <Link href="/team">Team</Link>
               <Link href="/#faq">FAQ</Link>
             </div>
