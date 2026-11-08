@@ -22,7 +22,7 @@ export function InitiativeEntrance({ children }: { children: ReactNode }) {
           const compact = window.matchMedia("(max-width: 850px)").matches;
           const photos = select(".initiative-showcase-media");
           const heading = select(".initiative-showcase-copy h3");
-          const summary = select(".initiative-showcase-copy > p");
+          const summary = select(".initiative-showcase-copy p");
           const controls = select(".initiative-showcase-controls");
           const targets = [
             ...photos,

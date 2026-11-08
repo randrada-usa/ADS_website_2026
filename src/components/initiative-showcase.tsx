@@ -396,16 +396,23 @@ export function InitiativeShowcase({ activities }: { activities: Activity[] }) {
 
   return (
     <div className="initiative-showcase">
-      <div
-        className="initiative-showcase-copy"
-        key={active._id}
-        aria-live="off"
-        aria-atomic="true"
-      >
-        <h3>
-          <SplitTitle title={active.title} />
-        </h3>
-        <p>{active.summary}</p>
+      {/* Every story sits in the same cell so the block is always as tall as
+          the longest one; switching stories cross-fades without moving the
+          layout. */}
+      <div className="initiative-showcase-copy">
+        {activities.map((activity, index) => (
+          <div
+            key={activity._id}
+            className="initiative-story"
+            data-active={index === activeIndex}
+            aria-hidden={index !== activeIndex}
+          >
+            <h3>
+              <SplitTitle title={activity.title} />
+            </h3>
+            <p>{activity.summary}</p>
+          </div>
+        ))}
       </div>
       <div className="initiative-showcase-controls">
         <ButtonLink href={activityHref(active)} tone="orange">
