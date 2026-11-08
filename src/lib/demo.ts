@@ -73,7 +73,7 @@ const executiveOfficers = [
 
 const departmentHeads: Record<
   Department["slug"],
-  { name: string; position: string }
+  { name: string; position: string; portrait?: string }
 > = {
   communications: {
     name: "Gabriel Ferrera",
@@ -82,6 +82,7 @@ const departmentHeads: Record<
   technology: {
     name: "Justine Rendaje",
     position: "Chief Technology Officer",
+    portrait: "/assets/members/technology/rendaje.webp",
   },
   finance: {
     name: "Arlyn Joy Aurelio",
@@ -95,6 +96,23 @@ const departmentHeads: Record<
     name: "Centauri Alpha",
     position: "Chief Operation Officer",
   },
+};
+
+// Department rosters with approved portraits. Departments not listed here
+// fall back to placeholder cards.
+const departmentRosters: Partial<
+  Record<Department["slug"], { name: string; position: string; portrait?: string }[]>
+> = {
+  technology: [
+    { name: "Rey Jane Andrada", position: "Web Development Lead", portrait: "/assets/members/technology/andrada.webp" },
+    { name: "Arquesola", position: "UI/UX Lead", portrait: "/assets/members/technology/arquesola.webp" },
+    { name: "Ferrariz", position: "Game Development Lead", portrait: "/assets/members/technology/ferrariz.webp" },
+    { name: "Gilo", position: "Game Developer", portrait: "/assets/members/technology/gilo.webp" },
+    { name: "Meñez", position: "UI/UX Designer", portrait: "/assets/members/technology/menez.webp" },
+    { name: "Navarro", position: "Developer", portrait: "/assets/members/technology/navarro.webp" },
+    { name: "Salinas", position: "Developer", portrait: "/assets/members/technology/salinas.webp" },
+    { name: "Tabat", position: "Developer", portrait: "/assets/members/technology/tabat.webp" },
+  ],
 };
 
 export const demoContent: SiteContent = {
@@ -131,10 +149,15 @@ export const demoContent: SiteContent = {
         isLeadership: true,
         order: i + executiveOfficers.length,
       },
-      ...Array.from({ length: 8 }, (_, j) => ({
+      ...(
+        departmentRosters[dept.slug] ??
+        Array.from({ length: 8 }, () => ({
+          name: "Name to be announced",
+          position: "Department Member",
+        }))
+      ).map((member, j) => ({
         _id: `${dept.slug}-${j}`,
-        name: "Name to be announced",
-        position: "Department Member",
+        ...member,
         department: dept.slug,
         order: j + 10,
       })),

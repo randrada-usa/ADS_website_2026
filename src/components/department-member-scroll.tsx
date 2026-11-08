@@ -7,6 +7,7 @@ import {
   useLayoutEffect,
   useRef,
   useState,
+  type CSSProperties,
   type ReactNode,
 } from "react";
 import { gsap } from "gsap";
@@ -25,7 +26,6 @@ export function DepartmentMemberScroll({
   const viewport = useRef<HTMLDivElement>(null);
   const track = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
-  const [direction, setDirection] = useState<"next" | "previous" | null>(null);
   const profiles = Children.toArray(children);
 
   useLayoutEffect(() => {
@@ -157,7 +157,7 @@ export function DepartmentMemberScroll({
     <div
       ref={root}
       className="department-member-scroll"
-      data-slide-direction={direction}
+      style={{ "--member-active": active } as CSSProperties}
     >
       <span className="department-member-orb" aria-hidden="true" />
       {heading}
@@ -170,8 +170,15 @@ export function DepartmentMemberScroll({
       >
         <div ref={track} className="department-member-track">
           {profiles.map((profile, index) =>
-            isValidElement<{ "data-active"?: boolean }>(profile)
-              ? cloneElement(profile, { "data-active": index === active })
+            isValidElement<{
+              "data-active"?: boolean;
+              "data-position"?: string;
+            }>(profile)
+              ? cloneElement(profile, {
+                  "data-active": index === active,
+                  "data-position":
+                    index < active ? "before" : index > active ? "after" : "active",
+                })
               : profile,
           )}
         </div>
@@ -182,7 +189,6 @@ export function DepartmentMemberScroll({
           aria-label="Previous member"
           disabled={active === 0}
           onClick={() => {
-            setDirection("previous");
             setActive((index) => Math.max(0, index - 1));
           }}
         >
@@ -196,7 +202,6 @@ export function DepartmentMemberScroll({
           aria-label="Next member"
           disabled={active === profiles.length - 1}
           onClick={() => {
-            setDirection("next");
             setActive((index) => Math.min(profiles.length - 1, index + 1));
           }}
         >
