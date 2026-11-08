@@ -1708,7 +1708,7 @@ button:disabled {
 }
 
 #initiatives-home[data-entrance="pending"] .initiative-showcase-media,
-#initiatives-home[data-entrance="pending"] .initiative-showcase-copy>*,
+#initiatives-home[data-entrance="pending"] .initiative-showcase-copy :is(h3, p),
 #initiatives-home[data-entrance="pending"] .initiative-showcase-controls {
   opacity: 0;
 }
@@ -1730,8 +1730,38 @@ button:disabled {
   grid-area: copy;
   position: relative;
   z-index: 2;
+  display: grid;
   align-self: end;
-  animation: initiative-copy-in 360ms ease both;
+}
+
+.initiative-story {
+  grid-area: 1 / 1;
+  align-self: end;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition:
+    opacity 260ms ease,
+    transform 260ms ease,
+    visibility 0s linear 260ms;
+}
+
+.initiative-story[data-active="true"] {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition:
+    opacity 360ms ease 120ms,
+    transform 360ms ease 120ms,
+    visibility 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .initiative-story,
+  .initiative-story[data-active="true"] {
+    transform: none;
+    transition: none;
+  }
 }
 
 .initiative-showcase-controls {
@@ -1750,7 +1780,7 @@ button:disabled {
   letter-spacing: -3px;
 }
 
-.initiative-showcase-copy>p {
+.initiative-showcase-copy p {
   max-width: 590px;
   margin: 0 0 26px;
   color: var(--muted);
@@ -1905,18 +1935,6 @@ button:disabled {
   -webkit-user-drag: none;
 }
 
-@keyframes initiative-copy-in {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @media (min-width: 651px) {
   .faq-heading {
     align-self: center;
@@ -1945,7 +1963,7 @@ button:disabled {
   }
 
   .initiative-showcase-copy h3,
-  .initiative-showcase-copy>p {
+  .initiative-showcase-copy p {
     margin-inline: auto;
   }
 
@@ -1953,7 +1971,11 @@ button:disabled {
     margin-top: 0;
   }
 
-  .initiative-showcase-copy>p {
+  .initiative-story {
+    align-self: start;
+  }
+
+  .initiative-showcase-copy p {
     margin-bottom: 0;
   }
 
@@ -2044,7 +2066,7 @@ button:disabled {
     letter-spacing: -2.4px;
   }
 
-  .initiative-showcase-copy>p {
+  .initiative-showcase-copy p {
     font-size: 14px;
   }
 
@@ -2546,7 +2568,7 @@ button:disabled {
 
 .member-portrait {
   position: relative;
-  aspect-ratio: 1.1;
+  aspect-ratio: 4 / 5;
   background: color-mix(in srgb, var(--department) 13%, white);
   border-bottom: 1px solid var(--ink);
   overflow: hidden;
@@ -2574,6 +2596,7 @@ button:disabled {
 
 .member-portrait img {
   object-fit: cover;
+  object-position: 50% 15%;
 }
 
 .member-card-addy .member-portrait img {
@@ -4026,22 +4049,6 @@ a.footer-contact-row:hover {
   display: none;
 }
 
-@keyframes department-member-fade-in {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@media (max-width: 850px) and (prefers-reduced-motion: no-preference) {
-  .department-member-scroll[data-slide-direction] .department-member-slide[data-active="true"] {
-    animation: department-member-fade-in 450ms ease-out both;
-  }
-}
-
 .department-member-viewport {
   width: 100vw;
   margin-left: calc((100cqw - 100vw) / 2);
@@ -4140,30 +4147,64 @@ a.footer-contact-row:hover {
     margin-inline: auto;
   }
 
+  /* Full-bleed frame so cards leave at the screen edge, not the content
+     gutter; clip only sideways so the lift and tilt aren't cut off. */
   .department-member-viewport {
-    width: 100%;
-    margin-left: 0;
-    overflow: visible;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding: 0;
+    overflow-x: clip;
+    overflow-y: visible;
   }
 
+  /* One card per frame; the whole track slides to the active card. */
   .department-member-track {
-    display: block;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0;
     width: 100%;
     padding: 0;
+    transform: translateX(calc(var(--member-active, 0) * -100%));
+    transition: transform 560ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .department-member-track>.department-member-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    padding: 4px 8px 12px;
+    /* Stay visible while sliding out, then drop out of tab order. */
+    visibility: visible;
+    transition: visibility 0s linear 0s;
+  }
+
+  .department-member-track>.department-member-slide>.department-member-motion {
     width: min(100%, 320px);
     margin-inline: auto;
   }
 
   .department-member-slide:not([data-active="true"]) {
-    display: none;
+    visibility: hidden;
+    transition-delay: 560ms;
   }
 
+  /* Same exit/entry as the desktop scroll: leaving cards lift, tilt and fade
+     to the left; upcoming cards wait lowered and tilted on the right. */
   .department-member-motion {
     transform: none !important;
     opacity: 1 !important;
+    transition:
+      transform 560ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 420ms ease-out;
+  }
+
+  .department-member-slide[data-position="before"] .department-member-motion {
+    transform: translate(-32px, -64px) rotate(-9deg) !important;
+    opacity: 0 !important;
+  }
+
+  .department-member-slide[data-position="after"] .department-member-motion {
+    transform: translate(32px, 64px) rotate(9deg) !important;
+    opacity: 0 !important;
   }
 
   .department-member-controls {
@@ -4194,6 +4235,14 @@ a.footer-contact-row:hover {
   .department-member-controls button:focus-visible {
     outline: 2px solid var(--department);
     outline-offset: 5px;
+  }
+}
+
+@media (max-width: 850px) and (prefers-reduced-motion: reduce) {
+  .department-member-track,
+  .department-member-track>.department-member-slide,
+  .department-member-motion {
+    transition: none !important;
   }
 }
 
@@ -5122,7 +5171,7 @@ a.footer-contact-row:hover {
   }
 
   .member-portrait {
-    aspect-ratio: 0.95;
+    aspect-ratio: 4 / 5;
   }
 
   .faq-section {
@@ -5622,21 +5671,21 @@ a.social-icon[data-platform="TikTok"] {
 
 a.social-icon:focus-visible {
   background: var(--social-tint);
-  box-shadow: inset 0 0 0 1px var(--ink), 0 0 0 0.5px var(--ink), 2px 3px 0 0.5px var(--ink);
+  box-shadow: 0 0 0 1.5px var(--ink), 2px 3px 0 1.5px var(--ink);
   transform: translateY(-3px) rotate(var(--social-tilt));
 }
 
 @media (hover: hover) and (pointer: fine) {
   a.social-icon:hover {
     background: var(--social-tint);
-    box-shadow: inset 0 0 0 1px var(--ink), 0 0 0 0.5px var(--ink), 2px 3px 0 0.5px var(--ink);
+    box-shadow: 0 0 0 1.5px var(--ink), 2px 3px 0 1.5px var(--ink);
     transform: translateY(-3px) rotate(var(--social-tilt));
   }
 }
 
 a.social-icon:active {
   transform: translateY(0);
-  box-shadow: inset 0 0 0 1px var(--ink), 0 0 0 0.5px var(--ink);
+  box-shadow: 0 0 0 1.5px var(--ink);
 }
 
 @media (prefers-reduced-motion: reduce) {
