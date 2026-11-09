@@ -63,12 +63,12 @@ export const departments: Department[] = [
   },
 ];
 
-const executiveOfficers = [
-  { name: "Glaiza Mae Salvaloza", position: "Chief Executive Officer" },
+const executiveOfficers: { name: string; position: string; portrait?: string }[] = [
+  { name: "Glaiza Mae Salvaloza", position: "Chief Executive Officer", portrait: "/assets/members/executives/salvaloza.webp" },
   { name: "Rizza Mia Abogadil", position: "Co-Chief Executive Officer" },
-  { name: "Val Ryan Flores", position: "Executive Secretary" },
-  { name: "KC Labergue", position: "Assistant Executive Secretary" },
-  { name: "Juana Suzy A. Lobaton", position: "Adviser" },
+  { name: "Val Ryan Flores", position: "Executive Secretary", portrait: "/assets/members/executives/flores.webp" },
+  { name: "KC Labergue", position: "Assistant Executive Secretary", portrait: "/assets/members/executives/labergue.webp" },
+  { name: "Juana Suzy A. Lobaton", position: "Adviser", portrait: "/assets/members/executives/lobaton.webp" },
 ];
 
 const departmentHeads: Record<
@@ -80,21 +80,23 @@ const departmentHeads: Record<
     position: "Chief Communications Officer",
   },
   technology: {
-    name: "Justine Rendaje",
+    name: "Justine Smith Rendaje",
     position: "Chief Technology Officer",
     portrait: "/assets/members/technology/rendaje.webp",
   },
   finance: {
     name: "Arlyn Joy Aurelio",
     position: "Chief Finance Officer",
+    portrait: "/assets/members/executives/aurelio.webp",
   },
   legal: {
-    name: "Mary Tifanny Sumalde",
+    name: "Mary Tiffany Sumalde",
     position: "Chief Legal Officer",
   },
   operations: {
     name: "Centauri Alpha",
     position: "Chief Operation Officer",
+    portrait: "/assets/members/executives/alpha.webp",
   },
 };
 
@@ -105,13 +107,13 @@ const departmentRosters: Partial<
 > = {
   technology: [
     { name: "Rey Jane Andrada", position: "Web Development Lead", portrait: "/assets/members/technology/andrada.webp" },
-    { name: "Arquesola", position: "UI/UX Lead", portrait: "/assets/members/technology/arquesola.webp" },
-    { name: "Ferrariz", position: "Game Development Lead", portrait: "/assets/members/technology/ferrariz.webp" },
-    { name: "Gilo", position: "Game Developer", portrait: "/assets/members/technology/gilo.webp" },
-    { name: "Meñez", position: "UI/UX Designer", portrait: "/assets/members/technology/menez.webp" },
-    { name: "Navarro", position: "Developer", portrait: "/assets/members/technology/navarro.webp" },
-    { name: "Salinas", position: "Developer", portrait: "/assets/members/technology/salinas.webp" },
-    { name: "Tabat", position: "Developer", portrait: "/assets/members/technology/tabat.webp" },
+    { name: "John Jessienel Arquesola", position: "UI/UX Lead", portrait: "/assets/members/technology/arquesola.webp" },
+    { name: "Carl Dominic Ferrariz", position: "Game Development Lead", portrait: "/assets/members/technology/ferrariz.webp" },
+    { name: "Janwel Gilo", position: "Game Developer", portrait: "/assets/members/technology/gilo.webp" },
+    { name: "Shanlhie Claude Lawrence Meñez", position: "UI/UX Designer", portrait: "/assets/members/technology/menez.webp" },
+    { name: "Theodore Samuel Navarro", position: "Developer", portrait: "/assets/members/technology/navarro.webp" },
+    { name: "Adrian Justin Salinas", position: "Developer", portrait: "/assets/members/technology/salinas.webp" },
+    { name: "Matthew Tabat", position: "Developer", portrait: "/assets/members/technology/tabat.webp" },
   ],
 };
 
