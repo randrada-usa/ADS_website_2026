@@ -5953,7 +5953,7 @@ a.social-icon:active {
 }
 
 .website main>section:is(.initiative-home-section, .faq-section) {
-  --section-surface: #edf3f6;
+  --section-surface: #eceff1;
   --section-surface-image: none;
 }
 
