@@ -92,6 +92,7 @@ const departmentHeads: Record<
   legal: {
     name: "Mary Tiffany Sumalde",
     position: "Chief Legal Officer",
+    portrait: "/assets/members/legal/sumalde.webp",
   },
   operations: {
     name: "Centauri Alpha",
@@ -114,6 +115,10 @@ const departmentRosters: Partial<
     { name: "Theodore Samuel Navarro", position: "Developer", portrait: "/assets/members/technology/navarro.webp" },
     { name: "Adrian Justin Salinas", position: "Developer", portrait: "/assets/members/technology/salinas.webp" },
     { name: "Matthew Tabat", position: "Developer", portrait: "/assets/members/technology/tabat.webp" },
+  ],
+  legal: [
+    { name: "Kristian Glen Dellera", position: "Deputy Legal Counsel", portrait: "/assets/members/legal/dellera.webp" },
+    { name: "Cris Emmanuel Mariñas", position: "Compliance Officer", portrait: "/assets/members/legal/marinas.webp" },
   ],
 };
 
