@@ -1,5 +1,8 @@
 import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
+  // Dev server only: lets a Cloudflare quick tunnel (random *.trycloudflare.com
+  // link) load scripts and live updates when sharing localhost with others.
+  allowedDevOrigins: ["*.trycloudflare.com"],
   experimental: {
     useTypeScriptCli: false,
     webpackBuildWorker: false,
