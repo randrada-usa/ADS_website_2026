@@ -120,6 +120,13 @@ const departmentRosters: Partial<
     { name: "Kristian Glen Dellera", position: "Deputy Legal Counsel", portrait: "/assets/members/legal/dellera.webp" },
     { name: "Cris Emmanuel Mariñas", position: "Compliance Officer", portrait: "/assets/members/legal/marinas.webp" },
   ],
+  operations: [
+    { name: "Hazel Marie Garganera", position: "Assistant Logistics", portrait: "/assets/members/operations/garganera.webp" },
+    { name: "Gerard Elian Mones", position: "Community Development Head", portrait: "/assets/members/operations/mones.webp" },
+    { name: "Valdez", position: "Assistant PR Lead", portrait: "/assets/members/operations/valdez.webp" },
+    { name: "Janicah Lieh Vasquez", position: "Assistant Logistics", portrait: "/assets/members/operations/vasquez.webp" },
+    { name: "Paul Villacastin", position: "Logistics Head", portrait: "/assets/members/operations/villacastin.webp" },
+  ],
 };
 
 export const demoContent: SiteContent = {
