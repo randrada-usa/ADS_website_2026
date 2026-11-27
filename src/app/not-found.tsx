@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BackButton, Eyebrow } from "@/components/ui";
+import { Arrow } from "@/components/icons";
 export default function NotFound() {
   return (
     <main className="error-page container">
@@ -10,9 +11,8 @@ export default function NotFound() {
       <h1>Let’s find your way back.</h1>
       <p>This page doesn’t exist, or it may have moved.</p>
       <Link className="button" href="/">
-        Back to ADS ↗
+        Back to ADS <Arrow diagonal />
       </Link>
     </main>
   );
 }
-

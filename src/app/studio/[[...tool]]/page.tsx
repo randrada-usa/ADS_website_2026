@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Studio } from "@/components/studio";
 import { Eyebrow } from "@/components/ui";
+import { Arrow } from "@/components/icons";
 import { cmsConfigured } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Content Studio",
@@ -24,8 +25,8 @@ export default function StudioPage() {
             dataset.
           </li>
           <li>
-            Add the project ID and dataset to a local <code>.env.local</code>
-            {" "}file using <code>.env.example</code> as a template.
+            Add the project ID and dataset to a local <code>.env.local</code>{" "}
+            file using <code>.env.example</code> as a template.
           </li>
           <li>
             Set the server-only Viewer token for draft previews, and add your
@@ -42,7 +43,7 @@ export default function StudioPage() {
           connected.
         </p>
         <Link className="button" href="/">
-          Back to the website ↗
+          Back to the website <Arrow diagonal />
         </Link>
       </main>
     );

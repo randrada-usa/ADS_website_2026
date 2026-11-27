@@ -2,6 +2,7 @@
 import { useState } from "react";
 import type { Activity } from "@/lib/types";
 import { ActivityCard, EmptyState } from "./ui";
+import { Arrow } from "./icons";
 import { isUpcoming } from "@/lib/utils";
 
 const normalizeCategory = (category: string) =>
@@ -107,7 +108,7 @@ export function ActivityBrowser({
                 setTime("All");
               }}
             >
-              Reset filters ↗
+              Reset filters <Arrow diagonal />
             </button>
           )}
         </EmptyState>
