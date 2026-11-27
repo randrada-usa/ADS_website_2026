@@ -329,7 +329,7 @@ button:disabled {
   align-items: center;
   justify-content: flex-start;
   gap: 24px;
-  font-size: 13px;
+  font-size: 17px;
   font-weight: 500;
 }
 
@@ -445,7 +445,7 @@ button:disabled {
   padding: 10px 12px;
   border-radius: 7px;
   color: var(--ink);
-  font-size: 14px;
+  font-size: 16px;
   transition:
     padding-left 180ms ease,
     background 180ms ease,
@@ -728,7 +728,7 @@ button:disabled {
     background: transparent;
     color: var(--ink);
     font: inherit;
-    font-size: 15px;
+    font-size: 17px;
     text-align: left;
     cursor: pointer;
   }
@@ -790,7 +790,7 @@ button:disabled {
     padding: 10px 14px;
     border-left: 3px solid var(--blue);
     color: var(--muted);
-    font-size: 14px;
+    font-size: 16px;
     transition:
       background 180ms ease,
       color 180ms ease,
@@ -842,7 +842,7 @@ button:disabled {
     justify-content: space-between;
     padding: 14px 0;
     border-bottom: 1px solid var(--line);
-    font-size: 15px;
+    font-size: 17px;
   }
 
   .mobile-menu-content>a:nth-of-type(2) {
@@ -1040,7 +1040,7 @@ button:disabled {
 }
 
 .hero-description {
-  font-size: clamp(15px, 1.05vw, 18px);
+  font-size: clamp(16px, 1.25vw, 18px);
   color: var(--muted);
   max-width: 480px;
   margin: 0 0 27px;
@@ -1067,7 +1067,7 @@ button:disabled {
   box-shadow: 3px 3px 0 var(--ink);
   color: white;
   background: var(--blue);
-  font-size: clamp(12px, 0.85vw, 14px);
+  font-size: 15px;
   font-weight: 600;
   transition:
     transform 0.2s,
@@ -1080,7 +1080,7 @@ button:disabled {
 .section-heading .button {
   gap: 18px;
   padding: 12px 18px;
-  font-size: 11px;
+  font-size: 15px;
 }
 
 .button:hover {
@@ -1141,7 +1141,7 @@ button:disabled {
   gap: 14px;
   align-items: center;
   margin-top: 31px;
-  font-size: 10px;
+  font-size: 14px;
   color: var(--muted);
 }
 
@@ -1330,7 +1330,7 @@ button:disabled {
   position: absolute;
   bottom: -8px;
   right: 25px;
-  font-size: 10px;
+  font-size: 14px;
   color: var(--muted);
   transform: rotate(-4deg);
 }
@@ -1345,7 +1345,7 @@ button:disabled {
   border-radius: 7px;
   box-shadow: 2px 3px 0 var(--ink);
   font-family: var(--font-display);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
   font-style: italic;
   text-transform: uppercase;
@@ -1380,7 +1380,7 @@ button:disabled {
   border-radius: 7px;
   box-shadow: 2px 3px 0 var(--ink);
   font-family: var(--font-display);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
   font-style: italic;
   text-transform: uppercase;
@@ -1451,7 +1451,7 @@ button:disabled {
 .section-heading p,
 .center-heading p {
   color: var(--muted);
-  font-size: 14px;
+  font-size: 16px;
   margin-bottom: 0;
   margin-top: 17px;
 }
@@ -1462,7 +1462,7 @@ button:disabled {
   gap: 17px;
   padding: 9px 0;
   border-bottom: 1px solid var(--ink);
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 600;
   white-space: nowrap;
 }
@@ -1602,7 +1602,7 @@ button:disabled {
   align-items: center;
   justify-content: space-between;
   font-family: var(--font-display);
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .photo-caption svg {
@@ -1620,7 +1620,7 @@ button:disabled {
   background: #f7d490;
   transform: rotate(7deg);
   font-family: var(--font-display);
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.4;
 }
 
@@ -1631,13 +1631,13 @@ button:disabled {
 
 .about-copy .large-copy {
   color: var(--ink);
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.65;
   margin-top: 22px;
 }
 
 .about-copy p {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--muted);
 }
 
@@ -2067,7 +2067,7 @@ button:disabled {
   }
 
   .initiative-showcase-copy p {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .initiative-showcase-controls {
@@ -2127,7 +2127,7 @@ button:disabled {
   border-radius: 2px;
   background: #fffefaec;
   color: #38444e;
-  font-size: 7px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.8px;
   z-index: 2;
@@ -2165,7 +2165,7 @@ button:disabled {
 
 .category {
   display: inline-block;
-  font-size: 8px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.4px;
   padding: 4px 8px;
@@ -2180,7 +2180,7 @@ button:disabled {
 }
 
 .demo-label {
-  font-size: 8px;
+  font-size: 14px;
   color: #6c6760;
 }
 
@@ -2190,7 +2190,7 @@ button:disabled {
 }
 
 .activity-copy p {
-  font-size: 12px;
+  font-size: 16px;
   color: var(--muted);
   margin-bottom: 0;
 }
@@ -2205,7 +2205,7 @@ button:disabled {
   gap: 18px;
   color: #507063;
   background: linear-gradient(140deg, #e1ece3, #f1e6cd);
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .image-placeholder svg {
@@ -2320,7 +2320,7 @@ button:disabled {
 
 .department-card-header h3 {
   color: white;
-  font-size: 15px;
+  font-size: 17px;
   font-style: italic;
   font-weight: 700;
   letter-spacing: -0.2px;
@@ -2339,7 +2339,7 @@ button:disabled {
 .department-card-body p {
   margin: 0;
   color: #111;
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.35;
 }
 
@@ -2464,7 +2464,7 @@ button:disabled {
   box-shadow: 5px 6px 0 var(--ink);
   color: var(--event-label-color);
   font-family: var(--font-display);
-  font-size: clamp(14px, 1.35vw, 18px);
+  font-size: clamp(18px, 1.5vw, 21px);
   font-style: italic;
   line-height: 1.15;
   letter-spacing: -0.2px;
@@ -2474,7 +2474,7 @@ button:disabled {
   max-width: 390px;
   margin: 0 auto;
   color: var(--muted);
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.55;
 }
 
@@ -2487,7 +2487,7 @@ button:disabled {
   }
 
   .event-feature-card h3 {
-    font-size: 17px;
+    font-size: 18px;
   }
 }
 
@@ -2503,7 +2503,7 @@ button:disabled {
   gap: 12px;
   flex-wrap: wrap;
   color: var(--muted);
-  font-size: 10px;
+  font-size: 14px;
 }
 
 .event-meta>span {
@@ -2610,14 +2610,14 @@ button:disabled {
 }
 
 .member-copy h3 {
-  font-size: 15px;
+  font-size: 16px;
   letter-spacing: -0.3px;
 }
 
 .member-copy p {
   margin: 5px 0 0;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 15px;
 }
 
 .faq-section {
@@ -2673,7 +2673,7 @@ button:disabled {
 }
 
 .faq-section>div>p {
-  font-size: 13px;
+  font-size: 16px;
   color: var(--muted);
 }
 
@@ -2706,7 +2706,7 @@ button:disabled {
   padding: 14px 12px 14px 24px;
   text-align: left;
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   line-height: 1.3;
 }
@@ -2779,7 +2779,7 @@ button:disabled {
   border-top: 1px solid #7d8588;
   padding: 14px 24px 16px;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 16px;
 }
 
 .faq-answer p {
@@ -2858,7 +2858,7 @@ button:disabled {
 
 .site-footer .footer-brand-lockup h2 {
   margin: 0;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 1.15;
   letter-spacing: -0.45px;
   white-space: nowrap;
@@ -2895,7 +2895,7 @@ button:disabled {
 
 .site-footer .footer-column h2 {
   margin: 0 0 22px;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.2;
   letter-spacing: -0.25px;
 }
@@ -2903,7 +2903,7 @@ button:disabled {
 .footer-nav-links {
   display: grid;
   gap: 13px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .footer-nav-links a {
@@ -2932,7 +2932,7 @@ button:disabled {
   gap: 10px;
   margin-bottom: 18px;
   color: var(--ink);
-  font-size: 12px;
+  font-size: 15px;
   line-height: 1.5;
   overflow-wrap: anywhere;
   width: 100%;
@@ -2967,7 +2967,7 @@ a.footer-contact-row:hover {
   border-top: 1px solid #c9d0cc;
   padding: 20px 16px 24px;
   color: var(--muted);
-  font-size: 10px;
+  font-size: 14px;
 }
 
 .footer-credits a {
@@ -3090,11 +3090,11 @@ a.footer-contact-row:hover {
   }
 
   .site-footer .footer-brand-lockup h2 {
-    font-size: clamp(15px, 4.6vw, 18px);
+    font-size: clamp(17px, 4.8vw, 20px);
   }
 
   .footer-brand-lockup p {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .footer-socials .nav-socials {
@@ -3130,7 +3130,7 @@ a.footer-contact-row:hover {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
-    font-size: 9px;
+    font-size: 14px;
   }
 
   .footer-credit-links>*+*::before {
@@ -3153,7 +3153,7 @@ a.footer-contact-row:hover {
 .page-intro>p {
   max-width: 570px;
   color: var(--muted);
-  font-size: 16px;
+  font-size: 18px;
   margin: 24px 0 0;
 }
 
@@ -3289,7 +3289,7 @@ a.footer-contact-row:hover {
   display: block;
   font-family: var(--font-sans);
   font-weight: 500;
-  font-size: 13.5px;
+  font-size: 14px;
   color: #2e3438;
 }
 
@@ -3434,7 +3434,7 @@ a.footer-contact-row:hover {
 }
 
 .editorial-note {
-  font-size: 11px;
+  font-size: 14px;
   color: #7c612e;
   border-left: 3px solid var(--yellow);
   background: #fdf7e8;
@@ -3456,7 +3456,7 @@ a.footer-contact-row:hover {
   background: white;
   border-radius: 30px;
   padding: 9px 17px;
-  font-size: 11px;
+  font-size: 14px;
   color: var(--ink);
   transition:
     background 0.15s,
@@ -3506,7 +3506,7 @@ a.footer-contact-row:hover {
 }
 
 .result-count {
-  font-size: 11px;
+  font-size: 14px;
   color: var(--muted);
   margin-bottom: 23px;
 }
@@ -3523,7 +3523,7 @@ a.footer-contact-row:hover {
   border-bottom: 3px solid transparent;
   padding: 12px 2px 15px;
   background: none;
-  font-size: 13px;
+  font-size: 15px;
   color: var(--muted);
 }
 
@@ -3534,7 +3534,7 @@ a.footer-contact-row:hover {
 
 .event-time-filters button span {
   background: #e6ebe5;
-  font-size: 9px;
+  font-size: 14px;
   padding: 2px 5px;
   margin-left: 9px;
   border-radius: 3px;
@@ -3547,7 +3547,7 @@ a.footer-contact-row:hover {
   text-align: center;
   border-radius: 8px;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .empty-state>svg {
@@ -3599,16 +3599,16 @@ a.footer-contact-row:hover {
 
 .featured-date {
   display: block;
-  font-size: 11px;
+  font-size: 14px;
   margin: 8px 0 14px;
 }
 
 .featured-event-content h2 {
-  font-size: 43px;
+  font-size: 44px;
 }
 
 .featured-event-content p {
-  font-size: 13px;
+  font-size: 16px;
   max-width: 400px;
   color: #e4e8e5;
 }
@@ -3632,7 +3632,7 @@ a.footer-contact-row:hover {
 
 .about-story .large-copy {
   color: var(--muted);
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .about-story .button {
@@ -3672,7 +3672,7 @@ a.footer-contact-row:hover {
   position: absolute;
   bottom: 26px;
   font-family: var(--font-display);
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .values-cards {
@@ -3695,13 +3695,13 @@ a.footer-contact-row:hover {
 }
 
 .values-cards h2 {
-  font-size: 30px;
+  font-size: 34px;
   margin-top: 20px;
 }
 
 .values-cards p {
   color: var(--muted);
-  font-size: 14px;
+  font-size: 16px;
   max-width: 360px;
 }
 
@@ -3746,7 +3746,7 @@ a.footer-contact-row:hover {
   padding: 0;
   color: white;
   font-family: var(--font-body);
-  font-size: 12px;
+  font-size: 14px;
   font-style: italic;
   font-weight: 700;
   letter-spacing: 0.8px;
@@ -3769,7 +3769,7 @@ a.footer-contact-row:hover {
   max-width: none;
   margin: 0;
   color: var(--ink);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 1.45;
 }
@@ -3783,7 +3783,7 @@ a.footer-contact-row:hover {
 }
 
 .statement-cards .statement-copy .statement-points li {
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.45;
   color: var(--ink);
 }
@@ -3825,7 +3825,7 @@ a.footer-contact-row:hover {
 
 .about-statement-cards .statement-copy p,
 .about-statement-cards .statement-copy li {
-  font-size: 14.5px;
+  font-size: 16px;
   line-height: 1.58;
 }
 
@@ -3866,7 +3866,7 @@ a.footer-contact-row:hover {
 
   .about-statement-cards .statement-copy p,
   .about-statement-cards .statement-copy li {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.55;
   }
 }
@@ -3886,7 +3886,7 @@ a.footer-contact-row:hover {
   }
 
   .about-statement-cards .purpose-statement .statement-copy p {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.65;
   }
 }
@@ -3898,7 +3898,7 @@ a.footer-contact-row:hover {
 .back-link {
   display: inline-flex;
   align-items: center;
-  font-size: 12px;
+  font-size: 14px;
   padding: 8px 0;
   margin-bottom: 30px;
   color: var(--muted);
@@ -3922,7 +3922,7 @@ a.footer-contact-row:hover {
 
 .department-hero h1>span {
   display: block;
-  font-size: 20px;
+  font-size: 22px;
   letter-spacing: 0.5px;
   margin-top: 10px;
   color: var(--muted);
@@ -3931,7 +3931,7 @@ a.footer-contact-row:hover {
 .department-hero p {
   max-width: 600px;
   color: var(--muted);
-  font-size: 17px;
+  font-size: 18px;
 }
 
 .department-emblem {
@@ -3974,6 +3974,73 @@ a.footer-contact-row:hover {
 @media (min-width: 851px) {
   .department-emblem {
     margin-right: clamp(78px, calc(25vw - 197px), 178px);
+  }
+}
+
+/* Group photo: static white frame, ink outline, hard card shadow,
+   with the department logo as a small tilted tile at the lower-right. */
+.department-photo {
+  position: relative;
+  justify-self: end;
+  width: 100%;
+  max-width: 310px;
+  margin: 0 44px 40px 0;
+  padding: 9px;
+  background: #fff;
+  border: 1.2px solid var(--ink);
+  border-radius: 7px;
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+.department-photo-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 4px;
+}
+
+.department-photo-logo {
+  position: absolute;
+  right: -44px;
+  bottom: -40px;
+  display: grid;
+  place-items: center;
+  width: 140px;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: var(--department);
+  border: 1.2px solid var(--ink);
+  border-radius: 5px;
+  box-shadow: 4px 4px 0 var(--ink);
+  transform: rotate(-5deg);
+}
+
+.department-photo-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 851px) {
+  .department-photo {
+    margin-right: clamp(64px, calc(25vw - 197px), 164px);
+  }
+}
+
+@media (max-width: 850px) {
+  .department-hero>.department-photo {
+    justify-self: center;
+    width: min(78vw, 320px);
+    margin: 12px 28px 48px 0;
+  }
+
+  .department-photo-logo {
+    width: 96px;
+    right: -28px;
+    bottom: -32px;
   }
 }
 
@@ -4260,7 +4327,7 @@ a.footer-contact-row:hover {
 }
 
 .responsibilities>.container>span {
-  font-size: 10px;
+  font-size: 14px;
   letter-spacing: 1.5px;
 }
 
@@ -4268,11 +4335,11 @@ a.footer-contact-row:hover {
   display: flex;
   align-items: center;
   gap: 15px;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .responsibilities p>span {
-  font-size: 10px;
+  font-size: 14px;
   color: var(--muted);
 }
 
@@ -4296,14 +4363,14 @@ a.footer-contact-row:hover {
 
 .department-links>span {
   margin-right: auto;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .department-links>a {
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .detail-intro {
@@ -4319,7 +4386,7 @@ a.footer-contact-row:hover {
 }
 
 .detail-intro>p {
-  font-size: 17px;
+  font-size: 18px;
   color: var(--muted);
   max-width: 700px;
 }
@@ -4397,7 +4464,7 @@ a.footer-contact-row:hover {
 }
 
 .prose h2 {
-  font-size: 30px;
+  font-size: 34px;
   margin: 35px 0 15px;
 }
 
@@ -4451,7 +4518,7 @@ a.footer-contact-row:hover {
 }
 
 .detail-facts dt {
-  font-size: 9px;
+  font-size: 14px;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--muted);
@@ -4459,7 +4526,7 @@ a.footer-contact-row:hover {
 }
 
 .detail-facts dd {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
   margin: 6px 0 0;
 }
@@ -4488,7 +4555,7 @@ a.footer-contact-row:hover {
 }
 
 .supporting-photos figcaption {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
   padding-top: 8px;
 }
@@ -4497,7 +4564,7 @@ a.footer-contact-row:hover {
   padding: 10px 20px;
   background: #263d51;
   color: #fff;
-  font-size: 12px;
+  font-size: 14px;
   display: flex;
   gap: 20px;
   align-items: center;
@@ -4538,7 +4605,7 @@ a.footer-contact-row:hover {
 .studio-setup code {
   background: #eaf0e8;
   padding: 2px 5px;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .studio-setup .button {
@@ -4627,7 +4694,7 @@ a.footer-contact-row:hover {
   }
 
   .activity-copy h3 {
-    font-size: 19px;
+    font-size: 21px;
   }
 
   .intro-spark {
@@ -4700,7 +4767,7 @@ a.footer-contact-row:hover {
   .button {
     padding: 12px 15px;
     gap: 13px;
-    font-size: 11px;
+    font-size: 15px;
   }
 
   .about-copy .button,
@@ -4708,7 +4775,7 @@ a.footer-contact-row:hover {
   .section-heading .button {
     gap: 13px;
     padding: 12px 15px;
-    font-size: 11px;
+    font-size: 15px;
   }
 
   .hero-footnote {
@@ -4734,7 +4801,7 @@ a.footer-contact-row:hover {
   }
 
   .department-card-header h3 {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .departments-grid {
@@ -4825,7 +4892,7 @@ a.footer-contact-row:hover {
   }
 
   .about-intro-addy .ady-bubble-body {
-    font-size: 12.5px;
+    font-size: 14px;
     line-height: 1.4;
   }
 
@@ -4890,12 +4957,12 @@ a.footer-contact-row:hover {
   }
 
   .hero-description {
-    font-size: 14px;
+    font-size: 16px;
     max-width: 390px;
   }
 
   .hero-actions .button {
-    font-size: 11px;
+    font-size: 15px;
     padding: 13px 17px;
     gap: 13px;
   }
@@ -4905,7 +4972,7 @@ a.footer-contact-row:hover {
   .section-heading .button {
     gap: 13px;
     padding: 13px 17px;
-    font-size: 11px;
+    font-size: 15px;
   }
 
   .hero-footnote {
@@ -4913,7 +4980,7 @@ a.footer-contact-row:hover {
     align-items: center;
     gap: 12px;
     margin-top: 25px;
-    font-size: 9px;
+    font-size: 14px;
   }
 
   .small-department-icons {
@@ -4986,7 +5053,7 @@ a.footer-contact-row:hover {
   .art-caption {
     bottom: -28px;
     right: -5px;
-    font-size: 10px;
+    font-size: 14px;
   }
 
   .section {
@@ -4999,14 +5066,14 @@ a.footer-contact-row:hover {
   }
 
   .eyebrow {
-    font-size: 11.5px;
+    font-size: 14px;
     padding: 5px 12px;
     gap: 8px;
     margin-bottom: 17px;
   }
 
   .back-button {
-    font-size: 11.5px;
+    font-size: 14px;
     padding: 5px 12px;
     gap: 7px;
     margin-bottom: 16px;
@@ -5081,11 +5148,11 @@ a.footer-contact-row:hover {
   }
 
   .section-heading p {
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .text-link {
-    font-size: 11px;
+    font-size: 15px;
   }
 
   .activity-grid,
@@ -5103,7 +5170,7 @@ a.footer-contact-row:hover {
   }
 
   .activity-copy p {
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .activity-image {
@@ -5112,11 +5179,11 @@ a.footer-contact-row:hover {
 
   .card-meta .category,
   .demo-label {
-    font-size: 9px;
+    font-size: 14px;
   }
 
   .photo-label {
-    font-size: 7px;
+    font-size: 14px;
   }
 
   .center-heading {
@@ -5136,7 +5203,7 @@ a.footer-contact-row:hover {
   }
 
   .department-card-header h3 {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .department-card-body {
@@ -5145,7 +5212,7 @@ a.footer-contact-row:hover {
   }
 
   .department-card-body p {
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .department-card-badge {
@@ -5162,12 +5229,12 @@ a.footer-contact-row:hover {
   }
 
   .member-copy h3 {
-    font-size: 13px;
+    font-size: 15px;
     letter-spacing: -0.25px;
   }
 
   .member-copy p {
-    font-size: 10px;
+    font-size: 14px;
   }
 
   .member-portrait {
@@ -5180,12 +5247,12 @@ a.footer-contact-row:hover {
   }
 
   .faq-list summary {
-    font-size: 13px;
+    font-size: 16px;
     gap: 12px;
   }
 
   .faq-answer {
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .page-intro {
@@ -5198,7 +5265,7 @@ a.footer-contact-row:hover {
   }
 
   .page-intro>p {
-    font-size: 14px;
+    font-size: 16px;
     margin-top: 20px;
   }
 
@@ -5230,7 +5297,7 @@ a.footer-contact-row:hover {
     left: 54%;
     width: 150px;
     padding: 10px 12px;
-    font-size: 11px;
+    font-size: 14px;
   }
 
   .team-addy-callout svg {
@@ -5256,7 +5323,7 @@ a.footer-contact-row:hover {
   }
 
   .event-time-filters button {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .event-time-filters button span {
@@ -5284,7 +5351,7 @@ a.footer-contact-row:hover {
   }
 
   .featured-event-content p {
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .about-story {
@@ -5331,7 +5398,7 @@ a.footer-contact-row:hover {
 
   .about-statement-cards .statement-copy p,
   .about-statement-cards .statement-copy li {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .values-cards h2 {
@@ -5358,7 +5425,7 @@ a.footer-contact-row:hover {
   }
 
   .department-hero p {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .department-emblem {
@@ -5378,7 +5445,7 @@ a.footer-contact-row:hover {
 
   .responsibilities p {
     margin: 10px 0 0;
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .responsibilities>.container>span {
@@ -5395,7 +5462,7 @@ a.footer-contact-row:hover {
   }
 
   .department-links>a {
-    font-size: 11px;
+    font-size: 15px;
   }
 
   .detail-intro h1 {
@@ -5420,7 +5487,7 @@ a.footer-contact-row:hover {
   }
 
   .prose {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .supporting-photos {
@@ -5433,7 +5500,7 @@ a.footer-contact-row:hover {
   }
 
   .preview-bar {
-    font-size: 10px;
+    font-size: 14px;
     gap: 12px;
   }
 
@@ -5484,7 +5551,7 @@ a.footer-contact-row:hover {
 
   .desktop-nav {
     gap: 30px;
-    font-size: 15px;
+    font-size: 17px;
   }
 
   .nav-socials {
@@ -5538,7 +5605,7 @@ a.footer-contact-row:hover {
   .section-heading .button {
     gap: 20px;
     padding: 12px 22px;
-    font-size: 12px;
+    font-size: 15px;
   }
 
   .small-department-icons img,
@@ -5589,17 +5656,17 @@ a.footer-contact-row:hover {
   }
 
   .art-caption {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .eyebrow {
     padding: 7px 13px;
-    font-size: 11px;
+    font-size: 14px;
   }
 
   .back-button {
     padding: 6px 12px;
-    font-size: 11px;
+    font-size: 14px;
     margin-bottom: 14px;
   }
 
@@ -5609,7 +5676,7 @@ a.footer-contact-row:hover {
   }
 
   .text-link {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
@@ -6827,7 +6894,7 @@ a.social-icon:active {
   top: -14px;
   left: 20px;
   font-family: var(--font-display);
-  font-size: 11.5px;
+  font-size: 14px;
   font-weight: 700;
   text-transform: capitalize;
   letter-spacing: -0.2px;
@@ -6841,7 +6908,7 @@ a.social-icon:active {
 
 .journey-card-text {
   margin: 0;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
   color: var(--ink);
 }
@@ -6976,7 +7043,7 @@ a.social-icon:active {
   }
 
   .journey-year-badge {
-    font-size: 13px;
+    font-size: 14px;
     padding: 4px 9px;
   }
 
@@ -6985,13 +7052,13 @@ a.social-icon:active {
   }
 
   .journey-card-badge {
-    font-size: 10.5px;
+    font-size: 14px;
     top: -12px;
     left: 14px;
   }
 
   .journey-card-text {
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.55;
   }
 }

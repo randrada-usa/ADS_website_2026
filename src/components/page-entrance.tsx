@@ -20,6 +20,7 @@ const targetsSelector = [
   ".department-intro .page-intro-back",
   ".department-hero > div:first-child > *",
   ".department-emblem",
+  ".department-photo",
   ".responsibilities > .container > *",
   ".department-links > *",
 ].join(", ");
@@ -76,7 +77,9 @@ export function PageEntrance() {
               const emblem = element.matches(".department-emblem");
               // Let the entrance own the transform, then resume the existing float.
               if (emblem) gsap.set(element, { animation: "none" });
-              const artwork = element.matches(".story-art, .department-emblem");
+              const artwork = element.matches(
+                ".story-art, .department-emblem, .department-photo",
+              );
               const spark = element.matches(".intro-spark");
               const compact = matchMedia("(max-width: 850px)").matches;
               const siblings = Array.from(

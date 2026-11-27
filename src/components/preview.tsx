@@ -1,5 +1,6 @@
 "use client";
 import { useEffect } from "react";
+import { Arrow } from "./icons";
 import { useRouter } from "next/navigation";
 import { VisualEditing } from "next-sanity/visual-editing";
 export function Preview() {
@@ -15,7 +16,9 @@ export function Preview() {
       <div className="preview-bar">
         Draft preview — unpublished content
         <form action="/api/draft-mode/disable" method="post">
-          <button type="submit">Exit preview ↗</button>
+          <button type="submit">
+            Exit preview <Arrow diagonal />
+          </button>
         </form>
       </div>
       <VisualEditing />
