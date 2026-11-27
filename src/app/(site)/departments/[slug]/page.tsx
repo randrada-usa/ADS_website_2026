@@ -5,6 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getContent } from "@/lib/content";
 import { departments } from "@/lib/demo";
+import type { DepartmentSlug } from "@/lib/types";
 import {
   EmptyState,
   Eyebrow,
@@ -16,6 +17,13 @@ import { DepartmentScrollTop } from "@/components/department-scroll-top";
 import { PageEntrance } from "@/components/page-entrance";
 import { Arrow, BackArrowIcon } from "@/components/icons";
 type Props = { params: Promise<{ slug: string }> };
+// Portrait group photos; departments without one keep the emblem tile.
+const groupPhotos: Partial<Record<DepartmentSlug, string>> = {
+  communications: "/assets/members/communications/group.webp",
+  technology: "/assets/members/technology/group.webp",
+  legal: "/assets/members/legal/group.webp",
+  operations: "/assets/members/operations/group.webp",
+};
 export function generateStaticParams() {
   return departments.map(({ slug }) => ({ slug }));
 }
@@ -32,6 +40,7 @@ export default async function DepartmentPage({ params }: Props) {
   const members = content.members.filter((item) => item.department === slug);
   const heads = members.filter((item) => item.isHead);
   const roster = members.filter((item) => !item.isHead);
+  const groupPhoto = groupPhotos[dept.slug];
   return (
     <div
       id="top"
@@ -59,14 +68,37 @@ export default async function DepartmentPage({ params }: Props) {
               {dept.purpose || "Get to know our department and its people."}
             </p>
           </div>
-          <div className="department-emblem">
-            <Image
-              src={`/brand/${slug}.svg`}
-              alt={`${dept.name} department emblem`}
-              width={360}
-              height={360}
-            />
-          </div>
+          {groupPhoto ? (
+            <figure className="department-photo">
+              <Image
+                className="department-photo-image"
+                src={groupPhoto}
+                alt={`${dept.name} Department group photo`}
+                width={801}
+                height={1200}
+                sizes="(max-width: 850px) min(78vw, 320px), 340px"
+                fetchPriority="high"
+                loading="eager"
+              />
+              <span className="department-photo-logo">
+                <Image
+                  src={`/brand/${slug}.svg`}
+                  alt={`${dept.name} department emblem`}
+                  width={150}
+                  height={150}
+                />
+              </span>
+            </figure>
+          ) : (
+            <div className="department-emblem">
+              <Image
+                src={`/brand/${slug}.svg`}
+                alt={`${dept.name} department emblem`}
+                width={360}
+                height={360}
+              />
+            </div>
+          )}
         </div>
       </section>
       {dept.responsibilities.length > 0 && (

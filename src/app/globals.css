@@ -3977,6 +3977,73 @@ a.footer-contact-row:hover {
   }
 }
 
+/* Group photo: static white frame, ink outline, hard card shadow,
+   with the department logo as a small tilted tile at the lower-right. */
+.department-photo {
+  position: relative;
+  justify-self: end;
+  width: 100%;
+  max-width: 310px;
+  margin: 0 44px 40px 0;
+  padding: 9px;
+  background: #fff;
+  border: 1.2px solid var(--ink);
+  border-radius: 7px;
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+.department-photo-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 4px;
+}
+
+.department-photo-logo {
+  position: absolute;
+  right: -44px;
+  bottom: -40px;
+  display: grid;
+  place-items: center;
+  width: 140px;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: var(--department);
+  border: 1.2px solid var(--ink);
+  border-radius: 5px;
+  box-shadow: 4px 4px 0 var(--ink);
+  transform: rotate(-5deg);
+}
+
+.department-photo-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 851px) {
+  .department-photo {
+    margin-right: clamp(64px, calc(25vw - 197px), 164px);
+  }
+}
+
+@media (max-width: 850px) {
+  .department-hero>.department-photo {
+    justify-self: center;
+    width: min(78vw, 320px);
+    margin: 12px 28px 48px 0;
+  }
+
+  .department-photo-logo {
+    width: 96px;
+    right: -28px;
+    bottom: -32px;
+  }
+}
+
 .department-link-logo {
   width: 38px;
   height: 38px;
